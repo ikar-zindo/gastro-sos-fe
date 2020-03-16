@@ -1,22 +1,27 @@
-/*body {
-  margin: 0;
-  padding: 0;
+body {
+  margin: 10;
+  padding: 10;
 
-  font-size: 18px;
-  line-height: 24px;
   font-family: "Arial", sans-serif;
-  color: #708090;
 
-  background-color: #d9d9d9;
-}*/
+  background-image: url(../img/background.jpg);
+}
 
  header,
  footer {
   padding: 10px;
-  background-color:#99ccff;
-  /*border-radius: 100px;*/
+  background-color:rgb(153, 204, 255, 60%);
+  border-radius: 100px;
  }
  
-.main-nav ul {
+main{
+  background-color: rgb(51, 133, 255, 40%);
+}
 
+dl {
+  background-color: rgb(77, 255, 184, 40%);
+  color: rgb(255, 153, 51);
+}
+
+main {
 }
