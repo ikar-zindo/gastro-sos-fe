@@ -5,7 +5,7 @@ body {
   font-family: "Arial", sans-serif;
 
   background-image: url(../img/background.jpg);
-}
+  }
 
  header,
  footer {
@@ -18,10 +18,60 @@ main{
   background-color: rgb(51, 133, 255, 40%);
 }
 
-dl {
-  background-color: rgb(77, 255, 184, 40%);
-  color: rgb(255, 153, 51);
+.oferty img {
+  border-radius: 20px;
 }
 
-main {
+.oferta-dla-restuaracji {
+}
+
+.oferta-dla-domu {
+}
+
+dl {
+  background-color: rgb(255, 240, 179, 40%);
+  color: ;
+}
+
+.opis dt {
+  margin: 50px;
+  font-size: 40px;
+  color: rgb(49, 114, 130);
+  text-align: center;
+}
+
+.opis dd {
+  margin: 10;
+  font-size: 25px;
+  color: rgb(84, 41, 7);
+  text-align: center;
+}
+
+.skills-list {
+  margin: 0;
+  padding: 0;
+}
+
+.skills-list dt {
+  padding-left: 32px;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+
+.level {
+  margin: 4px 0 16px;
+  padding: 0;
+  height: 14px;
+  font-size: 0;
+  background-color: #080208;
+  border: 1px solid #712073;
+  border-radius: 8px;
+}
+
+.level div {
+  margin: 1px;
+  height: 12px;
+  background-color: #fea18d;
+  border-radius: 6px;
 }
