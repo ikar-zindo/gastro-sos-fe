@@ -100,12 +100,16 @@ main h2 {
   background-position: left;
 }
 
+.skills-list dd {
+  color: #f40;
+}
+
 
 .level {
   margin: 4px 0 15px;
   padding: 0;
   height: 14px;
-  font-size: 0;
+  font-size: normal;
   background-color: #080208;
   border: 1px solid #712073;
   border-radius: 8px;
@@ -116,4 +120,5 @@ main h2 {
   height: 14px;
   background-color: #fea18d;
   border-radius: 6px;
+  text-align: center;
 }
