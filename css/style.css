@@ -1,21 +1,46 @@
 body {
   margin: 10;
   padding: 10;
-
-  font-family: "Arial", sans-serif;
+  
+  font-family: "Lato", sans-serif;
 
   background-image: url(../img/background.jpg);
+  width: 80%;
   }
 
  header,
  footer {
   padding: 10px;
-  background-color:rgb(153, 204, 255, 60%);
+  background-color:rgba(153, 204, 255, 60%);
   border-radius: 100px;
  }
- 
+
+header ul,
+footer ul {
+  text-align: right;
+  font-size: 2em;
+}
+
+.header-logo {
+  text-align: left;
+}
+
+.social {
+  text-align: center;
+}
+
+.all .header-right {
+  vertical-align: top;
+}
+
 main{
-  background-color: rgb(51, 133, 255, 40%);
+  background-color: rgba(51, 133, 255, 40%);
+}
+
+main h2 {
+  text-align: center;
+  padding: 20px;
+  font-size: 3em;
 }
 
 .oferty img {
@@ -23,13 +48,29 @@ main{
 }
 
 .oferta-dla-restuaracji {
+  margin: 40px;
 }
 
 .oferta-dla-domu {
+  margin: 40px;
 }
 
-dl {
-  background-color: rgb(255, 240, 179, 40%);
+.opis {
+
+}
+
+.opis-dla-restauracji {
+  margin: 40px;
+}
+
+.opis-dla-domu {
+  margin: 40px;
+}
+
+
+
+.opis dl {
+  background-color: rgba(255, 240, 179, 40%);
   color: ;
 }
 
@@ -45,6 +86,7 @@ dl {
   font-size: 25px;
   color: rgb(84, 41, 7);
   text-align: center;
+  font-family: "Merriweather", serif;
 }
 
 .skills-list {
@@ -60,7 +102,7 @@ dl {
 
 
 .level {
-  margin: 4px 0 16px;
+  margin: 4px 0 15px;
   padding: 0;
   height: 14px;
   font-size: 0;
@@ -71,7 +113,7 @@ dl {
 
 .level div {
   margin: 1px;
-  height: 12px;
+  height: 14px;
   background-color: #fea18d;
   border-radius: 6px;
 }
