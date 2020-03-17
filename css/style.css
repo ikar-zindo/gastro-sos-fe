@@ -37,6 +37,15 @@ main{
   background-color: rgba(51, 133, 255, 40%);
 }
 
+.main-nav a {
+  border: 2px solid rgb(255, 102, 0);
+  border-radius: 4px;
+  margin: 8px;
+  background-color: rgba(255, 166, 77, 65%);
+  text-decoration: none;
+  /*text-transform: uppercase;*/
+}
+
 main h2 {
   text-align: center;
   padding: 20px;
