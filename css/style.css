@@ -7,11 +7,6 @@ body {
   background-image: url(../img/background.jpg);
   width: 80%;
 
-  display: flex;
-  position: relative;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 10px;
   }
 
  header,
@@ -25,6 +20,13 @@ header ul,
 footer ul {
   text-align: right;
   font-size: 2em;
+  list-style: none;
+
+  /*display: flex;
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 10px;*/
 }
 
 .header-logo {
@@ -42,6 +44,12 @@ footer ul {
 main{
   background-color: rgba(51, 133, 255, 40%);
   border-radius: 50px 150px;
+
+ /* display: flex;
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 10px;*/
 }
 
 .main-nav a {
@@ -87,7 +95,7 @@ main h2 {
 
 .opis dl {
   background-color: rgba(255, 240, 179, 40%);
-  color: ;
+  border-radius: 15px;
 }
 
 .opis dt {
