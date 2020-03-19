@@ -53,12 +53,21 @@ main{
 }
 
 .main-nav a {
-  border: 2px solid rgb(255, 102, 0);
+  border: 2px solid rgba(255, 166, 77, 65%);
   border-radius: 4px;
-  margin: 8px;
   background-color: rgba(255, 166, 77, 65%);
   text-decoration: none;
   /*text-transform: uppercase;*/
+}
+
+.main-nav a:hover {
+  border: 2px solid rgb(138, 49, 6);
+  background-color: rgb(138, 49, 6);
+  color: #fff;
+}
+
+.main-naav a:active {
+
 }
 
 main h2 {
@@ -69,6 +78,16 @@ main h2 {
 
 .oferty img {
   border-radius: 20px;
+  border: 8px solid rgba(0, 0, 255, 80%);
+}
+
+.oferty img:hover {
+  border-radius: 20px;
+  border: 8px solid rgba(255, 255, 0, 80%);
+}
+
+.oferty img:active {
+  border: 8px solid rgba(0, 0, 0, 80%);
 }
 
 .oferta-dla-restuaracji {
