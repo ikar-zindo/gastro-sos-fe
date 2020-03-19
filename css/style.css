@@ -6,6 +6,12 @@ body {
 
   background-image: url(../img/background.jpg);
   width: 80%;
+
+  display: flex;
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 10px;
   }
 
  header,
@@ -35,6 +41,7 @@ footer ul {
 
 main{
   background-color: rgba(51, 133, 255, 40%);
+  border-radius: 50px 150px;
 }
 
 .main-nav a {
