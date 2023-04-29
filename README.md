@@ -1,3 +1,3 @@
 # gastronomicznysos
 
-#Strona internetowa
+# Strona internetowa
