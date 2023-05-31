@@ -1,0 +1,167 @@
+body {
+  margin: 0;
+  padding: 0;
+  
+  font-family: "Lato", sans-serif;
+
+  background-image: url(../img/background.jpg);
+  width: 100%;
+
+  }
+
+ header,
+ footer {
+  padding: 10px;
+  background-color:rgba(153, 204, 255, 60%);
+  border-radius: 100px;
+ }
+
+header ul,
+footer ul {
+  text-align: right;
+  font-size: 2em;
+  list-style: none;
+
+  /*display: flex;
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 10px;*/
+}
+
+.header-logo {
+  text-align: left;
+}
+
+.social {
+  text-align: center;
+}
+
+.all .header-right {
+  vertical-align: top;
+}
+
+main{
+  background-color: rgba(51, 133, 255, 40%);
+  border-radius: 50px 150px;
+
+ /* display: flex;
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 10px;*/
+}
+
+.main-nav a {
+  border: 2px solid rgba(255, 166, 77, 65%);
+  border-radius: 4px;
+  background-color: rgba(255, 166, 77, 65%);
+  text-decoration: none;
+  /*text-transform: uppercase;*/
+}
+
+.main-nav a:hover {
+  border: 2px solid rgb(138, 49, 6);
+  background-color: rgb(138, 49, 6);
+  color: #fff;
+}
+
+.main-naav a:active {
+
+}
+
+main h2 {
+  text-align: center;
+  padding: 20px;
+  font-size: 3em;
+}
+
+.oferty img {
+  border-radius: 20px;
+  border: 8px solid rgba(0, 0, 255, 80%);
+}
+
+.oferty img:hover {
+  border-radius: 20px;
+  border: 8px solid rgba(255, 255, 0, 80%);
+}
+
+.oferty img:active {
+  border: 8px solid rgba(0, 0, 0, 80%);
+}
+
+.oferta-dla-restuaracji {
+  margin: 40px;
+}
+
+.oferta-dla-domu {
+  margin: 40px;
+}
+
+.opis {
+
+}
+
+.opis-dla-restauracji {
+  margin: 40px;
+}
+
+.opis-dla-domu {
+  margin: 40px;
+}
+
+
+
+.opis dl {
+  background-color: rgba(255, 240, 179, 40%);
+  border-radius: 15px;
+}
+
+.opis dt {
+  margin: 50px;
+  font-size: 40px;
+  color: rgb(49, 114, 130);
+  text-align: center;
+}
+
+.opis dd {
+  margin: 10;
+  font-size: 25px;
+  color: rgb(84, 41, 7);
+  text-align: center;
+  font-family: "Merriweather", serif;
+}
+
+.skills-list {
+  margin: 0;
+  padding: 0;
+}
+
+.skills-list dt {
+  padding-left: 32px;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+.skills-list dd {
+  color: #f40;
+}
+
+
+.level {
+  margin: 4px 0 15px;
+  padding: 0;
+  height: 14px;
+  font-size: normal;
+  background-color: #080208;
+  border: 1px solid #712073;
+  border-radius: 8px;
+}
+
+.level div {
+  margin: 1px;
+  height: 13px;
+  background-color: #fea18d;
+  border-radius: 6px;
+  text-align: center;
+}
