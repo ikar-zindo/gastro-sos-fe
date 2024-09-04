@@ -1,0 +1,28 @@
+.right {
+	grid-area: r;
+	background-color: rgb(35, 53, 71); /* Фон */
+	border-radius: 18px;
+	border: 1px solid rgb(80, 117, 156);
+	padding: 20px;
+}
+
+.h2 {
+	color: red;
+}
+
+.item {
+	color: rgb(230, 230, 230); /*Цвет текста*/
+}
+
+.posts {
+}
+
+.img {
+	width: 100%;
+}
+
+@media (max-width: 768px) {
+	.right {
+		display: none;
+	}
+}

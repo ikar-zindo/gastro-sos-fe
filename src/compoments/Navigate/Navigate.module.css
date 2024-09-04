@@ -1,0 +1,33 @@
+.navigate {
+	grid-area: v;
+	display: none;
+}
+
+
+@media (max-width: 768px) {
+	.navigate {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+		padding: 10px 0;
+		background-color: rgb(30, 45, 60);
+		box-sizing: border-box;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		/*align-self: end;*/
+	}
+
+	.navigate a {
+		color: rgb(211, 200, 200); /*Цвет текста*/
+		text-decoration: none;
+		flex: 1;
+		text-align: center;
+		padding: 10px;
+	}
+
+	.navigate a.activeLink {
+		color: gold;
+	}
+}

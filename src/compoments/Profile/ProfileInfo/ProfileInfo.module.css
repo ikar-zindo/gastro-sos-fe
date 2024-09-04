@@ -1,0 +1,17 @@
+.profileInfo {
+
+}
+
+.descriptionBlock {
+	margin: 12px;
+}
+
+.img {
+	width: 100%;
+}
+
+@media (max-width: 768px) {
+	.descriptionBlock {
+
+	}
+}

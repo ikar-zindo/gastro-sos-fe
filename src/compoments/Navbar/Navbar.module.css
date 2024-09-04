@@ -1,0 +1,28 @@
+.nav {
+	grid-area: n;
+	background-color: rgb(30, 45, 60); /* Фон */
+	color: rgb(230, 230, 230); /*Цвет текста*/
+	padding-left: 24px;
+}
+
+.item {
+	margin-bottom: 16px;
+}
+
+.item a {
+	/*color: red;*/
+	/*color: rgb(230, 230, 230); !*Цвет текста*!*/
+	color: rgb(211, 200, 200); /*Цвет текста*/
+	font-size: 18px;
+	text-decoration: none;
+}
+
+.item a.activeLink {
+	color: gold;
+}
+
+@media (max-width: 768px) {
+	.nav {
+		display: none;
+	}
+}

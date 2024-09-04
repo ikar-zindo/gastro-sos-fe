@@ -1,0 +1,86 @@
+html, body {
+	height: 100%;
+	background-color: rgb(30, 45, 60); /* Фон */
+}
+
+/* main styles */
+.app-wrapper {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 1000px;
+	height: 100vh;
+	margin: 0 auto;
+	padding: 0 30px;
+
+	display: grid;
+	grid-template-areas:
+			"h h h"
+			"n c r"
+			"f f f";
+
+	grid-template-rows: 70px 1fr 60px;
+	grid-template-columns: 2fr 5fr 3fr;
+	grid-gap: 10px;
+}
+
+.app-wrapper-content {
+	grid-area: c;
+	height: 100%;
+	/*background-color: rgb(34, 73, 74);*/
+	background-color: rgb(35, 53, 71); /* Фон */
+	border-radius: 18px;
+	border: 1px solid rgb(80, 117, 156);
+	color: rgb(230, 230, 230); /*Цвет текста*/
+	box-sizing: border-box;
+	/*overflow: auto;*/
+}
+
+/* phone screen styles */
+@media (max-width: 768px) {
+	.app-wrapper {
+		box-sizing: border-box;
+		margin: 0 auto;
+		padding: 0 10px;
+		width: 100%;
+		min-height: 100vh;
+		position: relative;
+
+		display: grid;
+		grid-template-areas:
+            "h h"
+            "c c"
+            "v v";
+
+		grid-template-rows: 56px 1fr 86px;
+		grid-template-columns: 1fr 2fr;
+	}
+
+	.app-wrapper-content {
+		padding: 8px;
+		max-height: calc(100vh - 142px);
+		position: relative;
+		box-sizing: border-box;
+		overflow: hidden;
+
+		width: 100%;
+		color: rgb(230, 230, 230); /*Цвет текста*/
+		/*	overflow-y: auto;*/
+		/*	scrollbar-width: none; !* Скрывает полосу прокрутки в Firefox *!*/
+		/*	-ms-overflow-style: none; !* Скрывает полосу прокрутки в IE и Edge *!*/
+		/*}*/
+
+		/*.app-wrapper-content::-webkit-scrollbar {*/
+		/*	display: none; !* Скрывает полосу прокрутки в Chrome, Safari и Opera *!*/
+	}
+}
+
+/*color: rgb(230, 230, 230); !*Цвет текста*!*/
+/*color: rgb(211, 200, 200); !*Цвет текста*!*/
+/*background-color: rgb(30, 45, 60); !* Фон *!*/
+/*
+	red rgb(231, 76, 60)
+	green: rgb(39, 174, 96)
+	blue rgb(41, 128, 185)
+	yellow rgb(241, 196, 15)
+*/
+

@@ -1,0 +1,38 @@
+.dialogs {
+	color: white;
+	padding: 4px;
+
+	display: grid;
+	grid-template-columns: 3fr 10fr;
+}
+
+.dialogsItems {
+	padding: 10px;
+}
+
+.dialogsItems .active {
+	color: gold;
+}
+
+.dialogs .dialog {
+	margin-bottom: 18px;
+}
+
+.dialog a {
+	color: rgb(211, 200, 200); /*Цвет текста*/
+	font-size: 18px;
+	text-decoration: none;
+}
+
+.messages {
+	padding: 10px;
+
+}
+
+.messages .message {
+	margin-bottom: 18px;
+}
+
+.p {
+	color: white;
+}
