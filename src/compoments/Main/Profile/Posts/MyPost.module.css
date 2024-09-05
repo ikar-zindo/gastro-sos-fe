@@ -1,0 +1,55 @@
+.posts {
+}
+
+textarea {
+	margin: 4px 0;
+	background-color: rgb(48, 69, 90); /* Фон */
+	border-radius: 18px; /* Скругление углов */
+	border: 1px solid rgb(80, 117, 156); /* Граница */
+	color: rgb(230, 230, 230); /* Цвет текста */
+	box-sizing: border-box; /* Учет внутренних отступов и границ в ширину и высоту элемента */
+	padding: 10px; /* Внутренние отступы */
+	width: 100%; /* Ширина элемента (по желанию) */
+	max-height: 250px; /* Максимальная высота элемента */
+	resize: none; /* Запрещает изменение размера элемента */
+	cursor: text; /* Устанавливает курсор в виде текста при наведении на элемент */
+	font-family: Arial, sans-serif; /* Шрифт для текста (по желанию) */
+	font-size: 16px; /* Размер шрифта (по желанию) */
+	outline: none; /* Убирает контур, появляющийся при фокусе (по желанию) */
+	overflow-y: hidden; /* Скрывает вертикальную полосу прокрутки */
+}
+
+/* Button styles */
+.button {
+	padding-right: 24px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+button {
+	background-color: rgb(50, 70, 90); /* Темный фон кнопки */
+	border-radius: 12px; /* Скругление углов кнопки */
+	border: 1px solid rgb(100, 130, 180); /* Граница кнопки */
+	color: rgb(230, 230, 230); /* Цвет текста на кнопке */
+	padding: 4px 18px; /* Внутренние отступы кнопки */
+	font-size: 14px; /* Размер шрифта текста кнопки */
+	font-family: Arial, sans-serif; /* Шрифт текста кнопки */
+	cursor: pointer; /* Указывает, что кнопка кликабельна */
+	outline: none; /* Убирает контур кнопки при фокусе */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень для кнопки */
+	transition: background-color 0.3s ease, border-color 0.3s ease; /* Плавный переход для изменения цвета */
+}
+
+/* Hover state for button */
+button:hover {
+	background-color: rgb(60, 80, 100); /* Слегка светлее фон при наведении */
+	border-color: rgb(120, 150, 200); /* Слегка светлее граница при наведении */
+}
+
+/* Active state for button */
+button:active {
+	background-color: rgb(40, 60, 80); /* Еще темнее фон при нажатии */
+	border-color: rgb(80, 110, 160); /* Еще темнее граница при нажатии */
+}

@@ -1,12 +1,12 @@
 import React from "react";
 import './App.css';
-import Header from "./compoments/Header/Header";
-import Footer from "./compoments/Footer/Footer";
-import Profile from "./compoments/Profile/Profile";
-import Navbar from "./compoments/Navbar/Navbar";
-import Right from "./compoments/Right/Right";
-import Navigate from "./compoments/Navigate/Navigate";
-import Dialogs from "./compoments/Dialogs/Dialogs";
+import Header from "./compoments/Fragments/Header/Header";
+import Footer from "./compoments/Fragments/Footer/Footer";
+import Profile from "./compoments/Main/Profile/Profile";
+import Navbar from "./compoments/Fragments/Navbar/Navbar";
+import Right from "./compoments/Main/Right/Right";
+import Navigate from "./compoments/Fragments/Navigate/Navigate";
+import Dialogs from "./compoments/Main/Dialogs/Dialogs";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 const App = (props) => {
@@ -19,8 +19,17 @@ const App = (props) => {
 
 				<div className='app-wrapper-content'>
 					<Routes>
-						<Route path="/profile" element={<Profile />}/>
-						<Route path="/dialogs" element={<Dialogs />}/>
+						<Route
+							path="/profile"
+							element={<Profile
+								users={props.state.users}
+								profilePage={props.state.profilePage}
+								dispatch={props.dispatch}/>}/>
+						<Route
+							path="/dialogs"
+							element={<Dialogs
+								users={props.state.users}
+								dialogs={props.state.dialogPage}/>}/>
 					</Routes>
 				</div>
 
