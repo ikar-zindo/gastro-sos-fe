@@ -28,8 +28,9 @@ const App = (props) => {
 						<Route
 							path="/dialogs"
 							element={<Dialogs
+								store={props.store}
 								users={props.state.users}
-								dialogs={props.state.dialogPage}/>}/>
+								dialogPage={props.state.dialogPage}/>}/>
 					</Routes>
 				</div>
 

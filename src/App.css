@@ -19,7 +19,7 @@ html, body {
 	display: grid;
 	grid-template-areas:
 			"h h h"
-			"n c r"
+			"n c c"
 			"f f f";
 
 	grid-template-rows: 70px 1fr 60px;
@@ -30,6 +30,7 @@ html, body {
 .app-wrapper-content {
 	grid-area: c;
 	height: 100%;
+	/*width: 100%;*/
 	background-color: rgb(35, 53, 71); /* Фон */
 	border-radius: 18px;
 	border: 1px solid rgb(80, 117, 156);

@@ -1,10 +1,7 @@
 import React, {useEffect} from 'react';
 import Post from "./Post";
 import c from './MyPost.module.css';
-import {addPostActionCreator, updatePostTextActionCreator} from "../../../../redux/state";
-
-
-
+import {addPostAction, updatePostTextAction} from "../../../../redux/state";
 
 const MyPost = (props) => {
 	let textareaRef = React.createRef();
@@ -20,13 +17,13 @@ const MyPost = (props) => {
 
 	let addPost = () => {
 		// props.addPost();
-		props.dispatch(addPostActionCreator());
+		props.dispatch(addPostAction());
 	}
 
 	const handleChange = () => {
 		let text = textareaRef.current.value;
 		// let action = { type: 'UPDATE-NEW-POST-TEXT', text: text };
-		let action = updatePostTextActionCreator(text);
+		let action = updatePostTextAction(text);
 		props.dispatch(action);
 		// props.updateNewPostText(text);
 	};

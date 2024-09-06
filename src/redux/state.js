@@ -113,79 +113,180 @@ let store = {
 		dialogPage: {
 			dialogs: [
 				{
-					id: 0, userId: 0, messages: [
-						{id: 1, ownerId: 1, message: "Hi!"},
-						{id: 2, ownerId: 0, message: "Yo"}]
+					id: 0,
+					ownerId: 0,
+					participants:[
+						{userId: 0},
+						{userId: 1}
+					],
+					messages: [
+						{
+							id: 1001,
+							senderId: 0,
+							receiverId: 1,
+							content: "Hello!"
+							// createdAt: "2024-09-05T12:00:00",
+							// read: false
+						},
+						{
+							id: 1002,
+							senderId: 1,
+							receiverId: 0,
+							content: "Hi there!"
+							// createdAt: "2024-09-05T12:01:00",
+							// read: true
+						}
+					]
 				},
 				{
-					id: 1, userId: 1, messages: [
-						{id: 1, ownerId: 1, message: "Hi!"},
-						{id: 2, ownerId: 0, message: "Hello world"},
-						{id: 3, ownerId: 1, message: "How are you?"},
-						{id: 4, ownerId: 1, message: "Yo"}]
+					id: 1,
+					ownerId: 1,
+					participants: [
+						{userId: 0},
+						{userId: 2}
+					],
+					messages: [
+						{
+							id: 1003,
+							senderId: 3,
+							receiverId: 0,
+							content: "How are you?"
+						}
+					]
 				},
 				{
-					id: 2, userId: 2, messages: [
-						{id: 1, ownerId: 2, message: "Hi!"},
-						{id: 2, ownerId: 0, message: "Hello world"},
-						{id: 3, ownerId: 2, message: "How are you?"},
-						{id: 4, ownerId: 2, message: "Yo"}]
+					id: 2,
+					ownerId: 2,
+					participants: [
+						{userId: 0},
+						{userId: 3}
+					],
+					messages: [
+						{
+							id: 1033,
+							senderId: 3,
+							receiverId: 0,
+							content: "How are you?"
+						}
+					]
 				},
 				{
-					id: 3, userId: 3, messages: [
-						{id: 1, ownerId: 3, message: "Hi!"},
-						{id: 2, ownerId: 0, message: "Hello world"},
-						{id: 3, ownerId: 3, message: "How are you?"},
-						{id: 4, ownerId: 3, message: "Yo"}]
+					id: 3,
+					ownerId: 3,
+					participants: [
+						{userId: 0},
+						{userId: 3}
+					],
+					messages: [
+						{
+							id: 1033,
+							senderId: 3,
+							receiverId: 0,
+							content: "How are you?"
+						}
+					]
 				},
 				{
-					id: 4, userId: 4, messages: [
-						{id: 1, ownerId: 4, message: "Hi!"},
-						{id: 2, ownerId: 0, message: "Hello world"},
-						{id: 3, ownerId: 4, message: "How are you?"},
-						{id: 4, ownerId: 4, message: "Yo"}]
+					id: 4,
+					ownerId: 4,
+					participants: [
+						{userId: 0},
+						{userId: 4}
+					],
+					messages: [
+						{
+							id: 1043,
+							senderId: 4,
+							receiverId: 0,
+							content: "How are you?"
+						}
+					]
 				},
 				{
-					id: 5, userId: 5, messages: [
-						{id: 1, ownerId: 5, message: "Hi!"},
-						{id: 2, ownerId: 0, message: "Hello world"},
-						{id: 3, ownerId: 5, message: "How are you?"},
-						{id: 4, ownerId: 5, message: "Yo"}]
+					id: 5,
+					ownerId: 5,
+					participants: [
+						{userId: 0},
+						{userId: 5}
+					],
+					messages: [
+						{
+							id: 1053,
+							senderId: 5,
+							receiverId: 0,
+							content: "How are you?"
+						}
+					]
 				},
 				{
-					id: 6, userId: 6, messages: [
-						{id: 1, ownerId: 6, message: "Hi!"},
-						{id: 2, ownerId: 0, message: "Hello world"},
-						{id: 3, ownerId: 6, message: "How are you?"},
-						{id: 4, ownerId: 6, message: "Yo"}]
+					id: 6,
+					ownerId: 6,
+					participants: [
+						{userId: 0},
+						{userId: 6}
+					],
+					messages: [
+						{
+							id: 1063,
+							senderId: 6,
+							receiverId: 0,
+							content: "How are you?"
+						}
+					]
 				},
 				{
-					id: 7, userId: 7, messages: [
-						{id: 1, ownerId: 7, message: "Hi!"},
-						{id: 2, ownerId: 0, message: "Hello world"},
-						{id: 3, ownerId: 7, message: "How are you?"},
-						{id: 4, ownerId: 7, message: "Yo"}]
+					id: 7,
+					ownerId: 7,
+					participants: [
+						{userId: 0},
+						{userId: 7}
+					],
+					messages: [
+						{
+							id: 1073,
+							senderId: 7,
+							receiverId: 0,
+							content: "How are you?"
+						}
+					]
 				},
 				{
-					id: 8, userId: 8, messages: [
-						{id: 1, ownerId: 8, message: "Hi!"},
-						{id: 2, ownerId: 0, message: "Hello world"},
-						{id: 3, ownerId: 8, message: "How are you?"},
-						{id: 4, ownerId: 8, message: "Yo"}]
+					id: 8,
+					ownerId: 8,
+					participants: [
+						{userId: 0},
+						{userId: 8}
+					],
+					messages: [
+						{
+							id: 1083,
+							senderId: 8,
+							receiverId: 0,
+							content: "How are you?"
+						}
+					]
 				},
 				{
-					id: 9, userId: 9, messages: [
-						{id: 1, ownerId: 9, message: "Hi!"},
-						{id: 2, ownerId: 0, message: "Hello world"},
-						{id: 3, ownerId: 9, message: "How are you?"},
-						{id: 4, ownerId: 9, message: "Yo"}]
+					id: 9,
+					ownerId: 9,
+					participants: [
+						{userId: 0},
+						{userId: 9}
+					],
+					messages: [
+						{
+							id: 1093,
+							senderId: 9,
+							receiverId: 0,
+							content: "How are you?"
+						}
+					]
 				}
 			],
 			messages: [
-				{id: 1, message: "Hi!"},
-				{id: 2, message: "Hello world"},
-				{id: 3, message: "How are you?"},
-				{id: 4, message: "Yo"}
+				{id: 1, content: "Hi!", senderId: 0, receiverId: 1},
+				{id: 3, content: "How are you?", senderId: 0, receiverId: 1},
+				{id: 4, content: "Yo", senderId: 0, receiverId: 1}
 			],
 			messageText: ''
 		}
@@ -193,24 +294,6 @@ let store = {
 
 	_callSubscriber() {
 		console.log('State was changed!')
-	},
-
-	_addPost() {
-		let newPost = {
-			id: 15,
-			message: this._state.profilePage.postContent.postValue.newPostText,
-			likes: 0,
-			dislikes: 0,
-			userId: 0
-		};
-
-		this._state.profilePage.postContent.posts.push(newPost);
-		this._state.profilePage.postContent.postValue.newPostText = '';
-		this._callSubscriber(this._state);
-	},
-	_updateNewPostText(text) {
-		this._state.profilePage.postContent.postValue.text = text;
-		this._callSubscriber(this._state);
 	},
 
 	subscribe(observer) {
@@ -222,6 +305,8 @@ let store = {
 	},
 
 	dispatch(action) {
+
+		// ADD_POST
 		if (action.type === ADD_POST) {
 			let newPost = {
 				id: this._state.profilePage.postContent.posts.length + 1,
@@ -235,25 +320,32 @@ let store = {
 			this._state.profilePage.postContent.postValue.text = '';
 			this._callSubscriber(this._state);
 
+			// UPDATE_POST_TEXT
 		} else if (action.type === UPDATE_POST_TEXT) {
-			this._state.profilePage.postContent.postValue.text = action.text;
+			this._state.profilePage.postContent.postValue.text = action.postText;
 			this._callSubscriber(this._state);
 
+			// UPDATE_MESSAGE_TEXT
 		} else if (action.type === UPDATE_MESSAGE_TEXT) {
-			this._state.dialogPage.messageText = action.text
+			this._state.dialogPage.messageText = action.messageText
 			this._callSubscriber(this._state);
 
+			// SEND_MESSAGE
 		} else if (action.type === SEND_MESSAGE) {
-			let text = this._state.dialogPage.messageText = action.text;
-			let newMessage = {
-				id: this._state.dialogPage.dialogs[action.dialogId].messages.length + 1,
-				ownerId: action.ownerId,
-				message: text
-			}
+				// debugger
+			let sendMessageData = action.sendMessageData;
+			let dialog = this._state.dialogPage.dialogs.find(d => d.ownerId === sendMessageData.receiverId);
+			let text = this._state.dialogPage.messageText;
 
-			let dialog = this._state.dialogPage.dialogs.find(d => d.id === action.userId);
 			if (dialog) {
-				dialog.messages.push(newMessage)
+				let newMessage = {
+					id: dialog.messages.length + 1001, // dialogId
+					senderId: sendMessageData.senderId, // senderId
+					receiverId: sendMessageData.receiverId, // receiverId
+					content: text, // content
+				}
+				dialog.messages.push(newMessage);
+				this._state.dialogPage.messages.push(newMessage)
 			}
 
 			this._state.dialogPage.messageText = '';
@@ -262,9 +354,13 @@ let store = {
 	}
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST})
+export const addPostAction = () => ({type: ADD_POST})
 
-export const updatePostTextActionCreator = (text) => ({type: UPDATE_POST_TEXT, text: text})
+export const updatePostTextAction = (postText) => ({type: UPDATE_POST_TEXT, postText: postText})
+
+export const sendMessageAction = (sendMessageData) => ({type: SEND_MESSAGE, sendMessageData: sendMessageData})
+
+export const updateMessageTextAction = (messageText) => ({type: UPDATE_MESSAGE_TEXT, messageText: messageText})
 
 window.state = store;
 export default store;

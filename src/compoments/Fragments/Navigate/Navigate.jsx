@@ -19,7 +19,7 @@ const Navigate = () => {
 			</NavLink>
 			<NavLink
 				to="/dialogs"
-				className={({isActive}) => isActive ? `${c.activeLink}` : undefined}>Bell
+				className={({isActive}) => isActive ? `${c.activeLink}` : undefined}>Message
 			</NavLink>
 			<NavLink
 				to="/profile"
