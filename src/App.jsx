@@ -12,40 +12,40 @@ import HomeContainer from "./compoments/main/home/HomeContainer";
 import ChatContainer from "./compoments/main/dialogs/ChatContainer";
 
 const App = (props) => {
-
-	// debugger
 	return (
-		<BrowserRouter>
-			<div className="app-wrapper">
-				<HeaderComponent/>
+		<>
+			<BrowserRouter>
+				<div className="app-wrapper">
+					<HeaderComponent/>
 
-				<NavbarComponent/>
+					<NavbarComponent/>
 
-				<div className='app-wrapper-content'>
-					<Routes>
-						<Route
-							path='/'
-							element={<HomeContainer store={props.store}/>}/>
-						<Route
-							path='/profile'
-							element={<ProfileContainer store={props.store}/>}/>
-						<Route
-							path='/dialogs'
-							element={<DialogsContainer store={props.store}/>}/>
-						<Route
-							path='dialogs/:id'
-							element={<ChatContainer store={props.store}/>}/>
-					</Routes>
+					<div className='app-wrapper-content'>
+						<Routes>
+							<Route
+								path='/'
+								element={<HomeContainer store={props.store}/>}/>
+							<Route
+								path='/profile'
+								element={<ProfileContainer store={props.store}/>}/>
+							<Route
+								path='/dialogs'
+								element={<DialogsContainer store={props.store}/>}/>
+							<Route
+								path='dialogs/:id'
+								element={<ChatContainer store={props.store}/>}/>
+						</Routes>
+					</div>
+
+					<RightComponent/>
+
+					<NavigateComponent/>
+
+					<FooterComponent/>
+
 				</div>
-
-				<RightComponent/>
-
-				<NavigateComponent/>
-
-				<FooterComponent/>
-
-			</div>
-		</BrowserRouter>
+			</BrowserRouter>
+		</>
 	);
 }
 

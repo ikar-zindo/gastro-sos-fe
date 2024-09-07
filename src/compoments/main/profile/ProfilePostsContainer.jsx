@@ -19,11 +19,11 @@ const ProfilePostsContainer = (props) => {
 		)
 	});
 
-	let addPost = () => {
+	let handleClick = () => {
 		props.store.dispatch(addPostAction());
 	}
 
-	const updatePostText = (postValue) => {
+	const handleChange = (postValue) => {
 		let action = updatePostTextAction(postValue);
 		props.store.dispatch(action);
 	};
@@ -33,8 +33,8 @@ const ProfilePostsContainer = (props) => {
 			<h3>My Posts</h3>
 			<TextAreaComponent
 				postValue={myPostContent.postValue}
-				changePostText={updatePostText}
-				addNewPost={addPost}/>
+				changePostText={handleChange}
+				addNewPost={handleClick}/>
 
 			<div className={c.posts}>
 				{postElements ? postElements : (<div className='loading'>Loading...</div>)}

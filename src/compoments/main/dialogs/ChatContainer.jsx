@@ -32,7 +32,7 @@ const ChatContainer = (props) => {
 		props.store.dispatch(sendMessageAction(sendMessageData))
 	}
 
-	let onMessageTextChange = (event) => {
+	let handleChange = (event) => {
 		let messageText = event.target.value;
 		props.store.dispatch(updateMessageTextAction(messageText));
 	}
@@ -60,7 +60,7 @@ const ChatContainer = (props) => {
 						name='comment'
 						value={messagesText}
 						className='form-control'
-						onChange={onMessageTextChange}>
+						onChange={handleChange}>
 					</input>
 				</div>
 
