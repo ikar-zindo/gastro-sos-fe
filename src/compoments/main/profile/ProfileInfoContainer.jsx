@@ -1,7 +1,7 @@
 import React from 'react';
-import c from "./ProfileInfo.module.css";
+import c from "../../../styles/main/profile/ProfileInfo.module.css";
 
-const ProfileInfoComponent = () => {
+const ProfileInfoContainer = () => {
 	return (
 		<div className={c.profileInfo}>
 			<img className={c.img}
@@ -15,4 +15,4 @@ const ProfileInfoComponent = () => {
 	);
 };
 
-export default ProfileInfoComponent;
+export default ProfileInfoContainer;

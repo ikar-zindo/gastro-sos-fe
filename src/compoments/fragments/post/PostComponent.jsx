@@ -1,8 +1,7 @@
 import React from 'react';
-import c from "./Post.module.css";
+import c from "../../../styles/fragments/post/Post.module.css";
 
-const PostElement = (props) => {
-// debugger
+const PostComponent = (props) => {
 	let user = props.user;
 	let post = props.post;
 
@@ -13,12 +12,11 @@ const PostElement = (props) => {
 
 				<div className={c.userInfoWrapper}>
 					<p className={c.userName}>{user.name}</p>
-					<p className={c.date}>12/12/24</p>
+					<p className={c.date}>{post.createdAt}</p>
 				</div>
-
 			</div>
 
-			<p className={c.postMessage}>{post.content}</p>
+			<p className={c.postMessage}>{post.text}</p>
 
 			<div className={c.reactionContainer}>
 				<span className={c.reaction}>Like {post.likes}</span>
@@ -30,4 +28,4 @@ const PostElement = (props) => {
 	);
 };
 
-export default PostElement;
+export default PostComponent;

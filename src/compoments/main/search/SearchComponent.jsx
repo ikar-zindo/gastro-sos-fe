@@ -1,5 +1,5 @@
 import React from 'react';
-import c from './Search.module.css'
+import c from '../../../styles/main/search/Search.module.css'
 
 const SearchComponent = () => {
 	return (

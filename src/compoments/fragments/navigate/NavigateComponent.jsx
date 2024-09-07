@@ -1,5 +1,5 @@
 import React from 'react';
-import c from './Navigate.module.css';
+import c from '../../../styles/fragments/navigate/Navigate.module.css';
 import {NavLink} from "react-router-dom";
 
 const NavigateComponent = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import c from './StoriesComponent.model.css';
+import c from '../../../styles/fragments/stories/StoriesComponent.model.css';
 
 const StoryElement = (props) => {
 	return (

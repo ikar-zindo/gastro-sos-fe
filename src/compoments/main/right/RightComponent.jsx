@@ -1,5 +1,5 @@
 import React from 'react';
-import c from './Right.module.css';
+import c from '../../../styles/main/right/Right.module.css';
 
 const RightComponent = () => {
 	return (

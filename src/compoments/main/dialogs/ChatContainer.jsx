@@ -1,22 +1,22 @@
 import React from 'react';
-import c from './Chat.module.css'
-import MessageElement from "../message/MessageElement";
-import {sendMessageAction, updateMessageTextAction} from "../../../../redux/content/dialogs-reducer";
+import c from '../../../styles/main/dialogs/Chat.module.css'
+import MessageComponent from "./MessageComponent";
+import {sendMessageAction, updateMessageTextAction} from "../../../redux/content/dialogs-reducer";
 import {useParams} from "react-router-dom";
 
-const ChatComponent = (props) => {
+const ChatContainer = (props) => {
 	let {id} = useParams();
 
-	let dialogPage = props.state.dialogPage;
+	let dialogPage = props.store.getState().dialogPage;
 	let currentDialog = dialogPage.dialogs.find(dialog => dialog.id === parseInt(id));
 	let messages = currentDialog ? currentDialog.messages : [];
 
-	let users = props.state.users;
+	let users = props.store.getState().users;
 	let currentUser = users.find(u => u.id === currentDialog.participants[0].userId);
 	let companionUser = users.find(u => u.id === currentDialog.participants[1].userId);
 
 	let messagesElement = messages
-		.map(message => (<MessageElement
+		.map(message => (<MessageComponent
 			currentUser={currentUser}
 			message={message}
 			key={message.id}/>));
@@ -39,7 +39,6 @@ const ChatComponent = (props) => {
 
 	return (
 		<div className={c.chat}>
-
 			<div className={c.userInfo}>
 				<img alt='ava' src={companionUser.ava}/>
 
@@ -71,4 +70,4 @@ const ChatComponent = (props) => {
 	);
 };
 
-export default ChatComponent;
+export default ChatContainer;

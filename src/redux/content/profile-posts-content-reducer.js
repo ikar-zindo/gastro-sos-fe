@@ -5,17 +5,21 @@ let initialState = {
 	posts: [
 		{
 			id: 1,
-			content: "It's my first post",
+			text: "It's my first post",
+			content: {},
 			likes: 3,
 			dislikes: 1,
-			userId: 0
+			userId: 0,
+			createdAt: "12/12/24"
 		},
 		{
 			id: 2,
-			content: 'Hi, how are you?',
+			text: 'Hi, how are you?',
+			content: {},
 			likes: 30,
 			dislikes: 5,
-			userId: 2
+			userId: 2,
+			createdAt: "12/12/24"
 		}
 		// {
 		// 	id: 3,
@@ -51,16 +55,18 @@ let initialState = {
 	}
 };
 
-const myPostContentReducer = (state = initialState, action) => {
+const profilePostsContentReducer = (state = initialState, action) => {
 
 	switch (action.type) {
 		case ADD_POST:
 			let newPost = {
 				id: state.posts.length + 1,
-				content: state.postValue.text,
+				text: state.postValue.text,
+				content: {},
 				likes: 0,
 				dislikes: 0,
-				userId: 0
+				userId: 0,
+				createdAt: "12/12/24"
 			};
 
 			state.posts.push(newPost);
@@ -68,7 +74,7 @@ const myPostContentReducer = (state = initialState, action) => {
 			return state;
 
 		case UPDATE_POST_TEXT:
-			state.postValue.text = action.postText;
+			state.postValue.text = action.postValue.text;
 			return state;
 
 		default:
@@ -78,6 +84,6 @@ const myPostContentReducer = (state = initialState, action) => {
 
 export const addPostAction = () => ({type: ADD_POST})
 
-export const updatePostTextAction = (postText) => ({type: UPDATE_POST_TEXT, postText: postText})
+export const updatePostTextAction = (postValue) => ({type: UPDATE_POST_TEXT, postValue: postValue})
 
-export default myPostContentReducer;
+export default profilePostsContentReducer;

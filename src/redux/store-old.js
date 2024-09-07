@@ -1,4 +1,4 @@
-import myPostContentReducer from "./content/my-post-content-reducer";
+import profilePostsContentReducer from "./content/profile-posts-content-reducer";
 import dialogsReducer from "./content/dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 
@@ -326,7 +326,7 @@ let storeOld = {
 	},
 
 	dispatch(action) {
-		this._state.profilePage.postContent = myPostContentReducer(this._state.profilePage.postContent, action);
+		this._state.profilePage.postContent = profilePostsContentReducer(this._state.profilePage.postContent, action);
 		this._state.dialogPage = dialogsReducer(this._state.dialogPage, action);
 		this._state.sidebar = sidebarReducer(this._state.sidebar, action);
 

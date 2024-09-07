@@ -2,14 +2,14 @@ import React from "react";
 import './App.css';
 import HeaderComponent from "./compoments/fragments/header/HeaderComponent";
 import FooterComponent from "./compoments/fragments/footer/FooterComponent";
-import ProfileComponent from "./compoments/main/profile/ProfileComponent";
+import ProfileContainer from "./compoments/main/profile/ProfileContainer";
 import NavbarComponent from "./compoments/fragments/navbar/NavbarComponent";
 import RightComponent from "./compoments/main/right/RightComponent";
 import NavigateComponent from "./compoments/fragments/navigate/NavigateComponent";
-import DialogsComponent from "./compoments/main/dialogs/DialogsComponent";
+import DialogsContainer from "./compoments/main/dialogs/DialogsContainer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import HomeComponent from "./compoments/main/home/HomeComponent";
-import ChatComponent from "./compoments/main/dialogs/chat/ChatComponent";
+import HomeContainer from "./compoments/main/home/HomeContainer";
+import ChatContainer from "./compoments/main/dialogs/ChatContainer";
 
 const App = (props) => {
 
@@ -25,29 +25,16 @@ const App = (props) => {
 					<Routes>
 						<Route
 							path='/'
-							element={<HomeComponent state={props.state}
-							                        store={props.store}
-							                        users={props.state.users}
-							                        homePage={props.state.homePage}/>}/>
-
+							element={<HomeContainer store={props.store}/>}/>
 						<Route
 							path='/profile'
-							element={<ProfileComponent state={props.state}
-							                           store={props.store}
-							                           dispatch={props.dispatch}/>}/>
-
+							element={<ProfileContainer store={props.store}/>}/>
 						<Route
 							path='/dialogs'
-							element={<DialogsComponent state={props.state}
-							                           store={props.store}
-							                           users={props.state.users}
-							                           dialogPage={props.state.dialogPage}/>}/>
-
+							element={<DialogsContainer store={props.store}/>}/>
 						<Route
 							path='dialogs/:id'
-							element={<ChatComponent state={props.state}
-							                        store={props.store}
-							                        dispatch={props.dispatch}/>}/>
+							element={<ChatContainer store={props.store}/>}/>
 					</Routes>
 				</div>
 

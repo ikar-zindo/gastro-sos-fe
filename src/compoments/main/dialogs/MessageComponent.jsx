@@ -1,14 +1,13 @@
 import React from 'react';
-import c from "./Message.module.css";
+import c from "../../../styles/main/dialogs/Message.module.css";
 
-const MessageElement = (props) => {
+const MessageComponent = (props) => {
 	let currentUser = props.currentUser;
 	let message = props.message;
 	let isSendCurrentUser = message.senderId === currentUser.id
 
 	const messageClass = isSendCurrentUser ? c.sentMessage : c.receivedMessage
 
-	// debugger;
 	return (
 		<div className={`${c.message} ${messageClass}`}>
 			<div className={(c.messageText)}>{message.text}</div>
@@ -21,4 +20,4 @@ const MessageElement = (props) => {
 	);
 };
 
-export default MessageElement;
+export default MessageComponent;

@@ -1,8 +1,8 @@
 import React from 'react';
-import c from './Dialogs.module.css'
-import DialogElement from "./dialog/DialogElement";
+import c from '../../../styles/main/dialogs/Dialogs.module.css'
+import DialogComponent from "./DialogComponent";
 
-const DialogsComponent = (props) => {
+const DialogsContainer = (props) => {
 	let dialogPage = props.store.getState().dialogPage;
 	let users = props.store.getState().users;
 
@@ -11,13 +11,10 @@ const DialogsComponent = (props) => {
 
 		return (dialog ?
 			(<div>
-				<DialogElement
+				<DialogComponent
 					user={user}
 					dialog={dialog}/>
-			</div>)
-			: (<div className='loading'>
-				Loading...
-			</div>))
+			</div>) : (<div className='loading'>Loading...</div>))
 	});
 
 	return (
@@ -27,4 +24,4 @@ const DialogsComponent = (props) => {
 	);
 };
 
-export default DialogsComponent;
+export default DialogsContainer;

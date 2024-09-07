@@ -1,8 +1,8 @@
 import React from 'react';
-import c from "./DialogElement.module.css";
+import c from "../../../styles/main/dialogs/CompanionElement.module.css";
 import {NavLink} from "react-router-dom";
 
-const DialogElement = (props) => {
+const DialogComponent = (props) => {
 	let user = props.user
 	let dialog = props.dialog;
 	let path = "/dialogs/" + dialog.id;
@@ -27,4 +27,4 @@ const DialogElement = (props) => {
 	);
 };
 
-export default DialogElement;
+export default DialogComponent;
