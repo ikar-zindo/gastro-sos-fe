@@ -1,0 +1,59 @@
+.dialog {
+	margin-bottom: 18px;
+}
+
+.dialog a {
+	color: rgb(211, 200, 200); /*Цвет текста*/
+	font-size: 18px;
+	text-decoration: none;
+}
+
+.dialog a.active {
+	color: gold;
+}
+
+.userInfo img {
+	margin-bottom: 4px;
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+}
+
+.userInfo {
+	display: flex;
+	align-items: center;
+}
+
+.userInfoWrapper {
+	margin-left: 8px;
+	display: flex;
+	flex-direction: column;
+}
+
+.userInfo .userName {
+	display: inline-block;
+	vertical-align: middle;
+	color: rgb(230, 230, 230);
+	font-size: 18px;
+}
+
+.date {
+	margin-top: 4px;
+	margin-left: 12px;
+	color: rgb(211, 200, 200);
+	font-size: 12px;
+}
+
+.dialogMark {
+	height: 30px;
+	width: 30px;
+	border-radius: 15px;
+	background-color: #50708e;
+	margin-left: auto;
+	font-size: 16px;
+	color: rgb(230, 230, 230);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}

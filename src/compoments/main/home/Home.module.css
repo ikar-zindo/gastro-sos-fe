@@ -1,0 +1,90 @@
+.home {
+	color: white;
+	margin: 16px;
+}
+
+.posts {
+	grid-area: posts;
+}
+
+.stories {
+	display: flex;
+	flex-direction: row;
+	overflow-x: auto;
+	overflow-y: hidden;
+	gap: 10px;
+	padding: 10px 0;
+	/*scrollbar-width: thin;*/
+	white-space: nowrap;
+
+	scrollbar-width: none;
+}
+
+/* Скрываем скроллбар для браузера Chrome */
+.stories::-webkit-scrollbar {
+	display: none;
+}
+
+.home .message {
+	margin-bottom: 18px;
+	display: flex;
+	flex-direction: row;
+	overflow-x: auto;
+	overflow-y: hidden;
+	gap: 10px;
+	padding: 10px 0;
+	scrollbar-width: thin;
+}
+
+.p {
+	color: white;
+}
+
+.home input {
+	margin: 4px 0;
+	background-color: rgb(48, 69, 90);
+	border-radius: 12px;
+	border: 1px solid rgb(80, 117, 156);
+	color: rgb(230, 230, 230);
+	box-sizing: border-box;
+	padding: 10px;
+	width: 100%;
+	cursor: text;
+	font-size: 16px;
+	outline: none;
+}
+
+/* Button styles */
+.home button {
+	border-radius: 18px;
+	padding: 2px 30px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+@media (max-width: 768px) {
+	.home {
+		height: 100%;
+		margin: 0;
+		box-sizing: border-box;
+		border-radius: 16px;
+
+		/* =========  ПРОКРУТКА  ========= */
+		overflow: hidden;
+		overflow-y: auto;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+
+	.home::-webkit-scrollbar {
+		display: none;
+	}
+
+	.story {
+	}
+
+	.posts {
+	}
+}
