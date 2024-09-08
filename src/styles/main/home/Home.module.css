@@ -7,23 +7,6 @@
 	grid-area: posts;
 }
 
-.stories {
-	display: flex;
-	flex-direction: row;
-	overflow-x: auto;
-	overflow-y: hidden;
-	gap: 10px;
-	padding: 10px 0;
-	/*scrollbar-width: thin;*/
-	white-space: nowrap;
-
-	scrollbar-width: none;
-}
-
-/* Скрываем скроллбар для браузера Chrome */
-.stories::-webkit-scrollbar {
-	display: none;
-}
 
 .home .message {
 	margin-bottom: 18px;

@@ -9,7 +9,10 @@ const HomePostsComponent = (props) => {
 	let postElements = homePage.posts.map(post => {
 		let user = users.find(user => user.id === post.userId);
 
-		return (user ? (<PostComponent post={post} user={user}/>) : (<div className='loading'>Loading...</div>))
+		return (user ? (<PostComponent
+			key={post.id}
+			post={post}
+			user={user}/>) : (<div className='loading'>Loading...</div>))
 	});
 
 	return (

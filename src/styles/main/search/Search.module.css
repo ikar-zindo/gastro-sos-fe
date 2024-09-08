@@ -1,3 +1,35 @@
 .search {
 
 }
+
+.userInfo {
+	display: flex;
+	align-items: center;
+}
+
+.userInfoWrapper {
+	margin-left: 8px;
+	margin-top: 8px;
+	padding: 5px;
+	background-color: rgb(50, 62, 83);
+	border-radius: 12px;
+	display: flex;
+	flex-direction: column;
+}
+
+.userInfo .userName {
+	display: inline-block;
+	vertical-align: middle;
+	color: rgb(230, 230, 230);
+	font-size: 18px;
+}
+
+.date {
+	margin-top: 4px;
+	margin-left: 12px;
+	color: rgb(211, 200, 200);
+	font-size: 12px;
+}
+
+@media (max-width: 768px) {
+}

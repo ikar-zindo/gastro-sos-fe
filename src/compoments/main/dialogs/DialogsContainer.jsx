@@ -1,3 +1,4 @@
+import React from "react";
 import DialogsComponent from "./DialogsComponent.jsx";
 import {connect} from "react-redux";
 
@@ -14,5 +15,6 @@ let mapDispatch = () => {
 	}
 }
 
-const DialogsContainer = connect(mapState,  mapDispatch)(DialogsComponent)
+const DialogsContainer =
+	connect(mapState,  mapDispatch)(DialogsComponent)
 export default DialogsContainer;

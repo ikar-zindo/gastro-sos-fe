@@ -15,7 +15,7 @@ const ProfilePostsComponent = (props) => {
 			return <div>User not found</div>;
 		}
 		return (
-			<PostComponent post={post} user={user}/>
+			<PostComponent key={post.id} post={post} user={user}/>
 		)
 	});
 

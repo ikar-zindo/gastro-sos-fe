@@ -10,6 +10,8 @@ import {Route, Routes} from "react-router-dom";
 import HomeContainer from "./compoments/main/home/HomeContainer";
 import DialogsContainer from "./compoments/main/dialogs/DialogsContainer.jsx";
 import ChatContainer from "./compoments/main/dialogs/ChatContainer.jsx";
+import SearchContainer from "./compoments/main/search/SearchContainer.jsx";
+import PlusContainer from "./compoments/main/plus/PlusContainer.jsx";
 
 const App = () => {
 	return (
@@ -30,8 +32,14 @@ const App = () => {
 							path='/dialogs'
 							element={<DialogsContainer/>}/>
 						<Route
-							path='dialogs/:id'
+							path='/dialogs/:id'
 							element={<ChatContainer/>}/>
+						<Route
+							path='/search'
+							element={<SearchContainer/>}/>
+						<Route
+							path='/add-photo'
+							element={<PlusContainer/>}/>
 					</Routes>
 				</div>
 

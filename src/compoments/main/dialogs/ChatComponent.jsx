@@ -49,26 +49,11 @@ const ChatComponent = (props) => {
 			<div className={c.messages}>
 				<div className={c.messageItem}>{messagesElement ? messagesElement : (<div>Loading...</div>)}</div>
 			</div>
-
-			{/*<form className={c.messageArea}>*/}
-				<div>
-					<TextAreaComponent
-						value={messageValue}
-						changePostText={handleChange}
-						addNewPost={onSendMessageClick}/>
-
-					{/*<input*/}
-					{/*	type="text"*/}
-					{/*	placeholder='Enter Comment'*/}
-					{/*	name='comment'*/}
-					{/*	value={messagesText}*/}
-					{/*	className='form-control'*/}
-					{/*	onChange={handleChange}>*/}
-					{/*</input>*/}
-				</div>
-
-				{/*<button onClick={onSendMessageClick}>Send</button>*/}
-			{/*</form>*/}
+			
+			<TextAreaComponent
+				value={messageValue}
+				changePostText={handleChange}
+				addNewPost={onSendMessageClick}/>
 		</div>
 	);
 };

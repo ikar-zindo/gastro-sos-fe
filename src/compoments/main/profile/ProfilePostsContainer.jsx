@@ -1,3 +1,4 @@
+import React from "react";
 import ProfilePostsComponent from "./ProfilePostsComponent.jsx";
 import {connect} from "react-redux";
 import {addPostAction, updatePostTextAction} from "../../../redux/content/profile-posts-content-reducer.js";

@@ -1,16 +1,7 @@
+import React from "react";
 import ChatComponent from "./ChatComponent.jsx";
 import {connect} from "react-redux";
 import {sendMessageAction, updateMessageTextAction} from "../../../redux/content/dialogs-reducer.js";
-
-// const ChatContainer = () => {
-// 	return (<StoreContext.Consumer>
-// 			{store => {
-// 				return <ChatComponent store={store}/>
-// 			}
-// 			}
-// 		</StoreContext.Consumer>
-// 	);
-// }
 
 let mapState = (state) => {
 	return {

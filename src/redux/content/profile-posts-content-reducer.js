@@ -78,7 +78,7 @@ const profilePostsContentReducer = (state = initialState, action) => {
 				likes: 0,
 				dislikes: 0,
 				userId: 0,
-				createdAt: "12/12/24"
+				createdAt: new Date().toLocaleDateString()
 			};
 
 			return {

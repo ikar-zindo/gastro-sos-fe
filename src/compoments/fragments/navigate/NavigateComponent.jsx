@@ -14,7 +14,7 @@ const NavigateComponent = () => {
 				className={({isActive}) => isActive ? `${c.activeLink}` : undefined}>Search
 			</NavLink>
 			<NavLink
-				to="/ad-foto"
+				to="/add-photo"
 				className={({isActive}) => isActive ? `${c.activeLink}` : undefined}>Plus
 			</NavLink>
 			<NavLink

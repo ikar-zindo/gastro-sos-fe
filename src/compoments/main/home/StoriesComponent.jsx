@@ -1,6 +1,7 @@
 import React from 'react';
-import c from "../../../styles/main/home/Home.module.css";
 import StoryElement from "../../fragments/stories/StoryElement";
+import c from '/src/styles/fragments/stories/StoriesComponent.module.css';
+
 
 const StoriesComponent = (props) => {
 	let users = props.users;

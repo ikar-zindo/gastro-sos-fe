@@ -1,3 +1,4 @@
+import React from "react";
 import ProfileInfoComponent from "./ProfileInfoComponent.jsx";
 import {connect} from "react-redux";
 

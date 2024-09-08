@@ -11,7 +11,7 @@ let initialState = {
 			],
 			messages: [
 				{
-					id: 100,
+					id: 1000,
 					senderId: 0,
 					receiverId: 1,
 					text: "Hello!",
@@ -20,7 +20,7 @@ let initialState = {
 					read: false
 				},
 				{
-					id: 101,
+					id: 1001,
 					senderId: 1,
 					receiverId: 0,
 					text: "Hi there!",
@@ -38,14 +38,22 @@ let initialState = {
 			],
 			messages: [
 				{
-					id: 10,
+					id: 1000,
+					senderId: 0,
+					receiverId: 2,
+					text: "Hello!",
+					content: {},
+					createdAt: "12:00",
+					read: false
+				},
+				{
+					id: 1001,
 					senderId: 2,
 					receiverId: 0,
-					text: "How are you?",
+					text: "Hi there!",
 					content: {},
 					createdAt: "12:01",
 					read: false
-
 				}
 			]
 		},
@@ -57,14 +65,49 @@ let initialState = {
 			],
 			messages: [
 				{
-					id: 10,
+					id: 1000,
+					senderId: 0,
+					receiverId: 3,
+					text: "Hello!",
+					content: {},
+					createdAt: "12:00",
+					read: false
+				},
+				{
+					id: 1001,
 					senderId: 3,
 					receiverId: 0,
-					text: "How are you?",
+					text: "Hi there!",
 					content: {},
 					createdAt: "12:01",
 					read: false
-
+				}
+			]
+		},
+		{
+			id: 3,
+			participants: [
+				{userId: 0},
+				{userId: 4}
+			],
+			messages: [
+				{
+					id: 1000,
+					senderId: 0,
+					receiverId: 4,
+					text: "Hello!",
+					content: {},
+					createdAt: "12:00",
+					read: false
+				},
+				{
+					id: 1001,
+					senderId: 4,
+					receiverId: 0,
+					text: "Hi there!",
+					content: {},
+					createdAt: "12:01",
+					read: false
 				}
 			]
 		},
@@ -72,18 +115,26 @@ let initialState = {
 			id: 4,
 			participants: [
 				{userId: 0},
-				{userId: 4}
+				{userId: 5}
 			],
 			messages: [
 				{
-					id: 10,
-					senderId: 4,
+					id: 1000,
+					senderId: 0,
+					receiverId: 5,
+					text: "Hello!",
+					content: {},
+					createdAt: "12:00",
+					read: false
+				},
+				{
+					id: 1001,
+					senderId: 5,
 					receiverId: 0,
-					text: "How are you?",
+					text: "Hi there!",
 					content: {},
 					createdAt: "12:01",
 					read: false
-
 				}
 			]
 		},
@@ -91,18 +142,26 @@ let initialState = {
 			id: 5,
 			participants: [
 				{userId: 0},
-				{userId: 5}
+				{userId: 6}
 			],
 			messages: [
 				{
-					id: 10,
-					senderId: 5,
+					id: 1000,
+					senderId: 0,
+					receiverId: 6,
+					text: "Hello!",
+					content: {},
+					createdAt: "12:00",
+					read: false
+				},
+				{
+					id: 1001,
+					senderId: 6,
 					receiverId: 0,
-					text: "How are you?",
+					text: "Hi there!",
 					content: {},
 					createdAt: "12:01",
 					read: false
-
 				}
 			]
 		},
@@ -110,18 +169,26 @@ let initialState = {
 			id: 6,
 			participants: [
 				{userId: 0},
-				{userId: 6}
+				{userId: 7}
 			],
 			messages: [
 				{
-					id: 10,
-					senderId: 6,
+					id: 1000,
+					senderId: 0,
+					receiverId: 7,
+					text: "Hello!",
+					content: {},
+					createdAt: "12:00",
+					read: false
+				},
+				{
+					id: 1001,
+					senderId: 7,
 					receiverId: 0,
-					text: "How are you?",
+					text: "Hi there!",
 					content: {},
 					createdAt: "12:01",
 					read: false
-
 				}
 			]
 		},
@@ -129,18 +196,26 @@ let initialState = {
 			id: 7,
 			participants: [
 				{userId: 0},
-				{userId: 7}
+				{userId: 8}
 			],
 			messages: [
 				{
-					id: 10,
-					senderId: 7,
+					id: 1000,
+					senderId: 0,
+					receiverId: 8,
+					text: "Hello!",
+					content: {},
+					createdAt: "12:00",
+					read: false
+				},
+				{
+					id: 1001,
+					senderId: 8,
 					receiverId: 0,
-					text: "How are you?",
+					text: "Hi there!",
 					content: {},
 					createdAt: "12:01",
 					read: false
-
 				}
 			]
 		},
@@ -148,45 +223,29 @@ let initialState = {
 			id: 8,
 			participants: [
 				{userId: 0},
-				{userId: 8}
-			],
-			messages: [
-				{
-					id: 10,
-					senderId: 8,
-					receiverId: 0,
-					text: "How are you?",
-					content: {},
-					createdAt: "12:01",
-					read: false
-
-				}
-			]
-		},
-		{
-			id: 9,
-			participants: [
-				{userId: 0},
 				{userId: 9}
 			],
 			messages: [
 				{
-					id: 10,
+					id: 1000,
+					senderId: 0,
+					receiverId: 9,
+					text: "Hello!",
+					content: {},
+					createdAt: "12:00",
+					read: false
+				},
+				{
+					id: 1001,
 					senderId: 9,
 					receiverId: 0,
-					text: "How are you?",
+					text: "Hi there!",
 					content: {},
 					createdAt: "12:01",
 					read: false
-
 				}
 			]
-		}
-	],
-	messages: [
-		{id: 1, text: "Hi!", senderId: 0, receiverId: 1},
-		{id: 3, text: "How are you?", senderId: 0, receiverId: 1},
-		{id: 4, text: "Yo", senderId: 0, receiverId: 1}
+		},
 	],
 	messageValue: {
 		text: ''
@@ -225,8 +284,6 @@ const dialogsReducer = (state = initialState, action) => {
 				};
 
 				const updatedMessages = [...state.dialogs[dialog.id].messages, newMessage];
-
-
 				const updatedDialogs = [...state.dialogs];
 				updatedDialogs[dialog.id] = {
 					...updatedDialogs[dialog.id],

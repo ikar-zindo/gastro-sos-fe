@@ -12,6 +12,7 @@ const DialogsComponent = (props) => {
 		return (dialog ?
 			(<div>
 				<DialogComponent
+					key={dialog.id}
 					user={user}
 					dialog={dialog}/>
 			</div>) : (<div className='loading'>Loading...</div>))
