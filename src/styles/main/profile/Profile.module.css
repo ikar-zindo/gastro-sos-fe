@@ -3,12 +3,15 @@
 
 }
 
+
+
+
 @media (max-width: 768px) {
 	.profile {
 		height: 100%;
 		margin: 0;
 		box-sizing: border-box;
-		border-radius: 16px;
+		border-radius: 4px;
 
 		/* =========  ПРОКРУТКА  ========= */
 		overflow: hidden;

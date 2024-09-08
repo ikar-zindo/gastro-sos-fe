@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<BrowserRouter>
 		<Provider store={store}>
-			<React.StrictMode>
+			<React.StrictMode>  {/*вызывает повторный рендеринг*/}
 				<App/>
 			</React.StrictMode>
 		</Provider>

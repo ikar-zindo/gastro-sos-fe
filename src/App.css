@@ -4,6 +4,7 @@ html, body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+  box-sizing: border-box;
 }
 
 /* main styles */
@@ -43,7 +44,7 @@ html, body {
   .app-wrapper {
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 0;
     width: 100%;
     min-height: 100vh;
     position: relative;
@@ -61,25 +62,17 @@ html, body {
   .app-wrapper-content {
     padding: 8px;
     max-height: calc(100vh - 142px);
-    width: 100%;
+    max-width: 100%;
     position: relative;
     box-sizing: border-box;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid rgb(80, 117, 156);
+    border-bottom: 1px solid rgb(80, 117, 156);
 
     color: rgb(230, 230, 230); /*Цвет текста*/
     overflow: hidden;
-
-    /* =========  ПРОКРУТКА  ========= */
-    /*	overflow-y: auto;*/
-    /*	scrollbar-width: none; !* Скрывает полосу прокрутки в Firefox *!*/
-    /*	-ms-overflow-style: none; !* Скрывает полосу прокрутки в IE и Edge *!*/
-    /*}*/
-
-    /*.app-wrapper-content::-webkit-scrollbar {*/
-    /*	display: none; !* Скрывает полосу прокрутки в Chrome, Safari и Opera *!*/
   }
-
-  /* =================================== */
-
 }
 
 /*color: rgb(230, 230, 230); !*Цвет текста*!*/

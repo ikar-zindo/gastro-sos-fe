@@ -6,14 +6,14 @@ import userPhoto from '../../../assets/img/userPhoto.png'
 const UserComponent = (props) => {
 	let users = props.users;
 
-	// let getUsers = () => {
+	let getUsers = () => {
 		if (props.users.length === 0) {
 			axios.get("https://social-network.samuraijs.com/api/1.0/users")
 				.then(response => {
 					props.setUsers(response.data.items);
 				});
 		}
-	// }
+	}
 
 	let usersElements = users.map(user => (
 			<div className={c.userInfo}>
@@ -26,9 +26,9 @@ const UserComponent = (props) => {
 					<div className={c.userNameWrapper}>
 						<p className={c.userName}>{user.name}</p>
 						<p className={c.status}>{user.status}</p>
-					{/*</div>*/}
+						{/*</div>*/}
 
-					{/*<div className={c.userLocation}>*/}
+						{/*<div className={c.userLocation}>*/}
 						<p className={c.city}>{"user.location.city"}</p>
 						<p className={c.country}>{"user.location.country"}</p>
 					</div>
@@ -49,7 +49,7 @@ const UserComponent = (props) => {
 
 	return (
 		<div className={c.userWrapper}>
-			{/*<button onClick={getUsers}>Get Users</button>*/}
+			<button onClick={getUsers}>Get Users</button>
 			{usersElements ? usersElements : (<div className='loading'>Loading...</div>)}
 		</div>
 	);

@@ -1,16 +1,27 @@
+.userWrapper {
+
+}
+
 .userInfo {
-	height: 120px;
+	height: 100px;
 	width: 100%;
 	display: flex;
 	align-items: center;
 	margin-top: 8px;
 }
 
-.userInfo img {
+.img {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.img img {
 	height: 70px;
 	width: 70px;
 	border-radius: 30px;
 }
+
 
 .userInfoWrapper {
 	display: flex;
@@ -49,11 +60,11 @@
 }
 
 .city {
-	font-size: 24px;
+	font-size: 14px;
 }
 
 .country {
-	font-size: 18px;
+	font-size: 8px;
 }
 
 .city, .country {

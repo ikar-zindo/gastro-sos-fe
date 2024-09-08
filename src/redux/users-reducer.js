@@ -3,9 +3,9 @@ const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET-USERS";
 
 let initialState = {
-	users: [],
+	users1: [],
 
-	users1: [
+	users: [
 		{
 			id: 20,
 			name: "Legolas",
@@ -122,15 +122,17 @@ let initial = {};
 const usersReducer = (state = initialState, action) => {
 
 	switch (action.type) {
+		// SET_USERS
 		case SET_USERS: {
 			// return {...state, users: action.users}
-			return {...state, users: [...state.users, ...action.users]}
+			return {...state, users1: [...state.users1, ...action.users]} // TODO: измень users1 на users
 		}
 
+		// FOLLOW
 		case FOLLOW: {
 			return {
 				...state,
-				users: state.users.map(user => {
+				users1: state.users1.map(user => {
 					if (user.id === action.userId) {
 						return {...user, following: true}
 					}
@@ -138,10 +140,12 @@ const usersReducer = (state = initialState, action) => {
 				})
 			}
 		}
+
+		// UNFOLLOW
 		case UNFOLLOW: {
 			return {
 				...state,
-				users: state.users.map(user => {
+				users1: state.users1.map(user => {
 					if (user.id === action.userId) {
 						return {...user, following: false}
 					}
