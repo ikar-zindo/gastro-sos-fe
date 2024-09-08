@@ -38,7 +38,7 @@ const ChatComponent = (props) => {
 	return (
 		<div className={c.chat}>
 			<div className={c.userInfo}>
-				<img alt='ava' src={companionUser.ava}/>
+				<img alt='ava' src={companionUser.imgUrl}/>
 
 				<div className={c.userInfoWrapper}>
 					<p className={c.userName}>{companionUser.name}</p>

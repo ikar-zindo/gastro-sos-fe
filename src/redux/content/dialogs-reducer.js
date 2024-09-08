@@ -6,14 +6,14 @@ let initialState = {
 		{
 			id: 0,
 			participants: [
-				{userId: 0},
-				{userId: 1}
+				{userId: 20},
+				{userId: 21}
 			],
 			messages: [
 				{
 					id: 1000,
-					senderId: 0,
-					receiverId: 1,
+					senderId: 20,
+					receiverId: 21,
 					text: "Hello!",
 					content: {},
 					createdAt: "12:00",
@@ -33,14 +33,14 @@ let initialState = {
 		{
 			id: 1,
 			participants: [
-				{userId: 0},
-				{userId: 2}
+				{userId: 20},
+				{userId: 22}
 			],
 			messages: [
 				{
 					id: 1000,
-					senderId: 0,
-					receiverId: 2,
+					senderId: 20,
+					receiverId: 22,
 					text: "Hello!",
 					content: {},
 					createdAt: "12:00",
@@ -60,14 +60,14 @@ let initialState = {
 		{
 			id: 2,
 			participants: [
-				{userId: 0},
-				{userId: 3}
+				{userId: 20},
+				{userId: 23}
 			],
 			messages: [
 				{
 					id: 1000,
-					senderId: 0,
-					receiverId: 3,
+					senderId: 20,
+					receiverId: 23,
 					text: "Hello!",
 					content: {},
 					createdAt: "12:00",
@@ -87,14 +87,14 @@ let initialState = {
 		{
 			id: 3,
 			participants: [
-				{userId: 0},
-				{userId: 4}
+				{userId: 20},
+				{userId: 24}
 			],
 			messages: [
 				{
 					id: 1000,
-					senderId: 0,
-					receiverId: 4,
+					senderId: 20,
+					receiverId: 24,
 					text: "Hello!",
 					content: {},
 					createdAt: "12:00",
@@ -114,14 +114,14 @@ let initialState = {
 		{
 			id: 4,
 			participants: [
-				{userId: 0},
-				{userId: 5}
+				{userId: 20},
+				{userId: 25}
 			],
 			messages: [
 				{
 					id: 1000,
-					senderId: 0,
-					receiverId: 5,
+					senderId: 20,
+					receiverId: 25,
 					text: "Hello!",
 					content: {},
 					createdAt: "12:00",
@@ -141,14 +141,14 @@ let initialState = {
 		{
 			id: 5,
 			participants: [
-				{userId: 0},
-				{userId: 6}
+				{userId: 20},
+				{userId: 26}
 			],
 			messages: [
 				{
 					id: 1000,
-					senderId: 0,
-					receiverId: 6,
+					senderId: 20,
+					receiverId: 26,
 					text: "Hello!",
 					content: {},
 					createdAt: "12:00",
@@ -168,14 +168,14 @@ let initialState = {
 		{
 			id: 6,
 			participants: [
-				{userId: 0},
-				{userId: 7}
+				{userId: 20},
+				{userId: 27}
 			],
 			messages: [
 				{
 					id: 1000,
-					senderId: 0,
-					receiverId: 7,
+					senderId: 20,
+					receiverId: 27,
 					text: "Hello!",
 					content: {},
 					createdAt: "12:00",
@@ -195,14 +195,14 @@ let initialState = {
 		{
 			id: 7,
 			participants: [
-				{userId: 0},
-				{userId: 8}
+				{userId: 20},
+				{userId: 28}
 			],
 			messages: [
 				{
 					id: 1000,
-					senderId: 0,
-					receiverId: 8,
+					senderId: 20,
+					receiverId: 28,
 					text: "Hello!",
 					content: {},
 					createdAt: "12:00",
@@ -222,14 +222,14 @@ let initialState = {
 		{
 			id: 8,
 			participants: [
-				{userId: 0},
-				{userId: 9}
+				{userId: 20},
+				{userId: 29}
 			],
 			messages: [
 				{
 					id: 1000,
-					senderId: 0,
-					receiverId: 9,
+					senderId: 20,
+					receiverId: 29,
 					text: "Hello!",
 					content: {},
 					createdAt: "12:00",

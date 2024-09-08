@@ -8,7 +8,7 @@ const PostComponent = (props) => {
 	return (
 		<div className={c.post}>
 			<div className={c.userInfo}>
-				<img alt='ava' src={user.ava}/>
+				<img alt='ava' src={user.imgUrl}/>
 
 				<div className={c.userInfoWrapper}>
 					<p className={c.userName}>{user.name}</p>

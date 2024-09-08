@@ -11,7 +11,7 @@ let initialState = {
 			},
 			likes: 3,
 			dislikes: 1,
-			userId: 0,
+			userId: 20,
 			createdAt: "12/12/24"
 		},
 		{
@@ -22,7 +22,7 @@ let initialState = {
 			},
 			likes: 30,
 			dislikes: 5,
-			userId: 2,
+			userId: 22,
 			createdAt: "12/12/24"
 		}
 		// {
@@ -30,28 +30,28 @@ let initialState = {
 		// 	content: "I'm learning React",
 		// 	likes: 12,
 		// 	dislikes: 0,
-		// 	userId: 0
+		// 	userId:20
 		// },
 		// {
 		// 	id: 4,
 		// 	content: "Happy Birthday",
 		// 	likes: 24,
 		// 	dislikes: 0,
-		// 	userId: 1
+		// 	userId:21
 		// },
 		// {
 		// 	id: 5,
 		// 	content: "Happy Birthday",
 		// 	likes: 24,
 		// 	dislikes: 0,
-		// 	userId: 3
+		// 	userId:23
 		// },
 		// {
 		// 	id: 6,
 		// 	content: "Hello",
 		// 	likes: 24,
 		// 	dislikes: 0,
-		// 	userId: 6
+		// 	userId:26
 		// }
 	],
 	postValue: {

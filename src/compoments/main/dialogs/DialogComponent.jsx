@@ -12,7 +12,7 @@ const DialogComponent = (props) => {
 			<div className={c.dialog + ' ' + c.active}>
 				<NavLink to={path}>
 					<div className={c.userInfo}>
-						<img alt='ava' src={user.ava}/>
+						<img alt='ava' src={user.imgUrl}/>
 
 						<div className={c.userInfoWrapper}>
 							<p className={c.userName}>{user.name}</p>

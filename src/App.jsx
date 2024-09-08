@@ -22,18 +22,18 @@ const App = () => {
 
 				<div className='app-wrapper-content'>
 					<Routes>
-						<Route
-							path='/'
-							element={<HomeContainer/>}/>
-						<Route
-							path='/profile'
-							element={<ProfileContainer/>}/>
-						<Route
-							path='/dialogs'
-							element={<DialogsContainer/>}/>
-						<Route
-							path='/dialogs/:id'
-							element={<ChatContainer/>}/>
+						{/*<Route*/}
+						{/*	path='/'*/}
+						{/*	element={<HomeContainer/>}/>*/}
+						{/*<Route*/}
+						{/*	path='/profile'*/}
+						{/*	element={<ProfileContainer/>}/>*/}
+						{/*<Route*/}
+						{/*	path='/dialogs'*/}
+						{/*	element={<DialogsContainer/>}/>*/}
+						{/*<Route*/}
+						{/*	path='/dialogs/:id'*/}
+						{/*	element={<ChatContainer/>}/>*/}
 						<Route
 							path='/search'
 							element={<SearchContainer/>}/>
