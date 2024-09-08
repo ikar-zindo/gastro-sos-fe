@@ -1,13 +1,12 @@
-import React from 'react';
 import c from '../../../styles/main/home/Home.module.css'
-import HomePostsContainer from "../../main/home/HomePostsContainer";
-import StoriesContainer from "../../main/home/StoriesContainer";
+import StoriesContainer from "./HomeStoriesContainer.jsx";
+import HomePostsContainer from "./HomePostContainer.jsx";
 
-const HomeContainer = (props) => {
+const HomeContainer = () => {
 	return (
 		<div className={c.home}>
-			<StoriesContainer store={props.store}/>
-			<HomePostsContainer store={props.store}/>
+			<StoriesContainer/>
+			<HomePostsContainer/>
 		</div>
 	);
 }

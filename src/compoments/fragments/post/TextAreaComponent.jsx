@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import c from '../../../styles/fragments/post/TextArea.module.css';
 
 const TextAreaComponent = (props) => {
-	let postValue = props.postValue;
+	let postValue = props.value;
 	let textareaRef = React.createRef();
 
 	let onAddPostClick = () => {
@@ -52,7 +52,6 @@ const TextAreaComponent = (props) => {
 						id='new-post'
 						ref={textareaRef}
 						value={postValue.text}
-						defaultValue=''
 						onChange={onPostTextChange}
 						onKeyDown={handleKeyDown}
 						className="textarea"/>

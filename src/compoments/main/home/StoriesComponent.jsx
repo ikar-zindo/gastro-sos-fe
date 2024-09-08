@@ -2,8 +2,8 @@ import React from 'react';
 import c from "../../../styles/main/home/Home.module.css";
 import StoryElement from "../../fragments/stories/StoryElement";
 
-const StoriesContainer = (props) => {
-	let users = props.store.getState().users;
+const StoriesComponent = (props) => {
+	let users = props.users;
 
 	// TODO: вывод историй
 	let stories = users.map(user => {
@@ -17,4 +17,4 @@ const StoriesContainer = (props) => {
 	);
 };
 
-export default StoriesContainer;
+export default StoriesComponent;

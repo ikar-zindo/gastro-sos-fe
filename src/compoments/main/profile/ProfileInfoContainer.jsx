@@ -1,18 +1,19 @@
-import React from 'react';
-import c from "../../../styles/main/profile/ProfileInfo.module.css";
+import ProfileInfoComponent from "./ProfileInfoComponent.jsx";
+import {connect} from "react-redux";
 
-const ProfileInfoContainer = () => {
-	return (
-		<div className={c.profileInfo}>
-			<img className={c.img}
-			     src='https://t3.ftcdn.net/jpg/06/27/85/32/360_F_627853212_bIw6wBo8qXXZvrj7wVXNew9fovoVSEoJ.jpg'
-			     alt='content'></img>
+let mapState = (state) => {
+	return {
+		users: state.users,
+		myPostContentPage: state.myPostContentPage
+	}
+}
 
-			<div className={c.descriptionBlock}>
-				ava + desc
-			</div>
-		</div>
-	);
-};
+let mapDispatch = (dispatch) => {
+	return {
+	}
+}
+
+export const ProfileInfoContainer =
+	connect(mapState,  mapDispatch)(ProfileInfoComponent);
 
 export default ProfileInfoContainer;

@@ -58,7 +58,19 @@ let initialState = {
 const profilePostsContentReducer = (state = initialState, action) => {
 
 	switch (action.type) {
-		case ADD_POST:
+		// UPDATE_POST_TEXT
+		case UPDATE_POST_TEXT: {
+			return {
+				...state,
+				postValue: {
+					...state.postValue,
+					text: action.postValue.text
+				}
+			};
+		}
+
+		// ADD_POST
+		case ADD_POST: {
 			let newPost = {
 				id: state.posts.length + 1,
 				text: state.postValue.text,
@@ -69,13 +81,14 @@ const profilePostsContentReducer = (state = initialState, action) => {
 				createdAt: "12/12/24"
 			};
 
-			state.posts.push(newPost);
-			state.postValue.text = '';
-			return state;
-
-		case UPDATE_POST_TEXT:
-			state.postValue.text = action.postValue.text;
-			return state;
+			return {
+				...state,
+				posts: [...state.posts, newPost],
+				postValue: {
+					text: ''
+				}
+			};
+		}
 
 		default:
 			return state;

@@ -6,45 +6,39 @@ import ProfileContainer from "./compoments/main/profile/ProfileContainer";
 import NavbarComponent from "./compoments/fragments/navbar/NavbarComponent";
 import RightComponent from "./compoments/main/right/RightComponent";
 import NavigateComponent from "./compoments/fragments/navigate/NavigateComponent";
-import DialogsContainer from "./compoments/main/dialogs/DialogsContainer";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import HomeContainer from "./compoments/main/home/HomeContainer";
-import ChatContainer from "./compoments/main/dialogs/ChatContainer";
+import DialogsContainer from "./compoments/main/dialogs/DialogsContainer.jsx";
+import ChatContainer from "./compoments/main/dialogs/ChatContainer.jsx";
 
-const App = (props) => {
+const App = () => {
 	return (
 		<>
-			<BrowserRouter>
-				<div className="app-wrapper">
-					<HeaderComponent/>
+			<div className="app-wrapper">
+				<HeaderComponent/>
+				<NavbarComponent/>
 
-					<NavbarComponent/>
-
-					<div className='app-wrapper-content'>
-						<Routes>
-							<Route
-								path='/'
-								element={<HomeContainer store={props.store}/>}/>
-							<Route
-								path='/profile'
-								element={<ProfileContainer store={props.store}/>}/>
-							<Route
-								path='/dialogs'
-								element={<DialogsContainer store={props.store}/>}/>
-							<Route
-								path='dialogs/:id'
-								element={<ChatContainer store={props.store}/>}/>
-						</Routes>
-					</div>
-
-					<RightComponent/>
-
-					<NavigateComponent/>
-
-					<FooterComponent/>
-
+				<div className='app-wrapper-content'>
+					<Routes>
+						<Route
+							path='/'
+							element={<HomeContainer/>}/>
+						<Route
+							path='/profile'
+							element={<ProfileContainer/>}/>
+						<Route
+							path='/dialogs'
+							element={<DialogsContainer/>}/>
+						<Route
+							path='dialogs/:id'
+							element={<ChatContainer/>}/>
+					</Routes>
 				</div>
-			</BrowserRouter>
+
+				<RightComponent/>
+				<NavigateComponent/>
+				<FooterComponent/>
+			</div>
 		</>
 	);
 }

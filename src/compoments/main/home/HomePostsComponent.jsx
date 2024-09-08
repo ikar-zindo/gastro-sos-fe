@@ -2,9 +2,9 @@ import React from 'react';
 import c from '../../../styles/main/home/Home.module.css'
 import PostComponent from "../../fragments/post/PostComponent";
 
-const HomePostsContainer = (props) => {
-	let homePage = props.store.getState().homePage;
-	let users = props.store.getState().users;
+const HomePostsComponent = (props) => {
+	let homePage = props.homePage;
+	let users = props.users;
 
 	let postElements = homePage.posts.map(post => {
 		let user = users.find(user => user.id === post.userId);
@@ -19,4 +19,4 @@ const HomePostsContainer = (props) => {
 	);
 };
 
-export default HomePostsContainer;
+export default HomePostsComponent;
