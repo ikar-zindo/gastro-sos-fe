@@ -1,14 +1,52 @@
 # Social Network for Chefs
 
-## React + Vite
+## 1. CORS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Change for you local server
 
-Currently, two official plugins are available:
+[server.js](server.js)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```javascript
+// Proxy setup
+app.use('/api', createProxyMiddleware ({
+	// target: 'https://social-network.samuraijs.com/api/1.0',
+	target: 'http://localhost:8890',
+	changeOrigin: true,
+	pathRewrite: {
+		'^/api': '', // Remove /api prefix when forwarding the request
+	},
+}));
+```
 
+[vite.config.js](vite.config.js)
+
+```javascript
+import {defineConfig} from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+	plugins: [react()],
+	server: {
+		port: 3000,
+		proxy: {
+			'/api': {
+				target: "https://social-network.samuraijs.com/api/1.0/",
+				// target: 'http://localhost:8890',
+				changeOrigin: true,
+				rewrite: (path) => path.replace(/^\/api/, '')
+			}
+		}
+	}});
+```
+
+[UserComponent.jsx](src%2Fcompoments%2Fmain%2Fuser%2FUserComponent.jsx)
+
+```javascript
+axios.get("http://localhost:8890/review")
+	// axios.get("https://social-network.samuraijs.com/api/1.0/users")
+	.then(response => { });
+```
 
 ### Running an application in Docker
 

@@ -10,11 +10,11 @@ const UserComponent = (props) => {
 	{
 		if (props.users.length === 0) {
 					// debugger
-			// axios.get("http://localhost:8890/review")
-			axios.get("https://cors-anywhere.herokuapp.com/https://social-network.samuraijs.com/api/1.0/users")
+			axios.get("https://social-network.samuraijs.com/api/1.0/users")
 				.then(response => {
-					console.log(response.data);
-					props.setUsers(response.data.items);
+					// debugger
+					console.log(response);
+					props.setUsers(response);
 				});
 		}
 	}
