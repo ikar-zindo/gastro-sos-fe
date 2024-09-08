@@ -6,7 +6,7 @@ import {sendMessageAction, updateMessageTextAction} from "../../../redux/content
 let mapState = (state) => {
 	return {
 		dialogPage: state.dialogPage,
-		users: state.users
+		users: state.usersPage.users
 	}
 }
 
@@ -21,6 +21,7 @@ let mapDispatch = (dispatch) => {
 	}
 }
 
-const ChatContainer = connect(mapState,  mapDispatch)(ChatComponent)
+const ChatContainer =
+	connect(mapState,  mapDispatch)(ChatComponent)
 
 export default ChatContainer;

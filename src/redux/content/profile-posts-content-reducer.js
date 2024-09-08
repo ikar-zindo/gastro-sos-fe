@@ -6,7 +6,9 @@ let initialState = {
 		{
 			id: 1,
 			text: "It's my first post",
-			content: {},
+			content: {
+				img: ""
+			},
 			likes: 3,
 			dislikes: 1,
 			userId: 0,
@@ -15,7 +17,9 @@ let initialState = {
 		{
 			id: 2,
 			text: 'Hi, how are you?',
-			content: {},
+			content: {
+				img: ""
+			},
 			likes: 30,
 			dislikes: 5,
 			userId: 2,

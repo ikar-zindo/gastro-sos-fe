@@ -5,7 +5,7 @@ import {addPostAction, updatePostTextAction} from "../../../redux/content/profil
 
 let mapState = (state) => {
 	return {
-		users: state.users,
+		users: state.usersPage.users,
 		myPostContentPage: state.myPostContentPage
 	}
 }

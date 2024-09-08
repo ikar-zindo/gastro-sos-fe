@@ -49,8 +49,9 @@ const ChatComponent = (props) => {
 			<div className={c.messages}>
 				<div className={c.messageItem}>{messagesElement ? messagesElement : (<div>Loading...</div>)}</div>
 			</div>
-			
+
 			<TextAreaComponent
+				buttonValue='Send'
 				value={messageValue}
 				changePostText={handleChange}
 				addNewPost={onSendMessageClick}/>

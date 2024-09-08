@@ -18,25 +18,24 @@ textarea {
 
 /* Button styles */
 .button {
-	padding-right: 24px;
+	padding-right: 8px;
 
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
 }
 
-button {
-	background-color: rgb(50, 70, 90); /* Темный фон кнопки */
-	border-radius: 12px; /* Скругление углов кнопки */
-	border: 1px solid rgb(100, 130, 180); /* Граница кнопки */
-	color: rgb(230, 230, 230); /* Цвет текста на кнопке */
-	padding: 4px 18px; /* Внутренние отступы кнопки */
-	font-size: 14px; /* Размер шрифта текста кнопки */
-	font-family: Arial, sans-serif; /* Шрифт текста кнопки */
-	cursor: pointer; /* Указывает, что кнопка кликабельна */
-	outline: none; /* Убирает контур кнопки при фокусе */
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень для кнопки */
-	transition: background-color 0.3s ease, border-color 0.3s ease; /* Плавный переход для изменения цвета */
+.button button {
+	background-color: rgb(50, 70, 90);
+	border-radius: 12px;
+	border: 1px solid rgb(100, 130, 180);
+	color: rgb(230, 230, 230);
+	padding: 4px 36px;
+	font-size: 14px;
+	cursor: pointer;
+	outline: none;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Hover state for button */

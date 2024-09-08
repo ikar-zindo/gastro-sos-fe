@@ -31,6 +31,7 @@ const ProfilePostsComponent = (props) => {
 		<div>
 			<h3>My Posts</h3>
 			<TextAreaComponent
+				buttonValue='Add post'
 				value={myPostContent.postValue}
 				changePostText={handleChange}
 				addNewPost={handleClick}/>

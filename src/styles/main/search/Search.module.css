@@ -1,35 +1,22 @@
 .search {
-
-}
-
-.userInfo {
-	display: flex;
-	align-items: center;
-}
-
-.userInfoWrapper {
-	margin-left: 8px;
-	margin-top: 8px;
-	padding: 5px;
-	background-color: rgb(50, 62, 83);
-	border-radius: 12px;
-	display: flex;
-	flex-direction: column;
-}
-
-.userInfo .userName {
-	display: inline-block;
-	vertical-align: middle;
-	color: rgb(230, 230, 230);
-	font-size: 18px;
-}
-
-.date {
-	margin-top: 4px;
-	margin-left: 12px;
-	color: rgb(211, 200, 200);
-	font-size: 12px;
+	padding: 16px;
 }
 
 @media (max-width: 768px) {
+	.search {
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+		border-radius: 16px;
+		overflow: hidden;
+		overflow-y: auto;
+		scrollbar-width: none; /* Скрывает полосу прокрутки в Firefox */
+		-ms-overflow-style: none; /* Скрывает полосу прокрутки в IE и Edge */
+	}
+
+	.search::-webkit-scrollbar {
+		display: none; /* Скрывает полосу прокрутки в Chrome, Safari и Opera */
+	}
+
 }

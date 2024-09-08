@@ -5,12 +5,17 @@
 	border-radius: 12px;
 }
 
+.post img {
+	width: 100%;
+	margin-bottom: 8px;
+}
+
 .postMessage {
 	color: rgb(230, 230, 230);
 	padding: 15px;
 }
 
-.post img {
+.userInfo img {
 	margin-bottom: 4px;
 	width: 60px;
 	height: 60px;

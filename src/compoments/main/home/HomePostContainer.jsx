@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 let mapState = (state) => {
 	return {
 		homePage: state.homePage,
-		users: state.users
+		users: state.usersPage.users
 	}
 }
 

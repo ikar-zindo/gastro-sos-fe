@@ -1,0 +1,117 @@
+.userInfo {
+	height: 120px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	margin-top: 8px;
+}
+
+.userInfo img {
+	height: 80px;
+	width: 80px;
+	border-radius: 30px;
+}
+
+.userInfoWrapper {
+	display: flex;
+	margin-left: 12px;
+	padding: 5px;
+	border-radius: 12px;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
+.userName {
+	display: inline-block;
+	vertical-align: middle;
+	color: rgb(230, 230, 230);
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.status {
+	font-size: 14px;
+}
+
+.userNameWrapper {
+	margin-right: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.userLocation {
+	margin-right: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.city {
+	font-size: 24px;
+}
+
+.country {
+	font-size: 18px;
+}
+
+.city, .country {
+	margin: 0;
+	text-align: right;
+}
+
+button {
+	margin-right: 16px;
+	padding: 4px 20px;
+	border-radius: 15px;
+	background-color: #50708e;
+	margin-left: auto;
+	font-size: 26px;
+	color: rgb(230, 230, 230);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	border: 1px solid rgb(100, 130, 180);
+	cursor: pointer;
+	outline: none;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover state for button */
+button:hover {
+	background-color: rgb(60, 80, 100); /* Слегка светлее фон при наведении */
+	border-color: rgb(120, 150, 200); /* Слегка светлее граница при наведении */
+}
+
+/* Active state for button */
+button:active {
+	background-color: rgb(40, 60, 80); /* Еще темнее фон при нажатии */
+	border-color: rgb(80, 110, 160); /* Еще темнее граница при нажатии */
+}
+
+.img {
+	height: 100px;
+	width: 100px;
+	/*border-radius: 38px;*/
+	/*overflow: hidden; !* Скрываем части изображения, которые выходят за рамки блока *!*/
+}
+
+img {
+	/*height: 100%;*/
+	/*width: 100%;*/
+	/*object-fit: cover; !* Изображение заполняет блок, сохраняя пропорции *!*/
+	/*border-radius: 38px;*/
+}
+
+.date {
+	margin-top: 4px;
+	margin-left: 12px;
+	color: rgb(211, 200, 200);
+	font-size: 12px;
+}
+
+@media (max-width: 768px) {
+}

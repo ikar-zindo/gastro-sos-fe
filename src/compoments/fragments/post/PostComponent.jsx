@@ -18,6 +18,8 @@ const PostComponent = (props) => {
 
 			<p className={c.postMessage}>{post.text}</p>
 
+			{post.content.img ? <img alt='content' src={post.content.img}></img> : <div></div>}
+
 			<div className={c.reactionContainer}>
 				<span className={c.reaction}>Like {post.likes}</span>
 				<span className={c.reaction}> Dislike {post.dislikes}</span>

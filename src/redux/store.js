@@ -13,7 +13,7 @@ let reducers = combineReducers({
 	myPostContentPage: profilePostsContentReducer,
 	profilePage: profileReducer,
 	searchPage: searchReducer,
-	users: usersReducer,
+	usersPage: usersReducer,
 	sidebarPage: sidebarReducer
 });
 

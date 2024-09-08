@@ -58,7 +58,7 @@ const TextAreaComponent = (props) => {
 			</div>
 
 			<div className={c.button}>
-				<button onClick={onAddPostClick}>Add post</button>
+				<button onClick={onAddPostClick}>{props.buttonValue}</button>
 			</div>
 		</div>
 	);

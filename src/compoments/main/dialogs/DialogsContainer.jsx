@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 let mapState = (state) => {
 	return {
 		dialogPage: state.dialogPage,
-		users: state.users
+		users: state.usersPage.users
 	}
 }
 
