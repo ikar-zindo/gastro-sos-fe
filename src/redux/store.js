@@ -10,8 +10,8 @@ import usersReducer from "./users-reducer";
 let reducers = combineReducers({
 	dialogPage: dialogsReducer,
 	homePage: homeReducer,
-	myPostContentPage: profilePostsContentReducer,
 	profilePage: profileReducer,
+	profilePostContentPage: profilePostsContentReducer,
 	searchPage: searchReducer,
 	usersPage: usersReducer,
 	sidebarPage: sidebarReducer

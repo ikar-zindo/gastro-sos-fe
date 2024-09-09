@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import DialogsComponent from "./DialogsComponent.jsx";
 import {connect} from "react-redux";
 
@@ -9,12 +9,20 @@ let mapState = (state) => {
 	}
 }
 
-let mapDispatch = () => {
-	return {
 
-	}
+const DialogsContainer = (props) => {
+
+	useEffect(() => {
+	}, []);
+
+
+	return <DialogsComponent
+		dialogPage={props.dialogPage}
+		users={props.users}/>
+
 }
 
-const DialogsContainer =
-	connect(mapState,  mapDispatch)(DialogsComponent)
-export default DialogsContainer;
+
+
+export default connect(mapState,  {})
+(DialogsContainer);

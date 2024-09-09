@@ -1,11 +1,11 @@
 import React from 'react';
-import c from "../../../styles/main/dialogs/CompanionElement.module.css";
+import c from "../../styles/main/dialogs/CompanionElement.module.css";
 import {NavLink} from "react-router-dom";
 
 const DialogComponent = (props) => {
 	let user = props.user
 	let dialog = props.dialog;
-	let path = "/dialogs/" + dialog.id;
+	let path = "/chat/" + dialog.id;
 
 	return (
 		<div>

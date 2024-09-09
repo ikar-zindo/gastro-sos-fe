@@ -11,12 +11,7 @@ const UsersComponent = (props) => {
 	}
 
 	let usersElements = props.users.map(user => (
-		<UserComponent
-			setIsFetching={props.setIsFetching}
-			isFetching={props.isFetching}
-			user={user}
-			unfollow={props.unfollow}
-			follow={props.follow}/>
+		<UserComponent key={user.id} user={user}/>
 	));
 
 	return (
@@ -30,8 +25,8 @@ const UsersComponent = (props) => {
 				})}
 			</div>
 
-			{/*{props.isFetching ? <PreloaderComponent/> : usersElements}*/}
-			 {usersElements ? usersElements : (<PreloaderComponent/>)}
+			{props.isFetching ? <PreloaderComponent/> : usersElements}
+			 {/*{usersElements ? usersElements : (<PreloaderComponent/>)}*/}
 		</div>
 	);
 

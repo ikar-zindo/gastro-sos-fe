@@ -1,5 +1,5 @@
 import React from "react";
-import HomePostsComponent from "./HomePostsComponent.jsx";
+import NewsPostsComponent from "./NewsPostsComponent.jsx";
 import {connect} from "react-redux";
 
 let mapState = (state) => {
@@ -9,12 +9,8 @@ let mapState = (state) => {
 	}
 }
 
-let mapDispatch = () => {
-	return {
 
-	}
-}
-
-export const HomePostsContainer = connect(mapState,  mapDispatch)(HomePostsComponent)
+export const HomePostsContainer =
+	connect(mapState, {})(NewsPostsComponent)
 
 export default HomePostsContainer;

@@ -1,134 +1,47 @@
-import React, {useEffect, useState} from 'react';
-import {connect} from "react-redux";
-import {
-	followAction,
-	setCurrentPageAction,
-	setIsFetchingAction,
-	setTotalUsersAction,
-	setUsersAction,
-	unfollowAction
-} from "../../../redux/users-reducer.js";
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {setCurrentPage, setIsFetching, setTotalUsers, setUsers} from "../../../redux/users-reducer.js";
 import axios from "axios";
 import UsersComponent from "./UsersComponent.jsx";
 
-class UserClass extends React.Component {
-	componentDidMount() {
-		this.props.setIsFetching(true)
-		axios.get(
-			`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-			.then(response => {
-				this.props.setUsers(response.data.items);
-				this.props.setIsFetching(false);
-			});
-		axios.get(
-			'https://social-network.samuraijs.com/api/1.0/users')
-			.then(response => {
-				this.props.setTotalUsers(response.data.totalCount);
-			});
-	}
-
-
-	onUpdatePageClick = (pageNumber) => {
-		this.props.setIsFetching(true);
-		this.props.setCurrentPage(pageNumber);
-		axios.get(
-			`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
-			.then(response => {
-				this.props.setUsers(response.data.items);
-				this.props.setIsFetching(false);
-			});
-	};
-
-	render() {
-		return <UsersComponent users={this.props.users}
-		                       currentPage={this.props.currentPage}
-		                       pageSize={this.props.pageSize}
-		                       totalUsers={this.props.totalUsers}
-		                       setUsers={this.props.setUsers}
-		                       setCurrentPage={this.props.setCurrentPage}
-		                       onUpdatePageClick={this.onUpdatePageClick}
-		                       setIsFetching={this.props.setIsFetching}
-		                       isFetching={this.props.isFetching}
-		                       follow={this.props.follow}
-		                       unfollow={this.props.unfollow}/>
-
-	}
-}
-
 const UserFunction = (props) => {
-	const [users, setUsers] = useState([]);
+	const dispatch = useDispatch();
+	const usersPage = useSelector(state => state.usersPage)
+	const users = usersPage.users1;
+	const pageSize = usersPage.pageSize;
+	const totalUsers = usersPage.totalUsers;
+	const currentPage = usersPage.currentPage;
+	const isFetching = usersPage.isFetching;
 
 	useEffect(() => {
-		if (props.users.length === 0) {
-			props.setIsFetching(true)
+		if (users.length === 0) {
+			dispatch(setIsFetching(true));
 			axios.get('https://social-network.samuraijs.com/api/1.0/users')
 				.then(response => {
-					props.setUsers(response.data.items);
-					props.setIsFetching(false)
-				});
-			axios.get('https://social-network.samuraijs.com/api/1.0/users')
-				.then(response => {
-					props.setTotalUsers(response.data.totalCount);
+					dispatch(setUsers(response.data.items));
+					dispatch(setTotalUsers(response.data.totalCount));
+					dispatch(setIsFetching(false));
 				});
 		}
-	}, [props.users, props.totalUsers, props.currentPage]);
+	}, [users, totalUsers, currentPage]);
 
 	let onUpdatePageClick = (pageNumber) => {
-		props.setIsFetching(true)
-		props.setCurrentPage(pageNumber);
+		dispatch(setIsFetching(true));
+		dispatch(setCurrentPage(pageNumber));
 		axios.get(
-			`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${props.pageSize}`)
+			`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`)
 			.then(response => {
-				props.setUsers(response.data.items);
-				props.setIsFetching(false)
+				dispatch(setUsers(response.data.items));
+				dispatch(setIsFetching(false))
 			});
 	};
 
-	return <UsersComponent users={props.users}
-	                       currentPage={props.currentPage}
-	                       pageSize={props.pageSize}
-	                       totalUsers={props.totalUsers}
-	                       setUsers={props.setUsers}
-	                       setCurrentPage={props.setCurrentPage}
+	return <UsersComponent users={users}
+	                       currentPage={currentPage}
+	                       pageSize={pageSize}
+	                       totalUsers={totalUsers}
 	                       onUpdatePageClick={onUpdatePageClick}
-	                       setIsFetching={props.setIsFetching}
-	                       isFetching={props.isFetching}
-	                       follow={props.follow}
-	                       unfollow={props.unfollow}/>
+	                       isFetching={isFetching}/>
 };
 
-let mapState = (state) => {
-	return {
-		users: state.usersPage.users1,
-		pageSize: state.usersPage.pageSize,
-		totalUsers: state.usersPage.totalUsers,
-		currentPage: state.usersPage.currentPage,
-		isFetching: state.usersPage.isFetching
-	}
-}
-
-let mapDispatch = (dispatch) => {
-	return {
-		follow: (userId) => {
-			dispatch(followAction(userId))
-		},
-		unfollow: (userId) => {
-			dispatch(unfollowAction(userId))
-		},
-		setUsers: (users) => {
-			dispatch(setUsersAction(users))
-		},
-		setCurrentPage: (currentPage) => {
-			dispatch(setCurrentPageAction(currentPage))
-		},
-		setTotalUsers: (totalUsers) => {
-			dispatch(setTotalUsersAction(totalUsers))
-		},
-		setIsFetching: (totalUsers) => {
-			dispatch(setIsFetchingAction(totalUsers))
-		}
-	}
-}
-
-// export default connect(mapState,  mapDispatch)(UserComponent);
-export default connect(mapState, mapDispatch)(UserFunction);
+export default UserFunction;

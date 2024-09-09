@@ -1,5 +1,5 @@
 import React from 'react';
-import StoryComponent from "../../common/StoryComponent.jsx";
+import StoryComponent from "../../../common/StoryComponent.jsx";
 import c from '/src/styles/common/stories-component.module.css';
 
 

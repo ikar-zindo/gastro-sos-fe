@@ -1,8 +1,8 @@
 import React from 'react';
-import c from '../../../styles/main/home.module.css'
-import PostComponent from "../../common/PostComponent.jsx";
+import c from '../../../../styles/main/home.module.css'
+import PostComponent from "../../../common/PostComponent.jsx";
 
-const HomePostsComponent = (props) => {
+const NewsPostsComponent = (props) => {
 	let homePage = props.homePage;
 	let users = props.users;
 
@@ -22,4 +22,4 @@ const HomePostsComponent = (props) => {
 	);
 };
 
-export default HomePostsComponent;
+export default NewsPostsComponent;

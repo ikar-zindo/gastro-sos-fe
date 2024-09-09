@@ -5,11 +5,11 @@ import {useParams} from "react-router-dom";
 import TextAreaComponent from "../../common/TextAreaComponent.jsx";
 
 const ChatComponent = (props) => {
-	let {id} = useParams();
+	let {userId} = useParams();
 
 	let dialogPage = props.dialogPage;
 	let messageValue = dialogPage.messageValue;
-	let currentDialog = dialogPage.dialogs.find(dialog => dialog.id === parseInt(id));
+	let currentDialog = dialogPage.dialogs.find(dialog => dialog.id === parseInt(userId));
 	let messages = currentDialog ? currentDialog.messages : [];
 
 	let users = props.users;

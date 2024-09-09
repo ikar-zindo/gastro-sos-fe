@@ -1,36 +1,39 @@
 import React from 'react';
 import styles from '../../styles/main/users.module.css';
 import userPhoto from '../../assets/img/userPhoto.png';
-import preloader from "../../assets/img/preloader.svg";
 import PreloaderComponent from "./PreloaderComponent.jsx";
+import {NavLink} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {follow, unfollow} from "../../redux/users-reducer.js";
 
 const UserComponent = (props) => {
+	const dispatch = useDispatch();
 	let user = props.user;
+
 	return (
-		<>
-			{props.isFetching ? <PreloaderComponent/> : null}
-			<div key={user.id} className={styles.userInfoWrapper}>
+		<div key={user.id} className={styles.userInfoWrapper}>
+			<NavLink to={"/profile/" + user.id}>
 				<div className={styles.img}>
 					<img alt='ava' src={user.photos.small != null ? user.photos.small : userPhoto}/>
 				</div>
+			</NavLink>
 
-				<div className={styles.userInfo}>
-					<div className={styles.userNameWrapper}>
-						<p className={styles.userName}>{user.name}</p>
-						<p className={styles.status}>{user.status}</p>
+			<div className={styles.userInfo}>
+				<div className={styles.userNameWrapper}>
+					<p className={styles.userName}>{user.name}</p>
+					<p className={styles.status}>{user.status}</p>
 
-						<p className={styles.city}>{"user.location.city"}</p>
-						<p className={styles.country}>{"user.location.country"}</p>
-					</div>
-				</div>
-
-				<div className={styles.button}>
-					{user.following
-						? <button onClick={() => props.unfollow(user.id)}>Unfollow</button>
-						: <button onClick={() => props.follow(user.id)}>Follow</button>}
+					<p className={styles.city}>{"user.location.city"}</p>
+					<p className={styles.country}>{"user.location.country"}</p>
 				</div>
 			</div>
-		</>
+
+			<div className={styles.button}>
+				{user.following
+					? <button onClick={() => dispatch(unfollow(user.id))}>Unfollow</button>
+					: <button onClick={() => dispatch(follow(user.id))}>Follow</button>}
+			</div>
+		</div>
 	);
 };
 

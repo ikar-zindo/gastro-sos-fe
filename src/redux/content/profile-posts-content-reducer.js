@@ -99,8 +99,7 @@ const profilePostsContentReducer = (state = initialState, action) => {
 	}
 }
 
-export const addPostAction = () => ({type: ADD_POST})
-
-export const updatePostTextAction = (postValue) => ({type: UPDATE_POST_TEXT, postValue: postValue})
+export const addPost = () => ({type: ADD_POST})
+export const updatePostText = (postValue) => ({type: UPDATE_POST_TEXT, postValue: postValue})
 
 export default profilePostsContentReducer;

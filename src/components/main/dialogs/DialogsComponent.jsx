@@ -1,6 +1,7 @@
 import React from 'react';
 import c from '../../../styles/main/dialogs/Dialogs.module.css'
-import DialogComponent from "./DialogComponent";
+import DialogComponent from "../../common/DialogComponent.jsx";
+import PreloaderComponent from "../../common/PreloaderComponent.jsx";
 
 const DialogsComponent = (props) => {
 	let dialogPage = props.dialogPage;
@@ -15,12 +16,12 @@ const DialogsComponent = (props) => {
 					key={dialog.id}
 					user={user}
 					dialog={dialog}/>
-			</div>) : (<div className='loading'>Loading...</div>))
+			</div>) : (<PreloaderComponent/>))
 	});
 
 	return (
 		<div className={c.dialogs}>
-			{dialogsElement ? dialogsElement : (<div>Loading...</div>)}
+			{dialogsElement ? dialogsElement : (<PreloaderComponent/>)}
 		</div>
 	);
 };

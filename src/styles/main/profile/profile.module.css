@@ -1,0 +1,118 @@
+.profile {
+	margin: 16px;
+
+}
+
+.postsWrapper {
+	margin-top: 8px;
+}
+
+.posts {
+	margin-top: 16px;
+}
+
+.profileInfo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+}
+
+.descriptionBlock {
+	margin: 12px;
+}
+
+.img {
+	height: 80px;
+	width: 80px;
+	margin: 0 auto 8px;
+	/*display: flex;*/
+	/*justify-content: center;*/
+	/*align-items: center;*/
+}
+
+.img img {
+	height: 90px;
+	width: 90px;
+	border-radius: 45px;
+}
+
+.fullName {
+	margin: 0 auto;
+}
+
+.profileBio {
+	padding: 12px;
+}
+
+.aboutMe {
+	padding: 12px;
+}
+
+.switchButtons {
+	display: flex;
+	width: 100%;
+	gap: 10px;
+	margin: 8px 0;
+}
+
+.switchButtons button {
+	margin: 0;
+	flex: 1; /* Кнопки равной ширины */
+	padding: 10px 0; /* Убираем боковые отступы и оставляем только вертикальные */
+	text-align: center;
+	cursor: pointer;
+	border: none;
+}
+
+.switchButtons button.activeButton {
+	background-color: #4770a0;
+	color: #233546;
+}
+
+.switchButtons button:not(.activeButton) {
+	background-color: #304459;
+}
+
+.history {
+	display: flex;
+
+}
+
+.lookingForAJob {
+	height: 80px;
+	width: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.lookingForAJob img {
+	height: 40px;
+	width: 40px;
+}
+
+
+@media (max-width: 768px) {
+	.profile {
+		height: 100%;
+		margin: 0;
+		box-sizing: border-box;
+		border-radius: 4px;
+
+		/* =========  ПРОКРУТКА  ========= */
+		overflow: hidden;
+		overflow-y: auto;
+		scrollbar-width: none; /* Скрывает полосу прокрутки в Firefox */
+		-ms-overflow-style: none; /* Скрывает полосу прокрутки в IE и Edge */
+	}
+
+	.profile::-webkit-scrollbar {
+		display: none; /* Скрывает полосу прокрутки в Chrome, Safari и Opera */
+	}
+
+	/* =================================== */
+	.stories {
+		overflow: hidden;
+	}
+}

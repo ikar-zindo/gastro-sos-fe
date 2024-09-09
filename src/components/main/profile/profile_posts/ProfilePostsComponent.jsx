@@ -1,14 +1,13 @@
 import React from 'react';
-import PostComponent from "../../common/PostComponent.jsx";
-import c from '../../../styles/main/profile/ProfilePosts.module.css';
-import TextAreaComponent from "../../common/TextAreaComponent.jsx";
-import {addPostAction} from "../../../redux/content/profile-posts-content-reducer";
+import PostComponent from "../../../common/PostComponent.jsx";
+import style from '../../../../styles/main/profile/profile.module.css';
+import TextAreaComponent from "../../../common/TextAreaComponent.jsx";
 
 const ProfilePostsComponent = (props) => {
-	let myPostContent = props.myPostContentPage;
+	let profilePostContentPage = props.profilePostContentPage;
 	let users = props.users
 
-	let postElements = myPostContent.posts.map(post => {
+	let postElements = profilePostContentPage.posts.map(post => {
 		let user = users.find(user => user.id === post.userId);
 
 		if (!user) {
@@ -20,7 +19,7 @@ const ProfilePostsComponent = (props) => {
 	});
 
 	let handleClick = () => {
-		props.addPost(addPostAction());
+		props.addPost();
 	}
 
 	const handleChange = (postValue) => {
@@ -28,15 +27,14 @@ const ProfilePostsComponent = (props) => {
 	};
 
 	return (
-		<div>
-			<h3>My Posts</h3>
+		<div className={style.postsWrapper}>
 			<TextAreaComponent
 				buttonValue='Add post'
-				value={myPostContent.postValue}
+				value={profilePostContentPage.postValue}
 				changePostText={handleChange}
 				addNewPost={handleClick}/>
 
-			<div className={c.posts}>
+			<div className={style.posts}>
 				{postElements ? postElements : (<div className='loading'>Loading...</div>)}
 			</div>
 		</div>

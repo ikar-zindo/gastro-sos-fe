@@ -6,8 +6,10 @@
 	margin: 12px;
 }
 
-.img {
-	width: 100%;
+.img img {
+	height: 80px;
+	width: 80px;
+	border-radius: 30px;
 }
 
 @media (max-width: 768px) {
