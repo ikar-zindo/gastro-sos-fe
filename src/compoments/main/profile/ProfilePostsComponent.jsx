@@ -1,7 +1,7 @@
 import React from 'react';
-import PostComponent from "../../fragments/post/PostComponent";
+import PostComponent from "../../fragments/PostComponent.jsx";
 import c from '../../../styles/main/profile/ProfilePosts.module.css';
-import TextAreaComponent from "../../fragments/post/TextAreaComponent";
+import TextAreaComponent from "../../fragments/TextAreaComponent.jsx";
 import {addPostAction} from "../../../redux/content/profile-posts-content-reducer";
 
 const ProfilePostsComponent = (props) => {

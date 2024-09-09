@@ -11,10 +11,10 @@ const DialogComponent = (props) => {
 		<div>
 			<div className={c.dialog + ' ' + c.active}>
 				<NavLink to={path}>
-					<div className={c.userInfo}>
+					<div className={c.userInfoWrapper}>
 						<img alt='ava' src={user.imgUrl}/>
 
-						<div className={c.userInfoWrapper}>
+						<div className={c.userInfo}>
 							<p className={c.userName}>{user.name}</p>
 							<p className={c.date}>5 minutes ego</p>
 						</div>

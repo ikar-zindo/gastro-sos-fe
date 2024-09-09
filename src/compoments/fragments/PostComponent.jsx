@@ -1,5 +1,5 @@
 import React from 'react';
-import c from "../../../styles/fragments/post/Post.module.css";
+import c from "../../styles/fragments/post.module.css";
 
 const PostComponent = (props) => {
 	let user = props.user;
@@ -7,10 +7,10 @@ const PostComponent = (props) => {
 
 	return (
 		<div className={c.post}>
-			<div className={c.userInfo}>
+			<div className={c.userInfoWrapper}>
 				<img alt='ava' src={user.imgUrl}/>
 
-				<div className={c.userInfoWrapper}>
+				<div className={c.userInfo}>
 					<p className={c.userName}>{user.name}</p>
 					<p className={c.date}>{post.createdAt}</p>
 				</div>

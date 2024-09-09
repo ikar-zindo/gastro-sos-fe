@@ -1,8 +1,8 @@
-.userWrapper {
+.usersWrapper {
 
 }
 
-.userInfo {
+.userInfoWrapper {
 	height: 100px;
 	width: 100%;
 	display: flex;
@@ -25,7 +25,7 @@
 }
 
 
-.userInfoWrapper {
+.userInfo {
 	display: flex;
 	margin-left: 12px;
 	padding: 5px;

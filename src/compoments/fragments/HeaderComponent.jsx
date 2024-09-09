@@ -1,5 +1,5 @@
 import React from "react";
-import c from '../../../styles/fragments/header/Header.module.css';
+import c from '../../styles/fragments/header.module.css';
 
 const HeaderComponent = () => {
 	return (

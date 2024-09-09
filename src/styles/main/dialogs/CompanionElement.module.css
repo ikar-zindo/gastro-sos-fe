@@ -12,25 +12,25 @@
 	color: gold;
 }
 
-.userInfo img {
+.userInfoWrapper img {
 	margin-bottom: 4px;
 	width: 60px;
 	height: 60px;
 	border-radius: 30px;
 }
 
-.userInfo {
+.userInfoWrapper {
 	display: flex;
 	align-items: center;
 }
 
-.userInfoWrapper {
+.userInfo {
 	margin-left: 8px;
 	display: flex;
 	flex-direction: column;
 }
 
-.userInfo .userName {
+.userInfoWrapper .userName {
 	display: inline-block;
 	vertical-align: middle;
 	color: rgb(230, 230, 230);

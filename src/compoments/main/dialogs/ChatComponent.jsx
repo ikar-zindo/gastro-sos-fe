@@ -2,7 +2,7 @@ import React from 'react';
 import c from '../../../styles/main/dialogs/Chat.module.css'
 import MessageComponent from "./MessageComponent";
 import {useParams} from "react-router-dom";
-import TextAreaComponent from "../../fragments/post/TextAreaComponent.jsx";
+import TextAreaComponent from "../../fragments/TextAreaComponent.jsx";
 
 const ChatComponent = (props) => {
 	let {id} = useParams();
@@ -37,10 +37,10 @@ const ChatComponent = (props) => {
 
 	return (
 		<div className={c.chat}>
-			<div className={c.userInfo}>
+			<div className={c.userInfoWrapper}>
 				<img alt='ava' src={companionUser.imgUrl}/>
 
-				<div className={c.userInfoWrapper}>
+				<div className={c.userInfo}>
 					<p className={c.userName}>{companionUser.name}</p>
 					<p className={c.date}>5 minutes ego</p>
 				</div>

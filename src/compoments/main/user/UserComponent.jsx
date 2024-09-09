@@ -1,55 +1,58 @@
 import React from 'react';
-import c from '../../../styles/main/users/Users.module.css';
+import c from '../../../styles/main/users.module.css';
 import axios from "axios";
 import userPhoto from '../../../assets/img/userPhoto.png'
+import style from "../../../styles/main/users.module.css";
+import UserElement from "./UserElement.jsx";
 
 const UserComponent = (props) => {
 	let users = props.users;
-
-	// let getUsers = () => {
 		if (props.users.length === 0) {
 			axios.get("https://social-network.samuraijs.com/api/1.0/users")
 				.then(response => {
 					props.setUsers(response.data.items);
 				});
+			axios.get(
+				'https://social-network.samuraijs.com/api/1.0/users')
+				.then(response => {
+					props.setTotalUsers(response.data.totalCount);
+				});
 		}
-	// }
+
+	let onUpdatePageClick = (page) => {
+		props.setCurrentPage(page);
+		axios.get(
+			`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${props.pageSize}`)
+			.then(response => {
+				props.setUsers(response.data.items);
+			});
+	};
 
 	let usersElements = users.map(user => (
-			<div key={user.id} className={c.userInfo}>
-				<div className={c.img}>
-					{/*<img alt='ava' src={user.imgUrl}/>*/}
-					<img alt='ava' src={(user.photos.small) != null ? user.photos.small : userPhoto}/>
-				</div>
-
-				<div className={c.userInfoWrapper}>
-					<div className={c.userNameWrapper}>
-						<p className={c.userName}>{user.name}</p>
-						<p className={c.status}>{user.status}</p>
-					{/*</div>*/}
-
-					{/*<div className={c.userLocation}>*/}
-						<p className={c.city}>{"user.location.city"}</p>
-						<p className={c.country}>{"user.location.country"}</p>
-					</div>
-				</div>
-
-				<div className={c.button}>
-					{user.following
-						? <button onClick={() => {
-							props.unfollow(user.id)
-						}}>Unfollow</button>
-						: <button onClick={() => {
-							props.follow(user.id)
-						}}>Follow</button>}
-				</div>
-			</div>
+		<UserElement
+			user={user}
+			unfollow={props.unfollow}
+			follow={props.follow}/>
 		)
-	)
+	);
+
+	let pagesCount = Math.ceil(props.totalUsers / props.pageSize);
+	let pages = [];
+	for (let i = 1; i <= pagesCount; i++) {
+		pages.push(i)
+	}
 
 	return (
-		<div className={c.userWrapper}>
-			{/*<button onClick={getUsers}>Get Users</button>*/}
+		<div className={c.usersWrapper}>
+			<div className={style.pagination}>
+				{pages.map(page => {
+					return <span key={page} className={props.currentPage === page ? style.selectPage : ""}
+					             onClick={() => {
+						             onUpdatePageClick(page);
+					             }}>{page}</span>
+				})}
+			</div>
+
 			{usersElements ? usersElements : (<div className='loading'>Loading...</div>)}
 		</div>
 	);

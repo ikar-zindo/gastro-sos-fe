@@ -1,5 +1,5 @@
 import React from 'react';
-import c from '../../../styles/main/search/Search.module.css'
+import c from '../../../styles/main/search.module.css'
 import UsersContainer from "../user/UsersContainer.jsx";
 
 const SearchContainer = () => {

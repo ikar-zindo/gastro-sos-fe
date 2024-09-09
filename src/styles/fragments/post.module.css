@@ -10,30 +10,44 @@
 	margin-bottom: 8px;
 }
 
+.img {
+	height: 100px;
+	width: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.img img {
+	height: 70px;
+	width: 70px;
+	border-radius: 30px;
+}
+
 .postMessage {
 	color: rgb(230, 230, 230);
 	padding: 15px;
 }
 
-.userInfo img {
+.userInfoWrapper img {
 	margin-bottom: 4px;
 	width: 60px;
 	height: 60px;
 	border-radius: 30px;
 }
 
-.userInfo {
+.userInfoWrapper {
 	display: flex;
 	align-items: center;
 }
 
-.userInfoWrapper {
+.userInfo {
 	margin-left: 8px;
 	display: flex;
 	flex-direction: column;
 }
 
-.userInfo .userName {
+.userInfoWrapper .userName {
 	display: inline-block;
 	vertical-align: middle;
 	color: rgb(230, 230, 230);
