@@ -1,6 +1,6 @@
 import React from 'react';
 import c from '../../../styles/main/dialogs/Chat.module.css'
-import MessageComponent from "./MessageComponent";
+import MessageComponent from "../../common/MessageComponent.jsx";
 import {useParams} from "react-router-dom";
 import TextAreaComponent from "../../common/TextAreaComponent.jsx";
 

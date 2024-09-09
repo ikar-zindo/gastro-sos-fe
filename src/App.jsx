@@ -1,17 +1,17 @@
 import React from "react";
 import './App.css';
-import HeaderComponent from "./compoments/common/HeaderComponent.jsx";
-import FooterComponent from "./compoments/common/FooterComponent.jsx";
-import ProfileContainer from "./compoments/main/profile/ProfileContainer";
-import NavbarComponent from "./compoments/common/NavbarComponent.jsx";
-import RightComponent from "./compoments/main/right/RightComponent";
-import NavigateComponent from "./compoments/common/NavigateComponent.jsx";
+import HeaderComponent from "./components/common/HeaderComponent.jsx";
+import FooterComponent from "./components/common/FooterComponent.jsx";
+import ProfileContainer from "./components/main/profile/ProfileContainer";
+import NavbarComponent from "./components/common/NavbarComponent.jsx";
+import RightComponent from "./components/main/right/RightComponent";
+import NavigateComponent from "./components/common/NavigateComponent.jsx";
 import {Route, Routes} from "react-router-dom";
-import HomeContainer from "./compoments/main/home/HomeContainer";
-import DialogsContainer from "./compoments/main/dialogs/DialogsContainer.jsx";
-import ChatContainer from "./compoments/main/dialogs/ChatContainer.jsx";
-import SearchContainer from "./compoments/main/search/SearchContainer.jsx";
-import PlusContainer from "./compoments/main/plus/PlusContainer.jsx";
+import HomeContainer from "./components/main/home/HomeContainer";
+import DialogsContainer from "./components/main/dialogs/DialogsContainer.jsx";
+import ChatContainer from "./components/main/dialogs/ChatContainer.jsx";
+import SearchContainer from "./components/main/search/SearchContainer.jsx";
+import PlusContainer from "./components/main/plus/PlusContainer.jsx";
 
 const App = () => {
 	return (

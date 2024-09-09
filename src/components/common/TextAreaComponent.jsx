@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import c from '../../styles/fragments/text-area.module.css';
+import c from '../../styles/common/text-area.module.css';
 
 const TextAreaComponent = (props) => {
 	let postValue = props.value;

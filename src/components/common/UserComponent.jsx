@@ -1,14 +1,14 @@
 import React from 'react';
-import styles from '../../../styles/main/users.module.css';
-import userPhoto from '../../../assets/img/userPhoto.png';
-import preloader from "../../../assets/img/preloader.svg";
-import Preloader from "../../common/Preloader.jsx";
+import styles from '../../styles/main/users.module.css';
+import userPhoto from '../../assets/img/userPhoto.png';
+import preloader from "../../assets/img/preloader.svg";
+import PreloaderComponent from "./PreloaderComponent.jsx";
 
-const UserElement = (props) => {
+const UserComponent = (props) => {
 	let user = props.user;
 	return (
 		<>
-			{props.isFetching ? <Preloader/> : null}
+			{props.isFetching ? <PreloaderComponent/> : null}
 			<div key={user.id} className={styles.userInfoWrapper}>
 				<div className={styles.img}>
 					<img alt='ava' src={user.photos.small != null ? user.photos.small : userPhoto}/>
@@ -34,4 +34,4 @@ const UserElement = (props) => {
 	);
 };
 
-export default UserElement;
+export default UserComponent;

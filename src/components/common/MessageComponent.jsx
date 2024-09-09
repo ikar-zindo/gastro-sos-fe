@@ -1,5 +1,5 @@
 import React from 'react';
-import c from "../../../styles/main/dialogs/Message.module.css";
+import c from "../../styles/main/dialogs/Message.module.css";
 
 const MessageComponent = (props) => {
 	let currentUser = props.currentUser;

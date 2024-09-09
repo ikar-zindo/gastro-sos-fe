@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from "../../styles/fragments/preloader.module.css";
+import styles from "../../styles/common/preloader.module.css";
 import preloader from "../../assets/img/preloader.svg";
 
-const Preloader = () => {
+const PreloaderComponent = () => {
 	return (
 		<div className={styles.preloaderContainer}>
 			<img className={styles.preloader} src={preloader} alt="loading..."/>
@@ -10,4 +10,4 @@ const Preloader = () => {
 	);
 };
 
-export default Preloader;
+export default PreloaderComponent;

@@ -1,5 +1,5 @@
 import React from 'react';
-import c from "../../styles/fragments/post.module.css";
+import c from "../../styles/common/post.module.css";
 
 const PostComponent = (props) => {
 	let user = props.user;
