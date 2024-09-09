@@ -11,6 +11,8 @@
 }
 
 .img {
+	height: 100px;
+	width: 100px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -108,25 +110,28 @@ button:active {
 	border-color: rgb(80, 110, 160); /* Еще темнее граница при нажатии */
 }
 
-.img {
-	height: 100px;
-	width: 100px;
-	/*border-radius: 38px;*/
-	/*overflow: hidden; !* Скрываем части изображения, которые выходят за рамки блока *!*/
-}
-
-img {
-	/*height: 100%;*/
-	/*width: 100%;*/
-	/*object-fit: cover; !* Изображение заполняет блок, сохраняя пропорции *!*/
-	/*border-radius: 38px;*/
-}
-
 .date {
 	margin-top: 4px;
 	margin-left: 12px;
 	color: rgb(211, 200, 200);
 	font-size: 12px;
+}
+
+.pagination {
+	margin: 8px;
+	padding: 8px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.selectPage {
+	font-weight: bold;
+}
+
+.pagination span {
+	font-size: 18px;
+	margin-right: 12px;
+	display: inline-block;
 }
 
 @media (max-width: 768px) {

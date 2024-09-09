@@ -4,7 +4,7 @@ const UPDATE_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 let initialState = {
 	posts: [
 		{
-			id: 1,
+			id: 0,
 			text: "It's my first post",
 			content: {
 				img: ""
@@ -15,7 +15,7 @@ let initialState = {
 			createdAt: "12/12/24"
 		},
 		{
-			id: 2,
+			id: 1,
 			text: 'Hi, how are you?',
 			content: {
 				img: ""
@@ -81,7 +81,7 @@ const profilePostsContentReducer = (state = initialState, action) => {
 				content: {},
 				likes: 0,
 				dislikes: 0,
-				userId: 0,
+				userId: 20,
 				createdAt: new Date().toLocaleDateString()
 			};
 

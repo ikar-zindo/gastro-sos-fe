@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import c from '../../../styles/main/users/Users.module.css';
 import axios from 'axios';
 import userPhoto from '../../../assets/img/userPhoto.png';
+import style from "../../../styles/main/users/Users.module.css";
 
 const UserFunction = (props) => {
 	const [users, setUsers] = useState([]);
@@ -17,10 +18,18 @@ const UserFunction = (props) => {
 
 	return (
 		<div className={c.userWrapper}>
+			<div className={style.pagination}>
+				<span>1</span>
+				<span className={style.selectPage}>2</span>
+				<span>3</span>
+				<span>4</span>
+				<span>5</span>
+			</div>
+
 			{props.users.map(user => (
-				<div className={c.userInfo}>
+				<div key={user.id} className={c.userInfo}>
 					<div className={c.img}>
-						<img alt='ava' src={user.photos.small != null ? user.photos.small : userPhoto} />
+						<img alt='ava' src={user.photos.small != null ? user.photos.small : userPhoto}/>
 					</div>
 
 					<div className={c.userInfoWrapper}>

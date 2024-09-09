@@ -16,7 +16,7 @@ const UserComponent = (props) => {
 	// }
 
 	let usersElements = users.map(user => (
-			<div className={c.userInfo}>
+			<div key={user.id} className={c.userInfo}>
 				<div className={c.img}>
 					{/*<img alt='ava' src={user.imgUrl}/>*/}
 					<img alt='ava' src={(user.photos.small) != null ? user.photos.small : userPhoto}/>
