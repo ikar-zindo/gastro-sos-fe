@@ -1,11 +1,11 @@
 import React from "react";
 import './App.css';
-import HeaderComponent from "./compoments/fragments/HeaderComponent.jsx";
-import FooterComponent from "./compoments/fragments/FooterComponent.jsx";
+import HeaderComponent from "./compoments/common/HeaderComponent.jsx";
+import FooterComponent from "./compoments/common/FooterComponent.jsx";
 import ProfileContainer from "./compoments/main/profile/ProfileContainer";
-import NavbarComponent from "./compoments/fragments/NavbarComponent.jsx";
+import NavbarComponent from "./compoments/common/NavbarComponent.jsx";
 import RightComponent from "./compoments/main/right/RightComponent";
-import NavigateComponent from "./compoments/fragments/NavigateComponent.jsx";
+import NavigateComponent from "./compoments/common/NavigateComponent.jsx";
 import {Route, Routes} from "react-router-dom";
 import HomeContainer from "./compoments/main/home/HomeContainer";
 import DialogsContainer from "./compoments/main/dialogs/DialogsContainer.jsx";

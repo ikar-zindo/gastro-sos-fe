@@ -1,5 +1,5 @@
 import React from 'react';
-import StoryElement from "../../fragments/StoryElement.jsx";
+import StoryElement from "../../common/StoryElement.jsx";
 import c from '/src/styles/fragments/stories-component.module.css';
 
 

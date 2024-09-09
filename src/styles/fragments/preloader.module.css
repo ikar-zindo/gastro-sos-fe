@@ -1,0 +1,15 @@
+.preloaderContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+
+.preloader {
+	height: 100px;
+	width: 100px;
+	margin-top: 8px;
+}
+@media (max-width: 768px) {
+}

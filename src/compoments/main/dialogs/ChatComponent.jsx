@@ -2,7 +2,7 @@ import React from 'react';
 import c from '../../../styles/main/dialogs/Chat.module.css'
 import MessageComponent from "./MessageComponent";
 import {useParams} from "react-router-dom";
-import TextAreaComponent from "../../fragments/TextAreaComponent.jsx";
+import TextAreaComponent from "../../common/TextAreaComponent.jsx";
 
 const ChatComponent = (props) => {
 	let {id} = useParams();

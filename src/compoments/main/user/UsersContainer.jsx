@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
 import {
 	followAction,
-	setCurrentPageAction,
+	setCurrentPageAction, setIsFetchingAction,
 	setTotalUsersAction,
 	setUsersAction,
 	unfollowAction
@@ -10,13 +10,16 @@ import {
 import UserComponent from "./UserCOmponent.jsx";
 import axios from "axios";
 import Users from "./Users.jsx";
+import Preloader from "../../common/Preloader.jsx";
 
 class UserClass extends React.Component {
 	componentDidMount() {
+		this.props.setIsFetching(true)
 		axios.get(
 			`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
 			.then(response => {
 				this.props.setUsers(response.data.items);
+				this.props.setIsFetching(false);
 			});
 		axios.get(
 			'https://social-network.samuraijs.com/api/1.0/users')
@@ -26,18 +29,19 @@ class UserClass extends React.Component {
 	}
 
 
-	onUpdatePageClick = (page) => {
-		this.props.setCurrentPage(page);
+	onUpdatePageClick = (pageNumber) => {
+		this.props.setIsFetching(true);
+		this.props.setCurrentPage(pageNumber);
 		axios.get(
-			`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
+			`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
 			.then(response => {
 				this.props.setUsers(response.data.items);
+				this.props.setIsFetching(false);
 			});
 	};
 
 	render() {
 		return <>
-			{this.props.isFetching ? <img src="" alt="loading"/> : null}
 			<Users users={this.props.users}
 			       currentPage={this.props.currentPage}
 			       pageSize={this.props.pageSize}
@@ -45,8 +49,10 @@ class UserClass extends React.Component {
 			       setUsers={this.props.setUsers}
 			       setCurrentPage={this.props.setCurrentPage}
 			       onUpdatePageClick={this.onUpdatePageClick}
+			       setIsFetching={this.props.setIsFetching}
+			       isFetching={this.props.isFetching}
 			       follow={this.props.follow}
-			       unfollow={this.props.unfollow}/>;
+			       unfollow={this.props.unfollow}/>
 		</>
 	}
 }
@@ -67,10 +73,10 @@ const UserFunction = (props) => {
 		}
 	}, [props.users, props.totalUsers, props.currentPage]);
 
-	let onUpdatePageClick = (page) => {
-		props.setCurrentPage(page);
+	let onUpdatePageClick = (pageNumber) => {
+		props.setCurrentPage(pageNumber);
 		axios.get(
-			`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${props.pageSize}`)
+			`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${props.pageSize}`)
 			.then(response => {
 				props.setUsers(response.data.items);
 			});
@@ -82,15 +88,17 @@ const UserFunction = (props) => {
 		pages.push(i)
 	}
 
-	return <Users users={this.props.users}
-	              currentPage={this.props.currentPage}
-	              pageSize={this.props.pageSize}
-	              totalUsers={this.props.totalUsers}
-	              setUsers={this.props.setUsers}
-	              setCurrentPage={this.props.setCurrentPage}
-	              onUpdatePageClick={this.onUpdatePageClick}
-	              follow={this.props.follow}
-	              unfollow={this.props.unfollow}/>;
+	return <>
+		<Users users={props.users}
+		       currentPage={props.currentPage}
+		       pageSize={props.pageSize}
+		       totalUsers={props.totalUsers}
+		       setUsers={props.setUsers}
+		       setCurrentPage={props.setCurrentPage}
+		       onUpdatePageClick={onUpdatePageClick}
+		       follow={props.follow}
+		       unfollow={props.unfollow}/>;
+	</>
 };
 
 let mapState = (state) => {
@@ -119,6 +127,9 @@ let mapDispatch = (dispatch) => {
 		},
 		setTotalUsers: (totalUsers) => {
 			dispatch(setTotalUsersAction(totalUsers))
+		},
+		setIsFetching: (totalUsers) => {
+			dispatch(setIsFetchingAction(totalUsers))
 		}
 	}
 }

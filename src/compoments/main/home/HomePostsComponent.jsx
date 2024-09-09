@@ -1,6 +1,6 @@
 import React from 'react';
 import c from '../../../styles/main/home.module.css'
-import PostComponent from "../../fragments/PostComponent.jsx";
+import PostComponent from "../../common/PostComponent.jsx";
 
 const HomePostsComponent = (props) => {
 	let homePage = props.homePage;
