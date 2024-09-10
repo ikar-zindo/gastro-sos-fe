@@ -1,5 +1,4 @@
 # Logs
-src/api/API.js
 .env
 logs
 *.log
