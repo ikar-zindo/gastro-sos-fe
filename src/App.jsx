@@ -1,7 +1,6 @@
 import React from "react";
 import './App.css';
-import HeaderComponent from "./components/common/header/HeaderComponent.jsx";
-import FooterComponent from "./components/common/FooterComponent";
+import FooterComponent from "./components/common/elements/FooterComponent.jsx";
 import ProfileContainer from "./components/main/profile/ProfileContainer";
 import NavbarComponent from "./components/common/NavbarComponent";
 import RightComponent from "./components/main/right/RightComponent";

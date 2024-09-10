@@ -1,10 +1,10 @@
 import React from 'react';
-import PreloaderComponent from "../../../common/PreloaderComponent.jsx";
+import PreloaderElement from "../../../common/elements/PreloaderElement.jsx";
 import style from "../../../../styles/main/profile/profile.module.css";
 
 const ProfileBioComponent = (props) => {
 	if (!props.profile) {
-		return <PreloaderComponent/>
+		return <PreloaderElement/>
 	}
 	return (
 			<div className={style.profileBio}>
@@ -25,7 +25,7 @@ const ProfileBioComponent = (props) => {
 
 					<div className={style}>{props.profile.lookingForAJobDescription}</div>
 				</div>
-		</div>/* && <PreloaderComponent/>*/
+		</div>/* && <PreloaderElement/>*/
 	);
 };
 

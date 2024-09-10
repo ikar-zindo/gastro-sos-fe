@@ -1,13 +1,13 @@
 import React from 'react';
-import c from "../../styles/common/post.module.css";
-import PreloaderComponent from "./PreloaderComponent.jsx";
+import c from "../../../styles/common/post.module.css";
+import PreloaderElement from "./PreloaderElement.jsx";
 
-const PostComponent = (props) => {
+const PostElement = (props) => {
 	let user = props.user;
 	let post = props.post;
 
 	if (!post) {
-		return <PreloaderComponent/>
+		return <PreloaderElement/>
 	}
 	return (
 		<div className={c.post}>
@@ -34,4 +34,4 @@ const PostComponent = (props) => {
 	);
 };
 
-export default PostComponent;
+export default PostElement;

@@ -1,6 +1,6 @@
 import React from 'react';
 import c from '../../../styles/main/dialogs/Chat.module.css'
-import MessageComponent from "../../common/MessageComponent.jsx";
+import MessageElement from "../../common/elements/MessageElement.jsx";
 import {useParams} from "react-router-dom";
 import TextAreaComponent from "../../common/TextAreaComponent.jsx";
 import {useDispatch} from "react-redux";
@@ -22,7 +22,7 @@ const ChatComponent = (props) => {
 
 	// debugger
 	let messagesElement = messages
-		.map(message => (<MessageComponent
+		.map(message => (<MessageElement
 			currentUser={currentUser}
 			message={message}
 			key={message.id}/>));

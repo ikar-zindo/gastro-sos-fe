@@ -1,7 +1,7 @@
 import React from 'react';
-import c from "../../styles/main/dialogs/Message.module.css";
+import c from "../../../styles/main/dialogs/Message.module.css";
 
-const MessageComponent = (props) => {
+const MessageElement = (props) => {
 	let currentUser = props.currentUser;
 	let message = props.message;
 	let isSendCurrentUser = message.senderId === currentUser.id
@@ -20,4 +20,4 @@ const MessageComponent = (props) => {
 	);
 };
 
-export default MessageComponent;
+export default MessageElement;

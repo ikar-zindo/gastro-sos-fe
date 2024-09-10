@@ -1,7 +1,7 @@
 import React from 'react';
-import UserComponent from "../../common/UserComponent.jsx";
+import UserElement from "../../common/elements/UserElement.jsx";
 import style from '../../../styles/main/users.module.css';
-import PreloaderComponent from "../../common/PreloaderComponent.jsx";
+import PreloaderElement from "../../common/elements/PreloaderElement.jsx";
 
 const UsersComponent = (props) => {
 	let pagesCount = Math.ceil(props.totalUsers / props.pageSize);
@@ -11,7 +11,7 @@ const UsersComponent = (props) => {
 	}
 
 	let usersElements = props.users.map(user => (
-		<UserComponent key={user.id} user={user}/>
+		<UserElement key={user.id} user={user}/>
 	));
 
 	return (
@@ -25,8 +25,8 @@ const UsersComponent = (props) => {
 				})}
 			</div>
 
-			{props.isFetching ? <PreloaderComponent/> : usersElements}
-			 {/*{usersElements ? usersElements : (<PreloaderComponent/>)}*/}
+			{props.isFetching ? <PreloaderElement/> : usersElements}
+			{/*{usersElements ? usersElements : (<PreloaderElement/>)}*/}
 		</div>
 	);
 

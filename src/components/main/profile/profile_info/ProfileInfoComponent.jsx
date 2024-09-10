@@ -1,10 +1,10 @@
 import React from 'react';
 import style from "../../../../styles/main/profile/profile.module.css";
-import PreloaderComponent from "../../../common/PreloaderComponent.jsx";
+import PreloaderElement from "../../../common/elements/PreloaderElement.jsx";
 
 const ProfileInfoComponent = (props) => {
 	if (!props.profile) {
-		return <PreloaderComponent/>
+		return <PreloaderElement/>
 	}
 	return (
 		<div className={style.profileInfo}>
@@ -19,7 +19,7 @@ const ProfileInfoComponent = (props) => {
 			<div className={style.descriptionBlock}>
 				Subscribers
 			</div>
-		</div>/* && <PreloaderComponent/>*/
+		</div>/* && <PreloaderElement/>*/
 	);
 };
 

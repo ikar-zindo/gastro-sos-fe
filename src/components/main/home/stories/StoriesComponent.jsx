@@ -1,5 +1,5 @@
 import React from 'react';
-import StoryComponent from "../../../common/StoryComponent.jsx";
+import StoryElement from "../../../common/elements/StoryElement.jsx";
 import c from '/src/styles/common/stories-component.module.css';
 
 
@@ -8,7 +8,7 @@ const StoriesComponent = (props) => {
 
 	// TODO: вывод историй
 	let stories = users.map(user => {
-		return (user ? (<StoryComponent user={user}/>) : (<div className='loading'>Loading...</div>));
+		return <StoryElement user={user}/>;
 	});
 
 	return (

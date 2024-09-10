@@ -1,11 +1,16 @@
 import React from 'react';
-import c from "../../styles/main/dialogs/CompanionElement.module.css";
+import c from "../../../styles/main/dialogs/CompanionElement.module.css";
 import {NavLink} from "react-router-dom";
+import PreloaderElement from "./PreloaderElement.jsx";
 
-const DialogComponent = (props) => {
+const DialogElement = (props) => {
 	let user = props.user
 	let dialog = props.dialog;
 	let path = "/chat/" + dialog.id;
+
+	if (!dialog) {
+		<PreloaderElement/>
+	}
 
 	return (
 		<div>
@@ -27,4 +32,4 @@ const DialogComponent = (props) => {
 	);
 };
 
-export default DialogComponent;
+export default DialogElement;

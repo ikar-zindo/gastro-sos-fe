@@ -10,6 +10,7 @@ const HeaderContainer = () => {
 
 	useEffect(() => {
 		axios.get('https://social-network.samuraijs.com/api/1.0/auth/me', {
+			withCredentials: true,
 			headers: {
 				"API-KEY": "86e8673b-3a2b-481e-b044-2c856bb6173b",
 				"Authorization": "Bearer b0f07a0b-d84c-45ca-9c3c-eeed68339a04"

@@ -1,6 +1,6 @@
 import React from 'react';
 import c from '../../../../styles/main/home.module.css'
-import PostComponent from "../../../common/PostComponent.jsx";
+import PostElement from "../../../common/elements/PostElement.jsx";
 
 const NewsPostsComponent = (props) => {
 	let users = props.users;
@@ -8,7 +8,7 @@ const NewsPostsComponent = (props) => {
 	let postElements = props.posts.map(post => {
 		let user = users.find(user => user.id === post.userId);
 
-		return (user ? (<PostComponent
+		return (user ? (<PostElement
 			key={post.id}
 			post={post}
 			user={user}/>) : (<div className='loading'>Loading...</div>))

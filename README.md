@@ -40,7 +40,7 @@ export default defineConfig({
 	}});
 ```
 
-[UserComponent.jsx](src%2Fcompoments%2Fmain%2Fuser%2FUserComponent.jsx)
+[UserElement.jsx](src%2Fcompoments%2Fmain%2Fuser%2FUserComponent.jsx)
 
 ```javascript
 axios.get("http://localhost:8890/review")

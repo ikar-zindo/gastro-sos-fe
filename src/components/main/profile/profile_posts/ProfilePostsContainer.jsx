@@ -1,5 +1,5 @@
 import React from 'react';
-import PostComponent from "../../../common/PostComponent.jsx";
+import PostElement from "../../../common/elements/PostElement.jsx";
 import style from '../../../../styles/main/profile/profile.module.css';
 import TextAreaComponent from "../../../common/TextAreaComponent.jsx";
 import {useDispatch, useSelector} from "react-redux";
@@ -17,7 +17,7 @@ const ProfilePostsContainer = () => {
 			return <div>User not found</div>;
 		}
 		return (
-			<PostComponent key={post.id} post={post} user={user}/>
+			<PostElement key={post.id} post={post} user={user}/>
 		)
 	});
 
