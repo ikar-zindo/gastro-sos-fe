@@ -1,6 +1,6 @@
 import React from "react";
 import './App.css';
-import HeaderComponent from "./components/common/HeaderComponent";
+import HeaderComponent from "./components/common/header/HeaderComponent.jsx";
 import FooterComponent from "./components/common/FooterComponent";
 import ProfileContainer from "./components/main/profile/ProfileContainer";
 import NavbarComponent from "./components/common/NavbarComponent";
@@ -12,12 +12,13 @@ import DialogsContainer from "./components/main/dialogs/DialogsContainer";
 import ChatContainer from "./components/main/chat/ChatContainer";
 import SearchContainer from "./components/main/search/SearchContainer";
 import PlusContainer from "./components/main/plus/PlusContainer";
+import HeaderContainer from "./components/common/header/HeaderContainer.jsx";
 
 const App = () => {
 	return (
 		<>
 			<div className="app-wrapper">
-				<HeaderComponent/>
+				<HeaderContainer/>
 				<NavbarComponent/>
 
 				<div className='app-wrapper-content'>

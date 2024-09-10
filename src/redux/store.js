@@ -6,6 +6,7 @@ import homeReducer from "./content/home-reducer";
 import profileReducer from "./profile-reducer";
 import searchReducer from "./search-reducer";
 import usersReducer from "./users-reducer";
+import authReducer from "./auth-reducer.js";
 
 let reducers = combineReducers({
 	dialogPage: dialogsReducer,
@@ -14,7 +15,8 @@ let reducers = combineReducers({
 	profilePostContentPage: profilePostsContentReducer,
 	searchPage: searchReducer,
 	usersPage: usersReducer,
-	sidebarPage: sidebarReducer
+	sidebarPage: sidebarReducer,
+	auth: authReducer
 });
 
 let store = createStore(reducers);

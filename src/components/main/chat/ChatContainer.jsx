@@ -1,25 +1,13 @@
-import React, {useEffect} from "react";
+import React from "react";
 import ChatComponent from "./ChatComponent.jsx";
-import {connect} from "react-redux";
-import {sendMessage, updateMessageText} from "../../../redux/content/dialogs-reducer.js";
+import {useSelector} from "react-redux";
 
-let mapState = (state) => {
-	return {
-		dialogPage: state.dialogPage,
-		users: state.usersPage.users
-	}
-}
-
-const ChatContainer = (props) => {
-	useEffect(() => {
-
-	}, []);
+const ChatContainer = () => {
+	const dialogPage = useSelector(state => state.dialogPage);
+	const users = useSelector(state => state.usersPage.users);
 	return <ChatComponent
-		dialogPage={props.dialogPage}
-		users={props.users}
-		sendMessage={props.sendMessage}
-		updateMessageText={props.updateMessageText}/>
+		dialogPage={dialogPage}
+		users={users}/>
 }
 
-export default connect(mapState,
-	{sendMessage, updateMessageText})(ChatContainer);
+export default ChatContainer;

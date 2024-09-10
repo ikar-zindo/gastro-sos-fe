@@ -1,16 +1,11 @@
 import React from "react";
 import NewsPostsComponent from "./NewsPostsComponent.jsx";
-import {connect} from "react-redux";
+import {useSelector} from "react-redux";
 
-let mapState = (state) => {
-	return {
-		homePage: state.homePage,
-		users: state.usersPage.users
-	}
+const NewsPostContainer = () => {
+	const posts = useSelector(state => state.homePage.posts);
+	const users = useSelector(state => state.usersPage.users);
+	return <NewsPostsComponent posts={posts} users={users}/>
 }
 
-
-export const HomePostsContainer =
-	connect(mapState, {})(NewsPostsComponent)
-
-export default HomePostsContainer;
+export default NewsPostContainer;

@@ -1,21 +1,12 @@
 import React from "react";
 import StoriesComponent from "./StoriesComponent.jsx";
-import {connect} from "react-redux";
+import {useSelector} from "react-redux";
 
-let mapState = (state) => {
-	return {
-		homePage: state.homePage,
-		users: state.usersPage.users
-	}
+
+const StoriesContainer = () => {
+	const posts = useSelector(state => state.homePage.posts);
+	const users = useSelector(state => state.usersPage.users);
+	return <StoriesComponent posts={posts} users={users}/>
 }
-
-let mapDispatch = () => {
-	return {
-
-	}
-}
-
-export const StoriesContainer =
-	connect(mapState,  mapDispatch)(StoriesComponent)
 
 export default StoriesContainer;

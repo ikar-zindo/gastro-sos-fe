@@ -3,9 +3,13 @@ import c from '../../../styles/main/dialogs/Chat.module.css'
 import MessageComponent from "../../common/MessageComponent.jsx";
 import {useParams} from "react-router-dom";
 import TextAreaComponent from "../../common/TextAreaComponent.jsx";
+import {useDispatch} from "react-redux";
+import {sendMessage, updateMessageText} from "../../../redux/content/dialogs-reducer.js";
 
 const ChatComponent = (props) => {
 	let {userId} = useParams();
+	const dispatch = useDispatch();
+
 
 	let dialogPage = props.dialogPage;
 	let messageValue = dialogPage.messageValue;
@@ -28,11 +32,11 @@ const ChatComponent = (props) => {
 			senderId: currentUser.id,
 			receiverId: companionUser.id
 		};
-		props.sendMessage(sendMessageData);
+		dispatch(sendMessage(sendMessageData));
 	}
 
 	let handleChange = (messageValue) => {
-		props.updateMessageText(messageValue);
+		dispatch(updateMessageText(messageValue));
 	}
 
 	return (

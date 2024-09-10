@@ -3,10 +3,9 @@ import c from '../../../../styles/main/home.module.css'
 import PostComponent from "../../../common/PostComponent.jsx";
 
 const NewsPostsComponent = (props) => {
-	let homePage = props.homePage;
 	let users = props.users;
 
-	let postElements = homePage.posts.map(post => {
+	let postElements = props.posts.map(post => {
 		let user = users.find(user => user.id === post.userId);
 
 		return (user ? (<PostComponent

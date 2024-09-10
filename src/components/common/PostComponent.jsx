@@ -1,10 +1,14 @@
 import React from 'react';
 import c from "../../styles/common/post.module.css";
+import PreloaderComponent from "./PreloaderComponent.jsx";
 
 const PostComponent = (props) => {
 	let user = props.user;
 	let post = props.post;
 
+	if (!post) {
+		return <PreloaderComponent/>
+	}
 	return (
 		<div className={c.post}>
 			<div className={c.userInfoWrapper}>
