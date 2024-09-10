@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {setCurrentPage, setIsFetching, setTotalUsers, setUsers} from "../../../redux/users-reducer.js";
+import {setCurrentPage, toggleIsFetching, setTotalUsers, setUsers} from "../../../redux/users-reducer.js";
 import UsersComponent from "./UsersComponent.jsx";
 import {UsersAPI} from "../../../api/UsersAPI.js";
 
@@ -12,24 +12,25 @@ const UserContainer = () => {
 	const totalUsers = usersPage.totalUsers;
 	const currentPage = usersPage.currentPage;
 	const isFetching = usersPage.isFetching;
+	const isFollowingInProgress = usersPage.isFollowingInProgress;
 
 	useEffect(() => {
 		if (users.length === 0) {
-			dispatch(setIsFetching(true));
+			dispatch(toggleIsFetching(true));
 			UsersAPI.getUsers(currentPage, pageSize).then(data => {
 				dispatch(setUsers(data.items));
 				dispatch(setTotalUsers(data.totalCount));
-				dispatch(setIsFetching(false));
+				dispatch(toggleIsFetching(false));
 			});
 		}
 	}, [users, totalUsers, currentPage]);
 
 	let onUpdatePageClick = (pageNumber) => {
-		dispatch(setIsFetching(true));
+		dispatch(toggleIsFetching(true));
 		dispatch(setCurrentPage(pageNumber));
 		UsersAPI.getUsers(currentPage, pageSize).then(data => {
 			dispatch(setUsers(data.items));
-			dispatch(setIsFetching(false))
+			dispatch(toggleIsFetching(false))
 		});
 	};
 
@@ -38,7 +39,8 @@ const UserContainer = () => {
 	                       pageSize={pageSize}
 	                       totalUsers={totalUsers}
 	                       onUpdatePageClick={onUpdatePageClick}
-	                       isFetching={isFetching}/>
+	                       isFetching={isFetching}
+	                       isFollowingInProgress={isFollowingInProgress}/>
 };
 
 export default UserContainer;

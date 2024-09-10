@@ -3,7 +3,7 @@ import styles from '../../../styles/main/users.module.css';
 import userPhoto from '../../../assets/img/userPhoto.png';
 import {NavLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {follow, unfollow} from "../../../redux/users-reducer.js";
+import {follow, toggleFollowingInProgress, unfollow} from "../../../redux/users-reducer.js";
 import {FollowAPI} from "../../../api/FollowAPI.js";
 
 const UserElement = (props) => {
@@ -31,19 +31,24 @@ const UserElement = (props) => {
 			<div className={styles.button}>
 				{user.followed
 					// Unfollow
-					? <button onClick={() => {
+					? <button disabled={props.isFollowingInProgress.some(id => id === user.id)} onClick={() => {
+						dispatch(toggleFollowingInProgress(true, user.id)); // in progress on
 						FollowAPI.unfollowUser(user.id).then(data => {
 							if (data.resultCode === 0) {
-								dispatch(unfollow(user.id))
+								dispatch(unfollow(user.id));
 							}
+							dispatch(toggleFollowingInProgress(false, user.id)); // in progress off
 						});
 					}}>Unfollow</button>
+
 					// Follow
-					: <button onClick={() => {
+					: <button disabled={props.isFollowingInProgress.some(id => id === user.id)} onClick={() => {
+						dispatch(toggleFollowingInProgress(true, user.id)); // in progress on
 						FollowAPI.followUser(user.id).then(data => {
 							if (data.resultCode === 0) {
-								dispatch(follow(user.id))
+								dispatch(follow(user.id));
 							}
+							dispatch(toggleFollowingInProgress(false, user.id)); // in progress off
 						});
 					}}>Follow</button>}
 			</div>

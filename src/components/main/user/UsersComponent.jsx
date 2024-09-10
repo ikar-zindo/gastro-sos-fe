@@ -11,7 +11,10 @@ const UsersComponent = (props) => {
 	}
 
 	let usersElements = props.users.map(user => (
-		<UserElement key={user.id} user={user}/>
+		<UserElement
+			key={user.id}
+			user={user}
+			isFollowingInProgress={props.isFollowingInProgress}/>
 	));
 
 	return (
