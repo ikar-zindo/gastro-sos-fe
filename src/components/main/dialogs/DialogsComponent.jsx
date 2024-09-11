@@ -1,9 +1,8 @@
 import React from 'react';
 import c from '../../../styles/main/dialogs/Dialogs.module.css'
 import DialogElement from "../../common/elements/DialogElement.jsx";
-import PreloaderElement from "../../common/elements/PreloaderElement.jsx";
 
-const DialogsComponent = (props) => {
+const  DialogsComponent = (props) => {
 	let dialogPage = props.dialogPage;
 	let users = props.users;
 
@@ -18,7 +17,7 @@ const DialogsComponent = (props) => {
 
 	return (
 		<div className={c.dialogs}>
-			{dialogsElement ? dialogsElement : (<PreloaderElement/>)}
+			{dialogsElement}
 		</div>
 	);
 };

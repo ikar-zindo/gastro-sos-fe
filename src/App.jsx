@@ -12,6 +12,9 @@ import ChatContainer from "./components/main/chat/ChatContainer";
 import SearchContainer from "./components/main/search/SearchContainer";
 import PlusContainer from "./components/main/plus/PlusContainer";
 import HeaderContainer from "./components/common/header/HeaderContainer.jsx";
+import LoginContainer from "./components/main/login/LoginContainer.jsx";
+import ProtectedRoute from "./components/common/ProtectedRoute.jsx";
+import RedirectIfLoggedIn from "./components/common/RedirectIfLoggedIn.jsx";
 
 const App = () => {
 	return (
@@ -23,10 +26,14 @@ const App = () => {
 				<div className='app-wrapper-content'>
 					<Routes>
 						<Route path='/' element={<HomeContainer/>}/>
-						<Route path='/profile/*' element={<ProfileContainer/>}/>
-						<Route path='/profile/:userId' element={<ProfileContainer/>}/>
-						<Route path='/dialogs/*' element={<DialogsContainer/>}/>
-						<Route path='/chat/:userId' element={<ChatContainer/>}/>
+						<Route path='/login/' element={
+							<RedirectIfLoggedIn>
+								<LoginContainer/>
+							</RedirectIfLoggedIn>}/>
+						<Route path='/profile/*' element={<ProtectedRoute element={<ProfileContainer/>}/>}/>
+						<Route path='/profile/:userId' element={<ProtectedRoute element={<ProfileContainer/>}/>}/>
+						<Route path='/dialogs/*' element={<ProtectedRoute element={<DialogsContainer/>}/>}/>
+						<Route path='/chat/:userId' element={<ProtectedRoute element={<ChatContainer/>}/>}/>
 						<Route path='/search/*' element={<SearchContainer/>}/>
 						<Route path='/add-photo/*' element={<PlusContainer/>}/>
 						<Route path='/*' element={<HomeContainer/>}/>

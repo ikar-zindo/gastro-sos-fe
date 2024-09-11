@@ -12,15 +12,8 @@ const ProfileContainer = () => {
 	const authUserId = useSelector(state => state.auth.id);
 
 	useEffect(() => {
-		if (!authUserId && !userId) return;
-
 		const userIdUrl = parseInt(userId) ? parseInt(userId, 10) : authUserId;
-
-		if (userIdUrl) {
-			dispatch(setUserProfile(userIdUrl));
-		} else {
-			navigate("/login");
-		}
+		dispatch(setUserProfile(userIdUrl));
 	}, [userId, authUserId, dispatch, navigate]);
 
 	return <ProfileComponent profile={profile}/>;

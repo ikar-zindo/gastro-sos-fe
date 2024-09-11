@@ -6,6 +6,7 @@ import ProfileBioComponent from "./profile_bio/ProfileBioComponent.jsx";
 
 const ProfileComponent = (props) => {
 	const [selectedTab, setSelectedTab] = useState('posts');
+
 	return (
 		<div className={style.profile}>
 			<ProfileInfoComponent profile={props.profile}/>

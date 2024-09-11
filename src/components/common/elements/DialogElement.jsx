@@ -9,7 +9,7 @@ const DialogElement = (props) => {
 	let path = "/chat/" + dialog.id;
 
 	if (!dialog) {
-		<PreloaderElement/>
+		return <PreloaderElement/>
 	}
 
 	return (

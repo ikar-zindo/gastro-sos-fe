@@ -1,28 +1,20 @@
 import React, {useEffect} from "react";
 import DialogsComponent from "./DialogsComponent.jsx";
-import {connect} from "react-redux";
+import {useSelector} from "react-redux";
 
-let mapState = (state) => {
-	return {
-		dialogPage: state.dialogPage,
-		users: state.usersPage.users
-	}
-}
-
-
-const DialogsContainer = (props) => {
+const DialogsContainer = () => {
+	const dialogPage = useSelector(state => state.dialogPage);
+	const users = useSelector(state => state.usersPage.users);
+	const isAuth = useSelector(state => state.auth.isAuth);
 
 	useEffect(() => {
+
 	}, []);
 
-
 	return <DialogsComponent
-		dialogPage={props.dialogPage}
-		users={props.users}/>
-
+		dialogPage={dialogPage}
+		users={users}
+		isAuth={isAuth}/>
 }
 
-
-
-export default connect(mapState,  {})
-(DialogsContainer);
+export default DialogsContainer;
