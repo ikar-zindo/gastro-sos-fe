@@ -1,7 +1,7 @@
 import axios from "axios";
-import API from "./API.js";
+import InstanceAPI from "./InstanceAPI.js";
 
-const instance = axios.create(API)
+const instance = axios.create(InstanceAPI)
 
 export const ProfileAPI = {
 	getProfile(userId) {

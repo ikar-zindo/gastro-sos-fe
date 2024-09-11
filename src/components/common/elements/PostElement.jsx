@@ -6,7 +6,7 @@ const PostElement = (props) => {
 	let user = props.user;
 	let post = props.post;
 
-	if (!post) {
+	if (!post && !user) {
 		return <PreloaderElement/>
 	}
 	return (

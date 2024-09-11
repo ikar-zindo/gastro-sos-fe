@@ -1,3 +1,6 @@
+import {UsersAPI} from "../api/UsersAPI.js";
+import {FollowAPI} from "../api/FollowAPI.js";
+
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET-USERS";
@@ -192,12 +195,48 @@ const usersReducer = (state = initialState, action) => {
 	}
 }
 
-export const follow = (userId) => ({type: FOLLOW, userId});
-export const unfollow = (userId) => ({type: UNFOLLOW, userId});
+export const followAction = (userId) => ({type: FOLLOW, userId});
+export const unfollowAction = (userId) => ({type: UNFOLLOW, userId});
 export const setUsers = (users) => ({type: SET_USERS, users});
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
 export const setTotalUsers = (totalUsers) => ({type: SET_TOTAL_USERS, totalUsers});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
-export const toggleFollowingInProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_IN_PROGRESS, isFetching, userId});
+export const toggleFollowingInProgress = (isFetching, userId) => ({
+	type: TOGGLE_IS_FOLLOWING_IN_PROGRESS,
+	isFetching,
+	userId
+});
+
+export const getUsers = (currentPage, pageSize,) => (dispatch) => {
+	dispatch(toggleIsFetching(true));
+	UsersAPI.getUsers(currentPage, pageSize).then(data => {
+		dispatch(setUsers(data.items));
+		dispatch(setTotalUsers(data.totalCount));
+		dispatch(toggleIsFetching(false));
+	});
+
+}
+
+export const follow = (userId) => (dispatch) => {
+	dispatch(toggleFollowingInProgress(true, userId)); // in progress on
+	FollowAPI.followUser(userId).then(data => {
+		if (data.resultCode === 0) {
+			dispatch(followAction(userId));
+		}
+		dispatch(toggleFollowingInProgress(false, userId)); // in progress off
+	});
+
+}
+
+export const unfollow = (userId) => (dispatch) => {
+	dispatch(toggleFollowingInProgress(true, userId)); // in progress on
+	FollowAPI.unfollowUser(userId).then(data => {
+		if (data.resultCode === 0) {
+			dispatch(unfollowAction(userId));
+		}
+		dispatch(toggleFollowingInProgress(false, userId)); // in progress off
+	});
+
+}
 
 export default usersReducer;

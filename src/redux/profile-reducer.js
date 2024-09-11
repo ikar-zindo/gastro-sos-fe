@@ -1,5 +1,6 @@
-const SET_USER_PROFILE = 'SET-USER-PROFILE'
+import {ProfileAPI} from "../api/ProfileAPI.js";
 
+const SET_USER_PROFILE = 'SET-USER-PROFILE'
 
 let initialState = {
 	profile: null,
@@ -17,6 +18,13 @@ const profileReducer = (state = initialState, action) => {
 	return state;
 }
 
-export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
+export const setUserProfileAction = (profile) => ({type: SET_USER_PROFILE, profile})
+
+export const setUserProfile = (userIdUrl) => (dispatch) => {
+	ProfileAPI.getProfile(userIdUrl).then(data => {
+		dispatch(setUserProfileAction(data));
+	})
+
+}
 
 export default profileReducer;

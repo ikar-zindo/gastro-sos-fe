@@ -4,6 +4,7 @@ import style from '../../../../styles/main/profile/profile.module.css';
 import TextAreaComponent from "../../../common/TextAreaComponent.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {addPost, updatePostText} from "../../../../redux/content/profile-posts-content-reducer.js";
+import PreloaderElement from "../../../common/elements/PreloaderElement.jsx";
 
 const ProfilePostsContainer = () => {
 	const dispatch = useDispatch();
@@ -13,12 +14,7 @@ const ProfilePostsContainer = () => {
 	let postElements = profilePostContentPage.posts.map(post => {
 		let user = users.find(user => user.id === post.userId);
 
-		if (!user) {
-			return <div>User not found</div>;
-		}
-		return (
-			<PostElement key={post.id} post={post} user={user}/>
-		)
+		return <PostElement key={post.id} post={post} user={user}/>
 	});
 
 	let handleClick = () => {
@@ -38,7 +34,7 @@ const ProfilePostsContainer = () => {
 				addNewPost={handleClick}/>
 
 			<div className={style.posts}>
-				{postElements ? postElements : (<div className='loading'>Loading...</div>)}
+				{postElements}
 			</div>
 		</div>
 	);

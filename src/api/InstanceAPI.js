@@ -1,5 +1,5 @@
-const API = {
-	baseURL: 'https://social-network.samuraijs.com/api/1.0/',
+const InstanceAPI = {
+	baseURL: import.meta.env.VITE_BASE_URL,
 	withCredentials: true,
 	headers: {
 		"API-KEY": import.meta.env.VITE_API_KEY,
@@ -7,4 +7,4 @@ const API = {
 	}
 };
 
-export default API;
+export default InstanceAPI;

@@ -1,12 +1,15 @@
 import axios from "axios";
-import API from "./API.js";
+import InstanceAPI from "./InstanceAPI.js";
 
-const instance = axios.create(API)
+const instance = axios.create(InstanceAPI)
 
-export const UsersAPI = {
-	getAuth() {
+export const AuthAPI = {
+	me() {
 		return instance.get('auth/me')
-			.then(response => response.data);
+			.then(response => response.data)
+			.catch(error => {
+				console.error('Ошибка при запросе:', error);
+			});
 	},
 
 	login() {
