@@ -1,7 +1,7 @@
 import React from 'react';
 import c from '../../../styles/main/right.module.css';
 
-const RightComponent = () => {
+const RightContainer = () => {
 	return (
 		<div className={c.right}>
 			<div>
@@ -21,4 +21,4 @@ const RightComponent = () => {
 	);
 };
 
-export default RightComponent;
+export default RightContainer;

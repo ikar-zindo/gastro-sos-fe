@@ -1,7 +1,7 @@
 import React from 'react';
-import c from '../../../styles/common/footer.module.css';
+import c from '../../styles/common/footer.module.css';
 
-const FooterComponent = () => {
+const FooterContainer = () => {
 	return (
 		<footer className={c.footer}>
 			<a className={c.a} href='#'>LinkedIn</a>
@@ -11,4 +11,4 @@ const FooterComponent = () => {
 	);
 };
 
-export default FooterComponent;
+export default FooterContainer;

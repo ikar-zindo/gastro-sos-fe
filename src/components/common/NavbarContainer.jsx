@@ -2,7 +2,7 @@ import React from 'react';
 import c from '../../styles/common/navbar.module.css';
 import {NavLink} from "react-router-dom";
 
-const NavbarComponent = () => {
+const NavbarContainer = () => {
 	return (
 		<nav className={c.nav}>
 			<div className={`${c.item} ${c.activeLink}`}>
@@ -51,4 +51,4 @@ const NavbarComponent = () => {
 	);
 };
 
-export default NavbarComponent;
+export default NavbarContainer;

@@ -1,10 +1,10 @@
 import React from "react";
 import './App.css';
-import FooterComponent from "./components/common/elements/FooterComponent.jsx";
+import FooterContainer from "./components/common/FooterContainer.jsx";
 import ProfileContainer from "./components/main/profile/ProfileContainer";
-import NavbarComponent from "./components/common/NavbarComponent";
-import RightComponent from "./components/main/right/RightComponent";
-import NavigateComponent from "./components/common/NavigateComponent";
+import NavbarContainer from "./components/common/NavbarContainer.jsx";
+import RightContainer from "./components/main/right/RightContainer.jsx";
+import NavigateContainer from "./components/common/NavigateContainer.jsx";
 import {Route, Routes} from "react-router-dom";
 import HomeContainer from "./components/main/home/HomeContainer";
 import DialogsContainer from "./components/main/dialogs/DialogsContainer";
@@ -21,15 +21,12 @@ const App = () => {
 		<>
 			<div className="app-wrapper">
 				<HeaderContainer/>
-				<NavbarComponent/>
+				<NavbarContainer/>
 
 				<div className='app-wrapper-content'>
 					<Routes>
 						<Route path='/' element={<HomeContainer/>}/>
-						<Route path='/login/' element={
-							<RedirectIfLoggedIn>
-								<LoginContainer/>
-							</RedirectIfLoggedIn>}/>
+						<Route path='/login/' element={<RedirectIfLoggedIn><LoginContainer/></RedirectIfLoggedIn>}/>
 						<Route path='/profile/*' element={<ProtectedRoute element={<ProfileContainer/>}/>}/>
 						<Route path='/profile/:userId' element={<ProtectedRoute element={<ProfileContainer/>}/>}/>
 						<Route path='/dialogs/*' element={<ProtectedRoute element={<DialogsContainer/>}/>}/>
@@ -40,9 +37,9 @@ const App = () => {
 					</Routes>
 				</div>
 
-				<RightComponent/>
-				<NavigateComponent/>
-				<FooterComponent/>
+				<RightContainer/>
+				<NavigateContainer/>
+				<FooterContainer/>
 			</div>
 		</>
 	);

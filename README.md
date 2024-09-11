@@ -1,6 +1,30 @@
 # Social Network for Chefs
 
-## 1. CORS
+## 1. React + Vite setup
+
+### Available Scripts
+In the project directory, you can run:
+
+`npm run dev`
+
+Runs the app in development mode.
+Open `http://localhost:3000` to view it in your browser.
+The app will reload if you edit any files.
+
+`npm run build`
+
+Builds the app for production in the dist folder.
+Vite will bundle and optimize the app for best performance.
+
+`npm run preview`
+
+Serves the production build locally, allowing you to preview the app before deploying.
+
+### Learn More
+#### To learn more about Vite, visit the [Vite documentation](https://vitejs.dev/).
+#### To learn React, visit the [React documentation](https://react.dev/).
+
+## 2. CORS
 
 #### Change for you local server
 

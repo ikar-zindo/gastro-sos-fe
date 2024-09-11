@@ -2,7 +2,7 @@ import React from 'react';
 import c from '../../styles/common/navigate.module.css';
 import {NavLink} from "react-router-dom";
 
-const NavigateComponent = () => {
+const NavigateContainer = () => {
 	return (
 		<div className={c.navigate}>
 			<NavLink
@@ -29,4 +29,4 @@ const NavigateComponent = () => {
 	);
 };
 
-export default NavigateComponent;
+export default NavigateContainer;
