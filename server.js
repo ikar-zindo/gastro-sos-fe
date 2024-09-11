@@ -10,7 +10,7 @@ app.use(cors());
 
 // Proxy setup
 app.use('/api', createProxyMiddleware ({
-	target: 'https://social-network.samuraijs.com/api/1.0',
+	target: import.meta.env.VITE_BASE_URL,
 	changeOrigin: true,
 	pathRewrite: {
 		'^/api': '', // Remove /api prefix when forwarding the request
@@ -21,9 +21,7 @@ app.listen(PORT, () => {
 	console.log(`Proxy server is running on port ${PORT}`);
 });
 
-
-
-// OLD {тоже работает}
+// =====  OLD {тоже работает}  ======
 // const express = require('express');
 // const request = require('request');
 // const app = express();
