@@ -15,7 +15,8 @@ const ProfileStatus = (props) => {
 			setStatus(props.status);
 			setInitialStatus(props.status);
 		}
-	}, [props.status]);
+
+	}, [props.status, initialStatus]);
 
 
 	const onStatusChange = (event) => {
@@ -50,6 +51,14 @@ const ProfileStatus = (props) => {
 	const deactivateEditMode = () => {
 		setStatus(initialStatus);
 		setMode(false);
+	}
+
+	const componentDidUpdate = () => {
+		console.log("componentDidUpdate")
+		return (
+			<>
+			</>
+		);
 	}
 
 	return (

@@ -1,5 +1,5 @@
 import axios from "axios";
-import InstanceAPI from "./InstanceAPI.js";
+import InstanceAPI from "./instanceAPI.js";
 
 const instance = axios.create(InstanceAPI)
 

@@ -1,4 +1,4 @@
-import {ProfileAPI} from "../api/ProfileAPI.js";
+import {ProfileAPI} from "../api/profileAPI.js";
 
 const SET_USER_PROFILE = 'SET-USER-PROFILE'
 const SET_USER_PROFILE_STATUS = 'SET-USER-PROFILE-STATUS'

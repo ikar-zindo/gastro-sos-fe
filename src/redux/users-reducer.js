@@ -1,5 +1,5 @@
-import {UsersAPI} from "../api/UsersAPI.js";
-import {FollowAPI} from "../api/FollowAPI.js";
+import {UsersAPI} from "../api/usersAPI.js";
+import {FollowAPI} from "../api/followAPI.js";
 
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
@@ -214,7 +214,6 @@ export const getUsers = (currentPage, pageSize,) => (dispatch) => {
 		dispatch(setTotalUsersAction(response.data.totalCount));
 		dispatch(toggleIsFetchingAction(false));
 	});
-
 }
 
 export const follow = (userId) => (dispatch) => {
