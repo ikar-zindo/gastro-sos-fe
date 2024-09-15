@@ -21,8 +21,8 @@ const profileReducer = (state = initialState, action) => {
 export const setUserProfileAction = (profile) => ({type: SET_USER_PROFILE, profile})
 
 export const setUserProfile = (userIdUrl) => (dispatch) => {
-	ProfileAPI.getProfile(userIdUrl).then(data => {
-		dispatch(setUserProfileAction(data));
+	ProfileAPI.getProfile(userIdUrl).then(response => {
+		dispatch(setUserProfileAction(response.data));
 	})
 
 }

@@ -6,7 +6,7 @@ const instance = axios.create(InstanceAPI)
 export const AuthAPI = {
 	me() {
 		return instance.get('auth/me')
-			.then(response => response.data)
+			.then(response => response)
 			.catch(error => {
 				console.error('Ошибка при запросе:', error);
 			});
@@ -14,11 +14,11 @@ export const AuthAPI = {
 
 	login() {
 		return instance.delete('auth/login')
-			.then(response => response.data);
+			.then();
 	},
 
 	logout() {
 		return instance.post('auth/login', {})
-			.then(response => response.data);
+			.then();
 	}
 }

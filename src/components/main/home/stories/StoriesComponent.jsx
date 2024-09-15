@@ -8,12 +8,12 @@ const StoriesComponent = (props) => {
 
 	// TODO: вывод историй
 	let stories = users.map(user => {
-		return <StoryElement user={user}/>;
+		return <StoryElement key={user.id} user={user}/>;
 	});
 
 	return (
 		<div className={c.stories}>
-			{stories ? stories : (<div className='loading'>Loading...</div>)}
+			{stories}
 		</div>
 	);
 };

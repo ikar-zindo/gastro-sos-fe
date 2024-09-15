@@ -6,7 +6,7 @@ const StoryElement = (props) => {
 	const user = props.user
 
 	if (!user) {
-		<PreloaderElement/>
+		return <PreloaderElement/>;
 	}
 
 	return (

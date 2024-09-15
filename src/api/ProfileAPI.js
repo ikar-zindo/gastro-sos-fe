@@ -5,22 +5,18 @@ const instance = axios.create(InstanceAPI)
 
 export const ProfileAPI = {
 	getProfile(userId) {
-		return instance.get(`profile/${userId}`)
-			.then(response => response.data);
+		return instance.get(`profile/${userId}`);
 	},
 
 	getStatus(userId) {
-		return instance.get(`profile/status/${userId}`)
-			.then(response => response.data);
+		return instance.get(`profile/status/${userId}`);
 	},
 
-	putStatus(userId) {
-		return instance.put(`profile/status/${userId}`, {})
-			.then(response => response.data);
+	putStatus(status) {
+		return instance.put('profile/status', {});
 	},
 
 	putPhoto(userId) {
-		return instance.get(`profile/photo/${userId}`)
-			.then(response => response.data);
+		return instance.get(`profile/photo/${userId}`);
 	}
 }
