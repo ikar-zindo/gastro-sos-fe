@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {getUsers, setCurrentPage} from "../../../redux/users-reducer.js";
+import {getUsers, setCurrentPageAction} from "../../../redux/users-reducer.js";
 import UsersComponent from "./UsersComponent.jsx";
 
 const UserContainer = () => {
@@ -18,7 +18,7 @@ const UserContainer = () => {
 	}, [totalUsers, currentPage]);
 
 	let onUpdatePageClick = (pageNumber) => {
-		dispatch(setCurrentPage(pageNumber));
+		dispatch(setCurrentPageAction(pageNumber));
 		dispatch(getUsers(pageNumber, pageSize,));
 	};
 

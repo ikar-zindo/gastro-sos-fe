@@ -5,13 +5,14 @@ import style from "../../../styles/main/profile/profile.module.css";
 import ProfileBioComponent from "./profile_bio/ProfileBioComponent.jsx";
 import {useSelector} from "react-redux";
 
-const ProfileComponent = (props) => {
-	const profile = useSelector(state => state.profilePage.profile);
+const ProfileComponent = () => {
+	const profilePage = useSelector(state => state.profilePage);
+	const profile = profilePage.profile;
 	const [selectedTab, setSelectedTab] = useState('posts');
 
 	return (
 		<div className={style.profile}>
-			<ProfileInfoComponent profile={profile}/>
+			<ProfileInfoComponent profilePage={profilePage}/>
 
 			<div className={style.switchButtons}>
 				<button onClick={() => setSelectedTab('bio')} className={selectedTab === 'bio' ? style.activeButton : ''}>

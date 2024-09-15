@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import c from '../../styles/common/text-area.module.css';
 
 const TextAreaComponent = (props) => {
 	let postValue = props.value;
-	let textareaRef = React.createRef();
+	let textareaRef = useRef(null);
 
 	let onAddPostClick = () => {
 		props.addNewPost();

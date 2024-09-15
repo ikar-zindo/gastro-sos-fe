@@ -9,14 +9,16 @@ export const ProfileAPI = {
 	},
 
 	getStatus(userId) {
-		return instance.get(`profile/status/${userId}`);
+		return instance.get('profile/status/' + userId);
 	},
 
 	putStatus(status) {
-		return instance.put('profile/status', {});
+		return instance.put('profile/status', {
+			status
+		});
 	},
 
 	putPhoto(userId) {
-		return instance.get(`profile/photo/${userId}`);
+		return instance.get('profile/photo/' + userId);
 	}
 }

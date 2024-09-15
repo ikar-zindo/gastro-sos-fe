@@ -2,13 +2,13 @@ import React from 'react';
 import style from "../../../../styles/main/profile/profile.module.css";
 import PreloaderElement from "../../../common/elements/PreloaderElement.jsx";
 import ProfileStatus from "./ProfileStatus.jsx";
-import {useSelector} from "react-redux";
 
-const ProfileInfoComponent = () => {
-	const profile = useSelector(state => state.profilePage.profile);
-	const status = useSelector(state => state.profilePage.status);
+const ProfileInfoComponent = (props) => {
+	const profile = props.profilePage.profile;
+	const status = props.profilePage.status;
 
-	if (!profile) {
+
+	if (!profile ?? !status) {
 		return <PreloaderElement/>
 	}
 
@@ -20,7 +20,6 @@ const ProfileInfoComponent = () => {
 			</div>
 
 			<div className={style.fullName}>{profile.fullName}</div>
-
 
 			<div className={style.descriptionBlock}>
 				Subscribers
