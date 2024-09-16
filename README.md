@@ -1,4 +1,4 @@
-# Social Network for Chefs
+## Social Network for Chefs
 
 ## 1. React + Vite setup
 
