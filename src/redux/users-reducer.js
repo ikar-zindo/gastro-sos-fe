@@ -224,7 +224,6 @@ export const follow = (userId) => (dispatch) => {
 		}
 		dispatch(toggleFollowingInProgressAction(false, userId)); // in progress off
 	});
-
 }
 
 export const unfollow = (userId) => (dispatch) => {
@@ -235,7 +234,6 @@ export const unfollow = (userId) => (dispatch) => {
 		}
 		dispatch(toggleFollowingInProgressAction(false, userId)); // in progress off
 	});
-
 }
 
 export default usersReducer;

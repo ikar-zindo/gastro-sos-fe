@@ -1,9 +1,8 @@
-import React from 'react';
-import LoginComponent from "./LoginComponent.jsx";
+import LoginForm from "./LoginForm.jsx";
 
 const LoginContainer = () => {
 
-	return <LoginComponent/>;
+	return <LoginForm/>;
 };
 
 export default LoginContainer;

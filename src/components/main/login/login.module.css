@@ -1,0 +1,81 @@
+/* Стили для формы логина */
+.formLogin {
+	background-color: rgb(39, 55, 73); /* Темный фон формы */
+	border-radius: 18px; /* Скругление углов формы */
+	border: 1px solid rgb(80, 117, 156); /* Граница формы */
+	padding: 20px; /* Отступы внутри формы */
+	max-width: 400px; /* Ограничение ширины формы */
+	margin: 0 auto; /* Выравнивание формы по центру */
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень вокруг формы */
+	display: flex;
+	flex-direction: column; /* Расположить элементы формы вертикально */
+	gap: 16px; /* Расстояние между элементами формы */
+}
+
+/* Стили для инпутов */
+.formLogin input[type="text"],
+.formLogin input[type="password"] {
+	width: 100%; /* Ширина 100% от родительского контейнера */
+	background-color: rgb(48, 69, 90); /* Фон инпута */
+	border: 1px solid rgb(80, 117, 156); /* Граница инпута */
+	border-radius: 12px; /* Скругление углов инпута */
+	padding: 12px; /* Внутренние отступы */
+	color: rgb(230, 230, 230); /* Цвет текста */
+	font-size: 16px; /* Размер шрифта */
+	outline: none; /* Убираем стандартную обводку при фокусе */
+	transition: border-color 0.3s ease, opacity 1s ease; /* Плавное изменение границы и прозрачности */
+	opacity: 1; /* Прозрачность по умолчанию */
+}
+
+.formLogin input[type="text"]:focus,
+.formLogin input[type="password"]:focus {
+	border: 2px solid rgb(120, 150, 200); /* Изменение цвета границы при фокусе */
+	opacity: 1; /* Полная непрозрачность при фокусе */
+}
+
+.formLogin input[type="text"]:not(:focus),
+.formLogin input[type="password"]:not(:focus) {
+	opacity: 0.6; /* Затухание прозрачности при потере фокуса */
+}
+
+/* Стили для чекбокса и текста "remember me" */
+.formLogin input[type="checkbox"] {
+	margin-right: 8px; /* Отступ справа от чекбокса */
+}
+
+.formLogin div {
+	display: flex;
+	align-items: center; /* Выравнивание чекбокса и текста по вертикали */
+	color: rgb(230, 230, 230); /* Цвет текста */
+	font-size: 12px;
+}
+
+/* Стили для кнопки логина */
+.formLogin .button {
+	margin: 8px auto 0;
+	width: 70%;
+	background-color: rgb(50, 70, 90); /* Темный фон кнопки */
+	border-radius: 12px; /* Скругление углов кнопки */
+	border: 1px solid rgb(100, 130, 180); /* Граница кнопки */
+	color: rgb(230, 230, 230); /* Цвет текста */
+	padding: 10px 20px; /* Внутренние отступы */
+	font-size: 16px; /* Размер шрифта */
+	cursor: pointer; /* Указатель при наведении */
+	transition: background-color 0.3s ease, border-color 0.3s ease; /* Плавные переходы */
+}
+
+.formLogin .button:hover {
+	background-color: rgb(60, 80, 100); /* Светлее фон при наведении */
+	border-color: rgb(120, 150, 200); /* Светлее граница при наведении */
+}
+
+.formLogin .button:active {
+	background-color: rgb(40, 60, 80); /* Темнее фон при нажатии */
+	border-color: rgb(80, 110, 160); /* Темнее граница при нажатии */
+}
+
+/* Стили для ошибки валидации */
+.error {
+	color: rgb(231, 76, 60); /* Красный цвет для текста ошибки */
+	font-size: 14px;
+}
