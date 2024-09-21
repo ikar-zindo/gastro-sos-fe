@@ -60,7 +60,6 @@ html, body {
   }
 
   .app-wrapper-content {
-    padding: 8px;
     max-height: calc(100vh - 142px);
     max-width: 100%;
     position: relative;

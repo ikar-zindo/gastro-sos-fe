@@ -6,7 +6,7 @@ export default defineConfig(({mode}) => {
 	const env = loadEnv(mode, process.cwd());
 
 	return {
-		base: '/gastro-sos-fe/',
+		// base: '/gastro-sos-fe/',
 		plugins: [react()],
 		server: {
 			port: 3000,
@@ -20,5 +20,3 @@ export default defineConfig(({mode}) => {
 		}
 	};
 });
-
-

@@ -1,32 +1,44 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
-import style from './login.module.css';
+import style from '../../../styles/main/login.module.css';
+import {useDispatch, useSelector} from "react-redux";
+import {login} from "../../../redux/auth-reducer.js";
 
 const LoginForm = () => {
-	let loginIsRequired = "Login is required";
-	let passwordIsRequired = "Password is required";
-
 	const {
 		register,
 		handleSubmit,
 		watch,
-		formState: {errors},
-	} = useForm({defaultValues: {
-		login: "",
-		password: ""
-		}})
+		formState: {
+			errors
+		},
+	} = useForm({
+			defaultValues: {
+				email: "",
+				password: "",
+				rememberMe: false
+			}
+		}
+	);
+	const loginIsRequired = "Login is required";
+	const passwordIsRequired = "Password is required";
+	const dispatch = useDispatch();
+	const auth = useSelector(state => state.auth);
+
+	useEffect(() => {
+	}, [auth]);
 
 	const onSubmit = (data) => {
-		console.log(data)
+		dispatch(login(data));
 	}
 
 	return (
 		<div className={style.formLogin}>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<input type={"text"}
+				<input type={"email"}
 				       placeholder={"Login"}
-				       {...register("login", {required: loginIsRequired, pattern:/^[A-Za-z]+$/i })} />
-				<span className={style.error}>{errors.login?.message}{errors.pattern?.message}</span>
+					    {...register("email", {required: loginIsRequired})} />
+				<span className={style.error}>{errors.email?.message}{errors.pattern?.message}</span>
 
 				<input type={"password"}
 				       placeholder={"Password"}
@@ -34,7 +46,8 @@ const LoginForm = () => {
 				<span className={style.error}>{errors.password?.message}</span>
 
 				<div className={style.checkboxContainer}>
-					<input type={"checkbox"}/>
+					<input type={"checkbox"}
+					       {...register("rememberMe")}/>
 					<p>remember me</p>
 				</div>
 

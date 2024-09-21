@@ -1,39 +1,48 @@
 import {AuthAPI} from "../api/authAPI.js";
+import {createSlice} from "@reduxjs/toolkit";
 
-const SET_USER_DATA = 'SET-USER-DATA'
-
-let initialState = {
-	id: null,
-	login: null,
-	email: null,
-	isAuth: false
-}
-
-const authReducer = (state = initialState, action) => {
-
-	switch (action.type) {
-		case SET_USER_DATA: {
+const authReducer = createSlice({
+	name: "auth",
+	initialState: {
+		id: null,
+		login: null,
+		email: null,
+		isAuth: false,
+		token: ''
+	},
+	reducers: {
+		setAuthDataAction: (state, action) => {
 			return {
 				...state,
-				...action.data,
+				...action.payload,
 				isAuth: true
 			}
+		},
+		setToken: (state, action) => {
+			state.token = action.payload;
 		}
 	}
+});
 
-	return state;
-}
-
-export const setAuthDataAction = (id, login, email) => ({type: SET_USER_DATA, data: {id, login, email}});
-
-export const getAuth = () => (dispatch) => {
+export const getAuth = () => async (dispatch) => {
 	AuthAPI.me().then(response => {
 		if (response.data.resultCode === 0) {
-			let {id, login, email} = response.data.data
-			dispatch(setAuthDataAction(id, login, email));
+			dispatch(setAuthDataAction(response.data.data));
 		}
 	});
-	
 }
 
-export default authReducer;
+export const login = (data) => (dispatch) => {
+	AuthAPI.login(data).then(response => {
+		if (response.data.resultCode === 0) {
+			dispatch(setToken(response.data.data.token))
+			console.log("Login success");
+			console.log(response);
+		}
+	})
+}
+
+export const {
+	setAuthDataAction,
+	setToken} = authReducer.actions;
+export default authReducer.reducer;

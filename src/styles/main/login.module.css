@@ -5,7 +5,7 @@
 	border: 1px solid rgb(80, 117, 156); /* Граница формы */
 	padding: 20px; /* Отступы внутри формы */
 	max-width: 400px; /* Ограничение ширины формы */
-	margin: 0 auto; /* Выравнивание формы по центру */
+	margin: 12px auto 0; /* Выравнивание формы по центру */
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень вокруг формы */
 	display: flex;
 	flex-direction: column; /* Расположить элементы формы вертикально */
@@ -13,7 +13,7 @@
 }
 
 /* Стили для инпутов */
-.formLogin input[type="text"],
+.formLogin input[type="email"],
 .formLogin input[type="password"] {
 	width: 100%; /* Ширина 100% от родительского контейнера */
 	background-color: rgb(48, 69, 90); /* Фон инпута */
@@ -27,13 +27,13 @@
 	opacity: 1; /* Прозрачность по умолчанию */
 }
 
-.formLogin input[type="text"]:focus,
+.formLogin input[type="email"]:focus,
 .formLogin input[type="password"]:focus {
 	border: 2px solid rgb(120, 150, 200); /* Изменение цвета границы при фокусе */
 	opacity: 1; /* Полная непрозрачность при фокусе */
 }
 
-.formLogin input[type="text"]:not(:focus),
+.formLogin input[type="email"]:not(:focus),
 .formLogin input[type="password"]:not(:focus) {
 	opacity: 0.6; /* Затухание прозрачности при потере фокуса */
 }

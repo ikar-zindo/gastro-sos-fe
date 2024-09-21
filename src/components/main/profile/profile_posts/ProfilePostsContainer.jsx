@@ -4,7 +4,6 @@ import style from '../../../../styles/main/profile/profile.module.css';
 import TextAreaComponent from "../../../common/TextAreaComponent.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {addPost, updatePostText} from "../../../../redux/content/profile-posts-content-reducer.js";
-import PreloaderElement from "../../../common/elements/PreloaderElement.jsx";
 
 const ProfilePostsContainer = () => {
 	const dispatch = useDispatch();
