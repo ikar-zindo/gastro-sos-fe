@@ -1,4 +1,4 @@
-import {ProfileAPI} from "../api/profileAPI.js";
+import {profileAPI} from "../api/profileAPI.js";
 
 const SET_USER_PROFILE = 'SET-USER-PROFILE'
 const SET_USER_PROFILE_STATUS = 'SET-USER-PROFILE-STATUS'
@@ -28,19 +28,19 @@ export const setUserProfileAction = (profile) => ({type: SET_USER_PROFILE, profi
 export const setUserProfileStatusAction = (status) => ({type: SET_USER_PROFILE_STATUS, status})
 
 export const setUserProfile = (userIdUrl) => (dispatch) => {
-	ProfileAPI.getProfile(userIdUrl).then(response => {
+	profileAPI.getProfile(userIdUrl).then(response => {
 		dispatch(setUserProfileAction(response.data));
 	})
 }
 
 export const setUserProfileStatus = (userIdUrl) => (dispatch) => {
-	ProfileAPI.getStatus(userIdUrl).then(response => {
+	profileAPI.getStatus(userIdUrl).then(response => {
 		dispatch(setUserProfileStatusAction(response.data));
 	})
 }
 
 export const updateUserProfileStatus = (status) => (dispatch) => {
-	ProfileAPI.putStatus(status).then(response => {
+	profileAPI.putStatus(status).then(response => {
 		if (response.data.resultCode === 0) {
 			dispatch(setUserProfileStatusAction(status));
 		}

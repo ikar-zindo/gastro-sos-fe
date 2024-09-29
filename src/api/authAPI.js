@@ -1,9 +1,9 @@
 import axios from "axios";
-import InstanceAPI from "./instanceAPI.js";
+import instanceAPI from "./instanceAPI.js";
 
-const instance = axios.create(InstanceAPI)
+const instance = axios.create(instanceAPI)
 
-export const AuthAPI = {
+export const authAPI = {
 	me() {
 		return instance.get('auth/me');
 	},

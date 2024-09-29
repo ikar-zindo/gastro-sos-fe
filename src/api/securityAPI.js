@@ -1,9 +1,9 @@
 import axios from "axios";
-import InstanceAPI from "./instanceAPI.js";
+import instanceAPI from "./instanceAPI.js";
 
-const instance = axios.create(InstanceAPI)
+const instance = axios.create(instanceAPI)
 
-export const UsersAPI = {
+export const securityAPI = {
 	getCaptcha () {
 		return instance.get('/security/get-captcha-url');
 	}
