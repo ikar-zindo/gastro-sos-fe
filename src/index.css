@@ -11,10 +11,11 @@ code {
   monospace;
 }
 
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0-modified | 20110126
-   License: none (public domain)
-   reset.css
+/*
+  reset.css
+  http://meyerweb.com/eric/tools/css/reset/
+  v2.0-modified | 20110126
+  License: none (public domain)
 */
 
 html, body, div, span, applet, object, iframe,
@@ -217,7 +218,7 @@ button,
 input,
 select,
 textarea {
-  font-size: 100%; /* 1 */
+	font-size: 100%; /* 1 */
   margin: 0; /* 2 */
   vertical-align: baseline; /* 3 */
   *vertical-align: middle; /* 3 */

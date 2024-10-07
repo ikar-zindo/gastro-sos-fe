@@ -1,4 +1,4 @@
-import {AuthAPI} from "../api/authAPI.js";
+import {authAPI} from "../api/authAPI.js";
 import {createSlice} from "@reduxjs/toolkit";
 
 const authReducer = createSlice({
@@ -25,7 +25,7 @@ const authReducer = createSlice({
 });
 
 export const getAuth = () => async (dispatch) => {
-	AuthAPI.me().then(response => {
+	authAPI.me().then(response => {
 		if (response.data.resultCode === 0) {
 			dispatch(setAuthDataAction(response.data.data));
 		}
@@ -33,7 +33,7 @@ export const getAuth = () => async (dispatch) => {
 }
 
 export const login = (data) => (dispatch) => {
-	AuthAPI.login(data).then(response => {
+	authAPI.login(data).then(response => {
 		if (response.data.resultCode === 0) {
 			dispatch(setToken(response.data.data.token))
 			console.log("Login success");

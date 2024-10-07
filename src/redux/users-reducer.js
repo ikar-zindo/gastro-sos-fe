@@ -207,7 +207,7 @@ export const toggleFollowingInProgressAction = (isFetching, userId) => ({
 	userId
 });
 
-export const getUsers = (currentPage, pageSize,) => (dispatch) => {
+export const getUsers = (currentPage, pageSize,) => async (dispatch) => {
 	dispatch(toggleIsFetchingAction(true));
 	UsersAPI.getUsers(currentPage, pageSize).then(response => {
 		dispatch(setUsersAction(response.data.items));
@@ -216,7 +216,7 @@ export const getUsers = (currentPage, pageSize,) => (dispatch) => {
 	});
 }
 
-export const follow = (userId) => (dispatch) => {
+export const follow = (userId) => async (dispatch) => {
 	dispatch(toggleFollowingInProgressAction(true, userId)); // in progress on
 	FollowAPI.followUser(userId).then(response => {
 		if (response.data.resultCode === 0) {
@@ -226,7 +226,7 @@ export const follow = (userId) => (dispatch) => {
 	});
 }
 
-export const unfollow = (userId) => (dispatch) => {
+export const unfollow = (userId) => async (dispatch) => {
 	dispatch(toggleFollowingInProgressAction(true, userId)); // in progress on
 	FollowAPI.unfollowUser(userId).then(response => {
 		if (response.data.resultCode === 0) {
