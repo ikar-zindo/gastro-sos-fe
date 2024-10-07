@@ -3,7 +3,7 @@ import InstanceAPI from "./instanceAPI.js";
 
 const instance = axios.create(InstanceAPI)
 
-export const AuthAPI = {
+export const authAPI = {
 	me() {
 		return instance.get('auth/me');
 	},

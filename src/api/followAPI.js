@@ -1,9 +1,9 @@
 import axios from "axios";
-import InstanceAPI from "./instanceAPI.js";
+import instanceAPI from "./instanceAPI.js";
 
-const instance = axios.create(InstanceAPI)
+const instance = axios.create(instanceAPI)
 
-export const FollowAPI = {
+export const followAPI = {
 
 	getFollowUser(userId) {
 		return instance.get(`follow/${userId}`);

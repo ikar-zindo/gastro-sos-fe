@@ -3,7 +3,7 @@ import InstanceAPI from "./instanceAPI.js";
 
 const instance = axios.create(InstanceAPI)
 
-export const ProfileAPI = {
+export const profileAPI = {
 	getProfile(userId) {
 		return instance.get(`profile/${userId}`);
 	},

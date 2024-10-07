@@ -1,5 +1,5 @@
-import {UsersAPI} from "../api/usersAPI.js";
-import {FollowAPI} from "../api/followAPI.js";
+import {usersAPI} from "../api/usersAPI.js";
+import {followAPI} from "../api/followAPI.js";
 
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
@@ -209,7 +209,7 @@ export const toggleFollowingInProgressAction = (isFetching, userId) => ({
 
 export const getUsers = (currentPage, pageSize,) => async (dispatch) => {
 	dispatch(toggleIsFetchingAction(true));
-	UsersAPI.getUsers(currentPage, pageSize).then(response => {
+	usersAPI.getUsers(currentPage, pageSize).then(response => {
 		dispatch(setUsersAction(response.data.items));
 		dispatch(setTotalUsersAction(response.data.totalCount));
 		dispatch(toggleIsFetchingAction(false));
@@ -218,7 +218,7 @@ export const getUsers = (currentPage, pageSize,) => async (dispatch) => {
 
 export const follow = (userId) => async (dispatch) => {
 	dispatch(toggleFollowingInProgressAction(true, userId)); // in progress on
-	FollowAPI.followUser(userId).then(response => {
+	followAPI.followUser(userId).then(response => {
 		if (response.data.resultCode === 0) {
 			dispatch(followAction(userId));
 		}
@@ -228,7 +228,7 @@ export const follow = (userId) => async (dispatch) => {
 
 export const unfollow = (userId) => async (dispatch) => {
 	dispatch(toggleFollowingInProgressAction(true, userId)); // in progress on
-	FollowAPI.unfollowUser(userId).then(response => {
+	followAPI.unfollowUser(userId).then(response => {
 		if (response.data.resultCode === 0) {
 			dispatch(unfollowAction(userId));
 		}

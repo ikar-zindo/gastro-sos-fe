@@ -1,6 +1,4 @@
-
-
-const InstanceAPI = {
+const instanceAPI = {
 	baseURL: import.meta.env.VITE_BASE_URL,
 	withCredentials: true,
 	headers: {
@@ -9,4 +7,4 @@ const InstanceAPI = {
 	}
 };
 
-export default InstanceAPI;
+export default instanceAPI;
