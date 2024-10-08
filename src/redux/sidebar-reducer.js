@@ -1,8 +1,13 @@
-let initialState = {}
+import {createSlice} from "@reduxjs/toolkit";
 
-const sidebarReducer = (state = initialState, action) => {
+const sidebarReducer = createSlice({
+	name: "sidebar",
+	initialState: {},
+	reducers: {},
+});
 
-	return state;
-}
+export const {
 
-export default sidebarReducer;
+} = sidebarReducer.actions;
+
+export default sidebarReducer.reducer;

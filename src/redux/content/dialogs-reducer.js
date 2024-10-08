@@ -1,5 +1,4 @@
-const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
+import {createSlice} from "@reduxjs/toolkit";
 
 let initialState = {
 	dialogs: [
@@ -252,23 +251,18 @@ let initialState = {
 	}
 };
 
-const dialogsReducer = (state = initialState, action) => {
-	switch (action.type) {
-
-		// UPDATE_MESSAGE_TEXT
-		case UPDATE_MESSAGE_TEXT: {
-			return {
-				...state,
-				messageValue: action.messageValue
-			};
-		}
-
-		// SEND_MESSAGE
-		case SEND_MESSAGE: {
-			let sendMessageData = action.sendMessageData;
+const dialogsReducer = createSlice({
+	name: "dialogs",
+	initialState,
+	reducers: {
+		updateMessageText: (state, action) => {
+			state.messageValue = action.payload;
+		},
+		sendMessage: (state, action) => {
+			let sendMessageData = action.payload;
 			let dialog = state.dialogs // seach current dialog
-				.find(d => (d.participants[0].userId === sendMessageData.senderId &&
-					d.participants[1].userId === sendMessageData.receiverId));
+				.find(dialog => (dialog.participants[0].userId === sendMessageData.senderId &&
+					dialog.participants[1].userId === sendMessageData.receiverId));
 
 			let text = state.messageValue.text;
 
@@ -283,31 +277,16 @@ const dialogsReducer = (state = initialState, action) => {
 					read: false
 				};
 
-				const updatedMessages = [...state.dialogs[dialog.id].messages, newMessage];
-				const updatedDialogs = [...state.dialogs];
-				updatedDialogs[dialog.id] = {
-					...updatedDialogs[dialog.id],
-					messages: updatedMessages
-				};
-
-				return {
-					...state,
-					dialogs: updatedDialogs,
-					messageValue: {
-						text: ''
-					}
-				};
+				dialog.messages.push(newMessage);
+				state.messageValue.text = '';
 			}
-			return state;
 		}
-
-		default:
-			return state;
 	}
-}
+});
 
-// ACTIONS
-export const sendMessage = (sendMessageData) => ({type: SEND_MESSAGE, sendMessageData: sendMessageData})
-export const updateMessageText = (messageValue) => ({type: UPDATE_MESSAGE_TEXT, messageValue: messageValue})
+export const {
+	sendMessage,
+	updateMessageText
+} = dialogsReducer.actions;
 
-export default dialogsReducer;
+export default dialogsReducer.reducer;

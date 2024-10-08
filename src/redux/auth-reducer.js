@@ -32,7 +32,7 @@ export const getAuth = () => async (dispatch) => {
 	});
 }
 
-export const login = (data) => (dispatch) => {
+export const login = (data) => async (dispatch) => {
 	authAPI.login(data).then(response => {
 		if (response.data.resultCode === 0) {
 			dispatch(setToken(response.data.data.token))
@@ -44,5 +44,7 @@ export const login = (data) => (dispatch) => {
 
 export const {
 	setAuthDataAction,
-	setToken} = authReducer.actions;
+	setToken,
+} = authReducer.actions;
+
 export default authReducer.reducer;

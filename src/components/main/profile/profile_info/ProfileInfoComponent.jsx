@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import style from "../../../../styles/main/profile/profile.module.css";
 import PreloaderElement from "../../../common/elements/PreloaderElement.jsx";
 import ProfileStatus from "./ProfileStatus.jsx";
@@ -8,8 +8,12 @@ const ProfileInfoComponent = (props) => {
 	const profile = props.profilePage.profile;
 	const status = props.profilePage.status;
 
+	useEffect(() => {
 
-	if (!profile && !status) {
+	}, [profile]);
+
+
+	if (!profile || !status) {
 		return <PreloaderElement/>
 	}
 
