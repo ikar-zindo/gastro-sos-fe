@@ -7,10 +7,11 @@ import {addPost, updatePostText} from "../../../../redux/content/profile-posts-c
 
 const ProfilePostsContainer = () => {
 	const dispatch = useDispatch();
-	const users = useSelector(state => state.usersPage.usersTest)
-	const profilePostContentPage = useSelector(state => state.profilePostContentPage)
+	const users = useSelector(state => state.usersPage.usersTest);
+	const profilePostContentPage = useSelector(state => state.profilePostContentPage);
+	let placeholder = profilePostContentPage.placeholder;
+	let buttonValue = profilePostContentPage.buttonValue;
 	const userId = useSelector(state => state.auth.id);
-	const buttonValue = 'Add post';
 
 	let postElements = profilePostContentPage.posts.map(post => {
 		let user = users.find(user => user.id === post.userId);
@@ -29,6 +30,7 @@ const ProfilePostsContainer = () => {
 	return (
 		<div className={style.postsWrapper}>
 			<TextAreaComponent
+				placeholder={placeholder}
 				buttonValue={buttonValue}
 				value={profilePostContentPage.postValue}
 				handleChange={updateNewPostText}

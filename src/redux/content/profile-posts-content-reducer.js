@@ -56,8 +56,11 @@ const profilePostsContentReducer = createSlice({
 			// }
 		],
 		postValue: {
-			text: 'gastro-sos'
-		}
+			text: "gastro-sos",
+			content: {}
+		},
+		placeholder: "Post message",
+		buttonValue: "Add post"
 	},
 	reducers: {
 		updatePostText: (state, action) => {

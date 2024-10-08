@@ -250,8 +250,11 @@ const dialogsReducer = createSlice({
 			},
 		],
 		messageValue: {
-			text: ''
-		}
+			text: '',
+			content: {}
+		},
+		buttonValue: "Send",
+		placeholder: "Enter message",
 	},
 	reducers: {
 		updateMessageText: (state, action) => {
@@ -267,7 +270,7 @@ const dialogsReducer = createSlice({
 
 			if (dialog) {
 				let newMessage = {
-					id: dialog.messages.length + 1001, // dialogId
+					id: dialog.messages.length + 1001, // TODO: тут вообще не должен присваиватся ID (dialogId)
 					senderId: sendMessageData.senderId, // senderId
 					receiverId: sendMessageData.receiverId, // receiverId
 					text: text, // text

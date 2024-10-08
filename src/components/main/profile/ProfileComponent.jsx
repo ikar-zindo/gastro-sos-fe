@@ -6,8 +6,7 @@ import ProfileBioComponent from "./profile_bio/ProfileBioComponent.jsx";
 import {useSelector} from "react-redux";
 
 const ProfileComponent = (props) => {
-	const profilePage = useSelector(state => state.profilePage);
-	// const profilePage = props.profilePage;
+	const profilePage = props.profilePage;
 	const profile = profilePage.profile;
 	const [selectedTab, setSelectedTab] = useState('posts');
 

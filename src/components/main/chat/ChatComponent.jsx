@@ -10,10 +10,11 @@ import Loader from "../../common/elements/Loader.jsx";
 const ChatComponent = (props) => {
 	let {userId} = useParams();
 	const dispatch = useDispatch();
-	const buttonValue = 'Send';
 
 	let dialogPage = props.dialogPage;
 	let messageValue = dialogPage.messageValue;
+	let placeholder = dialogPage.placeholder;
+	let buttonValue = dialogPage.buttonValue;
 	let currentDialog = dialogPage.dialogs.find(dialog => dialog.id === parseInt(userId));
 	let messages = currentDialog ? currentDialog.messages : [];
 
@@ -55,6 +56,7 @@ const ChatComponent = (props) => {
 			</div>
 
 			<TextAreaComponent
+				placeholder={placeholder}
 				buttonValue={buttonValue}
 				value={messageValue}
 				handleChange={changeMessageText}

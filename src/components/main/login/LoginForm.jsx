@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useForm} from "react-hook-form";
 import style from '../../../styles/main/login.module.css';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {login} from "../../../redux/auth-reducer.js";
 
-const LoginForm = () => {
+const LoginForm = (props) => {
+	const dispatch = useDispatch();
 	const {
 		register,
 		handleSubmit,
@@ -20,14 +21,6 @@ const LoginForm = () => {
 			}
 		}
 	);
-	const loginIsRequired = "Login is required";
-	const passwordIsRequired = "Password is required";
-	const invalidEmail = "Invalid email address";
-	const dispatch = useDispatch();
-	const auth = useSelector(state => state.auth);
-
-	useEffect(() => {
-	}, [auth]);
 
 	const onSubmit = (data) => {
 		dispatch(login(data));
@@ -38,20 +31,20 @@ const LoginForm = () => {
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<input type={"email"}
 				       placeholder={"Login"}
-					    {...register("email", {
-							 required: loginIsRequired,
-						    pattern: {
-								 value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-							    message: invalidEmail
-						    }
-						 })} />
+				       {...register("email", {
+					       required: props.loginIsRequired,
+					       pattern: {
+						       value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+						       message: props.invalidEmail
+					       }
+				       })} />
 				<span className={style.error}>{errors.email?.message}{errors.pattern?.message}</span>
 
 				<input type={"password"}
 				       placeholder={"Password"}
 				       {...register("password", {
-							 required: passwordIsRequired
-						 })} />
+					       required: props.passwordIsRequired
+				       })} />
 				<span className={style.error}>{errors.password?.message}</span>
 
 				<div className={style.checkboxContainer}>
@@ -63,7 +56,7 @@ const LoginForm = () => {
 				<div>
 					<input className={style.button}
 					       type="submit"
-					       value={"Login"}/>
+					       value="Login"/>
 				</div>
 			</form>
 		</div>

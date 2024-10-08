@@ -1,25 +1,9 @@
 import React, {useEffect, useRef} from 'react';
 import c from '../../styles/common/text-area.module.css';
-import {useForm} from "react-hook-form";
 
 const TextAreaComponent = (props) => {
 	let postValue = props.value;
 	let textareaRef = useRef(null);
-	const {
-		register,
-		handleSubmit,
-		watch,
-		formState: {
-			errors
-		}
-	} = useForm({
-		defaultValues: {
-			postValue: {
-				text: 'gastro-sos',
-				content: {}
-			}
-		}
-	})
 
 	const onTextChange = () => {
 		let text = textareaRef.current.value;
@@ -70,7 +54,7 @@ const TextAreaComponent = (props) => {
 						value={postValue.text}
 						onChange={onTextChange}
 						onKeyDown={handleKeyDown}
-						className="textarea"/>
+						placeholder={props.placeholder}/>
 			</div>
 
 			<div className={c.button}>

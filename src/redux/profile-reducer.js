@@ -18,6 +18,11 @@ const profileReducer = createSlice( {
 	}
 });
 
+export const {
+	setUserProfileAction,
+	setUserProfileStatusAction,
+} = profileReducer.actions;
+
 export const setUserProfile = (userIdUrl) => async (dispatch) => {
 	profileAPI.getProfile(userIdUrl).then(response => {
 		dispatch(setUserProfileAction(response.data));
@@ -37,10 +42,5 @@ export const updateUserProfileStatus = (status) => async (dispatch) => {
 		}
 	})
 }
-
-export const {
-	setUserProfileAction,
-	setUserProfileStatusAction,
-} = profileReducer.actions;
 
 export default profileReducer.reducer;
