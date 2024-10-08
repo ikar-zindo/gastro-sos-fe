@@ -1,28 +1,44 @@
 import React, {useEffect, useRef} from 'react';
 import c from '../../styles/common/text-area.module.css';
+import {useForm} from "react-hook-form";
 
 const TextAreaComponent = (props) => {
 	let postValue = props.value;
 	let textareaRef = useRef(null);
+	const {
+		register,
+		handleSubmit,
+		watch,
+		formState: {
+			errors
+		}
+	} = useForm({
+		defaultValues: {
+			postValue: {
+				text: 'gastro-sos',
+				content: {}
+			}
+		}
+	})
 
-	let onAddPostClick = () => {
-		props.addNewPost();
-	}
-
-	const onPostTextChange = () => {
+	const onTextChange = () => {
 		let text = textareaRef.current.value;
 		let postValue = {
 			text: text
 		}
-		props.changePostText(postValue);
+		props.handleChange(postValue);
 	};
+
+	let onAddPostClick = () => {
+		props.handleClick();
+	}
 
 	useEffect(() => {
 		const adjustHeight = () => {
 			const textarea = textareaRef.current;
 			if (textarea) {
 				textarea.style.height = 'auto';
-				textarea.style.height = `${Math.min(textarea.scrollHeight, 150)}px`;
+				textarea.style.height = `${Math.min(textarea.scrollHeight, 120)}px`;
 			}
 		};
 
@@ -52,7 +68,7 @@ const TextAreaComponent = (props) => {
 						id='new-post'
 						ref={textareaRef}
 						value={postValue.text}
-						onChange={onPostTextChange}
+						onChange={onTextChange}
 						onKeyDown={handleKeyDown}
 						className="textarea"/>
 			</div>

@@ -1,259 +1,258 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-let initialState = {
-	dialogs: [
-		{
-			id: 0,
-			participants: [
-				{userId: 20},
-				{userId: 21}
-			],
-			messages: [
-				{
-					id: 1000,
-					senderId: 20,
-					receiverId: 21,
-					text: "Hello!",
-					content: {},
-					createdAt: "12:00",
-					read: false
-				},
-				{
-					id: 1001,
-					senderId: 1,
-					receiverId: 0,
-					text: "Hi there!",
-					content: {},
-					createdAt: "12:01",
-					read: false
-				}
-			]
-		},
-		{
-			id: 1,
-			participants: [
-				{userId: 20},
-				{userId: 22}
-			],
-			messages: [
-				{
-					id: 1000,
-					senderId: 20,
-					receiverId: 22,
-					text: "Hello!",
-					content: {},
-					createdAt: "12:00",
-					read: false
-				},
-				{
-					id: 1001,
-					senderId: 2,
-					receiverId: 0,
-					text: "Hi there!",
-					content: {},
-					createdAt: "12:01",
-					read: false
-				}
-			]
-		},
-		{
-			id: 2,
-			participants: [
-				{userId: 20},
-				{userId: 23}
-			],
-			messages: [
-				{
-					id: 1000,
-					senderId: 20,
-					receiverId: 23,
-					text: "Hello!",
-					content: {},
-					createdAt: "12:00",
-					read: false
-				},
-				{
-					id: 1001,
-					senderId: 3,
-					receiverId: 0,
-					text: "Hi there!",
-					content: {},
-					createdAt: "12:01",
-					read: false
-				}
-			]
-		},
-		{
-			id: 3,
-			participants: [
-				{userId: 20},
-				{userId: 24}
-			],
-			messages: [
-				{
-					id: 1000,
-					senderId: 20,
-					receiverId: 24,
-					text: "Hello!",
-					content: {},
-					createdAt: "12:00",
-					read: false
-				},
-				{
-					id: 1001,
-					senderId: 4,
-					receiverId: 0,
-					text: "Hi there!",
-					content: {},
-					createdAt: "12:01",
-					read: false
-				}
-			]
-		},
-		{
-			id: 4,
-			participants: [
-				{userId: 20},
-				{userId: 25}
-			],
-			messages: [
-				{
-					id: 1000,
-					senderId: 20,
-					receiverId: 25,
-					text: "Hello!",
-					content: {},
-					createdAt: "12:00",
-					read: false
-				},
-				{
-					id: 1001,
-					senderId: 5,
-					receiverId: 0,
-					text: "Hi there!",
-					content: {},
-					createdAt: "12:01",
-					read: false
-				}
-			]
-		},
-		{
-			id: 5,
-			participants: [
-				{userId: 20},
-				{userId: 26}
-			],
-			messages: [
-				{
-					id: 1000,
-					senderId: 20,
-					receiverId: 26,
-					text: "Hello!",
-					content: {},
-					createdAt: "12:00",
-					read: false
-				},
-				{
-					id: 1001,
-					senderId: 6,
-					receiverId: 0,
-					text: "Hi there!",
-					content: {},
-					createdAt: "12:01",
-					read: false
-				}
-			]
-		},
-		{
-			id: 6,
-			participants: [
-				{userId: 20},
-				{userId: 27}
-			],
-			messages: [
-				{
-					id: 1000,
-					senderId: 20,
-					receiverId: 27,
-					text: "Hello!",
-					content: {},
-					createdAt: "12:00",
-					read: false
-				},
-				{
-					id: 1001,
-					senderId: 7,
-					receiverId: 0,
-					text: "Hi there!",
-					content: {},
-					createdAt: "12:01",
-					read: false
-				}
-			]
-		},
-		{
-			id: 7,
-			participants: [
-				{userId: 20},
-				{userId: 28}
-			],
-			messages: [
-				{
-					id: 1000,
-					senderId: 20,
-					receiverId: 28,
-					text: "Hello!",
-					content: {},
-					createdAt: "12:00",
-					read: false
-				},
-				{
-					id: 1001,
-					senderId: 8,
-					receiverId: 0,
-					text: "Hi there!",
-					content: {},
-					createdAt: "12:01",
-					read: false
-				}
-			]
-		},
-		{
-			id: 8,
-			participants: [
-				{userId: 20},
-				{userId: 29}
-			],
-			messages: [
-				{
-					id: 1000,
-					senderId: 20,
-					receiverId: 29,
-					text: "Hello!",
-					content: {},
-					createdAt: "12:00",
-					read: false
-				},
-				{
-					id: 1001,
-					senderId: 9,
-					receiverId: 0,
-					text: "Hi there!",
-					content: {},
-					createdAt: "12:01",
-					read: false
-				}
-			]
-		},
-	],
-	messageValue: {
-		text: ''
-	}
-};
 
 const dialogsReducer = createSlice({
 	name: "dialogs",
-	initialState,
+	initialState: {
+		dialogs: [
+			{
+				id: 0,
+				participants: [
+					{userId: 400000},
+					{userId: 400001}
+				],
+				messages: [
+					{
+						id: 1000,
+						senderId: 400000,
+						receiverId: 400001,
+						text: "Hello!",
+						content: {},
+						createdAt: "12:00",
+						read: false
+					},
+					{
+						id: 1001,
+						senderId: 400001,
+						receiverId: 400000,
+						text: "Hi there!",
+						content: {},
+						createdAt: "12:01",
+						read: false
+					}
+				]
+			},
+			{
+				id: 1,
+				participants: [
+					{userId: 400000},
+					{userId: 400002}
+				],
+				messages: [
+					{
+						id: 1000,
+						senderId: 400000,
+						receiverId: 400002,
+						text: "Hello!",
+						content: {},
+						createdAt: "12:00",
+						read: false
+					},
+					{
+						id: 1001,
+						senderId: 400002,
+						receiverId: 400000,
+						text: "Hi there!",
+						content: {},
+						createdAt: "12:01",
+						read: false
+					}
+				]
+			},
+			{
+				id: 2,
+				participants: [
+					{userId: 400000},
+					{userId: 400003}
+				],
+				messages: [
+					{
+						id: 1000,
+						senderId: 400000,
+						receiverId: 400003,
+						text: "Hello!",
+						content: {},
+						createdAt: "12:00",
+						read: false
+					},
+					{
+						id: 1001,
+						senderId: 400003,
+						receiverId: 400000,
+						text: "Hi there!",
+						content: {},
+						createdAt: "12:01",
+						read: false
+					}
+				]
+			},
+			{
+				id: 3,
+				participants: [
+					{userId: 400000},
+					{userId: 400004}
+				],
+				messages: [
+					{
+						id: 1000,
+						senderId: 400000,
+						receiverId: 400004,
+						text: "Hello!",
+						content: {},
+						createdAt: "12:00",
+						read: false
+					},
+					{
+						id: 1001,
+						senderId: 400004,
+						receiverId: 400000,
+						text: "Hi there!",
+						content: {},
+						createdAt: "12:01",
+						read: false
+					}
+				]
+			},
+			{
+				id: 4,
+				participants: [
+					{userId: 400000},
+					{userId: 400005}
+				],
+				messages: [
+					{
+						id: 1000,
+						senderId: 400000,
+						receiverId: 400005,
+						text: "Hello!",
+						content: {},
+						createdAt: "12:00",
+						read: false
+					},
+					{
+						id: 1001,
+						senderId: 5,
+						receiverId: 0,
+						text: "Hi there!",
+						content: {},
+						createdAt: "12:01",
+						read: false
+					}
+				]
+			},
+			{
+				id: 5,
+				participants: [
+					{userId: 400000},
+					{userId: 400006}
+				],
+				messages: [
+					{
+						id: 1000,
+						senderId: 400000,
+						receiverId: 400006,
+						text: "Hello!",
+						content: {},
+						createdAt: "12:00",
+						read: false
+					},
+					{
+						id: 1001,
+						senderId: 400006,
+						receiverId: 400000,
+						text: "Hi there!",
+						content: {},
+						createdAt: "12:01",
+						read: false
+					}
+				]
+			},
+			{
+				id: 6,
+				participants: [
+					{userId: 400000},
+					{userId: 400007}
+				],
+				messages: [
+					{
+						id: 1000,
+						senderId: 400000,
+						receiverId: 400007,
+						text: "Hello!",
+						content: {},
+						createdAt: "12:00",
+						read: false
+					},
+					{
+						id: 1001,
+						senderId: 400007,
+						receiverId: 400000,
+						text: "Hi there!",
+						content: {},
+						createdAt: "12:01",
+						read: false
+					}
+				]
+			},
+			{
+				id: 7,
+				participants: [
+					{userId: 400000},
+					{userId: 400008}
+				],
+				messages: [
+					{
+						id: 1000,
+						senderId: 400000,
+						receiverId: 400008,
+						text: "Hello!",
+						content: {},
+						createdAt: "12:00",
+						read: false
+					},
+					{
+						id: 1001,
+						senderId: 400008,
+						receiverId: 400000,
+						text: "Hi there!",
+						content: {},
+						createdAt: "12:01",
+						read: false
+					}
+				]
+			},
+			{
+				id: 8,
+				participants: [
+					{userId: 400000},
+					{userId: 400009}
+				],
+				messages: [
+					{
+						id: 1000,
+						senderId: 400000,
+						receiverId: 400009,
+						text: "Hello!",
+						content: {},
+						createdAt: "12:00",
+						read: false
+					},
+					{
+						id: 1001,
+						senderId: 400009,
+						receiverId: 400000,
+						text: "Hi there!",
+						content: {},
+						createdAt: "12:01",
+						read: false
+					}
+				]
+			},
+		],
+		messageValue: {
+			text: ''
+		}
+	},
 	reducers: {
 		updateMessageText: (state, action) => {
 			state.messageValue = action.payload;

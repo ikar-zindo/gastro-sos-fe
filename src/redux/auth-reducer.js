@@ -1,7 +1,7 @@
 import {authAPI} from "../api/authAPI.js";
 import {createSlice} from "@reduxjs/toolkit";
 
-const authReducer = createSlice({
+const authSlice = createSlice({
 	name: "auth",
 	initialState: {
 		id: null,
@@ -12,11 +12,8 @@ const authReducer = createSlice({
 	},
 	reducers: {
 		setAuthDataAction: (state, action) => {
-			return {
-				...state,
-				...action.payload,
-				isAuth: true
-			}
+			Object.assign(state, action.payload);
+			state.isAuth = true;
 		},
 		setToken: (state, action) => {
 			state.token = action.payload;
@@ -36,8 +33,7 @@ export const login = (data) => async (dispatch) => {
 	authAPI.login(data).then(response => {
 		if (response.data.resultCode === 0) {
 			dispatch(setToken(response.data.data.token))
-			console.log("Login success");
-			console.log(response);
+			dispatch(getAuth());
 		}
 	})
 }
@@ -45,6 +41,6 @@ export const login = (data) => async (dispatch) => {
 export const {
 	setAuthDataAction,
 	setToken,
-} = authReducer.actions;
+} = authSlice.actions;
 
-export default authReducer.reducer;
+export default authSlice.reducer;

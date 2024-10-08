@@ -12,7 +12,7 @@ const profilePostsContentReducer = createSlice({
 				},
 				likes: 3,
 				dislikes: 1,
-				userId: 20,
+				userId: 400000,
 				createdAt: "12/12/24"
 			},
 			{
@@ -23,7 +23,7 @@ const profilePostsContentReducer = createSlice({
 				},
 				likes: 30,
 				dislikes: 5,
-				userId: 22,
+				userId: 400002,
 				createdAt: "12/12/24"
 			}
 			// {
@@ -63,14 +63,15 @@ const profilePostsContentReducer = createSlice({
 		updatePostText: (state, action) => {
 			state.postValue.text = action.payload.text;
 		},
-		addPost: (state) => {
+		addPost: (state, action) => {
+			const userId = action.payload ? action.payload : 400000;
 			let newPost = {
 				id: state.posts.length + 1,
 				text: state.postValue.text,
 				content: {},
 				likes: 0,
 				dislikes: 0,
-				userId: 20,
+				userId: 400000,
 				createdAt: new Date().toLocaleDateString()
 			};
 

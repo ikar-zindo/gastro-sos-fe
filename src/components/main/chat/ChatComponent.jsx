@@ -5,11 +5,12 @@ import {useParams} from "react-router-dom";
 import TextAreaComponent from "../../common/TextAreaComponent.jsx";
 import {useDispatch} from "react-redux";
 import {sendMessage, updateMessageText} from "../../../redux/content/dialogs-reducer.js";
+import Loader from "../../common/elements/Loader.jsx";
 
 const ChatComponent = (props) => {
 	let {userId} = useParams();
 	const dispatch = useDispatch();
-
+	const buttonValue = 'Send';
 
 	let dialogPage = props.dialogPage;
 	let messageValue = dialogPage.messageValue;
@@ -20,23 +21,22 @@ const ChatComponent = (props) => {
 	let currentUser = users.find(u => u.id === currentDialog.participants[0].userId);
 	let companionUser = users.find(u => u.id === currentDialog.participants[1].userId);
 
-	// debugger
 	let messagesElement = messages
 		.map(message => (<MessageElement
 			currentUser={currentUser}
 			message={message}
 			key={message.id}/>));
 
-	let onSendMessageClick = () => {
+	let changeMessageText = (messageValue) => {
+		dispatch(updateMessageText(messageValue));
+	}
+
+	let addNewMessage = () => {
 		let sendMessageData = {
 			senderId: currentUser.id,
 			receiverId: companionUser.id
 		};
 		dispatch(sendMessage(sendMessageData));
-	}
-
-	let handleChange = (messageValue) => {
-		dispatch(updateMessageText(messageValue));
 	}
 
 	return (
@@ -51,14 +51,14 @@ const ChatComponent = (props) => {
 			</div>
 
 			<div className={c.messages}>
-				<div className={c.messageItem}>{messagesElement ? messagesElement : (<div>Loading...</div>)}</div>
+				<div className={c.messageItem}>{messagesElement ? messagesElement : (<Loader/>)}</div>
 			</div>
 
 			<TextAreaComponent
-				buttonValue='Send'
+				buttonValue={buttonValue}
 				value={messageValue}
-				changePostText={handleChange}
-				addNewPost={onSendMessageClick}/>
+				handleChange={changeMessageText}
+				handleClick={addNewMessage}/>
 		</div>
 	);
 };

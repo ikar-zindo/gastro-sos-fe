@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 
 const ChatContainer = () => {
 	const dialogPage = useSelector(state => state.dialogPage);
-	const users = useSelector(state => state.usersPage.users);
+	const users = useSelector(state => state.usersPage.usersTest);
 	const isAuth = useSelector(state => state.auth.isAuth);
 
 	return <ChatComponent

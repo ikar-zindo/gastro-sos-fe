@@ -22,6 +22,7 @@ const LoginForm = () => {
 	);
 	const loginIsRequired = "Login is required";
 	const passwordIsRequired = "Password is required";
+	const invalidEmail = "Invalid email address";
 	const dispatch = useDispatch();
 	const auth = useSelector(state => state.auth);
 
@@ -37,12 +38,20 @@ const LoginForm = () => {
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<input type={"email"}
 				       placeholder={"Login"}
-					    {...register("email", {required: loginIsRequired})} />
+					    {...register("email", {
+							 required: loginIsRequired,
+						    pattern: {
+								 value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+							    message: invalidEmail
+						    }
+						 })} />
 				<span className={style.error}>{errors.email?.message}{errors.pattern?.message}</span>
 
 				<input type={"password"}
 				       placeholder={"Password"}
-				       {...register("password", {required: passwordIsRequired})} />
+				       {...register("password", {
+							 required: passwordIsRequired
+						 })} />
 				<span className={style.error}>{errors.password?.message}</span>
 
 				<div className={style.checkboxContainer}>

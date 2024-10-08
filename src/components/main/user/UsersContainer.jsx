@@ -6,7 +6,7 @@ import UsersComponent from "./UsersComponent.jsx";
 const UserContainer = () => {
 	const dispatch = useDispatch();
 	const usersPage = useSelector(state => state.usersPage)
-	const users = usersPage.users1;
+	const users = usersPage.users;
 	const pageSize = usersPage.pageSize;
 	const totalUsers = usersPage.totalUsers;
 	const currentPage = usersPage.currentPage;

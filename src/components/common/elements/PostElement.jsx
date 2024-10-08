@@ -1,18 +1,19 @@
 import React from 'react';
 import c from "../../../styles/common/post.module.css";
-import PreloaderElement from "./PreloaderElement.jsx";
+import Loader from "./Loader.jsx";
+import userPhoto from "../../../assets/img/userPhoto.png";
 
 const PostElement = (props) => {
 	let user = props.user;
 	let post = props.post;
 
 	if (!post && !user) {
-		return <PreloaderElement/>
+		return <Loader/>
 	}
 	return (
 		<div className={c.post}>
 			<div className={c.userInfoWrapper}>
-				<img alt='ava' src={user.imgUrl}/>
+				<img alt='ava' src={user.photos.small != null ? user.photos.small : userPhoto}/>
 
 				<div className={c.userInfo}>
 					<p className={c.userName}>{user.name}</p>

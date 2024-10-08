@@ -8,6 +8,7 @@ const ProfileContainer = () => {
 	const dispatch = useDispatch();
 	const {userId} = useParams();
 	const authUserId = useSelector(state => state.auth.id);
+	const profilePage = useSelector(state => state.profilePage);
 
 	useEffect(() => {
 		const userIdUrl = parseInt(userId) ? parseInt(userId, 10) : authUserId;
@@ -15,7 +16,7 @@ const ProfileContainer = () => {
 		dispatch(setUserProfileStatus(userIdUrl))
 	}, [userId, authUserId, dispatch]);
 
-	return <ProfileComponent/>;
+	return <ProfileComponent profilePage={profilePage}/>;
 }
 
 export default ProfileContainer;

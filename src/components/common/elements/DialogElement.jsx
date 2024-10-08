@@ -1,7 +1,8 @@
 import React from 'react';
 import c from "../../../styles/main/dialogs/CompanionElement.module.css";
 import {NavLink} from "react-router-dom";
-import PreloaderElement from "./PreloaderElement.jsx";
+import Loader from "./Loader.jsx";
+import userPhoto from "../../../assets/img/userPhoto.png";
 
 const DialogElement = (props) => {
 	let user = props.user
@@ -9,7 +10,7 @@ const DialogElement = (props) => {
 	let path = "/chat/" + dialog.id;
 
 	if (!dialog) {
-		return <PreloaderElement/>
+		return <Loader/>
 	}
 
 	return (
@@ -17,7 +18,7 @@ const DialogElement = (props) => {
 			<div className={c.dialog + ' ' + c.active}>
 				<NavLink to={path}>
 					<div className={c.userInfoWrapper}>
-						<img alt='ava' src={user.imgUrl}/>
+						<img alt='ava' src={user.photos.small != null ? user.photos.small : userPhoto}/>
 
 						<div className={c.userInfo}>
 							<p className={c.userName}>{user.name}</p>

@@ -1,7 +1,7 @@
 import React from 'react';
 import UserElement from "../../common/elements/UserElement.jsx";
 import style from '../../../styles/main/users.module.css';
-import PreloaderElement from "../../common/elements/PreloaderElement.jsx";
+import Loader from "../../common/elements/Loader.jsx";
 
 const UsersComponent = (props) => {
 	let pagesCount = Math.ceil(props.totalUsers / props.pageSize);
@@ -28,7 +28,8 @@ const UsersComponent = (props) => {
 				})}
 			</div>
 
-			{props.isFetching ? <PreloaderElement/> : usersElements}
+
+			{props.isFetching ? <Loader/> : usersElements}
 			{/*{usersElements ? usersElements : (<PreloaderElement/>)}*/}
 		</div>
 	);

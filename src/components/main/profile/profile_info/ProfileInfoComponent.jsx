@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import style from "../../../../styles/main/profile/profile.module.css";
-import PreloaderElement from "../../../common/elements/PreloaderElement.jsx";
+import Loader from "../../../common/elements/Loader.jsx";
 import ProfileStatus from "./ProfileStatus.jsx";
 import userPhoto from "../../../../assets/img/userPhoto.png"
 
@@ -13,8 +13,8 @@ const ProfileInfoComponent = (props) => {
 	}, [profile]);
 
 
-	if (!profile || !status) {
-		return <PreloaderElement/>
+	if (!profile) {
+		return <Loader/>
 	}
 
 	return (

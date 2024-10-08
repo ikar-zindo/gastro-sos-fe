@@ -1,10 +1,10 @@
 import React from 'react';
-import PreloaderElement from "../../../common/elements/PreloaderElement.jsx";
+import Loader from "../../../common/elements/Loader.jsx";
 import style from "../../../../styles/main/profile/profile.module.css";
 
 const ProfileBioComponent = (props) => {
 	if (!props.profile) {
-		return <PreloaderElement/>
+		return <Loader/>
 	}
 	return (
 			<div className={style.profileBio}>
