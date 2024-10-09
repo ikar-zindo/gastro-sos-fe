@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useForm} from "react-hook-form";
 import style from '../../../styles/main/login.module.css';
 import {useDispatch} from "react-redux";
@@ -6,10 +6,12 @@ import {login} from "../../../redux/auth-reducer.js";
 
 const LoginForm = (props) => {
 	const dispatch = useDispatch();
+	const [errorMessages, setErrorMessages] = useState([]);
 	const {
 		register,
 		handleSubmit,
 		trigger,
+		setError,
 		formState: {
 			errors,
 			touchedFields
@@ -29,8 +31,8 @@ const LoginForm = (props) => {
 	const hasPasswordError = errors.password && touchedFields.password;
 	const hasCaptchaError = errors.captcha && touchedFields.captcha;
 
-	const onSubmit = (data) => {
-		dispatch(login(data));
+	const onSubmit = async (data) => {
+		setErrorMessages(await dispatch(login(data)));
 	}
 
 	return (
@@ -67,10 +69,6 @@ const LoginForm = (props) => {
 				Remember Me
 			</label>
 
-			<div className={style.button}>
-				<input type="submit"
-				       value={props.buttonValue}/>
-			</div>
 			{props.captchaUrl && (
 				<>
 					<img src={props.captchaUrl} alt="CAPTCHA"/>
@@ -84,7 +82,12 @@ const LoginForm = (props) => {
 				</>
 			)}
 
-			{props.errorMessage && <span className={style.errorMessage}>{props.errorMessage}</span>}
+			{errorMessages && <span className={style.errorMessage}>{errorMessages}</span>}
+
+			<div className={style.button}>
+				<input type="submit"
+				       value={props.buttonValue}/>
+			</div>
 		</form>
 	);
 };

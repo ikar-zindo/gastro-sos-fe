@@ -11,11 +11,10 @@ const LoginContainer = () => {
 	const auth = useSelector(state => state.auth);
 	const buttonValue = auth.buttonValue;
 	const captchaUrl = auth.captchaUrl;
-	const errorMessage = auth.errorMessage;
 	const captchaPlaceholder = auth.captchaPlaceholder;
 
 	useEffect(() => {
-	}, [auth]);
+	}, [auth, auth.isAuth]);
 
 	return <LoginForm loginIsRequired={loginIsRequired}
 	                  passwordIsRequired={passwordIsRequired}
@@ -24,7 +23,6 @@ const LoginContainer = () => {
 	                  buttonValue={buttonValue}
 	                  maxLength30={maxLength30}
 	                  captchaUrl={captchaUrl}
-	                  errorMessage={errorMessage}
 	                  captchaPlaceholder={captchaPlaceholder}
 	/>;
 };

@@ -12,8 +12,7 @@ const authReducer = createSlice({
 		token: '',
 		buttonValue: "Login",
 		captchaPlaceholder: "Enter CAPTCHA",
-		captchaUrl: null,
-		errorMessages: []
+		captchaUrl: null
 	},
 	reducers: {
 		setAuthDataAction: (state, action) => {
@@ -41,7 +40,7 @@ const authReducer = createSlice({
 			}
 		},
 		setErrorMessage: (state, action) => {
-			state.errorMessage = action.payload.messages.join('. ');
+			state.errorMessages = action.payload.messages.join('. ');
 		}
 	}
 });
@@ -57,23 +56,26 @@ export const getAuth = () => async (dispatch) => {
 };
 
 export const login = (data) => async (dispatch) => {
-	authAPI.login(data).then(response => {
+	const response = await authAPI.login(data);
+	try {
 		if (response.status === 200) {
 			if (response.data.resultCode === 0) {
 				dispatch(setTokenAction(response.data.data.token))
 				dispatch(getAuth());
+				return null;
 
 			} else if (response.data.resultCode === 10) {
-				console.log(response);
-				console.log(response.data);
 				dispatch(getCaptcha());
-				dispatch(setErrorMessage(response.data));
+				return response.data.messages;
 
 			} else {
-				dispatch(setErrorMessage(response.data));
+				return response.data.messages;
 			}
 		}
-	})
+	} catch (error) {
+		console.error("Error during login", error);
+		return ['Server error occurred']; // Ошибка на сервере
+	}
 }
 
 export const logout = () => async (dispatch) => {

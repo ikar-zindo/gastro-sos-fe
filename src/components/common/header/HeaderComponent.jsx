@@ -12,7 +12,6 @@ const HeaderComponent = (props) => {
 
 	const toggleDropdown = () => {
 		setIsOpen(prev => !prev); // Используем предыдущее значение состояния
-		console.log(isOpen);
 	};
 
 	const openDropdown = () => {

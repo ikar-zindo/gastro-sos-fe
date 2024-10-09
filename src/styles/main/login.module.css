@@ -68,7 +68,7 @@
 
 /* Стили для кнопки логина */
 .formLogin .button input {
-	margin: 8px auto 0;
+	margin: 0 auto;
 	width: 70%;
 	background-color: rgb(50, 70, 90); /* Темный фон кнопки */
 	border-radius: 12px; /* Скругление углов кнопки */

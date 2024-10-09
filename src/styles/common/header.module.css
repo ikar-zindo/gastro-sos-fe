@@ -34,7 +34,11 @@
 	padding: 10px 15px;
 	display: inline-block;
 	width: 100%;
-	border-radius: 0;
+	border-radius: 8px;
+}
+
+.loginWrapper button:hover {
+	background-color: rgb(48, 68, 89);
 }
 
 /* Общий стиль для nav-item и ссылки */
