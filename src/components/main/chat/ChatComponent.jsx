@@ -6,6 +6,7 @@ import TextArea from "../../common/TextArea.jsx";
 import {useDispatch} from "react-redux";
 import {sendMessage, updateMessageText} from "../../../redux/content/dialogs-reducer.js";
 import Loader from "../../common/elements/Loader.jsx";
+import userPhoto from "../../../assets/img/userPhoto.png";
 
 const ChatComponent = (props) => {
 	let {userId} = useParams();
@@ -43,7 +44,7 @@ const ChatComponent = (props) => {
 	return (
 		<div className={style.chat}>
 			<div className={style.userInfoWrapper}>
-				<img alt='ava' src={companionUser.imgUrl}/>
+				<img alt='ava' src={companionUser.photos.small != null ? companionUser.photos.small : userPhoto}/>
 
 				<div className={style.userInfo}>
 					<p className={style.userName}>{companionUser.name}</p>

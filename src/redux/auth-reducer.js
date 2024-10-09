@@ -1,7 +1,7 @@
 import {authAPI} from "../api/authAPI.js";
 import {createSlice} from "@reduxjs/toolkit";
 
-const authSlice = createSlice({
+const authReducer = createSlice({
 	name: "auth",
 	initialState: {
 		id: null,
@@ -13,18 +13,24 @@ const authSlice = createSlice({
 	},
 	reducers: {
 		setAuthDataAction: (state, action) => {
-			Object.assign(state, action.payload);
-			state.isAuth = true;
+			if (action.payload) {
+				Object.assign(state, action.payload);
+				state.isAuth = true;
+			}
 		},
-		setToken: (state, action) => {
+		setTokenAction: (state, action) => {
 			state.token = action.payload;
+		},
+		logoutAction: (state) => {
+			const data = {id: null, login: null, email: null, isAuth: false};
+			Object.assign(state, data);
 		}
 	}
 });
 
 export const getAuth = () => async (dispatch) => {
 	authAPI.me().then(response => {
-		if (response.data.resultCode === 0) {
+		if (response.status === 200) {
 			dispatch(setAuthDataAction(response.data.data));
 		}
 	});
@@ -32,16 +38,25 @@ export const getAuth = () => async (dispatch) => {
 
 export const login = (data) => async (dispatch) => {
 	authAPI.login(data).then(response => {
-		if (response.data.resultCode === 0) {
-			dispatch(setToken(response.data.data.token))
+		if (response.status === 200) {
+			dispatch(setTokenAction(response.data.data.token))
 			dispatch(getAuth());
+		}
+	})
+}
+
+export const logout = () => async (dispatch) => {
+	authAPI.logout().then(response => {
+		if (response.status === 200) {
+			dispatch(logoutAction());
 		}
 	})
 }
 
 export const {
 	setAuthDataAction,
-	setToken,
-} = authSlice.actions;
+	setTokenAction,
+	logoutAction
+} = authReducer.actions;
 
-export default authSlice.reducer;
+export default authReducer.reducer;

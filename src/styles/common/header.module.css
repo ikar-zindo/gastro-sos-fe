@@ -19,7 +19,121 @@
 	font-size: 36px;
 }
 
-.loginBock {
+.loginWrapper {
 	margin: auto;
 	float: right;
 }
+
+/* Стили для кнопки logout */
+.loginWrapper button {
+	background: none;
+	border: none;
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+	padding: 10px 15px;
+	display: inline-block;
+	width: 100%;
+	border-radius: 0;
+}
+
+/* Общий стиль для nav-item и ссылки */
+.navItem {
+	position: relative;
+	display: inline-block;
+}
+
+.navLink {
+	text-decoration: none;
+	color: white;
+	padding: 10px 15px;
+	display: inline-block;
+	cursor: pointer;	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Скрытый по умолчанию список */
+.dropdownMenu {
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	background-color: rgb(48, 68, 89);
+	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+	border: 1px solid rgb(80, 117, 156);
+	padding: 10px 0;
+	list-style: none;
+	margin: 0;
+	border-radius: 6px;
+	min-width: 160px;
+	z-index: 1;
+	transition: all 0.3s ease;
+}
+
+.dropdownMenu.show {
+	display: block;
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.navLink:hover,
+.navLink:focus,
+.dropdownItem:hover,
+.dropdownItem:focus {
+	background-color: rgb(70, 111, 159);
+}
+
+/* Стиль для элементов списка */
+.dropdownItem {
+	color: white;
+	padding: 10px 20px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Разделитель */
+.dropdownDivider {
+	height: 2px;
+	background-color: rgb(80, 117, 156);
+	margin: 10px 0;
+	border: none;
+}
+
+/* Анимация */
+.dropdownMenu {
+	opacity: 0;
+	transform: translateY(10px);
+}
+
+.dropdown {
+	position: relative;
+}
+
+.arrow {
+	display: inline-block;
+	margin-left: 8px; /* Отступ между текстом и стрелкой */
+	transition: transform 0.3s; /* Плавный переход для анимации */
+}
+
+/* Стрелка вниз */
+.down {
+	border: solid transparent; /* Задаем прозрачный цвет */
+	border-width: 5px 5px 0 5px; /* Верхняя стрелка */
+	border-top-color: white; /* Цвет стрелки (можно изменить) */
+}
+
+/* Стрелка вверх */
+.up {
+	border: solid transparent;
+	border-width: 0 5px 5px 5px; /* Нижняя стрелка */
+	border-bottom-color: white; /* Цвет стрелки (можно изменить) */
+}
+
+/* Для мобильных устройств */
+.navLink:active .arrow, /* При прикосновении */
+.navLink:focus .arrow { /* При получении фокуса */
+	transform: rotate(180deg); /* Поворачиваем стрелку */
+}
+
+/*rgb(50, 62, 83)*/
+/*rgb(80, 117, 156)*/

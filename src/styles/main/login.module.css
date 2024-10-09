@@ -40,6 +40,11 @@
 	opacity: 0.6; /* Затухание прозрачности при потере фокуса */
 }
 
+.formLogin input[type="email"].error,
+.formLogin input[type="password"].error {
+	border: 3px solid rgb(231, 76, 60); /* Граница инпута */
+}
+
 /* Стили для чекбокса и текста "remember me" */
 .formLogin input[type="checkbox"] {
 	margin-right: 8px; /* Отступ справа от чекбокса */
@@ -74,11 +79,6 @@
 .formLogin .button:active input {
 	background-color: rgb(40, 60, 80); /* Темнее фон при нажатии */
 	border-color: rgb(80, 110, 160); /* Темнее граница при нажатии */
-}
-
-.formLogin input[type="email"].error,
-.formLogin input[type="password"].error {
-	border: 2px solid rgb(231, 76, 60); /* Граница инпута */
 }
 
 /* Стили для ошибки валидации */

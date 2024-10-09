@@ -36,7 +36,7 @@ const LoginForm = (props) => {
 		<form className={style.formLogin} onSubmit={handleSubmit(onSubmit)}>
 			<input className={hasEmailError ? style.error : ""}
 			       type={"email"}
-			       placeholder={"Login"}
+			       placeholder={"Email"}
 			       {...register("email", {
 				       required: props.emailIsRequired,
 				       pattern: {
@@ -47,7 +47,7 @@ const LoginForm = (props) => {
 							 value: 30,
 					       message: props.maxLength30
 				       },
-				       onBlur: () => trigger("email")
+				       onBlur: () => trigger("email") // тригерит валидацию email
 			       })}/>
 			{<span className={style.errorMessage}>{errors.email?.message}</span>}
 
