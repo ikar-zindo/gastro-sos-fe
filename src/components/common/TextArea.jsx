@@ -62,6 +62,7 @@ const TextArea = (props) => {
 					<textarea
 						id='textarea'
 						{...register("text", {
+							required: true,
 							maxLength: {
 								value: 100,
 								message: maxLength100

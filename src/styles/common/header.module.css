@@ -83,8 +83,10 @@
 .navLink:hover,
 .navLink:focus,
 .dropdownItem:hover,
-.dropdownItem:focus {
+.dropdownItem:focus,
+button.dropdownItem:hover {
 	background-color: rgb(70, 111, 159);
+	border-radius: 0;
 }
 
 /* Стиль для элементов списка */

@@ -38,21 +38,20 @@ const authReducer = createSlice({
 			if (action.payload) {
 				state.captchaUrl = action.payload;
 			}
-		},
-		setErrorMessage: (state, action) => {
-			state.errorMessages = action.payload.messages.join('. ');
 		}
 	}
 });
 
 export const getAuth = () => async (dispatch) => {
-	authAPI.me().then(response => {
+	const response = await authAPI.me()
+	try {
 		if (response.status === 200 && response.data.resultCode === 0) {
 			dispatch(setAuthDataAction(response.data.data));
 		}
-	}).catch(error => {
-		console.log(error);
-	});
+	} catch (error) {
+		console.error("Error during login", error);
+		return ['Server error occurred']; // Ошибка на сервере
+	}
 };
 
 export const login = (data) => async (dispatch) => {
@@ -99,7 +98,6 @@ export const {
 	setTokenAction,
 	logoutAction,
 	setCaptchaUrl,
-	setErrorMessage
 } = authReducer.actions;
 
 export default authReducer.reducer;

@@ -7,6 +7,7 @@ import profileReducer from "./profile-reducer";
 import searchReducer from "./search-reducer.js";
 import usersReducer from "./users-reducer";
 import authReducer from "./auth-reducer.js";
+import appReducer from "./app-reducer.js";
 
 const store = configureStore({
 	reducer: {
@@ -17,7 +18,8 @@ const store = configureStore({
 		searchPage: searchReducer,
 		usersPage: usersReducer,
 		sidebarPage: sidebarReducer,
-		auth: authReducer
+		auth: authReducer,
+		app: appReducer,
 	}
 });
 
