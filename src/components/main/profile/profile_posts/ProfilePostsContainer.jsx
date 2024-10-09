@@ -9,8 +9,8 @@ const ProfilePostsContainer = () => {
 	const dispatch = useDispatch();
 	const users = useSelector(state => state.usersPage.usersTest);
 	const profilePostContentPage = useSelector(state => state.profilePostContentPage);
-	let placeholder = profilePostContentPage.placeholder;
-	let buttonValue = profilePostContentPage.buttonValue;
+	const placeholder = profilePostContentPage.placeholder;
+	const buttonValue = profilePostContentPage.buttonValue;
 	const userId = useSelector(state => state.auth.id);
 
 	let postElements = profilePostContentPage.posts.map(post => {

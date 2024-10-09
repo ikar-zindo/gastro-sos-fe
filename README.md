@@ -24,7 +24,18 @@ Serves the production build locally, allowing you to preview the app before depl
 #### To learn more about Vite, visit the [Vite documentation](https://vitejs.dev/).
 #### To learn React, visit the [React documentation](https://react.dev/).
 
-## 2. CORS
+## 2. Stack technology
+
+- @reduxjs/toolkit
+- react-hook-form
+- react-redux
+- useState()
+- useForm()
+- createSelector()
+- configureStore()
+- createSlice()
+
+## 6. CORS
 
 #### Change for you local server
 
@@ -72,7 +83,7 @@ axios.get("http://localhost:8890/review")
 	.then(response => { });
 ```
 
-### Running an application in Docker
+## `soon` 7. Running an application in Docker
 
 ```bash
 # Collect images for all services

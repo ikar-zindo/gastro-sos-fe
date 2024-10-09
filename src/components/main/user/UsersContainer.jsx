@@ -1,25 +1,33 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {getUsers, setCurrentPageAction} from "../../../redux/users-reducer.js";
+import {requestUsers, setCurrentPageAction} from "../../../redux/users-reducer.js";
 import UsersComponent from "./UsersComponent.jsx";
+import {
+	getCurrentPage,
+	getIsFetching,
+	getIsFollowingInProgress,
+	getPageSize,
+	getTotalUsers,
+	getUsers
+} from "../../../selectors/ users-selectors.js";
 
 const UserContainer = () => {
 	const dispatch = useDispatch();
-	const usersPage = useSelector(state => state.usersPage)
-	const users = usersPage.users;
-	const pageSize = usersPage.pageSize;
-	const totalUsers = usersPage.totalUsers;
-	const currentPage = usersPage.currentPage;
-	const isFetching = usersPage.isFetching;
-	const isFollowingInProgress = usersPage.isFollowingInProgress;
+
+	const users = useSelector(getUsers);
+	const pageSize = useSelector(getPageSize);
+	const totalUsers = useSelector(getTotalUsers);
+	const currentPage = useSelector(getCurrentPage);
+	const isFetching = useSelector(getIsFetching);
+	const isFollowingInProgress = useSelector(getIsFollowingInProgress);
 
 	useEffect(() => {
-		dispatch(getUsers(currentPage, pageSize));
+		dispatch(requestUsers(currentPage, pageSize));
 	}, [totalUsers, currentPage]);
 
 	let onUpdatePageClick = (pageNumber) => {
 		dispatch(setCurrentPageAction(pageNumber));
-		dispatch(getUsers(pageNumber, pageSize,));
+		dispatch(requestUsers(pageNumber, pageSize,));
 	};
 
 	return <UsersComponent users={users}

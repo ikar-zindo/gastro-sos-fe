@@ -38,6 +38,7 @@
 }
 
 .loginWrapper button:hover {
+	border-radius: 8px;
 	background-color: rgb(48, 68, 89);
 }
 

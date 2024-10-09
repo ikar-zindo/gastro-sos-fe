@@ -14,11 +14,10 @@ const appReducer = createSlice({
 });
 
 export const initializeApp = () => async (dispatch) => {
-	const promise = dispatch(getAuth());
+	const promise = await dispatch(getAuth());
 	Promise.all([promise]).then(() => {
 			dispatch(initializedSuccess());
 		})
-
 };
 
 export const {

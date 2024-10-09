@@ -175,10 +175,6 @@ const usersSlice = createSlice({
 		},
 		setUsersAction: (state, action) => {
 			state.users = action.payload;
-			// state.users = [...state.users, ...action.payload]
-			// 	.filter((user, index, self) =>
-			// 		index === self.findIndex((u) => u.id === user.id)
-			// 	);
 		},
 		setCurrentPageAction: (state, action) => {
 			state.currentPage = action.payload;
@@ -197,13 +193,23 @@ const usersSlice = createSlice({
 					(id) => id !== action.payload.userId
 				);
 			}
-		},
+		}
 	},
 });
 
-export const getUsers = (currentPage, pageSize) => async (dispatch) => {
+export const {
+	followAction,
+	unfollowAction,
+	setUsersAction,
+	setCurrentPageAction,
+	setTotalUsersAction,
+	toggleIsFetchingAction,
+	toggleFollowingInProgressAction,
+} = usersSlice.actions;
+
+export const requestUsers = (page, pageSize) => async (dispatch) => {
 	dispatch(toggleIsFetchingAction(true));
-	usersAPI.getUsers(currentPage, pageSize).then(response => {
+	usersAPI.getUsers(page, pageSize).then(response => {
 		dispatch(setUsersAction(response.data.items));
 		dispatch(setTotalUsersAction(response.data.totalCount));
 		dispatch(toggleIsFetchingAction(false));
@@ -229,15 +235,5 @@ export const unfollow = (userId) => async (dispatch) => {
 		dispatch(toggleFollowingInProgressAction({isFetching: false, userId})); // in progress off
 	});
 };
-
-export const {
-	followAction,
-	unfollowAction,
-	setUsersAction,
-	setCurrentPageAction,
-	setTotalUsersAction,
-	toggleIsFetchingAction,
-	toggleFollowingInProgressAction,
-} = usersSlice.actions;
 
 export default usersSlice.reducer;
