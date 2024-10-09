@@ -8,9 +8,11 @@ import {useDispatch} from "react-redux";
 const HeaderComponent = (props) => {
 	const dispatch = useDispatch();
 	const [isOpen, setIsOpen] = useState(false);
+	const [isHovered, setIsHovered] = useState(false);
 
 	const toggleDropdown = () => {
 		setIsOpen(prev => !prev); // Используем предыдущее значение состояния
+		console.log(isOpen);
 	};
 
 	const openDropdown = () => {
@@ -36,6 +38,9 @@ const HeaderComponent = (props) => {
 		};
 	}, [isOpen]);
 
+	// Определяем, когда стрелка должна быть повернута вниз
+	const isArrowDown = isOpen || isHovered;
+
 	return (
 		<header className={style.header}>
 			<img alt='logo' src={favicon}/>
@@ -49,13 +54,12 @@ const HeaderComponent = (props) => {
 						     onMouseEnter={openDropdown} // если убрать, то будет работать как переключатель
 						     onMouseLeave={closeDropdown}>
 							<button className={style.navLink}
-							        href="#"
 							        role="button"
 							        data-bs-toggle="dropdown"
-							        aria-expanded="false"
+							        aria-expanded={isOpen ? "true" : "false"}
 							        onClick={toggleDropdown}>
 								{props.auth.login}
-								<span className={`${style.arrow} ${isOpen ? style.down : style.up}`}></span>
+								<span className={`${style.arrow} ${isArrowDown  ? style.down : style.up}`}></span>
 							</button>
 							<ul className={`${style.dropdownMenu} ${isOpen ? style.show : ''}`}>
 								<li><a className={style.dropdownItem} href="#">Action</a></li>

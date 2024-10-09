@@ -115,25 +115,17 @@
 	transition: transform 0.3s; /* Плавный переход для анимации */
 }
 
-/* Стрелка вниз */
-.down {
-	border: solid transparent; /* Задаем прозрачный цвет */
-	border-width: 5px 5px 0 5px; /* Верхняя стрелка */
-	border-top-color: white; /* Цвет стрелки (можно изменить) */
-}
-
 /* Стрелка вверх */
 .up {
 	border: solid transparent;
-	border-width: 0 5px 5px 5px; /* Нижняя стрелка */
-	border-bottom-color: white; /* Цвет стрелки (можно изменить) */
+	border-width: 0 5px 5px 5px; /* Стрелка вверх по умолчанию */
+	border-bottom-color: white;
 }
 
-/* Для мобильных устройств */
-.navLink:active .arrow, /* При прикосновении */
-.navLink:focus .arrow { /* При получении фокуса */
-	transform: rotate(180deg); /* Поворачиваем стрелку */
+/* Стрелка вниз */
+.down {
+	transform: rotate(180deg); /* Поворачиваем стрелку вниз при открытии */
+	border: solid transparent;
+	border-width: 0 5px 5px 5px;
+	border-bottom-color: white;
 }
-
-/*rgb(50, 62, 83)*/
-/*rgb(80, 117, 156)*/
