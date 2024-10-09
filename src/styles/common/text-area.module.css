@@ -49,3 +49,10 @@ button:active {
 	background-color: rgb(40, 60, 80); /* Еще темнее фон при нажатии */
 	border-color: rgb(80, 110, 160); /* Еще темнее граница при нажатии */
 }
+
+.errorMessage {
+	display: flex;
+	margin: 0 30px;
+	color: rgb(231, 76, 60);
+	font-size: 14px;
+}

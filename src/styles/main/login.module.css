@@ -9,17 +9,19 @@
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень вокруг формы */
 	display: flex;
 	flex-direction: column; /* Расположить элементы формы вертикально */
-	gap: 16px; /* Расстояние между элементами формы */
+	gap: 8px; /* Расстояние между элементами формы */
 }
 
 /* Стили для инпутов */
 .formLogin input[type="email"],
 .formLogin input[type="password"] {
+	box-sizing: border-box;
+	padding: 12px; /* Внутренние отступы */
+	margin: 0;
 	width: 100%; /* Ширина 100% от родительского контейнера */
 	background-color: rgb(48, 69, 90); /* Фон инпута */
 	border: 1px solid rgb(80, 117, 156); /* Граница инпута */
 	border-radius: 12px; /* Скругление углов инпута */
-	padding: 12px; /* Внутренние отступы */
 	color: rgb(230, 230, 230); /* Цвет текста */
 	font-size: 16px; /* Размер шрифта */
 	outline: none; /* Убираем стандартную обводку при фокусе */
@@ -43,7 +45,7 @@
 	margin-right: 8px; /* Отступ справа от чекбокса */
 }
 
-.formLogin div {
+.formLogin .button {
 	display: flex;
 	align-items: center; /* Выравнивание чекбокса и текста по вертикали */
 	color: rgb(230, 230, 230); /* Цвет текста */
@@ -51,7 +53,7 @@
 }
 
 /* Стили для кнопки логина */
-.formLogin .button {
+.formLogin .button input {
 	margin: 8px auto 0;
 	width: 70%;
 	background-color: rgb(50, 70, 90); /* Темный фон кнопки */
@@ -64,21 +66,27 @@
 	transition: background-color 0.3s ease, border-color 0.3s ease; /* Плавные переходы */
 }
 
-.formLogin .button:hover {
+.formLogin .button:hover input {
 	background-color: rgb(60, 80, 100); /* Светлее фон при наведении */
 	border-color: rgb(120, 150, 200); /* Светлее граница при наведении */
 }
 
-.formLogin .button:active {
+.formLogin .button:active input {
 	background-color: rgb(40, 60, 80); /* Темнее фон при нажатии */
 	border-color: rgb(80, 110, 160); /* Темнее граница при нажатии */
 }
 
+.formLogin input[type="email"].error,
+.formLogin input[type="password"].error {
+	border: 2px solid rgb(231, 76, 60); /* Граница инпута */
+}
+
 /* Стили для ошибки валидации */
-.error {
-	color: rgb(231, 76, 60); /* Красный цвет для текста ошибки */
+.errorMessage {
+	color: rgb(231, 76, 60);
 	font-size: 14px;
 }
+
 
 .checkboxContainer {
 

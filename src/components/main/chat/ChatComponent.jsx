@@ -1,8 +1,8 @@
 import React from 'react';
-import c from '../../../styles/main/dialogs/Chat.module.css'
+import style from '../../../styles/main/dialogs/chat.module.css'
 import MessageElement from "../../common/elements/MessageElement.jsx";
 import {useParams} from "react-router-dom";
-import TextAreaComponent from "../../common/TextAreaComponent.jsx";
+import TextArea from "../../common/TextArea.jsx";
 import {useDispatch} from "react-redux";
 import {sendMessage, updateMessageText} from "../../../redux/content/dialogs-reducer.js";
 import Loader from "../../common/elements/Loader.jsx";
@@ -41,21 +41,21 @@ const ChatComponent = (props) => {
 	}
 
 	return (
-		<div className={c.chat}>
-			<div className={c.userInfoWrapper}>
+		<div className={style.chat}>
+			<div className={style.userInfoWrapper}>
 				<img alt='ava' src={companionUser.imgUrl}/>
 
-				<div className={c.userInfo}>
-					<p className={c.userName}>{companionUser.name}</p>
-					<p className={c.date}>5 minutes ego</p>
+				<div className={style.userInfo}>
+					<p className={style.userName}>{companionUser.name}</p>
+					<p className={style.date}>5 minutes ego</p>
 				</div>
 			</div>
 
-			<div className={c.messages}>
-				<div className={c.messageItem}>{messagesElement ? messagesElement : (<Loader/>)}</div>
+			<div className={style.messages}>
+				<div className={style.messageItem}>{messagesElement ? messagesElement : (<Loader/>)}</div>
 			</div>
 
-			<TextAreaComponent
+			<TextArea
 				placeholder={placeholder}
 				buttonValue={buttonValue}
 				value={messageValue}

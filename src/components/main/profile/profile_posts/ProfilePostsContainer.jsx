@@ -1,7 +1,7 @@
 import React from 'react';
 import PostElement from "../../../common/elements/PostElement.jsx";
 import style from '../../../../styles/main/profile/profile.module.css';
-import TextAreaComponent from "../../../common/TextAreaComponent.jsx";
+import TextArea from "../../../common/TextArea.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {addPost, updatePostText} from "../../../../redux/content/profile-posts-content-reducer.js";
 
@@ -29,7 +29,7 @@ const ProfilePostsContainer = () => {
 
 	return (
 		<div className={style.postsWrapper}>
-			<TextAreaComponent
+			<TextArea
 				placeholder={placeholder}
 				buttonValue={buttonValue}
 				value={profilePostContentPage.postValue}

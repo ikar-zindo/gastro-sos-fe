@@ -10,10 +10,13 @@ const LoginForm = (props) => {
 		register,
 		handleSubmit,
 		watch,
+		trigger,
 		formState: {
-			errors
+			errors,
+			touchedFields
 		},
 	} = useForm({
+			mode: "onChange",
 			defaultValues: {
 				email: "",
 				password: "",
@@ -22,44 +25,52 @@ const LoginForm = (props) => {
 		}
 	);
 
+	const hasEmailError = errors.email && touchedFields.email;
+	const hasPasswordError = errors.password && touchedFields.password;
+
 	const onSubmit = (data) => {
 		dispatch(login(data));
 	}
 
 	return (
-		<div className={style.formLogin}>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<input type={"email"}
-				       placeholder={"Login"}
-				       {...register("email", {
-					       required: props.loginIsRequired,
-					       pattern: {
-						       value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-						       message: props.invalidEmail
-					       }
-				       })} />
-				<span className={style.error}>{errors.email?.message}{errors.pattern?.message}</span>
+		<form className={style.formLogin} onSubmit={handleSubmit(onSubmit)}>
+			<input className={hasEmailError ? style.error : ""}
+			       type={"email"}
+			       placeholder={"Login"}
+			       {...register("email", {
+				       required: props.emailIsRequired,
+				       pattern: {
+					       value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+					       message: props.invalidEmail
+				       },
+				       maxLength: {
+							 value: 30,
+					       message: props.maxLength30
+				       },
+				       onBlur: () => trigger("email")
+			       })}/>
+			{<span className={style.errorMessage}>{errors.email?.message}</span>}
 
-				<input type={"password"}
-				       placeholder={"Password"}
-				       {...register("password", {
-					       required: props.passwordIsRequired
-				       })} />
-				<span className={style.error}>{errors.password?.message}</span>
+			<input className={hasPasswordError ? style.error : ""}
+			       type={"password"}
+			       placeholder={"Password"}
+			       {...register("password", {
+				       required: props.passwordIsRequired,
+				       onBlur: () => trigger("password")
+			       })} />
+			{<span className={style.errorMessage}>{errors.password?.message}</span>}
 
-				<div className={style.checkboxContainer}>
-					<input type={"checkbox"}
-					       {...register("rememberMe")}/>
-					<p>remember me</p>
-				</div>
+			<div className={style.checkboxContainer}>
+				<input type={"checkbox"}
+				       {...register("rememberMe")}/>
+				<p>remember me</p>
+			</div>
 
-				<div>
-					<input className={style.button}
-					       type="submit"
-					       value="Login"/>
-				</div>
-			</form>
-		</div>
+			<div className={style.button}>
+				<input type="submit"
+				       value={props.buttonValue}/>
+			</div>
+		</form>
 	);
 };
 

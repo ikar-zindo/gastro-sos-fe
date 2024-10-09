@@ -1,5 +1,5 @@
 import React from 'react';
-import c from "../../../styles/main/dialogs/CompanionElement.module.css";
+import c from "../../../styles/main/dialogs/companionElement.module.css";
 import {NavLink} from "react-router-dom";
 import Loader from "./Loader.jsx";
 import userPhoto from "../../../assets/img/userPhoto.png";

@@ -1,20 +1,20 @@
 import React from 'react';
-import c from "../../../styles/main/dialogs/Message.module.css";
+import style from "../../../styles/main/dialogs/message.module.css";
 
 const MessageElement = (props) => {
 	let currentUser = props.currentUser;
 	let message = props.message;
 	let isSendCurrentUser = message.senderId === currentUser.id
 
-	const messageClass = isSendCurrentUser ? c.sentMessage : c.receivedMessage
+	const messageClass = isSendCurrentUser ? style.sentMessage : style.receivedMessage
 
 	return (
-		<div className={`${c.message} ${messageClass}`}>
-			<div className={(c.messageText)}>{message.text}</div>
+		<div className={`${style.message} ${messageClass}`}>
+			<div className={(style.messageText)}>{message.text}</div>
 
-			<div className={c.messageInfo}>
-				<div className={c.date}>{message.createdAt}</div>
-				<div className={c.isRead}>{message.read ? "was read" : "no read"}</div>
+			<div className={style.messageInfo}>
+				<div className={style.date}>{message.createdAt}</div>
+				<div className={style.isRead}>{message.read ? "was read" : "no read"}</div>
 			</div>
 		</div>
 	);

@@ -1,21 +1,22 @@
 import React, {useEffect, useRef} from 'react';
-import c from '../../styles/common/text-area.module.css';
+import style from '../../styles/common/text-area.module.css';
+import {useForm} from "react-hook-form";
 
-const TextAreaComponent = (props) => {
+const TextArea = (props) => {
 	let postValue = props.value;
+	const maxLength100 = "Message should be at greater 100 characters long";
 	let textareaRef = useRef(null);
-
-	const onTextChange = () => {
-		let text = textareaRef.current.value;
-		let postValue = {
-			text: text
+	const {
+		register,
+		handleSubmit,
+		watch,
+		formState: {errors},
+	} = useForm({
+		// mode: "onChange",
+		defaultValues: {
+			text: postValue.text
 		}
-		props.handleChange(postValue);
-	};
-
-	let onAddPostClick = () => {
-		props.handleClick();
-	}
+	});
 
 	useEffect(() => {
 		const adjustHeight = () => {
@@ -38,30 +39,48 @@ const TextAreaComponent = (props) => {
 		};
 	}, [textareaRef]); // Зависимость от текста, чтобы повторно вызвать эффект при изменении текста
 
+	const onTextChange = () => {
+		let text = textareaRef.current.value;
+		let postValue = {text: text}
+		props.handleChange(postValue);
+	};
+
 	// Обработчик нажатия клавиш
 	const handleKeyDown = (event) => {
 		if (event.key === 'Enter' && event.ctrlKey) {
-			onAddPostClick();
+			onSubmit();
 		}
 	};
 
+	const onSubmit = () => {
+		props.handleClick();
+	}
+
 	return (
-		<div>
+		<form onSubmit={handleSubmit(onSubmit)}>
 			<div>
 					<textarea
-						id='new-post'
+						id='textarea'
+						{...register("text", {
+							maxLength: {
+								value: 100,
+								message: maxLength100
+							}
+						})}
 						ref={textareaRef}
 						value={postValue.text}
 						onChange={onTextChange}
 						onKeyDown={handleKeyDown}
 						placeholder={props.placeholder}/>
+
+				{<span className={style.errorMessage}>{errors.text?.message}</span>}
 			</div>
 
-			<div className={c.button}>
-				<button onClick={onAddPostClick}>{props.buttonValue}</button>
+			<div className={style.button}>
+				<button type="submit">{props.buttonValue}</button>
 			</div>
-		</div>
+		</form>
 	);
 };
 
-export default TextAreaComponent;
+export default TextArea;

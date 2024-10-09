@@ -22,7 +22,6 @@ const ProfileStatus = (props) => {
 			status: props.status || ""
 		}
 	});
-
 	const status = watch("status");
 
 	useEffect(() => {
