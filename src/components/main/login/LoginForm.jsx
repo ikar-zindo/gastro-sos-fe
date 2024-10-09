@@ -9,7 +9,6 @@ const LoginForm = (props) => {
 	const {
 		register,
 		handleSubmit,
-		watch,
 		trigger,
 		formState: {
 			errors,
@@ -20,13 +19,15 @@ const LoginForm = (props) => {
 			defaultValues: {
 				email: "",
 				password: "",
-				rememberMe: false
+				rememberMe: false,
+				captcha: ''
 			}
 		}
 	);
 
 	const hasEmailError = errors.email && touchedFields.email;
 	const hasPasswordError = errors.password && touchedFields.password;
+	const hasCaptchaError = errors.captcha && touchedFields.captcha;
 
 	const onSubmit = (data) => {
 		dispatch(login(data));
@@ -35,8 +36,8 @@ const LoginForm = (props) => {
 	return (
 		<form className={style.formLogin} onSubmit={handleSubmit(onSubmit)}>
 			<input className={hasEmailError ? style.error : ""}
-			       type={"email"}
-			       placeholder={"Email"}
+			       type="email"
+			       placeholder="Email"
 			       {...register("email", {
 				       required: props.emailIsRequired,
 				       pattern: {
@@ -44,7 +45,7 @@ const LoginForm = (props) => {
 					       message: props.invalidEmail
 				       },
 				       maxLength: {
-							 value: 30,
+					       value: 30,
 					       message: props.maxLength30
 				       },
 				       onBlur: () => trigger("email") // тригерит валидацию email
@@ -52,24 +53,38 @@ const LoginForm = (props) => {
 			{<span className={style.errorMessage}>{errors.email?.message}</span>}
 
 			<input className={hasPasswordError ? style.error : ""}
-			       type={"password"}
-			       placeholder={"Password"}
+			       type="password"
+			       placeholder="Password"
 			       {...register("password", {
 				       required: props.passwordIsRequired,
 				       onBlur: () => trigger("password")
 			       })} />
 			{<span className={style.errorMessage}>{errors.password?.message}</span>}
 
-			<div className={style.checkboxContainer}>
-				<input type={"checkbox"}
+			<label className={style.checkboxContainer}>
+				<input type="checkbox"
 				       {...register("rememberMe")}/>
-				<p>remember me</p>
-			</div>
+				Remember Me
+			</label>
 
 			<div className={style.button}>
 				<input type="submit"
 				       value={props.buttonValue}/>
 			</div>
+			{props.captchaUrl && (
+				<>
+					<img src={props.captchaUrl} alt="CAPTCHA"/>
+					<input type="captcha"
+					       className={hasCaptchaError ? style.error : ""}
+					       placeholder={props.captchaPlaceholder}
+					       {...register("captcha", {
+						       required: true,
+						       onBlur: () => trigger("captcha")
+					       })} />
+				</>
+			)}
+
+			{props.errorMessage && <span className={style.errorMessage}>{props.errorMessage}</span>}
 		</form>
 	);
 };

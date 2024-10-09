@@ -48,7 +48,7 @@ const HeaderComponent = (props) => {
 						<div className={`${style.navItem} ${style.dropdown}`}
 						     onMouseEnter={openDropdown} // если убрать, то будет работать как переключатель
 						     onMouseLeave={closeDropdown}>
-							<buttin className={style.navLink}
+							<button className={style.navLink}
 							        href="#"
 							        role="button"
 							        data-bs-toggle="dropdown"
@@ -56,7 +56,7 @@ const HeaderComponent = (props) => {
 							        onClick={toggleDropdown}>
 								{props.auth.login}
 								<span className={`${style.arrow} ${isOpen ? style.down : style.up}`}></span>
-							</buttin>
+							</button>
 							<ul className={`${style.dropdownMenu} ${isOpen ? style.show : ''}`}>
 								<li><a className={style.dropdownItem} href="#">Action</a></li>
 								<li><a className={style.dropdownItem} href="#">Another action</a></li>

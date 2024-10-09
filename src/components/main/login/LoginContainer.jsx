@@ -10,6 +10,9 @@ const LoginContainer = () => {
 	const maxLength30 = "Max length is 30";
 	const auth = useSelector(state => state.auth);
 	const buttonValue = auth.buttonValue;
+	const captchaUrl = auth.captchaUrl;
+	const errorMessage = auth.errorMessage;
+	const captchaPlaceholder = auth.captchaPlaceholder;
 
 	useEffect(() => {
 	}, [auth]);
@@ -20,6 +23,9 @@ const LoginContainer = () => {
 	                  emailIsRequired={emailIsRequired}
 	                  buttonValue={buttonValue}
 	                  maxLength30={maxLength30}
+	                  captchaUrl={captchaUrl}
+	                  errorMessage={errorMessage}
+	                  captchaPlaceholder={captchaPlaceholder}
 	/>;
 };
 

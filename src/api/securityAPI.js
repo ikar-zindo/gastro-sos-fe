@@ -5,6 +5,6 @@ const instance = axios.create(InstanceAPI)
 
 export const securityAPI = {
 	getCaptcha () {
-		return instance.get('/security/get-captcha-url');
+		return instance.get('security/get-captcha-url');
 	}
 }

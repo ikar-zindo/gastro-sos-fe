@@ -14,7 +14,8 @@
 
 /* Стили для инпутов */
 .formLogin input[type="email"],
-.formLogin input[type="password"] {
+.formLogin input[type="password"],
+.formLogin input[type="captcha"] {
 	box-sizing: border-box;
 	padding: 12px; /* Внутренние отступы */
 	margin: 0;
@@ -29,19 +30,27 @@
 	opacity: 1; /* Прозрачность по умолчанию */
 }
 
+.formLogin input[type="captcha"] {
+	width: 73%;
+	margin: 0 auto;
+}
+
 .formLogin input[type="email"]:focus,
-.formLogin input[type="password"]:focus {
+.formLogin input[type="password"]:focus,
+.formLogin input[type="captcha"]:focus {
 	border: 2px solid rgb(120, 150, 200); /* Изменение цвета границы при фокусе */
 	opacity: 1; /* Полная непрозрачность при фокусе */
 }
 
 .formLogin input[type="email"]:not(:focus),
-.formLogin input[type="password"]:not(:focus) {
+.formLogin input[type="password"]:not(:focus),
+.formLogin input[type="captcha"]:not(:focus) {
 	opacity: 0.6; /* Затухание прозрачности при потере фокуса */
 }
 
 .formLogin input[type="email"].error,
-.formLogin input[type="password"].error {
+.formLogin input[type="password"].error,
+.formLogin input[type="captcha"].error {
 	border: 3px solid rgb(231, 76, 60); /* Граница инпута */
 }
 
@@ -85,9 +94,10 @@
 .errorMessage {
 	color: rgb(231, 76, 60);
 	font-size: 14px;
+	margin: 0 20px;
 }
 
 
 .checkboxContainer {
-
+	margin: 0 auto;
 }
