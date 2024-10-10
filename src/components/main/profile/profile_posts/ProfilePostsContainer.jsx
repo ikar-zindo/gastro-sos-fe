@@ -7,14 +7,12 @@ import {addPost, updatePostText} from "../../../../redux/content/profile-posts-c
 import {getUserProfile} from "../../../../redux/profile-reducer.js";
 import Loader from "../../../common/elements/Loader.jsx";
 
-const ProfilePostsContainer = () => {
+const ProfilePostsContainer = React.memo(() => {
 	const dispatch = useDispatch();
-	// const users = useSelector(state => state.usersPage.usersTest);
 	const profilePostContentPage = useSelector(state => state.profilePostContentPage);
 	const placeholder = profilePostContentPage.placeholder;
 	const buttonValue = profilePostContentPage.buttonValue;
 	const userId = useSelector(state => state.auth.id);
-
 	const [users, setUsers] = useState({});
 
 	const fetchUserProfile = async (userId) => {
@@ -64,6 +62,6 @@ const ProfilePostsContainer = () => {
 			</div>
 		</div>
 	);
-};
+});
 
 export default ProfilePostsContainer;

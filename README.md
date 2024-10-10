@@ -34,6 +34,7 @@ Serves the production build locally, allowing you to preview the app before depl
 - createSelector()
 - configureStore()
 - createSlice()
+- React.memo()
 
 ## 6. CORS
 

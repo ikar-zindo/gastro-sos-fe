@@ -5,7 +5,7 @@ import style from "../../../styles/main/profile/profile.module.css";
 import ProfileBioComponent from "./profile_bio/ProfileBioComponent.jsx";
 import {useSelector} from "react-redux";
 
-const ProfileComponent = (props) => {
+const ProfileComponent = React.memo(props => {
 	const profilePage = props.profilePage;
 	const profile = profilePage.profile;
 	const [selectedTab, setSelectedTab] = useState('posts');
@@ -33,6 +33,6 @@ const ProfileComponent = (props) => {
 			{selectedTab === 'stories' && <ProfileBioComponent profile={profile}/>}
 		</div>
 	);
-};
+});
 
 export default ProfileComponent;
