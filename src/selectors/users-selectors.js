@@ -1,13 +1,13 @@
 import {createSelector} from "@reduxjs/toolkit";
 
+export const getUsersSelector = (state) => {
+	return state.usersPage.users;
+}
+
 export const getUsers = createSelector(getUsersSelector,
 	(users) => {
 		return users.filter((user) => true);
 	});
-
-export const getUsersSelector = (state) => {
-	return state.usersPage.users;
-}
 
 export const getPageSize = (state) => {
 	return state.usersPage.pageSize;

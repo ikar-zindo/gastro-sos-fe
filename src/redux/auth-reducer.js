@@ -99,5 +99,4 @@ export const {
 	logoutAction,
 	setCaptchaUrl,
 } = authReducer.actions;
-
 export default authReducer.reducer;

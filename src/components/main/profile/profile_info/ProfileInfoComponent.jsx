@@ -7,11 +7,10 @@ import userPhoto from "../../../../assets/img/userPhoto.png"
 const ProfileInfoComponent = (props) => {
 	const profile = props.profilePage.profile;
 	const status = props.profilePage.status;
+	const loading = props.profilePage.loading;
 
 	useEffect(() => {
-
-	}, [profile]);
-
+	}, [profile, loading]);
 
 	if (!profile) {
 		return <Loader/>

@@ -12,20 +12,20 @@ const profilePostsContentReducer = createSlice({
 				},
 				likes: 3,
 				dislikes: 1,
-				userId: 400000,
+				userId: 31642,
 				createdAt: "12/12/24"
 			},
-			{
-				id: 1,
-				text: 'Hi, how are you?',
-				content: {
-					img: ""
-				},
-				likes: 30,
-				dislikes: 5,
-				userId: 400002,
-				createdAt: "12/12/24"
-			}
+			// {
+			// 	id: 1,
+			// 	text: 'Hi, how are you?',
+			// 	content: {
+			// 		img: ""
+			// 	},
+			// 	likes: 30,
+			// 	dislikes: 5,
+			// 	userId: 400002,
+			// 	createdAt: "12/12/24"
+			// }
 			// {
 			// 	id: 3,
 			// 	content: "I'm learning React",
@@ -64,17 +64,17 @@ const profilePostsContentReducer = createSlice({
 	},
 	reducers: {
 		updatePostText: (state, action) => {
-			state.postValue.text = action.payload.text;
+			state.postValue = action.payload;
 		},
 		addPost: (state, action) => {
-			const userId = action.payload ? action.payload : 400000;
+			const userId = action.payload ? action.payload : 31642;
 			let newPost = {
 				id: state.posts.length + 1,
 				text: state.postValue.text,
 				content: {},
 				likes: 0,
 				dislikes: 0,
-				userId: 400000,
+				userId: userId,
 				createdAt: new Date().toLocaleDateString()
 			};
 

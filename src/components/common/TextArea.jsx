@@ -9,8 +9,10 @@ const TextArea = (props) => {
 	const {
 		register,
 		handleSubmit,
+		setValue,
 		watch,
 		formState: {errors},
+		reset
 	} = useForm({
 		// mode: "onChange",
 		defaultValues: {
@@ -19,6 +21,8 @@ const TextArea = (props) => {
 	});
 
 	useEffect(() => {
+		setValue("text", postValue.text);
+
 		const adjustHeight = () => {
 			const textarea = textareaRef.current;
 			if (textarea) {
@@ -37,12 +41,11 @@ const TextArea = (props) => {
 				textarea.removeEventListener('input', adjustHeight);
 			}
 		};
-	}, [textareaRef]); // Зависимость от текста, чтобы повторно вызвать эффект при изменении текста
+	}, [textareaRef, setValue]); // Зависимость от текста, чтобы повторно вызвать эффект при изменении текста
 
-	const onTextChange = () => {
+	const onTextChange = (e) => {
 		let text = textareaRef.current.value;
-		let postValue = {text: text}
-		props.handleChange(postValue);
+		props.handleChange({text: text});
 	};
 
 	// Обработчик нажатия клавиш
@@ -58,30 +61,33 @@ const TextArea = (props) => {
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
-			<div>
-					<textarea
-						id='textarea'
-						{...register("text", {
-							required: true,
-							maxLength: {
-								value: 100,
-								message: maxLength100
-							}
-						})}
-						ref={textareaRef}
-						value={postValue.text}
-						onChange={onTextChange}
-						onKeyDown={handleKeyDown}
-						placeholder={props.placeholder}/>
+			<div> {/* TODO: реализовать через useForm с использованием register */}
+				<textarea
+					id='textarea'
+					required
+					ref={textareaRef}
+					value={postValue.text}
+					onChange={onTextChange}
+					onKeyDown={handleKeyDown}
+					placeholder={props.placeholder}/>
 
 				{<span className={style.errorMessage}>{errors.text?.message}</span>}
 			</div>
 
-			<div className={style.button}>
-				<button type="submit">{props.buttonValue}</button>
-			</div>
+			{postValue.text && <div className={style.button}>
+				<input type="submit" value={props.buttonValue}/>
+			</div>}
 		</form>
 	);
 };
 
 export default TextArea;
+
+
+// {...register("text", {
+// 	required: true,
+// 	maxLength: {
+// 		value: 100,
+// 		message: maxLength100
+// 	}
+// })}

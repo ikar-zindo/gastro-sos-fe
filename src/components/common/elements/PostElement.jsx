@@ -16,7 +16,7 @@ const PostElement = (props) => {
 				<img alt='ava' src={user.photos.small != null ? user.photos.small : userPhoto}/>
 
 				<div className={c.userInfo}>
-					<p className={c.userName}>{user.name}</p>
+					<p className={c.userName}>{user.fullName}</p>
 					<p className={c.date}>{post.createdAt}</p>
 				</div>
 			</div>

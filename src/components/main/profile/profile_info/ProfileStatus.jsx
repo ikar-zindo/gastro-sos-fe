@@ -33,7 +33,6 @@ const ProfileStatus = (props) => {
 	}, [props.status, setValue]);
 
 	const onSubmit = (data) => {
-		console.log(data.status)
 		setIsSaving(true);
 		dispatch(updateUserProfileStatus(data.status));
 		setEditMode(false);
