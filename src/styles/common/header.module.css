@@ -16,7 +16,7 @@
 
 .h1 {
 	color: white;
-	font-size: 30px;
+	font-size: 20px;
 }
 
 .loginWrapper {
@@ -35,10 +35,10 @@
 	display: inline-block;
 	width: 100%;
 	border-radius: 8px;
+	margin: 0;
 }
 
-.loginWrapper button:hover,
-.loginWrapper button:focus {
+.loginWrapper button:hover {
 	border-radius: 8px;
 	background-color: rgb(48, 68, 89);
 }
@@ -56,6 +56,10 @@
 	display: inline-block;
 	cursor: pointer;	opacity: 1;
 	transform: translateY(0);
+}
+
+.navItem a {
+	display: flex;
 }
 
 /* Скрытый по умолчанию список */

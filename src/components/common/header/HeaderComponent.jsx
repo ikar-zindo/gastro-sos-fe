@@ -22,6 +22,10 @@ const HeaderComponent = (props) => {
 		setIsOpen(false);
 	};
 
+	const handleClick = (e) => {
+		e.target.blur();
+	}
+
 	// Закрытие дропдауна, если кликнули вне него
 	// выпавдение списка на сенсорных екранах
 	useEffect(() => {
@@ -56,10 +60,13 @@ const HeaderComponent = (props) => {
 							        role="button"
 							        data-bs-toggle="dropdown"
 							        aria-expanded={isOpen ? "true" : "false"}
-							        // aria-expanded="true"
-							        onClick={toggleDropdown}>
+								// aria-expanded="true"
+								     onClick={(e) => {
+									     toggleDropdown();
+									     handleClick(e);
+								     }}>
 								{props.auth.login}
-								<span className={`${style.arrow} ${isArrowDown  ? style.down : style.up}`}></span>
+								<span className={`${style.arrow} ${isArrowDown ? style.down : style.up}`}></span>
 							</button>
 							<ul className={`${style.dropdownMenu} ${isOpen ? style.show : ''}`}>
 								<li><a className={style.dropdownItem} href="#">Action</a></li>
@@ -70,20 +77,21 @@ const HeaderComponent = (props) => {
 								<li>
 									<button className={style.dropdownItem}
 									        onClick={() => dispatch(logout())}>
-										Logout
+										{props.buttonLogoutValue}
 									</button>
 								</li>
 							</ul>
 						</div>
 					</div>
-					: <div>
-						<NavLink to={'/login'}>Login</NavLink>
+					: <div className={`${style.navItem} ${style.dropdown}`}>
+						<NavLink to={'/login'}>
+							<button onClick={handleClick}>{props.buttonLoginValue}</button>
+						</NavLink>
 					</div>
 				}
 			</div>
 		</header>
-	)
-		;
+	);
 }
 
 export default HeaderComponent;

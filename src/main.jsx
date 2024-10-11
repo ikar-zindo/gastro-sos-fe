@@ -9,11 +9,11 @@ import * as serviceWorker from "./serviceWorker.js";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( // TODO: возможно <BrowserRouter/> и <Provider/> нужно будет обернуть в <App/>
-	<BrowserRouter basename={import.meta.env.BASE_URL}>
+	<HashRouter>
 		<Provider store={store}>
 			<App/>
 		</Provider>
-	</BrowserRouter>
+	</HashRouter>
 );
 
 // API

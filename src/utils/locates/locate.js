@@ -1,6 +1,7 @@
 export const locate = {
 	login: {
-		buttonValue: "Login",
+		buttonLoginValue: "Login",
+		buttonLogoutValue: "Logout",
 		captchaPlaceholder: "Enter CAPTCHA",
 	},
 	dialog: {

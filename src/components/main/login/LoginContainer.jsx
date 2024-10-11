@@ -11,7 +11,8 @@ const LoginContainer = () => {
 	const invalidEmail = globalErrorMessages.INVALID_EMAIL;
 	const maxLength30 = globalErrorMessages.MAX_LENGTH_30;
 	const auth = useSelector(state => state.auth);
-	const buttonValue = locate.login.buttonValue;
+	const buttonLoginValue = locate.login.buttonLoginValue;
+	const buttonLogoutValue = locate.login.buttonLogoutValue;
 	const captchaUrl = auth.captchaUrl;
 	const captchaPlaceholder = locate.login.captchaPlaceholder;
 
@@ -22,7 +23,8 @@ const LoginContainer = () => {
 	                  passwordIsRequired={passwordIsRequired}
 	                  invalidEmail={invalidEmail}
 	                  emailIsRequired={emailIsRequired}
-	                  buttonValue={buttonValue}
+	                  buttonValue={buttonLoginValue}
+	                  buttonLogoutValue={buttonLogoutValue}
 	                  maxLength30={maxLength30}
 	                  captchaUrl={captchaUrl}
 	                  captchaPlaceholder={captchaPlaceholder}

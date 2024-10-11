@@ -58,6 +58,7 @@ const LoginForm = ({
 					       value: 30,
 					       message: maxLength30
 				       },
+				       onFocus: () => setErrorMessages([]),
 				       onBlur: () => trigger("email") // тригерит валидацию email
 			       })}/>
 			{<span className={style.errorMessage}>{errors.email?.message}</span>}

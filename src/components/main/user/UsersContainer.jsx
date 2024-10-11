@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {requestUsers, setCurrentPageAction} from "../../../redux/users-reducer.js";
+import {requestUsers, setCurrentPageAction, setCurrentPortionAction} from "../../../redux/users-reducer.js";
 import UsersComponent from "./UsersComponent.jsx";
 import {
-	getCurrentPage,
+	getCurrentPage, getCurrentPortion,
 	getIsFetching,
 	getIsFollowingInProgress,
 	getPageSize,
@@ -17,16 +17,21 @@ const UserContainer = () => {
 	const pageSize = useSelector(getPageSize);
 	const totalUsers = useSelector(getTotalUsers);
 	const currentPage = useSelector(getCurrentPage);
+	const currentPortion = useSelector(getCurrentPortion);
 	const isFetching = useSelector(getIsFetching);
 	const isFollowingInProgress = useSelector(getIsFollowingInProgress);
 
 	useEffect(() => {
 		dispatch(requestUsers(currentPage, pageSize));
-	}, [totalUsers, currentPage]);
+	}, [totalUsers, currentPage, pageSize]);
 
 	let onUpdatePageClick = (pageNumber) => {
 		dispatch(setCurrentPageAction(pageNumber));
-		dispatch(requestUsers(pageNumber, pageSize,));
+		dispatch(requestUsers(pageNumber, pageSize, totalUsers));
+	};
+
+	let onUpdatePortionClick = (portionNumber) => {
+		dispatch(setCurrentPortionAction(portionNumber));
 	};
 
 	return <UsersComponent users={users}
@@ -35,6 +40,8 @@ const UserContainer = () => {
 	                       totalUsers={totalUsers}
 	                       onUpdatePageClick={onUpdatePageClick}
 	                       isFetching={isFetching}
+	                       onUpdatePortionClick={onUpdatePortionClick}
+	                       currentPortion={currentPortion}
 	                       isFollowingInProgress={isFollowingInProgress}/>
 };
 

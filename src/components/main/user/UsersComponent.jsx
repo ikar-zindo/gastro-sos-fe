@@ -5,6 +5,8 @@ import Loader from "../../common/elements/Loader.jsx";
 import Paginator from "../../common/elements/Paginator.jsx";
 
 const UsersComponent = (props) => {
+	const portionSize = 10;
+
 	let usersElements = props.users.map(user => (
 		<UserElement
 			key={user.id}
@@ -12,16 +14,19 @@ const UsersComponent = (props) => {
 			isFollowingInProgress={props.isFollowingInProgress}/>
 	));
 
-	return props.isFetching
-		? <Loader/>
-		: <div className={style.usersWrapper}>
-			<Paginator totalUsers={props.totalUsers}
+	return (
+		<div className={style.usersWrapper}>
+			<Paginator totalItemsCount={props.totalUsers}
 			           pageSize={props.pageSize}
 			           currentPage={props.currentPage}
-			           onUpdatePageClick={props.onUpdatePageClick}/>
+			           currentPortion={props.currentPortion}
+			           onUpdatePageClick={props.onUpdatePageClick}
+			           onUpdatePortionClick={props.onUpdatePortionClick}
+			           portionSize={portionSize}/>
 
-			{usersElements}
-		</div>;
+			{props.isFetching ? <Loader/> : usersElements}
+		</div>
+	);
 };
 
 export default UsersComponent;

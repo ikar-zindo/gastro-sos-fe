@@ -1,17 +1,25 @@
-.selectPage {
-	font-weight: bold;
-}
-
-
-.pagination {
+.paginator {
 	margin: 8px;
 	padding: 8px;
-	display: inline-block;
-	cursor: pointer;
+	display: flex;
+	justify-content: center;
 }
 
-.pagination span {
+.paginator button {
+	padding: 8px 8px;
+	font-size: 14px;
+	margin: 0;
+}
+
+.pageNumber {
 	font-size: 18px;
-	margin-right: 12px;
+	margin: 3px;
 	display: inline-block;
+	cursor: pointer;
+	padding: 2px;
+}
+
+.pageNumber.selectPage {
+	font-weight: bold;
+	border: 1px solid white;
 }

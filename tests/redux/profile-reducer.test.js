@@ -46,35 +46,36 @@ const state = {
 	placeholder: "Post message",
 	buttonValue: "Add post"
 };
-
 const userId = 31642;
 
-it('length of posts should be incremented', () => {
-	let action = addPostAction(userId);
-	const newState = profilePostsContentReducer(state, action);
-	expect(newState.posts.length).toBe(4);
-});
+describe('Profile Posts Reducer', () => {
+	it('length of posts should be incremented', () => {
+		let action = addPostAction(userId);
+		const newState = profilePostsContentReducer(state, action);
+		expect(newState.posts.length).toBe(4);
+	});
 
-it('message of new post should be correct', () => {
-	let action = addPostAction(userId);
-	const newState = profilePostsContentReducer(state, action);
-	expect(newState.posts[3].text).toBe("test-sos");
-});
+	it('message of new post should be correct', () => {
+		let action = addPostAction(userId);
+		const newState = profilePostsContentReducer(state, action);
+		expect(newState.posts[3].text).toBe("test-sos");
+	});
 
-it('after deleting length of messages should be decrement', () => {
-	let action = deletePostAction(0);
-	let newState = profilePostsContentReducer(state, action);
-	expect(newState.posts.length).toBe(2);
-});
+	it('after deleting length of messages should be decrement', () => {
+		let action = deletePostAction(0);
+		let newState = profilePostsContentReducer(state, action);
+		expect(newState.posts.length).toBe(2);
+	});
 
-it(`after deleting length shouldn't be decrement if id is incorrect`, () => {
-	let action = deletePostAction(1000);
-	let newState = profilePostsContentReducer(state, action);
-	expect(newState.posts.length).toBe(3);
-});
+	it(`after deleting length shouldn't be decrement if id is incorrect`, () => {
+		let action = deletePostAction(1000);
+		let newState = profilePostsContentReducer(state, action);
+		expect(newState.posts.length).toBe(3);
+	});
 
-it(`after updating post value text`, () => {
-	let action = updatePostTextAction({text: "A"});
-	let newState = profilePostsContentReducer(state, action);
-	expect(newState.postValue.text).toBe("A");
+	it(`after updating post value text`, () => {
+		let action = updatePostTextAction({text: "A"});
+		let newState = profilePostsContentReducer(state, action);
+		expect(newState.postValue.text).toBe("A");
+	});
 });

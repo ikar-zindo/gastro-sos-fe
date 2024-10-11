@@ -26,6 +26,17 @@ const App = () => {
 	useEffect(() => {
 		dispatch(initializeApp());
 
+		const updateVh = () => {
+			const vh = window.innerHeight * 0.01;
+			document.documentElement.style.setProperty('--vh', `${vh}px`);
+		};
+
+		updateVh(); // Инициализация при первом рендере
+		window.addEventListener('resize', updateVh);
+
+		return () => {
+			window.removeEventListener('resize', updateVh);
+		};
 	}, [dispatch]);
 
 	if (!initialized) {

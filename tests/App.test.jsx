@@ -17,7 +17,6 @@ describe('App Component', () => {
 		);
 		expect(container).toBeInTheDocument();
 
-
 		// OLD
 		// const div = document.createElement('div');
 		// const root = createRoot(div);

@@ -42,13 +42,22 @@ html, body {
 
 /* phone screen styles */
 @media (max-width: 768px) {
+  body {
+    height: 100%;
+    max-width: 100ch;
+    overflow-x: hidden;
+    max-height: 100vh;
+  }
+
   .app-wrapper {
+    height: calc(var(--vh, 1vh) * 100);
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0;
     width: 100%;
     min-height: 100vh;
     position: relative;
+
 
     display: grid;
     grid-template-areas:
