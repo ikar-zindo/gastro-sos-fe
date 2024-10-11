@@ -6,7 +6,7 @@ export default defineConfig(({mode}) => {
 	const env = loadEnv(mode, process.cwd());
 
 	return {
-		// base: '/gastro-sos-fe/',
+		base: '/gastro-sos-fe/',
 		plugins: [react()],
 		test: {
 			environment: 'jsdom',
