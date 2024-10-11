@@ -1,5 +1,6 @@
 import {profileAPI} from "../api/profileAPI.js";
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {globalErrorMessages} from "../utils/global-error-messages.js";
 
 const profileReducer = createSlice( {
 	name: "profile",
@@ -57,7 +58,7 @@ export const setUserProfile = createAsyncThunk(
 			const response = await profileAPI.getProfile(userIdUrl);
 			return response.data;
 		} catch (error) {
-			return rejectWithValue(error.response?.data || 'Error loading profile');
+			return rejectWithValue(error.response?.data || globalErrorMessages.ERROR_UPDATING_STATUS);
 		}
 	}
 );
@@ -70,7 +71,7 @@ export const setUserProfileStatus = createAsyncThunk(
 			const response = await profileAPI.getStatus(userIdUrl);
 			return response.data;
 		} catch (error) {
-			return rejectWithValue(error.response?.data || 'Error loading status');
+			return rejectWithValue(error.response?.data || globalErrorMessages.ERROR_UPDATING_STATUS);
 		}
 	}
 );
@@ -84,10 +85,10 @@ export const updateUserProfileStatus = createAsyncThunk(
 			if (response.data.resultCode === 0) {
 				return status;
 			} else {
-				return rejectWithValue('Error updating status');
+				return rejectWithValue(globalErrorMessages.ERROR_UPDATING_STATUS);
 			}
 		} catch (error) {
-			return rejectWithValue(error.response?.data || 'Error updating status');
+			return rejectWithValue(error.response?.data || globalErrorMessages.ERROR_UPDATING_STATUS);
 		}
 	}
 );

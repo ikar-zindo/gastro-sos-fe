@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import style from '../../styles/common/text-area.module.css';
+import style from '../../../styles/common/text-area.module.css';
 import {useForm} from "react-hook-form";
 
 const TextArea = (props) => {

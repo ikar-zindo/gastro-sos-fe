@@ -5,9 +5,7 @@ import ProfileStatus from "./ProfileStatus.jsx";
 import userPhoto from "../../../../assets/img/userPhoto.png"
 
 const ProfileInfoComponent = (props) => {
-	const profile = props.profilePage.profile;
-	const status = props.profilePage.status;
-	const loading = props.profilePage.loading;
+	const {profile, status, loading} = props.profilePage;
 
 	useEffect(() => {
 	}, [profile, loading]);
@@ -19,6 +17,7 @@ const ProfileInfoComponent = (props) => {
 	return (
 		<div className={style.profileInfo}>
 			<div className={style.img}>
+				{/* TODO: img вынести в отдельную компоненту*/}
 				<img src={profile.photos.small != null ? profile.photos.small : userPhoto}
 				     alt='[ava]'></img>
 			</div>

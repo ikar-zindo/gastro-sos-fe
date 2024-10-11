@@ -2,7 +2,7 @@ import React from 'react';
 import style from '../../../styles/main/dialogs/chat.module.css'
 import MessageElement from "../../common/elements/MessageElement.jsx";
 import {useParams} from "react-router-dom";
-import TextArea from "../../common/TextArea.jsx";
+import TextArea from "../../common/elements/TextArea.jsx";
 import {useDispatch} from "react-redux";
 import {sendMessage, updateMessageText} from "../../../redux/dialogs-reducer.js";
 import Loader from "../../common/elements/Loader.jsx";

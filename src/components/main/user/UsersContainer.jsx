@@ -5,13 +5,14 @@ import UsersComponent from "./UsersComponent.jsx";
 import {
 	getCurrentPage,
 	getIsFetching,
-	getIsFollowingInProgress, getPageSize, getTotalUsers,
+	getIsFollowingInProgress,
+	getPageSize,
+	getTotalUsers,
 	getUsers
 } from "../../../selectors/users-selectors.js";
 
 const UserContainer = () => {
 	const dispatch = useDispatch();
-
 	const users = useSelector(getUsers);
 	const pageSize = useSelector(getPageSize);
 	const totalUsers = useSelector(getTotalUsers);

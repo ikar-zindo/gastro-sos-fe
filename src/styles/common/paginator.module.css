@@ -1,0 +1,17 @@
+.selectPage {
+	font-weight: bold;
+}
+
+
+.pagination {
+	margin: 8px;
+	padding: 8px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.pagination span {
+	font-size: 18px;
+	margin-right: 12px;
+	display: inline-block;
+}

@@ -1,6 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-
 const dialogsReducer = createSlice({
 	name: "dialogs",
 	initialState: {
@@ -258,7 +257,7 @@ const dialogsReducer = createSlice({
 	},
 	reducers: {
 		updateMessageText: (state, action) => {
-			state.messageValue = action.payload;
+			return {...state,messageValue: action.payload};
 		},
 		sendMessage: (state, action) => {
 			let sendMessageData = action.payload;

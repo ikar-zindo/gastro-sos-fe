@@ -76,7 +76,7 @@ const homeReducer = createSlice({
 					likes: 24,
 					dislikes: 0
 				}
-			]
+			],
 		},
 		reducers: {}
 	}

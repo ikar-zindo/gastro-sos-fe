@@ -118,22 +118,5 @@ button:active {
 	font-size: 12px;
 }
 
-.pagination {
-	margin: 8px;
-	padding: 8px;
-	display: inline-block;
-	cursor: pointer;
-}
-
-.selectPage {
-	font-weight: bold;
-}
-
-.pagination span {
-	font-size: 18px;
-	margin-right: 12px;
-	display: inline-block;
-}
-
 @media (max-width: 768px) {
 }

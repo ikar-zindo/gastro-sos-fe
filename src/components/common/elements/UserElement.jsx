@@ -5,9 +5,8 @@ import {NavLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {follow, unfollow} from "../../../redux/users-reducer.js";
 
-const UserElement = (props) => {
+const UserElement = ({user, isFollowingInProgress}) => {
 	const dispatch = useDispatch();
-	let user = props.user;
 
 	return (
 		<div key={user.id} className={styles.userInfoWrapper}>
@@ -29,10 +28,10 @@ const UserElement = (props) => {
 
 			<div className={styles.button}>
 				{user.followed
-					? <button disabled={props.isFollowingInProgress.some(id => id === user.id)} onClick={() => {
+					? <button disabled={isFollowingInProgress.some(id => id === user.id)} onClick={() => {
 						dispatch(unfollow(user.id));
 					}}>Unfollow</button>
-					: <button disabled={props.isFollowingInProgress.some(id => id === user.id)} onClick={() => {
+					: <button disabled={isFollowingInProgress.some(id => id === user.id)} onClick={() => {
 						dispatch(follow(user.id));
 					}}>Follow</button>}
 			</div>

@@ -1,17 +1,19 @@
 import LoginForm from "./LoginForm.jsx";
 import {useSelector} from "react-redux";
 import {useEffect} from "react";
+import {globalErrorMessages} from "../../../utils/global-error-messages.js";
+import {locate} from "../../../utils/locates/locate.js";
 
 const LoginContainer = () => {
-	const loginIsRequired = "Login is required";
-	const passwordIsRequired = "Password is required";
-	const emailIsRequired = "Email is required";
-	const invalidEmail = "This is not a valid email";
-	const maxLength30 = "Max length is 30";
+	const loginIsRequired = globalErrorMessages.LOGIN_IS_REQUIRED;
+	const passwordIsRequired = globalErrorMessages.PASSWORD_IS_REQUIRED;
+	const emailIsRequired = globalErrorMessages.EMAIL_IS_REQUIRED;
+	const invalidEmail = globalErrorMessages.INVALID_EMAIL;
+	const maxLength30 = globalErrorMessages.MAX_LENGTH_30;
 	const auth = useSelector(state => state.auth);
-	const buttonValue = auth.buttonValue;
+	const buttonValue = locate.login.buttonValue;
 	const captchaUrl = auth.captchaUrl;
-	const captchaPlaceholder = auth.captchaPlaceholder;
+	const captchaPlaceholder = locate.login.captchaPlaceholder;
 
 	useEffect(() => {
 	}, [auth, auth.isAuth]);

@@ -1,6 +1,7 @@
 import {authAPI} from "../api/authAPI.js";
 import {createSlice} from "@reduxjs/toolkit";
 import {securityAPI} from "../api/securityAPI.js";
+import {globalErrorMessages} from "../utils/global-error-messages.js";
 
 const authReducer = createSlice({
 	name: "auth",
@@ -10,8 +11,6 @@ const authReducer = createSlice({
 		email: null,
 		isAuth: false,
 		token: '',
-		buttonValue: "Login",
-		captchaPlaceholder: "Enter CAPTCHA",
 		captchaUrl: null
 	},
 	reducers: {
@@ -22,7 +21,7 @@ const authReducer = createSlice({
 			}
 		},
 		setTokenAction: (state, action) => {
-			state.token = action.payload;
+			return {...state, token: action.payload};
 		},
 		logoutAction: (state) => { // reset state
 			const data = {
@@ -72,8 +71,8 @@ export const login = (data) => async (dispatch) => {
 			}
 		}
 	} catch (error) {
-		console.error("Error during login", error);
-		return ['Server error occurred']; // Ошибка на сервере
+		console.error(globalErrorMessages.ERROR_DURING_LOGIN, error);
+		return [globalErrorMessages.SERVER_ERROR_OCCURRED]; // Ошибка на сервере
 	}
 }
 

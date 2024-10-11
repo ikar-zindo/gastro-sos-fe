@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import PostElement from "../../../common/elements/PostElement.jsx";
 import style from '../../../../styles/main/profile/profile.module.css';
-import TextArea from "../../../common/TextArea.jsx";
+import TextArea from "../../../common/elements/TextArea.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {addPostAction, updatePostTextAction} from "../../../../redux/profile-posts-content-reducer.js";
 import {getUserProfile} from "../../../../redux/profile-reducer.js";

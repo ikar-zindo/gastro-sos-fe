@@ -8,7 +8,7 @@ const appReducer = createSlice({
 	},
 	reducers: {
 		initializedSuccess: (state, action) => {
-			state.initialized = true;
+			return {...state, initialized: true};
 		}
 	}
 });

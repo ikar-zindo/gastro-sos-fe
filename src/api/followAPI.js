@@ -4,7 +4,6 @@ import instanceAPI from "./instanceAPI.js";
 const instance = axios.create(instanceAPI)
 
 export const followAPI = {
-
 	getFollowUser(userId) {
 		return instance.get(`follow/${userId}`);
 	},
