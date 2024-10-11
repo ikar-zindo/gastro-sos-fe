@@ -9,7 +9,7 @@ import * as serviceWorker from "./serviceWorker.js";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( // TODO: возможно <BrowserRouter/> и <Provider/> нужно будет обернуть в <App/>
-	<BrowserRouter>
+	<BrowserRouter basename={import.meta.env.BASE_URL}>
 		<Provider store={store}>
 			<App/>
 		</Provider>

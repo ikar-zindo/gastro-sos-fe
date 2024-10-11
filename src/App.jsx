@@ -23,8 +23,10 @@ const App = () => {
 	const dispatch = useDispatch();
 	const initialized = useSelector(state => state.app.initialized);
 
+		console.log(import.meta.env.BASE_URL)
 	useEffect(() => {
 		dispatch(initializeApp());
+
 	}, [dispatch]);
 
 	if (!initialized) {
