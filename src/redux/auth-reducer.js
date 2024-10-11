@@ -78,19 +78,17 @@ export const login = (data) => async (dispatch) => {
 }
 
 export const logout = () => async (dispatch) => {
-	authAPI.logout().then(response => {
-		if (response.status === 200) {
-			dispatch(logoutAction());
-		}
-	})
+	const response = await authAPI.logout()
+	if (response.status === 200) {
+		dispatch(logoutAction());
+	}
 };
 
 export const getCaptcha = () => async (dispatch) => {
-	securityAPI.getCaptcha().then(response => {
-		if (response.status === 200) {
-			dispatch(setCaptchaUrl(response.data.url));
-		}
-	})
+	const response = await securityAPI.getCaptcha()
+	if (response.status === 200) {
+		dispatch(setCaptchaUrl(response.data.url));
+	}
 };
 
 export const {

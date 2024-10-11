@@ -8,12 +8,10 @@ import {Provider} from "react-redux";
 import * as serviceWorker from "./serviceWorker.js";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+root.render( // TODO: возможно <BrowserRouter/> и <Provider/> нужно будет обернуть в <App/>
 	<BrowserRouter>
 		<Provider store={store}>
-			{/*<React.StrictMode>  /!*вызывает повторный рендеринг*!/*/}
-				<App/>
-			{/*</React.StrictMode>*/}
+			<App/>
 		</Provider>
 	</BrowserRouter>
 );

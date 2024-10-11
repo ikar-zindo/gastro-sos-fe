@@ -1,5 +1,5 @@
 .nav {
-	grid-area: n;
+	grid-area: navbar;
 	background-color: rgb(30, 45, 60); /* Фон */
 	color: rgb(230, 230, 230); /*Цвет текста*/
 	padding-left: 24px;

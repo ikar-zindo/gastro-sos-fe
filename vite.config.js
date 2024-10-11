@@ -8,6 +8,17 @@ export default defineConfig(({mode}) => {
 	return {
 		// base: '/gastro-sos-fe/',
 		plugins: [react()],
+		test: {
+			environment: 'jsdom',
+			globals: true,
+			setupFiles: './tests/setupTests.js',
+			include: ['**/*.test.jsx', '**/*.spec.jsx', '**/*.test.js'], // включите необходимые тестовые файлы
+			esbuild: {
+				loader: {
+					'.js': 'jsx',
+				},
+			},
+		},
 		server: {
 			port: 3000,
 			proxy: {

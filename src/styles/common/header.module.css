@@ -1,5 +1,5 @@
 .header {
-	grid-area: h;
+	grid-area: header;
 	padding: 5px;
 	display: flex;
 	align-items: center;
@@ -16,7 +16,7 @@
 
 .h1 {
 	color: white;
-	font-size: 36px;
+	font-size: 30px;
 }
 
 .loginWrapper {
@@ -37,7 +37,8 @@
 	border-radius: 8px;
 }
 
-.loginWrapper button:hover {
+.loginWrapper button:hover,
+.loginWrapper button:focus {
 	border-radius: 8px;
 	background-color: rgb(48, 68, 89);
 }
@@ -85,8 +86,13 @@
 .navLink:focus,
 .dropdownItem:hover,
 .dropdownItem:focus,
-button.dropdownItem:hover {
+button.dropdownItem:hover,
+button.dropdownItem:focus {
 	background-color: rgb(70, 111, 159);
+	border-radius: 0;
+}
+
+button.dropdownItem {
 	border-radius: 0;
 }
 

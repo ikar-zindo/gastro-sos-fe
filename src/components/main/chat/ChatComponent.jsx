@@ -4,7 +4,7 @@ import MessageElement from "../../common/elements/MessageElement.jsx";
 import {useParams} from "react-router-dom";
 import TextArea from "../../common/TextArea.jsx";
 import {useDispatch} from "react-redux";
-import {sendMessage, updateMessageText} from "../../../redux/content/dialogs-reducer.js";
+import {sendMessage, updateMessageText} from "../../../redux/dialogs-reducer.js";
 import Loader from "../../common/elements/Loader.jsx";
 import userPhoto from "../../../assets/img/userPhoto.png";
 

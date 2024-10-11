@@ -9,6 +9,7 @@ const ProfileComponent = React.memo(props => {
 	const profilePage = props.profilePage;
 	const profile = profilePage.profile;
 	const [selectedTab, setSelectedTab] = useState('posts');
+	const profilePostContentPage = useSelector(state => state.profilePostContentPage);
 
 	return (
 		<div className={style.profile}>
@@ -29,7 +30,7 @@ const ProfileComponent = React.memo(props => {
 			</div>
 
 			{selectedTab === 'bio' && <ProfileBioComponent profile={profile}/>}
-			{selectedTab === 'posts' && <ProfilePostsContainer/>}
+			{selectedTab === 'posts' && <ProfilePostsContainer profilePostContentPage={profilePostContentPage}/>}
 			{selectedTab === 'stories' && <ProfileBioComponent profile={profile}/>}
 		</div>
 	);

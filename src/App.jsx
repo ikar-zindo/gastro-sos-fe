@@ -18,6 +18,9 @@ import WithAuthRedirect from "./hoc/WithAuthRedirect.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import Loader from "./components/common/elements/Loader.jsx";
 import {initializeApp} from "./redux/app-reducer.js";
+import store from "./redux/store.js";
+import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -28,16 +31,16 @@ const App = () => {
 	}, [dispatch]);
 
 	if (!initialized) {
-		return <Loader />;
+		return <Loader/>;
 	}
 
 	return (
-		<>
-			<div className="app-wrapper">
-				<HeaderContainer/>
-				<NavbarContainer/>
+		<div className="app-wrapper">
+			<HeaderContainer/>
+			<NavbarContainer/>
 
-				<div className='app-wrapper-content'>
+			<div className='app-wrapper-content'>
+				{/*<div className="app-display-flex-wrapper">*/}
 					<Routes>
 						<Route path='/' element={<HomeContainer/>}/>
 						<Route path='/login/' element={<WithAuthRedirect><LoginContainer/></WithAuthRedirect>}/>
@@ -51,13 +54,13 @@ const App = () => {
 						<Route path='/add-photo/*' element={<PlusContainer/>}/>
 						<Route path='/*' element={<HomeContainer/>}/>
 					</Routes>
-				</div>
-
-				<RightContainer/>
-				<NavigateContainer/>
-				<FooterContainer/>
+				{/*</div>*/}
 			</div>
-		</>
+
+			<RightContainer/>
+			<NavigateContainer/>
+			<FooterContainer/>
+		</div>
 	);
 }
 

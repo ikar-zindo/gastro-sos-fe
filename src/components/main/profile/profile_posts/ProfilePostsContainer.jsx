@@ -3,13 +3,13 @@ import PostElement from "../../../common/elements/PostElement.jsx";
 import style from '../../../../styles/main/profile/profile.module.css';
 import TextArea from "../../../common/TextArea.jsx";
 import {useDispatch, useSelector} from "react-redux";
-import {addPost, updatePostText} from "../../../../redux/content/profile-posts-content-reducer.js";
+import {addPostAction, updatePostTextAction} from "../../../../redux/profile-posts-content-reducer.js";
 import {getUserProfile} from "../../../../redux/profile-reducer.js";
 import Loader from "../../../common/elements/Loader.jsx";
 
-const ProfilePostsContainer = React.memo(() => {
+const ProfilePostsContainer = React.memo(props => {
 	const dispatch = useDispatch();
-	const profilePostContentPage = useSelector(state => state.profilePostContentPage);
+	const profilePostContentPage = props.profilePostContentPage;
 	const placeholder = profilePostContentPage.placeholder;
 	const buttonValue = profilePostContentPage.buttonValue;
 	const userId = useSelector(state => state.auth.id);
@@ -31,21 +31,20 @@ const ProfilePostsContainer = React.memo(() => {
 		});
 	}, [profilePostContentPage.posts]);
 
-	let postElements = profilePostContentPage.posts.map(post => {
-		const user = users[post.userId];
-
-		if (!user) {
-			return <Loader key={post.id} />;
-		}
-		return <PostElement key={post.id} post={post} user={user}/>
-	});
+	let postElements =
+		[...profilePostContentPage.posts]
+			.reverse()
+			.map(post => {
+				const user = users[post.userId];
+				return <PostElement key={post.id} post={post} user={user}/>
+			});
 
 	const updateNewPostText = (postValue) => {
-		dispatch(updatePostText(postValue));
+		dispatch(updatePostTextAction(postValue));
 	};
 
 	let addNewPost = () => {
-		dispatch(addPost(userId));
+		dispatch(addPostAction(userId));
 	}
 
 	return (

@@ -1,15 +1,16 @@
 import React from 'react';
 import c from "../../../styles/common/post.module.css";
-import Loader from "./Loader.jsx";
 import userPhoto from "../../../assets/img/userPhoto.png";
+import Loader from "./Loader.jsx";
 
 const PostElement = (props) => {
 	let user = props.user;
 	let post = props.post;
 
-	if (!post && !user) {
-		return <Loader/>
+	if (!post || !user) {
+		return <Loader key={post.id}/>
 	}
+
 	return (
 		<div className={c.post}>
 			<div className={c.userInfoWrapper}>

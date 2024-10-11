@@ -63,10 +63,11 @@ const profilePostsContentReducer = createSlice({
 		buttonValue: "Add post"
 	},
 	reducers: {
-		updatePostText: (state, action) => {
-			state.postValue = action.payload;
+		updatePostTextAction: (state, action) => {
+			// state.postValue = action.payload;
+			return {...state, postValue: action.payload};
 		},
-		addPost: (state, action) => {
+		addPostAction: (state, action) => {
 			const userId = action.payload ? action.payload : 31642;
 			let newPost = {
 				id: state.posts.length + 1,
@@ -78,15 +79,30 @@ const profilePostsContentReducer = createSlice({
 				createdAt: new Date().toLocaleDateString()
 			};
 
-			state.posts.push(newPost);
-			state.postValue.text = '';
+			// state.posts.push(newPost);
+			// state.postValue.text = '';
+			return {
+				...state,
+				posts: [...state.posts, newPost],
+				postValue: {
+					...state.postValue,
+					text: ''
+				}
+			};
+		},
+		deletePostAction: (state, action) => {
+			return {
+				...state,
+				posts: state.posts.filter(post => post.id !== action.payload)
+			}
 		}
 	}
 });
 
 export const {
-	updatePostText,
-	addPost
+	updatePostTextAction,
+	addPostAction,
+	deletePostAction
 } = profilePostsContentReducer.actions
 
 export default profilePostsContentReducer.reducer;

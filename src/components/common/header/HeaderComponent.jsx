@@ -56,6 +56,7 @@ const HeaderComponent = (props) => {
 							        role="button"
 							        data-bs-toggle="dropdown"
 							        aria-expanded={isOpen ? "true" : "false"}
+							        // aria-expanded="true"
 							        onClick={toggleDropdown}>
 								{props.auth.login}
 								<span className={`${style.arrow} ${isArrowDown  ? style.down : style.up}`}></span>

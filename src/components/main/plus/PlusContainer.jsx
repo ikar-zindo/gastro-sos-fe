@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import c from '../../../styles/main/plus.module.css'
 import {useDispatch} from "react-redux";
 import {useForm} from "react-hook-form";
+import {HelloWorld} from "../../../../tests/components/HelloWorld.jsx";
 
 const PlusContainer = () => {
 	const dispatch = useDispatch();

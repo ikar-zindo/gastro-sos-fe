@@ -1,5 +1,6 @@
 html, body {
   height: 100%;
+  /*width: 100%;*/
   background-color: rgb(30, 45, 60); /* Фон */
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -18,9 +19,9 @@ html, body {
 
   display: grid;
   grid-template-areas:
-			"h h h"
-			"n c c"
-			"f f f";
+			"header header header"
+			"navbar content content"
+			"footer footer footer";
 
   grid-template-rows: 70px 1fr 60px;
   grid-template-columns: 2fr 5fr 3fr;
@@ -28,9 +29,9 @@ html, body {
 }
 
 .app-wrapper-content {
-  grid-area: c;
+  grid-area: content;
   height: 100%;
-  /*width: 100%;*/
+  width: 100%;
   background-color: rgb(35, 53, 71); /* Фон */
   border-radius: 18px;
   border: 1px solid rgb(80, 117, 156);
@@ -51,9 +52,9 @@ html, body {
 
     display: grid;
     grid-template-areas:
-            "h h"
-            "c c"
-            "v v";
+            "header header"
+            "content content"
+            "navigate navigate";
 
     grid-template-rows: 56px 1fr 86px;
     grid-template-columns: 1fr 2fr;
@@ -71,6 +72,10 @@ html, body {
 
     color: rgb(230, 230, 230); /*Цвет текста*/
     overflow: hidden;
+  }
+
+  .app-display-flex-wrapper {
+    display: flex;
   }
 }
 
