@@ -45,9 +45,16 @@ jobs:
         with:
           name: production-files
           path: ./dist
-
+        env:
+          NODE_VERSION: '20.x'
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          cname: false  # Убедитесь, что CNAME отключён, если он не нужен
+          enable_jekyll: false  # Отключение Jekyll, который может мешать работе SPA
+          allow_empty_commit: true  # Необязательно, для пустых коммитов
+          user: ikar-zindo  # Замените своим логином
+        env:
+          NODE_VERSION: '20.x'
