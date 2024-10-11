@@ -160,7 +160,7 @@ const usersSlice = createSlice({
 		pageSize: 30,
 		totalUsers: 0,
 		currentPage: 1,
-		currentPortion: 1,
+		portionNumber: 1,
 		isFetching: true,
 		isFollowingInProgress: [],
 	},
@@ -184,7 +184,7 @@ const usersSlice = createSlice({
 			return {...state, currentPage: action.payload};
 		},
 		setCurrentPortionAction: (state, action) => {
-			return {...state, currentPortion: action.payload};
+			return {...state, portionNumber: action.payload};
 		},
 		setTotalUsersAction: (state, action) => {
 			return {...state, totalUsers: action.payload};

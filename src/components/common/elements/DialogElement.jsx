@@ -1,5 +1,5 @@
 import React from 'react';
-import c from "../../../styles/main/dialogs/companionElement.module.css";
+import style from "../../../styles/main/dialogs/companionElement.module.css";
 import {NavLink} from "react-router-dom";
 import Loader from "./Loader.jsx";
 import userPhoto from "../../../assets/img/userPhoto.png";
@@ -15,17 +15,17 @@ const DialogElement = (props) => {
 
 	return (
 		<div>
-			<div className={c.dialog + ' ' + c.active}>
+			<div className={style.dialog + ' ' + style.active}>
 				<NavLink to={path}>
-					<div className={c.userInfoWrapper}>
+					<div className={style.userInfoWrapper}>
 						<img alt='ava' src={user.photos.small != null ? user.photos.small : userPhoto}/>
 
-						<div className={c.userInfo}>
-							<p className={c.userName}>{user.name}</p>
-							<p className={c.date}>5 minutes ego</p>
+						<div className={style.userInfo}>
+							<p className={style.userName}>{user.userName}</p>
+							<p className={style.date}>5 minutes ego</p>
 						</div>
 
-						<div className={c.dialogMark}>{dialog.id}</div>
+						<div className={style.dialogMark}>{dialog.id}</div>
 					</div>
 				</NavLink>
 			</div>

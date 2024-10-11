@@ -19,7 +19,7 @@ const UsersComponent = (props) => {
 			<Paginator totalItemsCount={props.totalUsers}
 			           pageSize={props.pageSize}
 			           currentPage={props.currentPage}
-			           currentPortion={props.currentPortion}
+			           portionNumber={props.portionNumber}
 			           onUpdatePageClick={props.onUpdatePageClick}
 			           onUpdatePortionClick={props.onUpdatePortionClick}
 			           portionSize={portionSize}/>

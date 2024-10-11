@@ -17,7 +17,7 @@ const UserContainer = () => {
 	const pageSize = useSelector(getPageSize);
 	const totalUsers = useSelector(getTotalUsers);
 	const currentPage = useSelector(getCurrentPage);
-	const currentPortion = useSelector(getCurrentPortion);
+	const portionNumber = useSelector(getCurrentPortion);
 	const isFetching = useSelector(getIsFetching);
 	const isFollowingInProgress = useSelector(getIsFollowingInProgress);
 
@@ -41,7 +41,7 @@ const UserContainer = () => {
 	                       onUpdatePageClick={onUpdatePageClick}
 	                       isFetching={isFetching}
 	                       onUpdatePortionClick={onUpdatePortionClick}
-	                       currentPortion={currentPortion}
+	                       portionNumber={portionNumber}
 	                       isFollowingInProgress={isFollowingInProgress}/>
 };
 
