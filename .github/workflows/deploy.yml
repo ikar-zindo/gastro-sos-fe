@@ -52,9 +52,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          cname: false  # Убедитесь, что CNAME отключён, если он не нужен
-          enable_jekyll: false  # Отключение Jekyll, который может мешать работе SPA
-          allow_empty_commit: true  # Необязательно, для пустых коммитов
-          user: ikar-zindo  # Замените своим логином
+#          cname: false  # Убедитесь, что CNAME отключён, если он не нужен
+#          enable_jekyll: false  # Отключение Jekyll, который может мешать работе SPA
+#          allow_empty_commit: true  # Необязательно, для пустых коммитов
+#          user: ikar-zindo  # Замените своим логином
         env:
           NODE_VERSION: '20.x'
