@@ -57,7 +57,9 @@ const App = () => {
 
 					<Route path='/profile/*' element={<ProtectedRoute element={<ProfileContainer/>}/>}/>
 					<Route path='/profile/:userId' element={<ProfileContainer/>}/>
-					<Route path='/dialogs/*' element={<ProtectedRoute element={<WithSuspense Component={DialogsContainer}/>}/>}/>
+					<Route path='/dialogs/*' element={
+						<ProtectedRoute element={
+							<WithSuspense Component={DialogsContainer}/>}/>}/>
 					<Route path='/chat/:userId' element={<ProtectedRoute element={<ChatContainer/>}/>}/>
 
 					<Route path='/search/*' element={<SearchContainer/>}/>

@@ -1,6 +1,5 @@
 .profile {
 	margin: 16px;
-
 }
 
 .postsWrapper {
@@ -19,19 +18,11 @@
 	padding: 8px;
 }
 
-.img {
-	height: 80px;
-	width: 80px;
-	margin: 0 auto 8px;
-	/*display: flex;*/
-	/*justify-content: center;*/
-	/*align-items: center;*/
-}
-
-.img img {
+img {
 	height: 90px;
-	width: 90px;
-	border-radius: 45px;
+	aspect-ratio: 1 / 1;
+	display: flex;
+	margin: 0;
 }
 
 .fullName {

@@ -29,9 +29,13 @@ const ProfileComponent = React.memo(props => {
 				</button>
 			</div>
 
-			{selectedTab === 'bio' && <ProfileBioComponent profile={profile}/>}
-			{selectedTab === 'posts' && <ProfilePostsContainer profilePostContentPage={profilePostContentPage}/>}
-			{selectedTab === 'stories' && <ProfileBioComponent profile={profile}/>}
+			{selectedTab === 'bio' && <ProfileBioComponent isOwner={props.isOwner}
+			                                               profile={profile}
+			                                               savePhoto={props.savePhoto}/>}
+			{selectedTab === 'posts' && <ProfilePostsContainer isOwner={props.isOwner}
+			                                                   profilePostContentPage={profilePostContentPage}/>}
+			{selectedTab === 'stories' && <ProfileBioComponent isOwner={props.isOwner}
+			                                                   profile={profile}/>}
 		</div>
 	);
 });

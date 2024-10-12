@@ -2,12 +2,21 @@ import React from 'react';
 import Loader from "../../../common/elements/Loader.jsx";
 import style from "../../../../styles/main/profile/profile.module.css";
 
-const ProfileBioComponent = ({profile}) => {
+const ProfileBioComponent = ({profile, isOwner, savePhoto}) => {
 	if (!profile) {
 		return <Loader/>
 	}
+
+	const onMainPhotoSelected = (e) => {
+		if (e.target.files.length) {
+			savePhoto(e.target.files[0]);
+		}
+	}
+
 	return (
 			<div className={style.profileBio}>
+				{ isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
+				
 				<div>
 					<div className={style.aboutMe}>{profile.aboutMe}</div>
 				</div>

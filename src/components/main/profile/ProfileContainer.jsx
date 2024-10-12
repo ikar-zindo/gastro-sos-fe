@@ -1,20 +1,27 @@
 import React, {useEffect} from "react";
 import ProfileComponent from "./ProfileComponent.jsx";
 import {useDispatch, useSelector} from "react-redux";
-import {setUserProfile, setUserProfileStatus} from "../../../redux/profile-reducer.js";
+import {putPhoto, savePhotoSuccess, setUserProfile, setUserProfileStatus} from "../../../redux/profile-reducer.js";
 import {useNavigate, useParams} from "react-router-dom";
 import Loader from "../../common/elements/Loader.jsx";
+import {getIsLoading, getProfilePage} from "../../../selectors/profile-selectors.js";
+import {getAuthSelector} from "../../../selectors/auth-selectors.js";
 
 const ProfileContainer = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const {userId} = useParams();
-	const authUserId = useSelector(state => state.auth.id);
-	const profilePage = useSelector(state => state.profilePage);
-	const loading = useSelector(state => state.profilePage.loading);
+	const authUserId = useSelector(getAuthSelector);
+	const profilePage = useSelector(getProfilePage);
+	const loading = useSelector(getIsLoading);
+
+	const savePhoto = (file) => {
+		dispatch(putPhoto(file));
+	}
 
 	useEffect(() => {
 		const userIdUrl = parseInt(userId) ? parseInt(userId, 10) : authUserId;
+
 		if (!userIdUrl) {
 			navigate("/login")
 		}
@@ -27,7 +34,9 @@ const ProfileContainer = () => {
 		return <Loader/>;
 	}
 
-	return <ProfileComponent profilePage={profilePage}/>;
+	return <ProfileComponent profilePage={profilePage}
+	                         isOwner={!userId}
+	                         savePhoto={savePhoto}/>;
 }
 
 export default ProfileContainer;

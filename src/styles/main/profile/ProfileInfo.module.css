@@ -6,10 +6,9 @@
 	margin: 12px;
 }
 
-.img img {
-	height: 80px;
-	width: 80px;
-	border-radius: 30px;
+img {
+	aspect-ratio: 1 / 1;
+	display: flex;
 }
 
 @media (max-width: 768px) {

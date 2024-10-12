@@ -14,6 +14,12 @@ const profileReducer = createSlice( {
 	reducers: {
 		setErrorMessagesAction: (state, action) => {
 			state.errorMessages = [action.payload];
+		},
+		savePhotoSuccess: (state, action) => {
+			return {
+				...state,
+				profile: {...state.profile, photos: action.payload},
+			}
 		}
 	},
 	extraReducers: builder => {
@@ -106,7 +112,17 @@ export const getUserProfile = createAsyncThunk(
 	}
 );
 
+// PUT PROFILE PHOTO
+export const putPhoto = (file) => async (dispatch) => {
+	const response = await profileAPI.putPhoto(file);
+
+	if (response.data.resultCode === 0) {
+		dispatch(savePhotoSuccess(response.data.data.photos));
+	}
+}
+
 export const {
-	setErrorMessagesAction
+	setErrorMessagesAction,
+	savePhotoSuccess
 } = profileReducer.actions;
 export default profileReducer.reducer;
