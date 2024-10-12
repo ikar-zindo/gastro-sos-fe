@@ -71,7 +71,6 @@ export const login = (data) => async (dispatch) => {
 			}
 		}
 	} catch (error) {
-		console.error(globalErrorMessages.ERROR_DURING_LOGIN, error);
 		return [globalErrorMessages.SERVER_ERROR_OCCURRED]; // Ошибка на сервере
 	}
 }

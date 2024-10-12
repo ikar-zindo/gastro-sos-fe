@@ -1,8 +1,10 @@
 import {profileAPI} from "../api/profileAPI.js";
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {globalErrorMessages} from "../utils/global-error-messages.js";
+import {useSelector} from "react-redux";
+import {getAuthSelector, getAuthUserId} from "../selectors/auth-selectors.js";
 
-const profileReducer = createSlice( {
+const profileReducer = createSlice({
 	name: "profile",
 	initialState: {
 		profile: null,
@@ -59,7 +61,7 @@ const profileReducer = createSlice( {
 // SET USER PROFILE
 export const setUserProfile = createAsyncThunk(
 	"profile/setUserProfile",
-	async (userIdUrl, { rejectWithValue }) => {
+	async (userIdUrl, {rejectWithValue}) => {
 		try {
 			const response = await profileAPI.getProfile(userIdUrl);
 			return response.data;
@@ -72,7 +74,7 @@ export const setUserProfile = createAsyncThunk(
 // GET USER PROFILE STATUS
 export const setUserProfileStatus = createAsyncThunk(
 	"profile/setUserProfileStatus",
-	async (userIdUrl, { rejectWithValue }) => {
+	async (userIdUrl, {rejectWithValue}) => {
 		try {
 			const response = await profileAPI.getStatus(userIdUrl);
 			return response.data;
@@ -85,7 +87,7 @@ export const setUserProfileStatus = createAsyncThunk(
 // UPDATE USER PROFILE STATUS
 export const updateUserProfileStatus = createAsyncThunk(
 	"profile/updateUserProfileStatus",
-	async (status, { rejectWithValue }) => {
+	async (status, {rejectWithValue}) => {
 		try {
 			const response = await profileAPI.putStatus(status);
 			if (response.data.resultCode === 0) {
@@ -102,7 +104,7 @@ export const updateUserProfileStatus = createAsyncThunk(
 // GET USER PROFILE
 export const getUserProfile = createAsyncThunk(
 	'profile/getUserProfile',
-	async (userIdUrl, { rejectWithValue }) => {
+	async (userIdUrl, {rejectWithValue}) => {
 		try {
 			const response = await profileAPI.getProfile(userIdUrl);
 			return response.data;
@@ -121,8 +123,27 @@ export const putPhoto = (file) => async (dispatch) => {
 	}
 }
 
+// PUT PROFILE PHOTO
+export const putProfileInfo = (data) => async (dispatch, getState) => {
+	const authUserId = getState().auth.id;
+	const response = await profileAPI.putProfileInfo(data);
+	try {
+		if (response.status === 200) {
+			if (response.data.resultCode === 0) {
+				dispatch(setUserProfile(authUserId));
+				return null
+			} else if (response.data.resultCode === 1) {
+				return response.data.messages;
+				// return Promise.reject(response.data.messages);
+			}
+		}
+	} catch (error) {
+		return response.data.messages;
+	}
+}
+
 export const {
 	setErrorMessagesAction,
-	savePhotoSuccess
+	savePhotoSuccess,
 } = profileReducer.actions;
 export default profileReducer.reducer;

@@ -1,50 +1,17 @@
 .home {
 	color: white;
-	margin: 16px;
+	margin: 8px;
+	overflow: hidden; /* Скрыть переполняющий контент */
+	box-sizing: border-box; /* Включает padding и border в расчет ширины и высоты */
 }
 
 .posts {
 	grid-area: posts;
-}
-
-
-.home .message {
-	margin-bottom: 18px;
 	display: flex;
-	flex-direction: row;
-	overflow-x: auto;
-	overflow-y: hidden;
-	gap: 10px;
-	padding: 10px 0;
-	scrollbar-width: thin;
-}
-
-.p {
-	color: white;
-}
-
-.home input {
-	margin: 4px 0;
-	background-color: rgb(48, 69, 90);
-	border-radius: 12px;
-	border: 1px solid rgb(80, 117, 156);
-	color: rgb(230, 230, 230);
-	box-sizing: border-box;
-	padding: 10px;
-	width: 100%;
-	cursor: text;
-	font-size: 16px;
-	outline: none;
-}
-
-/* Button styles */
-.home button {
-	border-radius: 18px;
-	padding: 2px 30px;
-
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
+	flex-direction: column; /* Расположение элементов в столбик */
+	justify-content: center; /* Выравнивание элементов по началу */
+	overflow: hidden; /* Скрыть переполняющий контент */
+	box-sizing: border-box; /* Включает padding и border в расчет ширины и высоты */
 }
 
 @media (max-width: 768px) {

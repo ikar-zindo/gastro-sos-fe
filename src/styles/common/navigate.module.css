@@ -19,9 +19,12 @@
 		left: 0;
 		flex-direction: row;
 		/*align-self: end;*/
+		overflow: hidden; /* Скрыть переполняющий контент */
+		/*box-sizing: border-box; !* Включает padding и border в расчет ширины и высоты *!*/
 	}
 
 	.navigate a {
+		overflow: hidden; /* Скрыть переполняющий контент */
 		color: rgb(211, 200, 200); /*Цвет текста*/
 		text-decoration: none;
 		flex: 1;
@@ -30,7 +33,6 @@
 		display: flex;
 		justify-content: center; /* Центрирование по горизонтали */
 		align-items: center; /* Центрирование по вертикали */
-		height: 100%; /* Задайте высоту по желанию */
 	}
 
 	.navigate a.activeLink {
@@ -39,9 +41,9 @@
 
 	.navigate img {
 		width: 36px;
+		height: 36px;
 		justify-content: center; /* Центрирование по горизонтали */
 		align-items: center; /* Центрирование по вертикали */
-		height: 100%; /* Задайте высоту контейнера по желанию */
 	}
 
 	.activeImage {

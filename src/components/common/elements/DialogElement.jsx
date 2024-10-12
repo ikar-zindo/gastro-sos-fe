@@ -21,7 +21,7 @@ const DialogElement = (props) => {
 						<img alt='ava' src={user.photos.small != null ? user.photos.small : userPhoto}/>
 
 						<div className={style.userInfo}>
-							<p className={style.userName}>{user.userName}</p>
+							<p className={style.userName}>{user.fullName}</p>
 							<p className={style.date}>5 minutes ego</p>
 						</div>
 

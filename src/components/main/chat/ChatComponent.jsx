@@ -47,7 +47,7 @@ const ChatComponent = (props) => {
 				<img alt='ava' src={companionUser.photos.small != null ? companionUser.photos.small : userPhoto}/>
 
 				<div className={style.userInfo}>
-					<p className={style.userName}>{companionUser.name}</p>
+					<p className={style.userName}>{companionUser.fullName}</p>
 					<p className={style.date}>5 minutes ego</p>
 				</div>
 			</div>

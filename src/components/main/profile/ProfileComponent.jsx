@@ -2,14 +2,14 @@ import React, {useState} from 'react';
 import ProfilePostsContainer from "./profile_posts/ProfilePostsContainer.jsx";
 import ProfileInfoComponent from "./profile_info/ProfileInfoComponent.jsx";
 import style from "../../../styles/main/profile/profile.module.css";
-import ProfileBioComponent from "./profile_bio/ProfileBioComponent.jsx";
+import ProfileBioContainer from "./profile_bio/ProfileBioComponent.jsx";
 import {useSelector} from "react-redux";
 
 const ProfileComponent = React.memo(props => {
 	const profilePage = props.profilePage;
 	const profile = profilePage.profile;
-	const [selectedTab, setSelectedTab] = useState('posts');
 	const profilePostContentPage = useSelector(state => state.profilePostContentPage);
+	const [selectedTab, setSelectedTab] = useState('bio');
 
 	return (
 		<div className={style.profile}>
@@ -29,13 +29,14 @@ const ProfileComponent = React.memo(props => {
 				</button>
 			</div>
 
-			{selectedTab === 'bio' && <ProfileBioComponent isOwner={props.isOwner}
+			{selectedTab === 'bio' && <ProfileBioContainer isOwner={props.isOwner}
 			                                               profile={profile}
 			                                               savePhoto={props.savePhoto}/>}
 			{selectedTab === 'posts' && <ProfilePostsContainer isOwner={props.isOwner}
 			                                                   profilePostContentPage={profilePostContentPage}/>}
-			{selectedTab === 'stories' && <ProfileBioComponent isOwner={props.isOwner}
-			                                                   profile={profile}/>}
+			{selectedTab === 'stories' && <ProfileBioContainer isOwner={props.isOwner}
+			                                                   profile={profile}
+			                                                   savePhoto={props.savePhoto}/>}
 		</div>
 	);
 });

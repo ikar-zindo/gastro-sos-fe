@@ -1,0 +1,120 @@
+.profileBio {
+	padding: 12px;
+}
+
+.aboutMe {
+	padding: 12px;
+}
+
+.aboutMe {
+	display: flex;
+	flex-direction: column; /* Расположение элементов в столбик */
+	justify-content: flex-start; /* Выравнивание элементов по началу */
+	margin: 0;
+	padding: 8px;
+	gap: 4px;
+}
+
+.aboutMeBlock {
+	height: 40px;
+	display: flex;
+	/*justify-content: space-between; !* Размещает элементы по краям *!*/
+	align-items: center; /* Выравнивание по вертикали (если нужно) */
+}
+
+.aboutMeBlock .img {
+	height: 40px;
+	width: 40px;
+	margin-left: 12px;
+}
+
+.description {
+	font-size: 18px;
+	margin-right: 8px;
+}
+
+.contacts {
+	display: flex;
+	flex-direction: column; /* Расположение элементов в столбик */
+	justify-content: flex-start; /* Выравнивание элементов по началу */
+	gap: 7px;
+}
+
+.contact {
+	margin-left: 12px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.contactTitle {
+	font-weight: 500;
+}
+
+.contact a:hover {
+	color: gold;
+}
+
+.errorMessage {
+	font-size: 12px;
+	color: rgb(231, 76, 60);
+}
+
+.button button,
+.button input {
+	align-items: center;
+	display: flex;
+	background-color: rgb(50, 70, 90);
+	border-radius: 12px;
+	border: 1px solid rgb(100, 130, 180);
+	color: rgb(230, 230, 230);
+	padding: 8px 36px;
+	font-size: 14px;
+	cursor: pointer;
+	outline: none;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover state for button */
+.button button:hover,
+.button input:hover{
+	background-color: rgb(60, 80, 100); /* Слегка светлее фон при наведении */
+	border-color: rgb(120, 150, 200); /* Слегка светлее граница при наведении */
+}
+
+/* Active state for button */
+.button button:active,
+.button input:active{
+	background-color: rgb(40, 60, 80); /* Еще темнее фон при нажатии */
+	border-color: rgb(80, 110, 160); /* Еще темнее граница при нажатии */
+}
+
+/* Стили для инпутов */
+.aboutMeBlock input[type="text"],
+.contact input[type="text"] {
+	box-sizing: border-box;
+	padding: 2px; /* Внутренние отступы */
+	background-color: rgb(48, 69, 90); /* Фон инпута */
+	border: 1px solid rgb(80, 117, 156); /* Граница инпута */
+	border-radius: 6px; /* Скругление углов инпута */
+	color: rgb(230, 230, 230); /* Цвет текста */
+	font-size: 16px; /* Размер шрифта */
+	flex-grow: 1; /* Если хотите, чтобы input занимал оставшееся пространство */
+	margin-left: 20px; /* Добавьте отступ между <b> и <input>, если нужно */
+
+	outline: none; /* Убираем стандартную обводку при фокусе */
+	transition: border-color 0.3s ease, opacity 1s ease; /* Плавное изменение границы и прозрачности */
+	opacity: 1; /* Прозрачность по умолчанию */
+}
+
+.aboutMeBlock input[type="text"]:focus,
+.contact input[type="text"]:focus {
+	border: 2px solid rgb(120, 150, 200); /* Изменение цвета границы при фокусе */
+	opacity: 1; /* Полная непрозрачность при фокусе */
+}
+
+.aboutMeBlock input[type="text"]:not(:focus),
+.contact input[type="text"]:not(:focus) {
+	opacity: 0.6; /* Затухание прозрачности при потере фокуса */
+}

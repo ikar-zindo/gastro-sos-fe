@@ -6,10 +6,6 @@
 	margin-top: 8px;
 }
 
-.posts {
-	margin-top: 16px;
-}
-
 .profileInfo {
 	display: flex;
 	flex-direction: column;
@@ -18,14 +14,14 @@
 	padding: 8px;
 }
 
-img {
+.profileInfo img {
 	height: 90px;
-	aspect-ratio: 1 / 1;
+	width: 90px;
 	display: flex;
 	margin: 0;
 }
 
-.fullName {
+.profileInfo .fullName {
 	margin: 0 auto;
 }
 
@@ -42,11 +38,6 @@ img {
 .editStatus {
 	display: flex;
 	align-items: center; /* Вертикальное центрирование элементов */
-}
-
-
-input {
-	margin-left: 8px;
 }
 
 .editStatus input {
@@ -126,23 +117,6 @@ input {
 
 .switchButtons button:not(.activeButton) {
 	background-color: #304459;
-}
-
-.history {
-	display: flex;
-}
-
-.lookingForAJob {
-	height: 80px;
-	width: 80px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.lookingForAJob img {
-	height: 40px;
-	width: 40px;
 }
 
 @media (max-width: 768px) {

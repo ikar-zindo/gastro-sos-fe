@@ -10,5 +10,9 @@ export const locate = {
 	posts: {
 		placeholder: "Post message",
 		buttonValue: "Add post",
+	},
+	profile: {
+		buttonEditProfile: "Edit profile",
+		buttonSave: "Save",
 	}
 }

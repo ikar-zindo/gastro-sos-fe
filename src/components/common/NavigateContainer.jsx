@@ -1,16 +1,16 @@
 import React from 'react';
 import style from '../../styles/common/navigate.module.css';
 import {NavLink} from "react-router-dom";
-import home from "../../assets/img/nav/home.svg";
-import homeActive from "../../assets/img/nav/home-active.svg";
-import search from "../../assets/img/nav/search.svg";
-import searchActive from "../../assets/img/nav/search-active.svg";
-import plus from "../../assets/img/nav/plus.svg";
-import plusActive from "../../assets/img/nav/plus-active.svg";
-import chats from "../../assets/img/nav/chats.svg";
-import chatsActive from "../../assets/img/nav/chats-active.svg";
-import profile from "../../assets/img/nav/profile.svg";
-import profileActive from "../../assets/img/nav/profile-active.svg";
+import home from "../../assets/img/icons/nav/home.svg";
+import homeActive from "../../assets/img/icons/nav/home-active.svg";
+import search from "../../assets/img/icons/nav/search.svg";
+import searchActive from "../../assets/img/icons/nav/search-active.svg";
+import plus from "../../assets/img/icons/nav/plus.svg";
+import plusActive from "../../assets/img/icons/nav/plus-active.svg";
+import chats from "../../assets/img/icons/nav/chats.svg";
+import chatsActive from "../../assets/img/icons/nav/chats-active.svg";
+import profile from "../../assets/img/icons/nav/profile.svg";
+import profileActive from "../../assets/img/icons/nav/profile-active.svg";
 import NavigateElement from "./elements/NavigateElement.jsx";
 
 const NavigateContainer = () => {

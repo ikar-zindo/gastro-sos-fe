@@ -3,30 +3,24 @@
 	padding: 5px;
 	background-color: rgb(50, 62, 83);
 	border-radius: 12px;
-}
-
-.post img {
 	width: 100%;
-	margin-bottom: 8px;
+	overflow: hidden; /* Скрыть переполняющий контент */
+	box-sizing: border-box; /* Включает padding и border в расчет ширины и высоты */
 }
 
-.img {
-	height: 100px;
-	width: 100px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.postImg {
+	width: 100%;
 }
 
-.img img {
-	height: 70px;
-	width: 70px;
-	border-radius: 30px;
+.postImg img {
+	width: 100%;
+	height: auto !important;
+	object-fit: contain; /* Для сохранения пропорций */
 }
 
 .postMessage {
 	color: rgb(230, 230, 230);
-	padding: 15px;
+	padding: 8px;
 }
 
 .userInfoWrapper img {
@@ -63,7 +57,7 @@
 
 .reactionContainer {
 	padding: 10px 0;
-	margin-bottom: 5px;
+	margin: 5px 0;
 	display: flex;
 	justify-content: space-around;
 	border-top: 1px solid rgb(80, 117, 156);

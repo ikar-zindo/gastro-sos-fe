@@ -1,8 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Loader from "../../../common/elements/Loader.jsx";
 import style from "../../../../styles/main/profile/profile.module.css";
+import ProfileBioElement from "./ProfileBioElement.jsx";
+import ProfileDataForm from "../../../common/elements/ProfileDataForm.jsx";
+import {locate} from "../../../../utils/locates/locate.js";
+import {putProfileInfo} from "../../../../redux/profile-reducer.js";
+import {useDispatch} from "react-redux";
 
 const ProfileBioComponent = ({profile, isOwner, savePhoto}) => {
+	const dispatch = useDispatch();
+	const buttonValue = locate.profile.buttonEditProfile;
+	const buttonSave = locate.profile.buttonSave;
+	const [editMode, setEditMode] = useState(false);
+
 	if (!profile) {
 		return <Loader/>
 	}
@@ -13,25 +23,28 @@ const ProfileBioComponent = ({profile, isOwner, savePhoto}) => {
 		}
 	}
 
+	const saveProfileInfo = (data) => {
+		return dispatch(putProfileInfo(data));
+
+	}
+
 	return (
-			<div className={style.profileBio}>
-				{ isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
-				
-				<div>
-					<div className={style.aboutMe}>{profile.aboutMe}</div>
-				</div>
+		<div className={style.profileBio}>
+			{isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
 
-				<div className={style.history}>
-					<div className={style.lookingForAJob}>
-						{profile.lookingForAJob ? (
-							<img src="" alt="yes"/>
-						) : (
-							<img src="" alt="no"/>
-						)}
-					</div>
-
-					<div className={style}>{profile.lookingForAJobDescription}</div>
-				</div>
+			{editMode
+				? <ProfileDataForm profile={profile}
+				                   isOwner={isOwner}
+				                   buttonSave={buttonSave}
+				                   setEditMode={setEditMode}
+				                   saveProfileInfo={saveProfileInfo}/>
+				: <ProfileBioElement isOwner={isOwner}
+				                     profile={profile}
+				                     buttonValue={buttonValue}
+				                     switchEditMode={() => {
+					                     setEditMode(true)
+				                     }}/>
+			}
 		</div>
 	);
 };
