@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import './App.css';
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {initializeApp} from "./redux/app-reducer.js";
 import Loader from "./components/common/elements/Loader.jsx";
@@ -64,7 +64,8 @@ const App = () => {
 
 					<Route path='/search/*' element={<SearchContainer/>}/>
 					<Route path='/add-photo/*' element={<PlusContainer/>}/>
-					<Route path='/*' element={<HomeContainer/>}/>
+					<Route path='/*' element={<Navigate to="/" replace/>}/>
+					{/*<Route path='/*' element={<div>404</div>}/>*/}
 				</Routes>
 
 			</div>

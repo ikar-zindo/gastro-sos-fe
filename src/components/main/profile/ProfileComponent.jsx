@@ -13,7 +13,8 @@ const ProfileComponent = React.memo(props => {
 
 	return (
 		<div className={style.profile}>
-			<ProfileInfoComponent profilePage={profilePage}/>
+			<ProfileInfoComponent profilePage={profilePage}
+			                      savePhoto={props.savePhoto}/>
 
 			<div className={style.switchButtons}>
 				<button onClick={() => setSelectedTab('bio')} className={selectedTab === 'bio' ? style.activeButton : ''}>
@@ -30,8 +31,7 @@ const ProfileComponent = React.memo(props => {
 			</div>
 
 			{selectedTab === 'bio' && <ProfileBioContainer isOwner={props.isOwner}
-			                                               profile={profile}
-			                                               savePhoto={props.savePhoto}/>}
+			                                               profile={profile}/>}
 			{selectedTab === 'posts' && <ProfilePostsContainer isOwner={props.isOwner}
 			                                                   profilePostContentPage={profilePostContentPage}/>}
 			{selectedTab === 'stories' && <ProfileBioContainer isOwner={props.isOwner}

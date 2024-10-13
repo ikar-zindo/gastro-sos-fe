@@ -111,8 +111,9 @@ const ProfileDataForm = ({profile, setEditMode, saveProfileInfo}) => {
 
 		<div className={style.contacts}>
 			<b className={style.description}>Contacts:</b>
-				{Object.keys(profile.contacts).map(key => (
-					<div className={style.contact} key={key}>
+			{Object.keys(profile.contacts).map(key => (
+				<div key={key}>
+					<div className={style.contact}>
 						<label>{key}:</label>
 						<input type="text"
 						       {...register(`contacts[${key}]`, {
@@ -121,12 +122,12 @@ const ProfileDataForm = ({profile, setEditMode, saveProfileInfo}) => {
 								       message: 'maxLength100'
 							       }
 						       })}/>
-						<div>
-							{errors.contacts && errors.contacts[key] && (
-								<span className={style.errorMessage}>{errors.contacts[key].message}</span>)}
-						</div>
 					</div>
-				))}
+
+					{errors.contacts && errors.contacts[key] && (
+						<span className={style.errorMessage}>{errors.contacts[key].message}</span>)}
+				</div>
+			))}
 		</div>
 
 		<div className={style.button}>

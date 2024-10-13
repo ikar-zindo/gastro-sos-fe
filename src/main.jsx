@@ -6,15 +6,10 @@ import App from './App';
 import {HashRouter, BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import * as serviceWorker from "./serviceWorker.js";
+import GastroSOS from "./GastroSOS.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render( // TODO: возможно <BrowserRouter/> и <Provider/> нужно будет обернуть в <App/>
-	<HashRouter>
-		<Provider store={store}>
-			<App/>
-		</Provider>
-	</HashRouter>
-);
+root.render(<GastroSOS/>);
 
 // API
 // If you want your app to work offline and load faster, you can change

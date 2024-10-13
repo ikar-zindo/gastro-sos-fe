@@ -86,10 +86,6 @@
 	height: 100%;
 }
 
-.profileBio {
-	padding: 12px;
-}
-
 .aboutMe {
 	padding: 12px;
 }
@@ -117,6 +113,55 @@
 
 .switchButtons button:not(.activeButton) {
 	background-color: #304459;
+}
+
+
+.profileInfo .img {
+	position: relative; /* Для абсолютного позиционирования дочерних элементов */
+	display: inline-block; /* Чтобы контейнер обертывал изображение */
+}
+
+.fileInput {
+	display: none; /* Скрываем стандартный инпут */
+}
+
+.profileImage {
+	border-radius: 35%;
+	width: 100%; /* Задайте желаемый размер для изображения профиля */
+	height: auto; /* Сохраняйте пропорции */
+	transition: transform 0.3s ease; /* Плавный переход для увеличения */
+}
+
+.fileLabel {
+	display: inline-block;
+	cursor: pointer;
+	background-color: rgb(48, 67, 88);
+	border-radius: 6px;
+	position: absolute; /* Абсолютное позиционирование */
+	top: 0; /* Позиционируем иконку в верхней части */
+	right: 0; /* Позиционируем иконку в правой части */
+	width: 30px; /* Установите нужный размер для иконки */
+	height: 30px; /* Установите нужный размер для иконки */
+	transition: transform 0.3s ease, filter 0.3s ease; /* Плавный переход для иконки */
+}
+
+.fileLabel:hover {
+	background-color: rgb(70, 111, 159);
+}
+
+
+.fileLabel img {
+	width: 30px; /* Задаем размер SVG */
+	height: 30px;
+}
+
+.img:hover .profileImage {
+	transform: scale(1.05);
+}
+
+.fileLabel:hover {
+	transform: scale(1.2);
+	filter: brightness(1.2); /* Затемняем иконку при наведении */
 }
 
 @media (max-width: 768px) {

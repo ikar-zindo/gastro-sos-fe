@@ -1,5 +1,4 @@
 export const globalErrorMessages = {
-	LOGIN_IS_REQUIRED: "Login is required",
 	PASSWORD_IS_REQUIRED: "Password is required",
 	EMAIL_IS_REQUIRED: "Email is required",
 	INVALID_EMAIL: "This is not a valid email",

@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 import favicon from '../../../assets/img/favicon.ico'
 import {logout} from "../../../redux/auth-reducer.js";
 import {useDispatch} from "react-redux";
+import {locate} from "../../../utils/locates/locate.js";
 
 const HeaderComponent = (props) => {
 	const dispatch = useDispatch();
@@ -77,7 +78,7 @@ const HeaderComponent = (props) => {
 								<li>
 									<button className={style.dropdownItem}
 									        onClick={() => dispatch(logout())}>
-										{props.buttonLogoutValue}
+										{locate.auth.buttonLogoutValue}
 									</button>
 								</li>
 							</ul>
@@ -85,7 +86,7 @@ const HeaderComponent = (props) => {
 					</div>
 					: <div className={`${style.navItem} ${style.dropdown}`}>
 						<NavLink to={'/login'}>
-							<button onClick={handleClick}>{props.buttonLoginValue}</button>
+							<button onClick={handleClick}>{locate.auth.buttonLoginValue}</button>
 						</NavLink>
 					</div>
 				}

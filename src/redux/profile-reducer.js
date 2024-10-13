@@ -133,7 +133,7 @@ export const putProfileInfo = (data) => async (dispatch, getState) => {
 				dispatch(setUserProfile(authUserId));
 				return null
 			} else if (response.data.resultCode === 1) {
-				return response.data.messages;
+				return response.data.messages; // TODO: походу красивее через Promise
 				// return Promise.reject(response.data.messages);
 			}
 		}

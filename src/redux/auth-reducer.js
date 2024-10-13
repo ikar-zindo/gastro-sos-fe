@@ -35,7 +35,8 @@ const authReducer = createSlice({
 		},
 		setCaptchaUrl: (state, action) => {
 			if (action.payload) {
-				state.captchaUrl = action.payload;
+				return {...state, captchaUrl: action.payload};
+				// state.captchaUrl = action.payload;
 			}
 		}
 	}

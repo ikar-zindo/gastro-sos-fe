@@ -3,16 +3,10 @@ import {useForm} from "react-hook-form";
 import style from '../../../styles/main/login.module.css';
 import {useDispatch} from "react-redux";
 import {login} from "../../../redux/auth-reducer.js";
+import {locate} from "../../../utils/locates/locate.js";
+import {globalErrorMessages} from "../../../utils/global-error-messages.js";
 
-const LoginForm = ({
-	                   passwordIsRequired,
-	                   invalidEmail,
-	                   emailIsRequired,
-	                   buttonValue,
-	                   maxLength30,
-	                   captchaUrl,
-	                   captchaPlaceholder
-                   }) => {
+const LoginForm = ({captchaUrl}) => {
 	const dispatch = useDispatch();
 	const [errorMessages, setErrorMessages] = useState([]);
 	const {
@@ -49,14 +43,14 @@ const LoginForm = ({
 			       type="email"
 			       placeholder="Email"
 			       {...register("email", {
-				       required: emailIsRequired,
+				       required: globalErrorMessages.EMAIL_IS_REQUIRED,
 				       pattern: {
 					       value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-					       message: invalidEmail
+					       message: globalErrorMessages.INVALID_EMAIL
 				       },
 				       maxLength: {
 					       value: 30,
-					       message: maxLength30
+					       message: globalErrorMessages.MAX_LENGTH_30
 				       },
 				       onBlur: () => trigger("email") // тригерит валидацию email
 			       })}/>
@@ -66,7 +60,7 @@ const LoginForm = ({
 			       type="password"
 			       placeholder="Password"
 			       {...register("password", {
-				       required: passwordIsRequired,
+				       required: globalErrorMessages.PASSWORD_IS_REQUIRED,
 				       onBlur: () => trigger("password")
 			       })} />
 			{<span className={style.errorMessage}>{errors.password?.message}</span>}
@@ -82,7 +76,7 @@ const LoginForm = ({
 					<img src={captchaUrl} alt="CAPTCHA"/>
 					<input type="captcha"
 					       className={hasCaptchaError ? style.error : ""}
-					       placeholder={captchaPlaceholder}
+					       placeholder={locate.auth.captchaPlaceholder}
 					       {...register("captcha", {
 						       required: true,
 						       onBlur: () => trigger("captcha")
@@ -94,7 +88,7 @@ const LoginForm = ({
 
 			<div className={style.button}>
 				<input type="submit"
-				       value={buttonValue}/>
+				       value={locate.auth.buttonLoginValue}/>
 			</div>
 		</form>
 	);

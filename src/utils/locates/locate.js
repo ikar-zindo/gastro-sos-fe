@@ -1,8 +1,8 @@
 export const locate = {
-	login: {
+	auth: {
 		buttonLoginValue: "Login",
 		buttonLogoutValue: "Logout",
-		captchaPlaceholder: "Enter CAPTCHA",
+		captchaPlaceholder: "Symbols from image",
 	},
 	dialog: {
 		placeholder: "Enter message",

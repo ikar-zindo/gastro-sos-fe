@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import {Navigate, useLocation} from 'react-router-dom';
+import {getIsAuth} from "../selectors/auth-selectors.js";
 
 const WithAuthRedirect = ({children}) => {
-	const isAuth = useSelector(state => state.auth.isAuth);
+	const isAuth = useSelector(getIsAuth);
 	const location = useLocation();
 
 	useEffect(() => {
@@ -12,7 +13,7 @@ const WithAuthRedirect = ({children}) => {
 
 	if (isAuth) {
 		if (location.pathname === '/login/') {
-			return <Navigate to="/profile/"/>;
+			return <Navigate to="/"/>;
 		}
 		return children;
 	}
