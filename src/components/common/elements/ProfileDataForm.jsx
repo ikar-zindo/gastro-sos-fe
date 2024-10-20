@@ -2,7 +2,6 @@ import React from 'react';
 import {useForm} from "react-hook-form";
 import style from "../../../styles/main/profile/profileBio.module.css";
 import {useDispatch} from "react-redux";
-import {putProfileInfo} from "../../../redux/profile-reducer.js";
 import {globalErrorMessages} from "../../../utils/global-error-messages.js";
 import {locate} from "../../../utils/locates/locate.js";
 
@@ -33,7 +32,7 @@ const ProfileDataForm = ({profile, setEditMode, saveProfileInfo}) => {
 	// Сложный и непонятный метод который вытягивает из массива сообщений об ошике нужное значеие
 	// и ложит это значение в поля для каждого input
 	const onSubmit = (data) => {
-		saveProfileInfo(data).then((messages) => {
+		saveProfileInfo(data).then(messages => {
 			if (messages) {
 				messages.forEach(error => {
 					// Разворачиваем строку и берем последнее слово, удаляя скобку, если она есть

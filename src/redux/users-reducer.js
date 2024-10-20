@@ -235,12 +235,16 @@ export const requestUsers = (page, pageSize) => async (dispatch) => {
 
 const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {
 	dispatch(toggleFollowingInProgressAction({isFetching: true, userId}));
-	let response = await apiMethod(userId);
+	try {
+		const response = await apiMethod(userId);
 
-	if (response.status === 200) {
-		dispatch(actionCreator(userId));
+		if (response.status === 200) {
+			dispatch(actionCreator(userId));
+		}
+		dispatch(toggleFollowingInProgressAction({isFetching: false, userId}));
+	} catch (error) {
+		debugger
 	}
-	dispatch(toggleFollowingInProgressAction({isFetching: false, userId}));
 }
 
 export const follow = (userId) => {

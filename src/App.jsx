@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import './App.css';
 import {Navigate, Route, Routes} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {initializeApp} from "./redux/app-reducer.js";
+import {initializeApp, setGlobalError} from "./redux/app-reducer.js";
 import Loader from "./components/common/elements/Loader.jsx";
 import WithAuthRedirect from "./hoc/WithAuthRedirect.jsx";
 import ProtectedRoute from "./hoc/ProtectedRoute.jsx";
@@ -18,28 +18,41 @@ import HomeContainer from "./components/main/home/HomeContainer";
 import SearchContainer from "./components/main/search/SearchContainer";
 import PlusContainer from "./components/main/plus/PlusContainer";
 import WithSuspense from "./hoc/WithSuspense.jsx";
+import {getIsInitialedApp} from "./selectors/initialSelectors.js";
 
 const DialogsContainer = React.lazy(() => import('./components/main/dialogs/DialogsContainer'));
 
 const App = () => {
 	const dispatch = useDispatch();
-	const initialized = useSelector(state => state.app.initialized);
+	const initialized = useSelector(getIsInitialedApp);
 
 	useEffect(() => {
 		dispatch(initializeApp());
+
+		const handleUnhandledRejection = ({promise, reason}) => {
+			let code = reason.code || 'UNKNOWN_CODE';
+			let message = reason.message || 'Unknown error occurred';
+			let status = reason.status || 999;
+			if (reason instanceof Error) { // Check if the reason is an Error object
+				dispatch(setGlobalError({status, code, message}));
+			}
+			console.error({from: "<App/>",status, code, message});
+		};
+		window.addEventListener("unhandledrejection", handleUnhandledRejection);
 
 		const updateVh = () => {
 			const vh = window.innerHeight * 0.01;
 			document.documentElement.style.setProperty('--vh', `${vh}px`);
 		};
-
 		updateVh(); // Инициализация при первом рендере
 		window.addEventListener('resize', updateVh);
 
-		return () => {
+		return () => { // Cleanup the event listener on component unmount
+			window.removeEventListener("unhandledrejection", handleUnhandledRejection);
 			window.removeEventListener('resize', updateVh);
 		};
 	}, [dispatch]);
+
 
 	if (!initialized) {
 		return <Loader/>;

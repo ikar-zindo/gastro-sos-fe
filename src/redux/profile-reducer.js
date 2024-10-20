@@ -87,11 +87,14 @@ export const setUserProfileStatus = createAsyncThunk(
 // UPDATE USER PROFILE STATUS
 export const updateUserProfileStatus = createAsyncThunk(
 	"profile/updateUserProfileStatus",
-	async (status, {rejectWithValue}) => {
+	async (status, {dispatch, rejectWithValue}) => {
 		try {
 			const response = await profileAPI.putStatus(status);
 			if (response.data.resultCode === 0) {
 				return status;
+			} else if (response.data.resultCode === 1) {
+				// dispatch(setErrorMessagesAction(response.data.messages));
+				return response.data;
 			} else {
 				return rejectWithValue(globalErrorMessages.ERROR_UPDATING_STATUS);
 			}
@@ -126,8 +129,8 @@ export const putPhoto = (file) => async (dispatch) => {
 // PUT PROFILE PHOTO
 export const putProfileInfo = (data) => async (dispatch, getState) => {
 	const authUserId = getState().auth.id;
-	const response = await profileAPI.putProfileInfo(data);
 	try {
+		const response = await profileAPI.putProfileInfo(data);
 		if (response.status === 200) {
 			if (response.data.resultCode === 0) {
 				dispatch(setUserProfile(authUserId));
@@ -138,7 +141,7 @@ export const putProfileInfo = (data) => async (dispatch, getState) => {
 			}
 		}
 	} catch (error) {
-		return response.data.messages;
+		return error;
 	}
 }
 

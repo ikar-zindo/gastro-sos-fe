@@ -8,9 +8,9 @@ const GastroSos = () => {
 	return (
 		// <BrowserRouter basename={import.meta.env.BASE_URL}>
 			<HashRouter> {/* HashRouter создаёт хеш приложения, что позволяет разместить на gh-pages */}
-				<Provider store={store}>
-					<App/>
-				</Provider>
+			<Provider store={store}>
+				<App/>
+			</Provider>
 			</HashRouter>
 		// </BrowserRouter>
 	);

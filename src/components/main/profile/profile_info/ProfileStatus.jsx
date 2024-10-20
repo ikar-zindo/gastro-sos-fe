@@ -14,6 +14,7 @@ const ProfileStatus = (props) => {
 		handleSubmit,
 		watch,
 		setValue,
+		setError,
 		formState: {
 			errors,
 		}
@@ -34,10 +35,18 @@ const ProfileStatus = (props) => {
 
 	const onSubmit = (data) => {
 		setIsSaving(true);
-		dispatch(updateUserProfileStatus(data.status));
+		dispatch(updateUserProfileStatus(data.status))
 		setEditMode(false);
 		setInitialStatus(data.status);
 		setIsSaving(false);
+		// if (messages) {
+		// 	messages.forEach(error => {
+		// 		setError("status", {
+		// 			type: "manual",
+		// 			message: error,
+		// 		})
+		// 	})
+		// }
 	};
 
 	const activateEditMode = () => {
@@ -81,6 +90,7 @@ const ProfileStatus = (props) => {
 
 	return (
 		<>
+			{<span className={style.errorMessage}>{errors.status?.message}</span>}
 			{!editMode
 				? (<div onTouchStart={handleTouchStart}
 				        onTouchEnd={handleTouchEnd}
