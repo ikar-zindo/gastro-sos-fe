@@ -5,7 +5,7 @@ import workBag from "../../../../assets/img/icons/work-bag.svg"
 // @ts-ignore
 import XSquare from "../../../../assets/img/icons/x-square-close-delete.svg"
 import Contact from "../../../common/elements/Contact";
-import {ProfileInfoInterface} from "../../../../types/profileInterfaces";
+import {ProfileInfoInterface} from "../../../../types/interfaces/profileInterfaces";
 
 interface ProfileBioElementProps {
 	profile: ProfileInfoInterface;

@@ -1,7 +1,7 @@
-import InstanceAPI from "./instanceAPI.ts";
+import instanceAPI from "./instanceAPI.ts";
 
 export const securityAPI = {
 	getCaptcha () {
-		return InstanceAPI.get('security/get-captcha-url');
+		return instanceAPI.get('security/get-captcha-url');
 	}
 }

@@ -4,8 +4,8 @@ import {NavLink} from "react-router-dom";
 import Preloader from "./Preloader";
 // @ts-ignore
 import userPhoto from "../../../assets/img/userPhoto.png";
-import {DialogInterface} from "../../../types/dialogIntefaces";
-import {ProfileInfoInterface} from "../../../types/profileInterfaces";
+import {DialogInterface} from "../../../types/interfaces/dialogIntefaces";
+import {ProfileInfoInterface} from "../../../types/interfaces/profileInterfaces";
 
 interface DialogElementProps {
 	user: ProfileInfoInterface;

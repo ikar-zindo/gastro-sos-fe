@@ -1,4 +1,4 @@
-import {PostInterface, PostValueInterface} from "./postInterfaces";
+import {PostInterface, PostValueInterface} from "./postInterfaces.ts";
 
 // PROFILE INFO
 export interface ProfileState {

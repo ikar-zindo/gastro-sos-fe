@@ -1,8 +1,8 @@
 import React from 'react';
 import StoryElement from "../../../common/elements/StoryElement";
 import c from '/src/styles/common/stories-component.module.css';
-import {ProfileInfoInterface} from "../../../../types/profileInterfaces";
-import {PostInterface} from "../../../../types/postInterfaces";
+import {ProfileInfoInterface} from "../../../../types/interfaces/profileInterfaces";
+import {PostInterface} from "../../../../types/interfaces/postInterfaces";
 
 interface StoryComponentProps {
 	users: Array<ProfileInfoInterface>

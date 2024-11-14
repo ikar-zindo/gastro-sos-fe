@@ -4,8 +4,8 @@ import style from "../../../styles/common/post.module.css";
 import userPhoto from "../../../assets/img/userPhoto.png";
 import Preloader from "./Preloader";
 import PostIcon from "./PostIcon";
-import {ProfileInfoInterface} from "../../../types/profileInterfaces";
-import {PostInterface} from "../../../types/postInterfaces";
+import {ProfileInfoInterface} from "../../../types/interfaces/profileInterfaces";
+import {PostInterface} from "../../../types/interfaces/postInterfaces";
 
 interface PostElementProps {
 	user: ProfileInfoInterface;

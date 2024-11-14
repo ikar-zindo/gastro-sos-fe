@@ -1,16 +1,16 @@
-import InstanceAPI from "./instanceAPI.ts";
-import {LoginData} from "../types/authInterfaces";
+import instanceAPI from "./instanceAPI";
+import {LoginData} from "../types/interfaces/authInterfaces";
 
 export const authAPI = {
 	me() {
-		return InstanceAPI.get('auth/me');
+		return instanceAPI.get('auth/me');
 	},
 
 	logout() {
-		return InstanceAPI.delete('auth/login');
+		return instanceAPI.delete('auth/login');
 	},
 
 	login(data: LoginData) {
-		return InstanceAPI.post('auth/login', data);
+		return instanceAPI.post('auth/login', data);
 	}
 }

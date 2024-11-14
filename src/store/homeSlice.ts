@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {HomeState} from "../types/homeIntefaces";
+import {HomeState} from "../types/interfaces/homeIntefaces";
 
 const initialState: HomeState = {
 	posts: [

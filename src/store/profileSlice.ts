@@ -1,8 +1,8 @@
 import {profileAPI} from "../api/profileAPI";
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {globalErrorMessages} from "../utils/global-error-messages.ts";
+import {globalErrorMessages} from "../utils/global-error-messages";
 import {AppDispatch} from "./store";
-import {ProfileInfoInterface, ProfileState, ProfileTab, UpdateProfileInfoInterface} from "../types/profileInterfaces";
+import {ProfileInfoInterface, ProfileState, ProfileTab, UpdateProfileInfoInterface} from "../types/interfaces/profileInterfaces";
 
 const initialState: ProfileState = {
 	profile: null,

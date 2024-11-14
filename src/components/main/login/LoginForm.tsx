@@ -4,7 +4,7 @@ import style from '../../../styles/main/login.module.css';
 import {login} from "../../../store/authSlice";
 import {locate} from "../../../utils/locates/locate";
 import {globalErrorMessages} from "../../../utils/global-error-messages";
-import {LoginData} from "../../../types/authInterfaces";
+import {LoginData} from "../../../types/interfaces/authInterfaces";
 import {useAppDispatch} from "../../../hooks/hooks";
 
 interface LoginFormProps {

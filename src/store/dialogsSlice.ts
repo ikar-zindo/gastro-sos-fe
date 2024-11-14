@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {DialogsState, MessageInterface, MessageValueInterface} from "../types/dialogIntefaces";
+import {DialogsState, MessageInterface, MessageValueInterface} from "../types/interfaces/dialogIntefaces";
 
 const initialState: DialogsState = {
 	dialogs: [

@@ -5,7 +5,7 @@ import ProfileStatus from "./ProfileStatus";
 import ProfileImage from "../../../common/elements/ProfileImage";
 // @ts-ignore
 import photoImage from "../../../../assets/img/icons/photo-image.svg";
-import {ProfileState} from "../../../../types/profileInterfaces";
+import {ProfileState} from "../../../../types/interfaces/profileInterfaces";
 
 interface ProfileProps {
 	profilePage: ProfileState;

@@ -3,7 +3,7 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import style from "../../../styles/main/profile/profileBio.module.css";
 import {globalErrorMessages} from "../../../utils/global-error-messages";
 import {locate} from "../../../utils/locates/locate";
-import {ProfileInfoInterface, UpdateProfileInfoInterface} from "../../../types/profileInterfaces";
+import {ProfileInfoInterface, UpdateProfileInfoInterface} from "../../../types/interfaces/profileInterfaces";
 
 interface ProfileDataFormProps {
 	profile: ProfileInfoInterface;

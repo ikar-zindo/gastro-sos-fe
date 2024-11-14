@@ -4,10 +4,10 @@ import style from '../../../../styles/main/profile/profile.module.css';
 import {addPostAction, updatePostTextAction} from "../../../../store/profilePostsSlice";
 import {getUserProfile} from "../../../../store/profileSlice";
 import Preloader from "../../../common/elements/Preloader";
-import {ProfileInfoInterface, ProfilePostsState} from "../../../../types/profileInterfaces";
+import {ProfileInfoInterface, ProfilePostsState} from "../../../../types/interfaces/profileInterfaces";
 import {getAuthUserId} from "../../../../selectors/authSelectors";
 import {useAppDispatch, useAppSelector} from "../../../../hooks/hooks";
-import {PostValueInterface} from "../../../../types/postInterfaces";
+import {PostValueInterface} from "../../../../types/interfaces/postInterfaces";
 import PostTextArea from "../../../common/elements/PostTextArea";
 
 interface ProfilePostsContainerProps {

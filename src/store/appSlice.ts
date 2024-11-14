@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {getAuth} from "./authSlice";
 import {AppDispatch} from "./store";
-import {AppState, GlobalError} from "../types/appInteefaces";
+import {AppState, GlobalError} from "../types/interfaces/appInteefaces";
 
 const initialState: AppState = {
 	initialized: false,

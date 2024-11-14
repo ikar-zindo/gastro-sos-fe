@@ -2,7 +2,7 @@ import React from 'react';
 // @ts-ignore
 import userPhoto from "../../../assets/img/userPhoto.png";
 import cn from "classnames";
-import {ProfileInfoInterface} from "../../../types/profileInterfaces";
+import {ProfileInfoInterface} from "../../../types/interfaces/profileInterfaces";
 
 interface ProfileImageProps {
 	profile: ProfileInfoInterface;

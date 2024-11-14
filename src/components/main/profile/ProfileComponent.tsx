@@ -5,7 +5,7 @@ import style from "../../../styles/main/profile/profile.module.css";
 import ProfileBioContainer from "./profile_bio/ProfileBioComponent";
 import {useAppDispatch, useAppSelector} from "../../../hooks/hooks";
 import {setSelectedTab} from "../../../store/profileSlice";
-import {ProfileState, ProfileTab} from "../../../types/profileInterfaces";
+import {ProfileState, ProfileTab} from "../../../types/interfaces/profileInterfaces";
 import {useParams} from "react-router-dom";
 import {getProfilePosts} from "../../../selectors/profilePostsSelectors";
 

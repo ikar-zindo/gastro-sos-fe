@@ -6,7 +6,7 @@ import favicon from '../../../assets/img/favicon.ico'
 import {logout} from "../../../store/authSlice";
 import {locate} from "../../../utils/locates/locate";
 import {useAppDispatch} from "../../../hooks/hooks";
-import {AuthState} from "../../../types/authInterfaces";
+import {AuthState} from "../../../types/interfaces/authInterfaces";
 
 interface HeaderComponentProps {
 	auth: AuthState;

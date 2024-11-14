@@ -3,7 +3,7 @@ import UserElement from "../../common/elements/UserElement";
 import style from '../../../styles/main/users.module.css';
 import Preloader from "../../common/elements/Preloader";
 import Paginator from "../../common/elements/Paginator";
-import {UserInterface} from "../../../types/userInterfaces";
+import {UserInterface} from "../../../types/interfaces/userInterfaces";
 
 interface UsersComponentProps {
 	users: Array<UserInterface>;

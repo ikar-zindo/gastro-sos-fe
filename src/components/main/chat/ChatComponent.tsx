@@ -8,8 +8,8 @@ import Preloader from "../../common/elements/Preloader";
 // @ts-ignore
 import userPhoto from "../../../assets/img/userPhoto.png";
 import {useAppDispatch} from "../../../hooks/hooks";
-import {ProfileInfoInterface} from "../../../types/profileInterfaces";
-import {DialogsState, MessageValueInterface} from "../../../types/dialogIntefaces";
+import {ProfileInfoInterface} from "../../../types/interfaces/profileInterfaces";
+import {DialogsState, MessageValueInterface} from "../../../types/interfaces/dialogIntefaces";
 
 interface ChatComponentProps {
 	dialogPage: DialogsState;

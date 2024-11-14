@@ -6,7 +6,7 @@ import ProfileDataForm from "../../../common/elements/ProfileDataForm";
 import {locate} from "../../../../utils/locates/locate";
 import {putProfileInfo} from "../../../../store/profileSlice";
 import {useAppDispatch} from "../../../../hooks/hooks";
-import {ProfileInfoInterface, UpdateProfileInfoInterface} from "../../../../types/profileInterfaces";
+import {ProfileInfoInterface, UpdateProfileInfoInterface} from "../../../../types/interfaces/profileInterfaces";
 
 interface ProfileBioComponentProps {
 	profile: ProfileInfoInterface | null;

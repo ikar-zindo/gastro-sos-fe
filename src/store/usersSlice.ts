@@ -1,9 +1,9 @@
 import {usersAPI} from "../api/usersAPI";
 import {followAPI} from "../api/followAPI";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {updateObjectInArray} from "../utils/object-utils.ts";
+import {updateObjectInArray} from "../utils/object-utils";
 import {AppDispatch} from "./store";
-import {UserInterface, UsersState} from "../types/userInterfaces";
+import {UserInterface, UsersState} from "../types/interfaces/userInterfaces";
 
 const initialState: UsersState = {
 	usersTest: [

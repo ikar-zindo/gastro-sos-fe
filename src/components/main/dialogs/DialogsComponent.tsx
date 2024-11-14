@@ -1,8 +1,8 @@
 import React from 'react';
 import c from '../../../styles/main/dialogs/dialogs.module.css'
 import DialogElement from "../../common/elements/DialogElement";
-import {ProfileInfoInterface} from "../../../types/profileInterfaces";
-import {DialogInterface} from "../../../types/dialogIntefaces";
+import {ProfileInfoInterface} from "../../../types/interfaces/profileInterfaces";
+import {DialogInterface} from "../../../types/interfaces/dialogIntefaces";
 
 interface DialogsComponentProps {
 	dialogs: Array<DialogInterface>;

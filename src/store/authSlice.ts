@@ -3,7 +3,7 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {securityAPI} from "../api/securityAPI";
 import {globalErrorMessages} from "../utils/global-error-messages";
 import {AppDispatch} from "./store";
-import {AuthData, AuthState, LoginData} from "../types/authInterfaces";
+import {AuthData, AuthState, LoginData} from "../types/interfaces/authInterfaces";
 
 const initialState: AuthState = {
 	id: null,
