@@ -2,18 +2,18 @@ import store from "./store/store";
 // @ts-ignore
 import {BrowserRouter, HashRouter} from "react-router-dom";
 import {Provider} from "react-redux";
-import App from "./App.jsx";
+import App from "./App";
 
 const GastroSos = () => {
 	return (
 		// @ts-ignore
-		// 	<BrowserRouter basename={import.meta.env.BASE_URL}>
-		<HashRouter> {/* HashRouter создаёт хеш приложения, что позволяет разместить на gh-pages */}
+		<BrowserRouter basename={import.meta.env.BASE_URL}>
+			{/*<HashRouter> /!* HashRouter создаёт хеш приложения, что позволяет разместить на gh-pages *!/*/}
 			<Provider store={store}>
 				<App/>
 			</Provider>
-		</HashRouter>
-		// </BrowserRouter>
+			{/*</HashRouter>*/}
+		</BrowserRouter>
 	);
 };
 

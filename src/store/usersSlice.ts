@@ -202,7 +202,7 @@ const usersSlice = createSlice({
 		toggleFollowingInProgressAction: (state, action: PayloadAction<{ isFetching: boolean; userId: number | string }>) => {
 			return {
 				...state,
-				isFollowingInProgress: action.payload.isFetching
+				followingInProgress: action.payload.isFetching
 					? [...state.followingInProgress, action.payload.userId]
 					: state.followingInProgress.filter(id => id !== action.payload.userId)
 			}

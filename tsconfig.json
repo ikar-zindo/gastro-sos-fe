@@ -16,10 +16,11 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["./declarations.d.ts"],
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "useUnknownInCatchVariables": false
   },
   "include": [
     "declarations.d.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "node_modules/graphql/NotSupportedTSVersion.d.ts"]
 }

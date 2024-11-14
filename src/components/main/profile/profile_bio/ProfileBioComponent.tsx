@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Preloader from "../../../common/elements/Preloader";
 import style from "../../../../styles/main/profile/profileBio.module.css";
-import ProfileBioElement from "./ProfileBioElement.js";
+import ProfileBioElement from "./ProfileBioElement";
 import ProfileDataForm from "../../../common/elements/ProfileDataForm";
 import {locate} from "../../../../utils/locates/locate";
 import {putProfileInfo} from "../../../../store/profileSlice";

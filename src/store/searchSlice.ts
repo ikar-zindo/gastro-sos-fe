@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-interface SearchState {}
+export interface SearchState {}
 
 const initialState: SearchState = {}
 

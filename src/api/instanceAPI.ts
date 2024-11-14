@@ -1,13 +1,6 @@
-interface InstanceAPIConfig {
-	baseURL: string;
-	withCredentials: boolean;
-	headers: {
-		"API-KEY": string;
-		"Authorization": string;
-	};
-}
+import axios from "axios";
 
-const instanceAPI: InstanceAPIConfig = {
+const instanceAPI = axios.create({
 	// @ts-ignore
 	baseURL: import.meta.env.VITE_BASE_URL as string,
 	withCredentials: true,
@@ -17,6 +10,6 @@ const instanceAPI: InstanceAPIConfig = {
 		// @ts-ignore
 		"Authorization": "Bearer " + (import.meta.env.VITE_AUTH_TOKEN as string)
 	}
-};
+});
 
 export default instanceAPI;

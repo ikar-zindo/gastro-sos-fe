@@ -1,4 +1,4 @@
-import {FC, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import style from '../../../styles/common/paginator.module.css';
 import cn from "classnames";
 
@@ -12,7 +12,7 @@ type Props = {
 	portionSize?: number,
 }
 
-const Paginator: FC<Props> = ({
+const Paginator: React.FC<Props> = ({
 	                   totalItemsCount, pageSize, currentPage, portionNumber,
 	                   onUpdatePageClick, onUpdatePortionClick, portionSize = 10
                    }) => {

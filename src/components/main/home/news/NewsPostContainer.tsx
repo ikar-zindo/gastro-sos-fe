@@ -1,12 +1,12 @@
 import React from "react";
 import NewsPostsComponent from "./NewsPostsComponent";
-import {useSelector} from "react-redux";
 import {getUsersTest} from "../../../../selectors/usersSelectors";
 import {getHomePosts} from "../../../../selectors/homeSelectors";
+import {useAppSelector} from "../../../../hooks/hooks";
 
 const NewsPostContainer: React.FC = () => {
-	const posts = useSelector(getHomePosts);
-	const users = useSelector(getUsersTest);
+	const posts = useAppSelector(getHomePosts);
+	const users = useAppSelector(getUsersTest);
 	return <NewsPostsComponent posts={posts} users={users}/>
 }
 

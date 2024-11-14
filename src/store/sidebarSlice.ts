@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-interface SidebarState {}
+export interface SidebarState {}
 
 const initialState: SidebarState = {}
 
