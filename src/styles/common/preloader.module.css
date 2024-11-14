@@ -10,6 +10,8 @@
 .preloader {
 	height: 100px;
 	width: 100px;
+	color: rgb(80, 117, 156);
 }
+
 @media (max-width: 768px) {
 }

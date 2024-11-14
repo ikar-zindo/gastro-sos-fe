@@ -1,7 +1,7 @@
 import profilePostsContentReducer, {
 	addPostAction,
 	deletePostAction, updatePostTextAction
-} from "../../src/redux/profile-posts-content-reducer.js";
+} from "../../src/store/profilePostsSlice.ts";
 
 const state = {
 	posts: [

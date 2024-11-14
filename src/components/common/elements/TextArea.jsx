@@ -4,15 +4,11 @@ import {useForm} from "react-hook-form";
 
 const TextArea = (props) => {
 	let postValue = props.value;
-	const maxLength100 = "Message should be at greater 100 characters long";
 	let textareaRef = useRef(null);
 	const {
-		register,
 		handleSubmit,
 		setValue,
-		watch,
-		formState: {errors},
-		reset
+		formState: {errors}
 	} = useForm({
 		// mode: "onChange",
 		defaultValues: {

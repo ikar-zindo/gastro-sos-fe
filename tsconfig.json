@@ -1,0 +1,25 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "jsx": "react-jsx", // Для поддержки JSX синтаксиса в TypeScript
+    "allowJs": true, // Разрешить работу с JS файлами
+    "checkJs": false, // Отключить проверку JS, если вы не хотите проверять JS файлы
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["./declarations.d.ts"],
+    "resolveJsonModule": true
+  },
+  "include": [
+    "declarations.d.ts"
+  ],
+  "exclude": ["node_modules"]
+}

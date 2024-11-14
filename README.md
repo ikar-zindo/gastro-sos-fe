@@ -1,6 +1,6 @@
 ## Social Network for Chefs
 
-## 1. React + Vite setup
+## 1. React + TypeScript + Vite
 
 ### Available Scripts
 In the project directory, you can run:
@@ -40,7 +40,7 @@ Serves the production build locally, allowing you to preview the app before depl
 
 #### Change for you local server
 
-[server.js](server.js)
+[server.ts](server.ts)
 
 ```javascript
 // Proxy setup
@@ -54,7 +54,7 @@ app.use('/api', createProxyMiddleware ({
 }));
 ```
 
-[vite.config.js](vite.config.js)
+[vite.config.ts](vite.config.ts)
 
 ```javascript
 import {defineConfig} from 'vite'
@@ -74,14 +74,6 @@ export default defineConfig({
 			}
 		}
 	}});
-```
-
-[UserElement.jsx](src%2Fcompoments%2Fmain%2Fuser%2FUserComponent.jsx)
-
-```javascript
-axios.get("http://localhost:8890/review")
-	// axios.get("https://social-network.samuraijs.com/api/1.0/users")
-	.then(response => { });
 ```
 
 ## `soon` 7. Running an application in Docker

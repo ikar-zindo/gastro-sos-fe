@@ -4,7 +4,7 @@ import App from '../src/App';
 // import {cleanup} from "vitest-browser-react";
 import {render, cleanup} from "@testing-library/react";
 import {Provider} from "react-redux";
-import store from "../src/redux/store.js";
+import store from "../src/store/store.ts";
 
 afterEach(() => cleanup());
 

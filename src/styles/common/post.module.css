@@ -56,16 +56,28 @@
 }
 
 .reactionContainer {
-	padding: 10px 0;
-	margin: 5px 0;
+	padding: 0;
+	margin: 5px 0 0;
+	height: 36px;
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 	border-top: 1px solid rgb(80, 117, 156);
 	border-bottom: 1px solid rgb(80, 117, 156);
 }
 
 .reaction {
-	color: rgb(241, 196, 15);
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+	color: rgb(191, 222, 255);
+}
+
+.reaction .icon {
+	width: 26px;
+	height: 26px;
+	margin-right: 5px;
+	color: rgb(191, 222, 255);
 }
 
 @media (max-width: 768px) {

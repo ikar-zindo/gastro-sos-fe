@@ -13,6 +13,7 @@ dist-ssr
 *.local
 .env
 .env.production
+vite-env.d.ts
 
 # Editor directories and files
 .vscode/*
@@ -26,4 +27,4 @@ dist-ssr
 *.sw?
 
 HELP.md
-coverage
+coverage/

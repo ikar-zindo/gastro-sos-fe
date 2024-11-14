@@ -2,7 +2,7 @@ import React from "react";
 import {render, fireEvent} from "@testing-library/react";
 import {Provider} from "react-redux";
 import {createStore} from "redux"; // Импортируйте вашу реализацию хранилища
-import Paginator from "../../../src/components/common/elements/Paginator.jsx";
+import Paginator from "../../../src/components/common/elements/Paginator.tsx";
 
 // Создайте фиктивный редьюсер для тестов
 const mockReducer = (state = {}) => state;

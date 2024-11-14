@@ -98,6 +98,7 @@
 }
 
 .switchButtons button {
+	color: rgb(191, 222, 255);
 	margin: 0;
 	flex: 1; /* Кнопки равной ширины */
 	padding: 10px 0; /* Убираем боковые отступы и оставляем только вертикальные */
@@ -107,12 +108,12 @@
 }
 
 .switchButtons button.activeButton {
-	background-color: #4770a0;
-	color: #233546;
+	background-color: rgb(71, 112, 160);
+	color: rgb(35, 53, 70);
 }
 
 .switchButtons button:not(.activeButton) {
-	background-color: #304459;
+	background-color: rgb(48, 68, 89);
 }
 
 
