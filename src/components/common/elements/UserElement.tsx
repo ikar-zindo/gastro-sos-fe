@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../../../styles/main/users.module.css';
+// @ts-ignore
 import userPhoto from '../../../assets/img/userPhoto.png';
 import {NavLink} from "react-router-dom";
 import {follow, unfollow} from "../../../store/usersSlice";

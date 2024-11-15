@@ -3,6 +3,7 @@ import style from "../../../../styles/main/profile/profile.module.css";
 import Preloader from "../../../common/elements/Preloader";
 import ProfileStatus from "./ProfileStatus";
 import ProfileImage from "../../../common/elements/ProfileImage";
+// @ts-ignore
 import photoImage from "../../../../assets/img/icons/photo-image.svg";
 import {ProfileState} from "../../../../types/interfaces/profileInterfaces";
 
