@@ -1,16 +1,17 @@
 import instanceAPI from "./instanceAPI";
-import {LoginData} from "../types/interfaces/authInterfaces";
+import {LoginDataRequest, LoginDataResponse, MeDataResponse} from "../types/api/authTypes";
+import {APIResponseType} from "../types/api/commonTypes";
 
 export const authAPI = {
 	me() {
-		return instanceAPI.get('auth/me');
+		return instanceAPI.get<APIResponseType<MeDataResponse>>('auth/me');
+	},
+
+	login(data: LoginDataRequest) {
+		return instanceAPI.post<APIResponseType<LoginDataResponse>>('auth/login', data);
 	},
 
 	logout() {
-		return instanceAPI.delete('auth/login');
+		return instanceAPI.delete<APIResponseType>('auth/login');
 	},
-
-	login(data: LoginData) {
-		return instanceAPI.post('auth/login', data);
-	}
 }

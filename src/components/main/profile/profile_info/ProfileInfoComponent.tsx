@@ -3,7 +3,6 @@ import style from "../../../../styles/main/profile/profile.module.css";
 import Preloader from "../../../common/elements/Preloader";
 import ProfileStatus from "./ProfileStatus";
 import ProfileImage from "../../../common/elements/ProfileImage";
-// @ts-ignore
 import photoImage from "../../../../assets/img/icons/photo-image.svg";
 import {ProfileState} from "../../../../types/interfaces/profileInterfaces";
 
@@ -32,7 +31,9 @@ const ProfileInfoComponent: React.FC<ProfileProps> = ({savePhoto, ...props}) => 
 	return (
 		<div className={style.profileInfo}>
 			<div className={style.img}>
-				<ProfileImage className={style.profileImage} profile={profile}/>
+				<ProfileImage
+					className={style.profileImage}
+					profile={profile}/>
 				<input
 					type="file"
 					id="file-input"

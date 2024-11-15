@@ -4,6 +4,8 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {updateObjectInArray} from "../utils/object-utils";
 import {AppDispatch} from "./store";
 import {UserInterface, UsersState} from "../types/interfaces/userInterfaces";
+import {AxiosResponse} from "axios";
+import {APIResponseType} from "../types/api/commonTypes";
 
 const initialState: UsersState = {
 	usersTest: [
@@ -199,7 +201,10 @@ const usersSlice = createSlice({
 		toggleIsFetchingAction: (state, action: PayloadAction<boolean>) => {
 			return {...state, isFetching: action.payload};
 		},
-		toggleFollowingInProgressAction: (state, action: PayloadAction<{ isFetching: boolean; userId: number | string }>) => {
+		toggleFollowingInProgressAction: (state, action: PayloadAction<{
+			isFetching: boolean;
+			userId: number | string
+		}>) => {
 			return {
 				...state,
 				followingInProgress: action.payload.isFetching
@@ -213,15 +218,18 @@ const usersSlice = createSlice({
 // ASYNCHRONOUS ACTIONS
 export const requestUsers = (page: number, pageSize: number) =>
 	async (dispatch: AppDispatch) => {
+		try {
+			dispatch(toggleIsFetchingAction(true));
+			const response = await usersAPI.getUsers(page, pageSize);
+			if (response.status === 200) {
+				dispatch(setUsersAction(response.data.items));
+				dispatch(setTotalUsersAction(response.data.totalCount));
+				dispatch(toggleIsFetchingAction(false));
+			} else {
+				return response.data;
+			}
+		} catch (error) {
 
-		dispatch(toggleIsFetchingAction(true));
-		const response = await usersAPI.getUsers(page, pageSize);
-		if (response.status === 200) {
-			dispatch(setUsersAction(response.data.items));
-			dispatch(setTotalUsersAction(response.data.totalCount));
-			dispatch(toggleIsFetchingAction(false));
-		} else {
-			return response.data;
 		}
 	};
 
@@ -229,13 +237,13 @@ export const requestUsers = (page: number, pageSize: number) =>
 const changeFollowing = async (
 	dispatch: AppDispatch,
 	userId: number | string,
-	apiMethod: (userId: number | string) => Promise<any>,
+	apiMethod: (userId: number | string) => Promise<AxiosResponse<APIResponseType>>,
 	actionCreator: (userId: number | string) => PayloadAction<number | string>
 ) => {
 	dispatch(toggleFollowingInProgressAction({isFetching: true, userId}));
 	try {
 		const response = await apiMethod(userId);
-		if (response.status === 200) {
+		if (response.status === 200 && response.data.resultCode === 0) {
 			dispatch(actionCreator(userId));
 		}
 		dispatch(toggleFollowingInProgressAction({isFetching: false, userId}));

@@ -4,8 +4,8 @@ import style from '../../../styles/main/login.module.css';
 import {login} from "../../../store/authSlice";
 import {locate} from "../../../utils/locates/locate";
 import {globalErrorMessages} from "../../../utils/global-error-messages";
-import {LoginData} from "../../../types/interfaces/authInterfaces";
 import {useAppDispatch} from "../../../hooks/hooks";
+import {LoginDataRequest} from "../../../types/api/authTypes";
 
 interface LoginFormProps {
 	captchaUrl?: string | null;
@@ -19,7 +19,7 @@ const LoginForm: React.FC<LoginFormProps> = ({captchaUrl}) => {
 		handleSubmit,
 		trigger,
 		formState: {errors, touchedFields},
-	} = useForm<LoginData>({
+	} = useForm<LoginDataRequest>({
 			mode: "onChange",
 			defaultValues: {
 				email: "",
@@ -34,8 +34,8 @@ const LoginForm: React.FC<LoginFormProps> = ({captchaUrl}) => {
 	const hasPasswordError = errors.password && touchedFields.password;
 	const hasCaptchaError = errors.captcha && touchedFields.captcha;
 
-	const onSubmit: SubmitHandler<LoginData> = async (data) => {
-		setErrorMessages(await dispatch(login(data)));
+	const onSubmit: SubmitHandler<LoginDataRequest> = async (data) => {
+		setErrorMessages(await dispatch(login(data)) || null);
 	}
 
 	return (

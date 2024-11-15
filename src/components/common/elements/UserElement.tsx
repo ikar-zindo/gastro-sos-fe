@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from '../../../styles/main/users.module.css';
-// @ts-ignore
 import userPhoto from '../../../assets/img/userPhoto.png';
 import {NavLink} from "react-router-dom";
 import {follow, unfollow} from "../../../store/usersSlice";
@@ -28,8 +27,8 @@ const UserElement: React.FC<UserElementProps> = ({user, isFollowingInProgress}) 
 					<p className={styles.userName}>{user.name}</p>
 					<p className={styles.status}>{user.status}</p>
 
-					<p className={styles.city}>{"user.location.city"}</p>
-					<p className={styles.country}>{"user.location.country"}</p>
+					<p className={styles.city}>{user.location?.city}</p>
+					<p className={styles.country}>{user.location?.country}</p>
 				</div>
 			</div>
 

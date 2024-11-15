@@ -2,7 +2,14 @@ import {profileAPI} from "../api/profileAPI";
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {globalErrorMessages} from "../utils/global-error-messages";
 import {AppDispatch} from "./store";
-import {ProfileInfoInterface, ProfileState, ProfileTab, UpdateProfileInfoInterface} from "../types/interfaces/profileInterfaces";
+import {
+	PhotosInterface,
+	ProfileInfoInterface,
+	ProfileState,
+	ProfileTab,
+	UpdateProfileInfoInterface
+} from "../types/interfaces/profileInterfaces";
+import {APIResponseType} from "../types/api/commonTypes";
 
 const initialState: ProfileState = {
 	profile: null,
@@ -19,7 +26,7 @@ const profileSlice = createSlice({
 		setErrorMessagesAction: (state, action: PayloadAction<string>) => {
 			state.errorMessages = [action.payload];
 		},
-		savePhotoSuccess: (state, action: PayloadAction<{ small: string; large: string }>) => {
+		savePhotoSuccess: (state, action: PayloadAction<PhotosInterface>) => {
 			if (state.profile) {
 				return {
 					...state,
@@ -59,8 +66,14 @@ const profileSlice = createSlice({
 			})
 
 			// UPDATE USER PROFILE STATUS
-			.addCase(updateUserProfileStatus.fulfilled, (state, action: PayloadAction<string>) => {
-				state.status = action.payload;
+			.addCase(updateUserProfileStatus.fulfilled, (state, action: PayloadAction<string | APIResponseType>) => {
+				if (typeof action.payload === "string") {
+					state.status = action.payload;
+				} else {
+					state.errorMessages = action.payload.messages?.length
+						? action.payload.messages
+						: [globalErrorMessages.ERROR_UPDATING_STATUS];
+				}
 			})
 			.addCase(updateUserProfileStatus.rejected, (state, action: PayloadAction<any>) => {
 				state.errorMessages = [action.payload];
@@ -96,8 +109,11 @@ export const setUserProfileStatus = createAsyncThunk<string, number | string>(
 );
 
 // UPDATE USER PROFILE STATUS
-export const updateUserProfileStatus = createAsyncThunk<string, string>(
-	"profile/updateUserProfileStatus",
+export const updateUserProfileStatus = createAsyncThunk<
+	string | APIResponseType,
+	string,
+	{ rejectValue: string }>(
+	'profile/updateUserProfileStatus',
 	async (status, {rejectWithValue}) => {
 		try {
 			const response = await profileAPI.putStatus(status);
@@ -131,7 +147,6 @@ export const getUserProfile = createAsyncThunk<ProfileInfoInterface, number | st
 // PUT PROFILE PHOTO
 export const putPhoto = (file: File) => async (dispatch: AppDispatch) => {
 	const response = await profileAPI.putPhoto(file);
-
 	if (response.data.resultCode === 0) {
 		dispatch(savePhotoSuccess(response.data.data.photos));
 	}

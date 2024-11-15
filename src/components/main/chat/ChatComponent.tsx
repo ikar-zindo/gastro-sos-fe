@@ -5,7 +5,6 @@ import {useParams} from "react-router-dom";
 import MessageTextArea from "../../common/elements/MessageTextArea";
 import {sendMessage, updateMessageText} from "../../../store/dialogsSlice";
 import Preloader from "../../common/elements/Preloader";
-// @ts-ignore
 import userPhoto from "../../../assets/img/userPhoto.png";
 import {useAppDispatch} from "../../../hooks/hooks";
 import {ProfileInfoInterface} from "../../../types/interfaces/profileInterfaces";

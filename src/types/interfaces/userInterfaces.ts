@@ -23,13 +23,7 @@ export interface UserInterface {
 	status: string;
 	followed: boolean;
 	location: {
-		city: string;
+		city?: string;
 		country: string;
-	}
-}
-
-export interface GetUsersResponse {
-	items: Array<UserInterface>;
-	totalCount: number;
-	error: string | null;
+	} | null;
 }

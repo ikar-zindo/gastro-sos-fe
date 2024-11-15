@@ -6,17 +6,3 @@ export interface AuthState {
 	token: string | null;
 	captchaUrl: string | null;
 }
-
-export interface AuthData {
-	id: number;
-	login: string;
-	email: string;
-	token: string;
-}
-
-export interface LoginData {
-	email: string;
-	password: string;
-	rememberMe: boolean;
-	captcha: string;
-}

@@ -1,4 +1,4 @@
-import {PostInterface, PostValueInterface} from "./postInterfaces.ts";
+import {PostInterface, PostValueInterface} from "./postInterfaces";
 
 // PROFILE INFO
 export interface ProfileState {
@@ -18,10 +18,7 @@ export interface ProfileInfoInterface {
 	contacts: {
 		[key: string]: string | undefined;
 	}
-	photos: {
-		small?: string;
-		large?: string;
-	},
+	photos: PhotosInterface,
 	location?: {
 		city?: string | null;
 		country: string;
@@ -39,13 +36,9 @@ export interface UpdateProfileInfoInterface {
 	}
 }
 
-export interface StatusResponse {
-	status: string;
-}
+export interface StatusResponse { status: string }
 
-export interface PhotoResponse {
-	photos: { small: string; large: string };
-}
+export interface PhotosInterface { small: string | null; large: string | null; }
 
 // PROFILE POSTS
 export interface ProfilePostsState {

@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {getAuth} from "./authSlice";
+import {me} from "./authSlice";
 import {AppDispatch} from "./store";
 import {AppState, GlobalError} from "../types/interfaces/appInteefaces";
 
@@ -26,7 +26,7 @@ const appSlice = createSlice({
 
 // ASYNCHRONOUS ACTIONS
 export const initializeApp = () => async (dispatch: AppDispatch) => {
-	const promise = await dispatch(getAuth());
+	const promise = await dispatch(me());
 	Promise.all([promise]).then(() => {
 		dispatch(initializedSuccess());
 	}).catch((error: any) => {
