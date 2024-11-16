@@ -5,17 +5,18 @@ import cn from "classnames";
 type Props = {
 	totalItemsCount: number,
 	pageSize: number,
-	currentPage: number,
+	currentPage?: number,
 	portionNumber: number,
-	onUpdatePageClick: (page: number) => void,
-	onUpdatePortionClick: (portionNumber: number) => void,
+	onUpdatePageClick?: (page: number) => void,
+	onUpdatePortionClick?: (portionNumber: number) => void,
 	portionSize?: number,
 }
 
 const Paginator: React.FC<Props> = ({
-	                   totalItemsCount, pageSize, currentPage, portionNumber,
-	                   onUpdatePageClick, onUpdatePortionClick, portionSize = 10
-                   }) => {
+	                                    totalItemsCount, pageSize, currentPage = 1, portionNumber, portionSize = 10,
+	                                    onUpdatePageClick,
+	                                    onUpdatePortionClick
+                                    }) => {
 	let pagesCount = Math.ceil(totalItemsCount / pageSize);
 	let pages: Array<number> = [];
 	for (let i = 1; i <= pagesCount; i++) {
@@ -32,7 +33,9 @@ const Paginator: React.FC<Props> = ({
 	return <div className={style.paginator}>
 		{portionNumber > 1 &&
 			<button onClick={() => {
-				onUpdatePortionClick(portionNumber - 1);
+				if (onUpdatePortionClick) {
+					onUpdatePortionClick(portionNumber - 1);
+				}
 			}}>PREV</button>}
 
 		{pages
@@ -43,13 +46,17 @@ const Paginator: React.FC<Props> = ({
 				}, style.pageNumber)}
 				             key={page}
 				             onClick={() => {
-					             onUpdatePageClick(page);
+					             if (onUpdatePageClick) {
+						             onUpdatePageClick(page);
+					             }
 				             }}>{page}</span>
 			})}
 		{portionCount > portionNumber &&
 			<button onClick={() => {
 				// setPortionNumber(portionNumber + 1)
-				onUpdatePortionClick(portionNumber + 1);
+				if (onUpdatePortionClick) {
+					onUpdatePortionClick(portionNumber + 1);
+				}
 			}}>NEXT</button>}
 	</div>
 }

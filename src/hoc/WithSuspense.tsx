@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react';
+import React from 'react';
 import Preloader from "../components/common/elements/Preloader";
 
 interface WithSuspenseProps {
@@ -7,9 +7,9 @@ interface WithSuspenseProps {
 
 const WithSuspense: React.FC<WithSuspenseProps> = ({ Component }) => {
 	return (
-		<Suspense fallback={<Preloader />}>
+		<React.Suspense fallback={<Preloader />}>
 			<Component />
-		</Suspense>
+		</React.Suspense>
 	);
 };
 

@@ -3,24 +3,22 @@ import ProfilePostsContainer from "./profile_posts/ProfilePostsContainer";
 import ProfileInfoComponent from "./profile_info/ProfileInfoComponent";
 import style from "../../../styles/main/profile/profile.module.css";
 import ProfileBioContainer from "./profile_bio/ProfileBioComponent";
-import {useAppDispatch, useAppSelector} from "../../../hooks/hooks";
+import {useAppDispatch} from "../../../hooks/hooks";
 import {setSelectedTab} from "../../../store/profileSlice";
-import {ProfileState, ProfileTab} from "../../../types/interfaces/profileInterfaces";
+import {ProfilePostsState, ProfileState, ProfileTab} from "../../../types/interfaces/profileInterfaces";
 import {useParams} from "react-router-dom";
-import {getProfilePosts} from "../../../selectors/profilePostsSelectors";
 
 interface ProfileComponentProps {
 	profilePage: ProfileState;
-	savePhoto: (file: File) => void;
 	isOwner: boolean;
 	authUserId: number | string | null;
+	profilePostContentPage: ProfilePostsState;
 }
 
 const ProfileComponent: React.FC<ProfileComponentProps> = React.memo(props => {
 	const profilePage = props.profilePage;
 	const profile = profilePage.profile;
 	const selectedTab = profilePage.selectedTab;
-	const profilePostContentPage = useAppSelector(getProfilePosts);
 	const dispatch = useAppDispatch();
 	const { userId: userIdFromUrl } = useParams();
 
@@ -35,8 +33,7 @@ const ProfileComponent: React.FC<ProfileComponentProps> = React.memo(props => {
 
 	return (
 		<div className={style.profile}>
-			<ProfileInfoComponent profilePage={profilePage}
-			                      savePhoto={props.savePhoto}/>
+			<ProfileInfoComponent profilePage={profilePage}/>
 
 			<div className={style.switchButtons}>
 				<button onClick={() => dispatch(setSelectedTab(ProfileTab.Bio))}
@@ -54,13 +51,11 @@ const ProfileComponent: React.FC<ProfileComponentProps> = React.memo(props => {
 			</div>
 
 			{selectedTab === 'bio' && <ProfileBioContainer isOwner={props.isOwner}
-			                                               profile={profile}
-			                                               savePhoto={props.savePhoto}/>}
+			                                               profile={profile}/>}
 			{selectedTab === 'posts' && <ProfilePostsContainer isOwner={props.isOwner}
-			                                                   profilePostContentPage={profilePostContentPage}/>}
+			                                                   profilePostContentPage={props.profilePostContentPage}/>}
 			{selectedTab === 'stories' && <ProfileBioContainer isOwner={props.isOwner}
-			                                                   profile={profile}
-			                                                   savePhoto={props.savePhoto}/>}
+			                                                   profile={profile}/>}
 		</div>
 	);
 });

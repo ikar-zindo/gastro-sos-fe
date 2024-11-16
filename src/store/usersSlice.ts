@@ -216,22 +216,21 @@ const usersSlice = createSlice({
 });
 
 // ASYNCHRONOUS ACTIONS
-export const requestUsers = (page: number, pageSize: number) =>
-	async (dispatch: AppDispatch) => {
-		try {
-			dispatch(toggleIsFetchingAction(true));
-			const response = await usersAPI.getUsers(page, pageSize);
-			if (response.status === 200) {
-				dispatch(setUsersAction(response.data.items));
-				dispatch(setTotalUsersAction(response.data.totalCount));
-				dispatch(toggleIsFetchingAction(false));
-			} else {
-				return response.data;
-			}
-		} catch (error) {
-
+export const requestUsers = (page: number, pageSize: number) => async (dispatch: AppDispatch) => {
+	try {
+		dispatch(toggleIsFetchingAction(true));
+		const response = await usersAPI.getUsers(page, pageSize);
+		if (response.status === 200) {
+			dispatch(setUsersAction(response.data.items));
+			dispatch(setTotalUsersAction(response.data.totalCount));
+			dispatch(toggleIsFetchingAction(false));
+		} else {
+			return response.data;
 		}
-	};
+	} catch (error) {
+
+	}
+};
 
 // CHANGE FOLLOWING
 const changeFollowing = async (
@@ -252,15 +251,13 @@ const changeFollowing = async (
 	}
 }
 
-export const follow = (userId: number | string) =>
-	async (dispatch: AppDispatch) => {
-		await changeFollowing(dispatch, userId, followAPI.followUser, followAction);
-	}
+export const follow = (userId: number | string) => async (dispatch: AppDispatch) => {
+	await changeFollowing(dispatch, userId, followAPI.followUser, followAction);
+}
 
-export const unfollow = (userId: number | string) =>
-	async (dispatch: AppDispatch) => {
-		await changeFollowing(dispatch, userId, followAPI.unfollowUser, unfollowAction);
-	}
+export const unfollow = (userId: number | string) => async (dispatch: AppDispatch) => {
+	await changeFollowing(dispatch, userId, followAPI.unfollowUser, unfollowAction);
+}
 
 export const {
 	followAction,

@@ -6,27 +6,29 @@ import ProfileImage from "../../../common/elements/ProfileImage";
 // @ts-ignore
 import photoImage from "../../../../assets/img/icons/photo-image.svg";
 import {ProfileState} from "../../../../types/interfaces/profileInterfaces";
+import {useAppDispatch} from "../../../../hooks/hooks.ts";
+import {putPhoto} from "../../../../store/profileSlice.ts";
 
 interface ProfileProps {
 	profilePage: ProfileState;
-	savePhoto: (file: File) => void;
 }
 
-const ProfileInfoComponent: React.FC<ProfileProps> = ({savePhoto, ...props}) => {
-	const {profile, status, loading} = props.profilePage;
+const ProfileInfoComponent: React.FC<ProfileProps> = ({ ...props}) => {
+	const dispatch = useAppDispatch();
+	const {profile, status} = props.profilePage;
 
 	if (!profile) {
 		return <Preloader/>
 	}
 
 	const onMainPhotoSelected = (e: React.ChangeEvent<HTMLInputElement>) => {
-		if (e.target.files && e.target.files.length) {
-			savePhoto(e.target.files[0]);
+		if (e.target.files?.length) {
+			dispatch(putPhoto(e.target.files[0]));
 		}
 	}
 
 	useEffect(() => {
-	}, [profile, loading]);
+	}, [profile]);
 
 
 	return (

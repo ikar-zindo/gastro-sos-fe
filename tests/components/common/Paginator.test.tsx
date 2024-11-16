@@ -1,29 +1,35 @@
-import React from "react";
-import {render, fireEvent} from "@testing-library/react";
+/// <reference types="vitest" />
+import {fireEvent, render} from "@testing-library/react";
 import {Provider} from "react-redux";
-import {createStore} from "redux"; // Импортируйте вашу реализацию хранилища
 import Paginator from "../../../src/components/common/elements/Paginator";
+import configureStore from "redux-mock-store"; // Импортируем для использования toBeInTheDocument
+import {vi} from 'vitest';
+import '@testing-library/jest-dom';
 
 // Создайте фиктивный редьюсер для тестов
-const mockReducer = (state = {}) => state;
-const store = createStore(mockReducer);
+const mockStore = configureStore();
+const store = mockStore({});
 
 describe("Paginator component tests", () => {
 	test("pages count is 11 but should show only 10", () => {
 		const {container} = render(
 			<Provider store={store}>
-				<Paginator totalItemsCount={11} pageSize={1} portionSize={10}/>
+				<Paginator totalItemsCount={11}
+				           pageSize={1}
+				           portionSize={10}
+				           portionNumber={1}
+				/>
 
 				<Paginator totalItemsCount={11}
 				           pageSize={1}
 				           currentPage={10}
-				           currentPortion={1}
+				           portionNumber={1}
 				           portionSize={10}/>
 			</Provider>
 		);
 
 		const spans = container.querySelectorAll("span");
-		expect(spans.length).toBe(10);
+		expect(spans.length).toBe(20);
 	});
 
 	test("if pages count is more than 10, button NEXT should be present", () => {
@@ -32,7 +38,7 @@ describe("Paginator component tests", () => {
 				<Paginator totalItemsCount={11}
 				           pageSize={1}
 				           currentPage={10}
-				           currentPortion={1}
+				           portionNumber={1}
 				           portionSize={10}/>
 			</Provider>
 		);
@@ -48,7 +54,7 @@ describe("Paginator component tests", () => {
 				<Paginator totalItemsCount={11}
 				           pageSize={1}
 				           currentPage={10}
-				           currentPortion={1}
+				           portionNumber={1}
 				           portionSize={10}
 				           onUpdatePageClick={onUpdatePageClick}
 				/>

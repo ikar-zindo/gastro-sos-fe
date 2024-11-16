@@ -34,18 +34,22 @@ const ProfileBioElement: React.FC<ProfileBioElementProps> = ({profile, isOwner, 
 
 		<div className={style.contacts}>
 			<b>Contacts</b>
-			{profile.contacts && Object.keys(profile.contacts).map(key => {
-				return <Contact key={key}
-				                contactTitle={key}
-				                contactValue={profile.contacts[key]}/>
-			}
-		)}
+			{profile.contacts &&
+				Object
+					.keys(profile.contacts)
+					.map(key => {
+							return <Contact key={key}
+							                contactTitle={key}
+							                contactValue={profile.contacts[key]}/>
+						}
+					)}
 		</div>
 
 		{isOwner && <div className={style.aboutMeBlock}>
 			<div className={style.button}>
-			<button onClick={switchEditMode}>{buttonValue}</button>
-		</div></div>}
+				<button onClick={switchEditMode}>{buttonValue}</button>
+			</div>
+		</div>}
 	</div>;
 }
 

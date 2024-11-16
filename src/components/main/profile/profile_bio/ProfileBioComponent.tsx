@@ -11,7 +11,6 @@ import {ProfileInfoInterface, UpdateProfileInfoInterface} from "../../../../type
 interface ProfileBioComponentProps {
 	profile: ProfileInfoInterface | null;
 	isOwner: boolean;
-	savePhoto: (file: File) => void;
 }
 
 const ProfileBioComponent: React.FC<ProfileBioComponentProps> = ({ profile, isOwner }) => {

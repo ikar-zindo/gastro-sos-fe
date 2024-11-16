@@ -19,18 +19,21 @@ import SearchContainer from "./components/main/search/SearchContainer";
 import PlusContainer from "./components/main/plus/PlusContainer";
 import {getIsInitialedApp} from "./selectors/initialSelectors";
 import {useAppDispatch, useAppSelector} from "./hooks/hooks";
+import {getGlobalError} from "./selectors/appSelectors";
+import ErrorModal from "./components/common/elements/ErrorModal";
 
 const DialogsContainer = React.lazy(() => import("./components/main/dialogs/DialogsContainer"));
 
-const App = () => {
+const App: React.FC = () => {
 	const dispatch = useAppDispatch();
 	const initialized = useAppSelector(getIsInitialedApp);
+	const globalError = useAppSelector(getGlobalError);
 
 	useEffect(() => {
 		dispatch(initializeApp());
 
-		// @ts-ignore TODO: @ts-ignore
-		const handleUnhandledRejection = ({promise, reason}) => {
+		const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
+			const reason = event.reason
 			let code = reason.code || 'UNKNOWN_CODE';
 			let message = reason.message || 'Unknown error occurred';
 			let status = reason.status || 999;
@@ -86,6 +89,7 @@ const App = () => {
 			<RightContainer/>
 			<NavigateContainer/>
 			<FooterContainer/>
+			{globalError && <ErrorModal error={globalError}/>}
 		</div>
 	);
 }
