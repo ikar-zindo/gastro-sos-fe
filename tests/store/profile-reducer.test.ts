@@ -1,7 +1,8 @@
 import profilePostsContentReducer, {
 	addPostAction,
-	deletePostAction, updatePostTextAction
-} from "../../src/store/profilePostsSlice.ts";
+	deletePostAction,
+	updatePostTextAction
+} from "../../src/store/profilePostsSlice";
 
 const state = {
 	posts: [

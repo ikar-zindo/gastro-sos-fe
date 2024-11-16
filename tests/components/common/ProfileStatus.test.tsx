@@ -1,11 +1,12 @@
 import {render, fireEvent, screen, act} from '@testing-library/react';
 import ProfileStatus from '../../../src/components/main/profile/profile_info/ProfileStatus.js';
 import {Provider} from 'react-redux';
-import {vi} from 'vitest';
 import configureStore from 'redux-mock-store';
+import {vi} from 'vitest';
+import '@testing-library/jest-dom';
 
 // Мок для редукс-диспетчера
-const mockStore = configureStore({});
+const mockStore = configureStore();
 const store = mockStore({});
 
 describe('ProfileStatus Component', () => {

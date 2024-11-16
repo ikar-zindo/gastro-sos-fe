@@ -7,5 +7,18 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-  }
+
+    // for .jsx
+    "module": "esnext",
+    "target": "esnext",
+    "lib": ["dom", "esnext"],
+    "jsx": "react-jsx",  // Для React 17 и выше
+    "moduleResolution": "node",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,  // Добавьте это, чтобы TypeScript мог обрабатывать .jsx файлы
+    "types": ["jest"]
+  },
+  "include": ["src/**/*"]
 }
