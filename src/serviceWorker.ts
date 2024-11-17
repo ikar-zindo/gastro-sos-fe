@@ -29,6 +29,7 @@ export function register(config?: Config) {
 	if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
 		// The URL constructor is available in all browsers that support SW.
 		const publicUrl = new URL(
+			// @ts-ignore
 			import.meta.env.VITE_PUBLIC_URL,
 			window.location.href
 		);
@@ -40,6 +41,7 @@ export function register(config?: Config) {
 		}
 
 		window.addEventListener('load', () => {
+			// @ts-ignore
 			const swUrl = `${import.meta.env.VITE_PUBLIC_URL}/service-worker.js`;
 
 			if (isLocalhost) {
@@ -109,7 +111,7 @@ function registerValidSW(swUrl: string, config?: Config) {
 function checkValidServiceWorker(swUrl: string, config?: Config) {
 	// Check if the service worker can be found. If it can't reload the page.
 	fetch(swUrl, {
-		headers: { 'Service-Worker': 'script' }
+		headers: {'Service-Worker': 'script'}
 	})
 		.then(response => {
 			// Ensure service worker exists, and that we really are getting a JS file.
