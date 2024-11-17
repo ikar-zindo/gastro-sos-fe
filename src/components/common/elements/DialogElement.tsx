@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "../../../styles/main/dialogs/companionElement.module.css";
+import style from "../../../styles/main/dialogs/CompanionElement.module.css";
 import {NavLink} from "react-router-dom";
 import Preloader from "./Preloader";
 // @ts-ignore

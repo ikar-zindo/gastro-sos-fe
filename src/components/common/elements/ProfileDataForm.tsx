@@ -1,6 +1,6 @@
 import React from 'react';
 import {SubmitHandler, useForm} from "react-hook-form";
-import style from "../../../styles/main/profile/profileBio.module.css";
+import style from "../../../styles/main/profile/ProfileBio.module.css";
 import {globalErrorMessages} from "../../../utils/global-error-messages";
 import {locate} from "../../../utils/locates/locate";
 import {ProfileInfoInterface, UpdateProfileInfoInterface} from "../../../types/interfaces/profile-interfaces";

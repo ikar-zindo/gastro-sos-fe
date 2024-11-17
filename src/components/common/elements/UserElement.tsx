@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../../styles/main/users.module.css';
+import styles from '../../../styles/main/Users.module.css';
 // @ts-ignore
 import userPhoto from '../../../assets/img/userPhoto.png';
 import {NavLink} from "react-router-dom";

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import PostElement from "../../../common/elements/PostElement";
-import style from '../../../../styles/main/profile/profile.module.css';
+import style from '../../../../styles/main/profile/Profile.module.css';
 import {addPostAction, updatePostTextAction} from "../../../../store/profile-posts-slice";
 import {getUserProfile} from "../../../../store/profile-slice";
 import Preloader from "../../../common/elements/Preloader";

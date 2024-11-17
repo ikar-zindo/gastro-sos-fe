@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "../../../../styles/main/profile/profileBio.module.css";
+import style from "../../../../styles/main/profile/ProfileBio.module.css";
 // @ts-ignore
 import workBag from "../../../../assets/img/icons/work-bag.svg"
 // @ts-ignore

@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import style from '../../../styles/common/navigate.module.css';
+import style from '../../../styles/common/Navigate.module.css';
 
 interface NavigateElementProps {
 	path: string;

@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../../styles/common/navigate.module.css';
+import style from '../../styles/common/Navigate.module.css';
 // @ts-ignore
 import home from "../../assets/img/icons/nav/home.svg";
 // @ts-ignore

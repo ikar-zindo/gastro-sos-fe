@@ -17,3 +17,4 @@ export const getCurrentPortion = (state: RootState) => state.usersPage.portionNu
 export const getIsFetching = (state: RootState) => state.usersPage.isFetching;
 export const getFollowingInProgress = (state: RootState) => state.usersPage.followingInProgress;
 export const getPortionSize = (state: RootState) => state.usersPage.portionSize;
+export const getFilterForm = (state: RootState) => state.usersPage.filter;

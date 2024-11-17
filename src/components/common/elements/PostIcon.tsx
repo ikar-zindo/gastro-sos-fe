@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "../../../styles/common/post.module.css";
+import style from "../../../styles/common/Post.module.css";
 
 const PostIcon: React.FC<{type: string}> = ({type}) => {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import c from '../../../styles/main/dialogs/dialogs.module.css'
+import c from '../../../styles/main/dialogs/Dialogs.module.css'
 import DialogElement from "../../common/elements/DialogElement";
 import {ProfileInfoInterface} from "../../../types/interfaces/profile-interfaces";
 import {DialogInterface} from "../../../types/interfaces/dialog-interfaces";

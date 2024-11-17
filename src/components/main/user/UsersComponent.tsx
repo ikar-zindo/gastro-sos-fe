@@ -1,9 +1,11 @@
 import React from "react";
 import UserElement from "../../common/elements/UserElement";
-import style from '../../../styles/main/users.module.css';
+import style from '../../../styles/main/Users.module.css';
 import Preloader from "../../common/elements/Preloader";
 import Paginator from "../../common/elements/Paginator";
 import {UserInterface} from "../../../types/interfaces/user-interfaces";
+import {UsersSearchForm} from "./UsersSearchForm.tsx";
+import {FilterForm} from "../../../store/users-slice.ts";
 
 interface UsersComponentProps {
 	users: Array<UserInterface>;
@@ -14,6 +16,7 @@ interface UsersComponentProps {
 	currentPage: number;
 	portionNumber: number;
 	onUpdatePageClick: (page: number) => void;
+	onFilterChange: (filer: FilterForm) => void;
 	onUpdatePortionClick: (portion: number) => void;
 	portionSize: number;
 }
@@ -28,6 +31,8 @@ const UsersComponent: React.FC<UsersComponentProps> = (props) => {
 
 	return (
 		<div className={style.usersWrapper}>
+			<UsersSearchForm onFilterChange={props.onFilterChange}/>
+			
 			<Paginator totalItemsCount={props.totalUsers}
 			           pageSize={props.pageSize}
 			           currentPage={props.currentPage}
@@ -40,5 +45,7 @@ const UsersComponent: React.FC<UsersComponentProps> = (props) => {
 		</div>
 	);
 };
+
+
 
 export default UsersComponent;

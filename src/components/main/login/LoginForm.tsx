@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {SubmitHandler, useForm} from "react-hook-form";
-import style from '../../../styles/main/login.module.css';
+import style from '../../../styles/main/Login.module.css';
 import {login} from "../../../store/auth-slice";
 import {locate} from "../../../utils/locates/locate";
 import {globalErrorMessages} from "../../../utils/global-error-messages";

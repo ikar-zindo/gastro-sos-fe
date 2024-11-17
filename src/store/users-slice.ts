@@ -7,7 +7,6 @@ import {UserInterface, UsersState} from "../types/interfaces/user-interfaces";
 import {AxiosResponse, HttpStatusCode} from "axios";
 import {APIResponseType} from "../types/api/common-types";
 import {setGlobalError} from "./app-slice";
-import {GlobalError} from "../types/interfaces/app-interfaces";
 import {globalErrorMessages} from "../utils/global-error-messages";
 
 const initialState: UsersState = {
@@ -171,6 +170,10 @@ const initialState: UsersState = {
 	portionSize: 10,
 	isFetching: true,
 	followingInProgress: [],
+	filter: {
+		term: '',
+		friend: null as null | boolean,
+	}
 };
 
 const usersSlice = createSlice({
@@ -214,31 +217,31 @@ const usersSlice = createSlice({
 					? [...state.followingInProgress, action.payload.userId]
 					: state.followingInProgress.filter(id => id !== action.payload.userId)
 			}
-		}
+		},
+		setFilterAction: (state, action: PayloadAction<FilterForm>) => {
+			return {...state, filter: action.payload};
+		},
 	},
 });
 
 // ASYNCHRONOUS ACTIONS
-export const requestUsers = (page: number, pageSize: number) => async (dispatch: AppDispatch) => {
-	try {
-		dispatch(toggleIsFetchingAction(true));
-		const response = await usersAPI.getUsers(page, pageSize);
-		if (response.status === 200) {
-			dispatch(setUsersAction(response.data.items));
-			dispatch(setTotalUsersAction(response.data.totalCount));
-			dispatch(toggleIsFetchingAction(false));
-		} else {
-			return response.data;
-		}
-	} catch (error) {
-		const globalError: GlobalError = {
+export const requestUsers = (
+	page: number, pageSize: number,
+	filter: FilterForm) => async (dispatch: AppDispatch) => {
+
+	dispatch(toggleIsFetchingAction(true));
+	const data = await usersAPI.getUsers(page, pageSize, filter);
+	if (data) {
+		dispatch(setUsersAction(data.items));
+		dispatch(setTotalUsersAction(data.totalCount));
+		dispatch(setFilterAction(filter));
+		dispatch(toggleIsFetchingAction(false));
+	} else {
+		dispatch(setGlobalError({
 			status: HttpStatusCode.BadRequest,
-			code: "ERR_BAD_REQUEST",
-			message: error instanceof Error
-				? error.message
-				: globalErrorMessages.USERS_NOT_FOUND
-		}
-		dispatch(setGlobalError(globalError));
+			code: "BadRequest",
+			message: globalErrorMessages.USERS_NOT_FOUND,
+		}))
 	}
 };
 
@@ -251,21 +254,18 @@ const changeFollowing = async (
 ) => {
 	dispatch(toggleFollowingInProgressAction({isFetching: true, userId}));
 	const response = await apiMethod(userId);
-	try {
-		if (response.status === 200 && response.data.resultCode === 0) {
+	if (response.status === 200) {
+		if (response.data.resultCode === 0) {
 			dispatch(actionCreator(userId));
+		} else if (response.data.resultCode === 1) {
+			dispatch(setGlobalError({
+				code: globalErrorMessages.FOLLOWING_FAILURE,
+				status: response.data.resultCode,
+				message: response.data.messages.join(', ')
+			}))
 		}
-		dispatch(toggleFollowingInProgressAction({isFetching: false, userId}));
-	} catch (error) {
-		const globalError: GlobalError = {
-			status: HttpStatusCode.BadRequest,
-			code: "ERR_BAD_REQUEST",
-			message: error instanceof Error
-				? error.message
-				: globalErrorMessages.FOLLOWING_FAILURE
-		}
-		dispatch(setGlobalError(globalError));
 	}
+	dispatch(toggleFollowingInProgressAction({isFetching: false, userId}));
 }
 
 export const follow = (userId: number | string) =>
@@ -286,7 +286,9 @@ export const {
 	setTotalUsersAction,
 	toggleIsFetchingAction,
 	toggleFollowingInProgressAction,
-	setCurrentPortionAction
+	setCurrentPortionAction,
+	setFilterAction
 } = usersSlice.actions;
 
+export type FilterForm = typeof initialState.filter;
 export default usersSlice.reducer;

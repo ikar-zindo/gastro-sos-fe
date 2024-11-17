@@ -10,6 +10,10 @@ export interface UsersState {
 	portionSize: number;
 	isFetching: boolean;
 	followingInProgress: (number | string)[];
+	filter: {
+		term: string;
+		friend: boolean | null;
+	}
 }
 
 export interface UserInterface {

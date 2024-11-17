@@ -1,5 +1,5 @@
 import React from 'react';
-import c from '../../../styles/main/plus.module.css'
+import c from '../../../styles/main/Plus.module.css'
 
 const PlusContainer: React.FC = () => {
 return (

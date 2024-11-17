@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "../../../styles/main/dialogs/message.module.css";
+import style from "../../../styles/main/dialogs/Message.module.css";
 import {MessageInterface} from "../../../types/interfaces/dialog-interfaces";
 import {ProfileInfoInterface} from "../../../types/interfaces/profile-interfaces";
 

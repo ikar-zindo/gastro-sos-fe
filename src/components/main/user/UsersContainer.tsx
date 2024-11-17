@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {requestUsers, setCurrentPageAction, setCurrentPortionAction} from "../../../store/users-slice";
+import {FilterForm, requestUsers, setCurrentPageAction, setCurrentPortionAction} from "../../../store/users-slice";
 import UsersComponent from "./UsersComponent";
 import {
 	getCurrentPage,
@@ -9,7 +9,7 @@ import {
 	getPageSize,
 	getPortionSize,
 	getTotalUsers,
-	getUsers
+	getUsers, getFilterForm
 } from "../../../selectors/users-selectors";
 import {useAppDispatch, useAppSelector} from "../../../hooks/hooks";
 
@@ -23,29 +23,38 @@ const UserContainer: React.FC = () => {
 	const isFetching = useAppSelector(getIsFetching);
 	const followingInProgress = useAppSelector(getFollowingInProgress);
 	const portionSize = useAppSelector(getPortionSize);
+	const filter = useAppSelector(getFilterForm);
 
 	useEffect(() => {
-		dispatch(requestUsers(currentPage, pageSize));
-	}, [totalUsers, currentPage, pageSize]);
+		dispatch(requestUsers(currentPage, pageSize, filter));
+	}, [currentPage, pageSize]);
 
-	let onUpdatePageClick = (pageNumber: number) => {
+	const onUpdatePageClick = (pageNumber: number) => {
 		dispatch(setCurrentPageAction(pageNumber));
-		dispatch(requestUsers(pageNumber, pageSize));
+		dispatch(requestUsers(pageNumber, pageSize, filter));
 	};
 
-	let onUpdatePortionClick = (portionNumber: number) => {
+
+	const onUpdatePortionClick = (portionNumber: number) => {
 		dispatch(setCurrentPortionAction(portionNumber));
 	};
+
+	const onFilterChange = (filter: FilterForm) => {
+		dispatch(setCurrentPageAction(1));
+		dispatch(setCurrentPortionAction(1));
+		dispatch(requestUsers(1, pageSize, filter));
+	}
 
 	return <UsersComponent users={users}
 	                       currentPage={currentPage}
 	                       pageSize={pageSize}
 	                       totalUsers={totalUsers}
-	                       onUpdatePageClick={onUpdatePageClick}
 	                       isFetching={isFetching}
-	                       onUpdatePortionClick={onUpdatePortionClick}
 	                       portionNumber={portionNumber}
 	                       portionSize={portionSize}
+	                       onUpdatePageClick={onUpdatePageClick}
+	                       onUpdatePortionClick={onUpdatePortionClick}
+	                       onFilterChange={onFilterChange}
 	                       followingInProgress={followingInProgress}/>
 };
 

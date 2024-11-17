@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import ProfilePostsContainer from "./profile_posts/ProfilePostsContainer";
 import ProfileInfoComponent from "./profile_info/ProfileInfoComponent";
-import style from "../../../styles/main/profile/profile.module.css";
+import style from "../../../styles/main/profile/Profile.module.css";
 import ProfileBioContainer from "./profile_bio/ProfileBioComponent";
 import {useAppDispatch} from "../../../hooks/hooks";
 import {setSelectedTab} from "../../../store/profile-slice";

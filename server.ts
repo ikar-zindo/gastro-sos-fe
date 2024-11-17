@@ -10,7 +10,7 @@ app.use(cors());
 
 // Proxy setup
 app.use('/api', createProxyMiddleware ({
-	// @ts-ignore TODO: @ts-ignore
+	// @ts-ignore
 	target: import.meta.env.VITE_BASE_URL,
 	changeOrigin: true,
 	pathRewrite: {

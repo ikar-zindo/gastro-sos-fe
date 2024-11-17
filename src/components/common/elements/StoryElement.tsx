@@ -1,5 +1,5 @@
 import React from 'react';
-import c from '/src/styles/common/stories-component.module.css';
+import c from '../../../styles/common/StoriesComponent.module.css';
 import Preloader from "./Preloader";
 // @ts-ignore
 import userPhoto from "../../../assets/img/userPhoto.png";

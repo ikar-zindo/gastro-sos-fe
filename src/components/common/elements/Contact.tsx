@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "../../../styles/main/profile/profileBio.module.css";
+import style from "../../../styles/main/profile/ProfileBio.module.css";
 
 interface ContactProps {
 	contactTitle: string;

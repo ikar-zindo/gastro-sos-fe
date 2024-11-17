@@ -1,5 +1,5 @@
 import React, {MouseEvent, useEffect, useState} from "react";
-import style from '../../../styles/common/header.module.css';
+import style from '../../../styles/common/Header.module.css';
 import {NavLink} from "react-router-dom";
 // @ts-ignore
 import favicon from '../../../assets/img/favicon.ico'

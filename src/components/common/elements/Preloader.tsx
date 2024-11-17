@@ -1,4 +1,4 @@
-import styles from "../../../styles/common/preloader.module.css";
+import styles from "../../../styles/common/Preloader.module.css";
 import {FC} from "react";
 
 const Preloader: FC = () => {

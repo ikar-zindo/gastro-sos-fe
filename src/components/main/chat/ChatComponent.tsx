@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../../../styles/main/dialogs/chat.module.css'
+import style from '../../../styles/main/dialogs/Chat.module.css'
 import MessageElement from "../../common/elements/MessageElement";
 import {useParams} from "react-router-dom";
 import MessageTextArea from "../../common/elements/MessageTextArea";

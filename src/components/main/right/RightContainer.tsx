@@ -1,5 +1,5 @@
 import React from 'react';
-import c from '../../../styles/main/right.module.css';
+import c from '../../../styles/main/Right.module.css';
 
 const RightContainer: React.FC = () => {
 	return (

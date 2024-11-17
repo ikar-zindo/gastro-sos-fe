@@ -38,15 +38,24 @@ textarea {
 }
 
 /* Hover state for button */
-input:hover {
-	background-color: rgb(60, 80, 100); /* Слегка светлее фон при наведении */
-	border-color: rgb(120, 150, 200); /* Слегка светлее граница при наведении */
+button:hover {
+	background-color: rgb(60, 80, 100); /* Светлее фон при наведении */
+	border-color: rgb(120, 150, 200); /* Светлее граница при наведении */
 }
 
 /* Active state for button */
-input:active {
-	background-color: rgb(40, 60, 80); /* Еще темнее фон при нажатии */
-	border-color: rgb(80, 110, 160); /* Еще темнее граница при нажатии */
+button:active {
+	background-color: rgb(40, 60, 80); /* Темнее фон при нажатии */
+	border-color: rgb(80, 110, 160); /* Темнее граница при нажатии */
+}
+
+/* Стили для кнопки в состоянии disabled */
+/* Styles for button in state disable */
+button:disabled {
+	background-color: rgb(30, 50, 70);
+	border-color: rgb(60, 90, 130);
+	color: rgb(180, 180, 180); /* Блеклый текст */
+	cursor: not-allowed; /* Запрещённый курсор */
 }
 
 .errorMessage {

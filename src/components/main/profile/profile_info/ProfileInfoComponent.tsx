@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import style from "../../../../styles/main/profile/profile.module.css";
+import style from "../../../../styles/main/profile/Profile.module.css";
 import Preloader from "../../../common/elements/Preloader";
 import ProfileStatus from "./ProfileStatus";
 import ProfileImage from "../../../common/elements/ProfileImage";

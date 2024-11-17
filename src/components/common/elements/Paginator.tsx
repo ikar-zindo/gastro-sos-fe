@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import style from '../../../styles/common/paginator.module.css';
+import style from '../../../styles/common/Paginator.module.css';
 import cn from "classnames";
 
 type Props = {
