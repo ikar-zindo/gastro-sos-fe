@@ -1,4 +1,4 @@
-import {ProfileInfoInterface} from "./profileInterfaces";
+import {ProfileInfoInterface} from "./profile-interfaces";
 
 export interface UsersState {
 	usersTest: Array<ProfileInfoInterface>;

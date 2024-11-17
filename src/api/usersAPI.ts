@@ -1,5 +1,5 @@
 import instanceAPI from "./instanceAPI";
-import {GetUsersResponse} from "../types/api/usersTypes";
+import {GetUsersResponse} from "../types/api/users-types";
 
 export const usersAPI = {
 	getUsers (currentPage: number = 1, pageSize: number = 30) {

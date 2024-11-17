@@ -8,8 +8,8 @@ import {
 	ProfileState,
 	ProfileTab,
 	UpdateProfileInfoInterface
-} from "../types/interfaces/profileInterfaces";
-import {APIResponseType} from "../types/api/commonTypes";
+} from "../types/interfaces/profile-interfaces";
+import {APIResponseType} from "../types/api/common-types";
 
 const initialState: ProfileState = {
 	profile: null,

@@ -1,7 +1,7 @@
 import React, {ReactElement} from 'react';
 import {Navigate} from 'react-router-dom';
 import {useAppSelector} from "../hooks/hooks";
-import {getIsAuth} from "../selectors/authSelectors";
+import {getIsAuth} from "../selectors/auth-selectors";
 
 interface ProtectedRouteProps {
 	element: ReactElement;

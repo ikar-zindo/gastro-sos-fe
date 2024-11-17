@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import style from "../../../../styles/main/profile/profile.module.css";
 import {useForm} from "react-hook-form";
-import {updateUserProfileStatus} from "../../../../store/profileSlice";
+import {updateUserProfileStatus} from "../../../../store/profile-slice";
 import {useAppDispatch} from "../../../../hooks/hooks";
 
 interface ProfileStatusProps {

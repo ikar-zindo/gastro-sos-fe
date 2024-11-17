@@ -1,6 +1,6 @@
 import instanceAPI from "./instanceAPI";
-import {LoginDataRequest, LoginDataResponse, MeDataResponse} from "../types/api/authTypes";
-import {APIResponseType} from "../types/api/commonTypes";
+import {LoginDataRequest, LoginDataResponse, MeDataResponse} from "../types/api/auth-types";
+import {APIResponseType} from "../types/api/common-types";
 
 export const authAPI = {
 	me() {

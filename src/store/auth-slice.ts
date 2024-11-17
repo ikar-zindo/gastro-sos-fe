@@ -3,9 +3,9 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {securityAPI} from "../api/securityAPI";
 import {globalErrorMessages} from "../utils/global-error-messages";
 import {AppDispatch} from "./store";
-import {AuthState} from "../types/interfaces/authInterfaces";
-import {LoginDataRequest, MeDataResponse} from "../types/api/authTypes";
-import {RC} from "../types/api/commonTypes.ts";
+import {AuthState} from "../types/interfaces/auth-interfaces";
+import {LoginDataRequest, MeDataResponse} from "../types/api/auth-types";
+import {RC} from "../types/api/common-types";
 
 const initialState: AuthState = {
 	id: null,

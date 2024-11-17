@@ -4,8 +4,8 @@ import ProfileInfoComponent from "./profile_info/ProfileInfoComponent";
 import style from "../../../styles/main/profile/profile.module.css";
 import ProfileBioContainer from "./profile_bio/ProfileBioComponent";
 import {useAppDispatch} from "../../../hooks/hooks";
-import {setSelectedTab} from "../../../store/profileSlice";
-import {ProfilePostsState, ProfileState, ProfileTab} from "../../../types/interfaces/profileInterfaces";
+import {setSelectedTab} from "../../../store/profile-slice";
+import {ProfilePostsState, ProfileState, ProfileTab} from "../../../types/interfaces/profile-interfaces";
 import {useParams} from "react-router-dom";
 
 interface ProfileComponentProps {

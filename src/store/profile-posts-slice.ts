@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {locate} from "../utils/locates/locate";
-import {PostInterface, PostValueInterface} from "../types/interfaces/postInterfaces";
-import {ProfilePostsState} from "../types/interfaces/profileInterfaces";
+import {PostInterface, PostValueInterface} from "../types/interfaces/post-interfaces";
+import {ProfilePostsState} from "../types/interfaces/profile-interfaces";
 
 const initialState: ProfilePostsState = {
 	posts: [

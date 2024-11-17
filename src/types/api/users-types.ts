@@ -1,4 +1,4 @@
-import {UserInterface} from "../interfaces/userInterfaces.ts";
+import {UserInterface} from "../interfaces/user-interfaces";
 
 export interface GetUsersResponse {
 	items: Array<UserInterface>;

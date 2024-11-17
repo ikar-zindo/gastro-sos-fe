@@ -2,8 +2,8 @@ import profilePostsSlice, {
 	addPostAction,
 	deletePostAction,
 	updatePostTextAction
-} from "../../src/store/profilePostsSlice";
-import {ProfilePostsState} from "../../src/types/interfaces/profileInterfaces";
+} from "../../src/store/profile-posts-slice";
+import {ProfilePostsState} from "../../src/types/interfaces/profile-interfaces";
 import {locate} from "../../src/utils/locates/locate";
 
 describe('Profile Posts Actions', () => {

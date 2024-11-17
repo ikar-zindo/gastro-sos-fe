@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import style from '../../../styles/common/text-area.module.css';
 import {useForm} from "react-hook-form";
-import {MessageValueInterface} from "../../../types/interfaces/dialogIntefaces";
+import {MessageValueInterface} from "../../../types/interfaces/dialog-interfaces";
 
 interface MessageAreaInterface {
 	placeholder: string;

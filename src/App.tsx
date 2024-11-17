@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import './App.css';
 import {Navigate, Route, Routes} from "react-router-dom";
-import {initializeApp, setGlobalError} from "./store/appSlice";
+import {initializeApp, setGlobalError} from "./store/app-slice";
 import Preloader from "./components/common/elements/Preloader";
 import WithAuthRedirect from "./hoc/WithAuthRedirect";
 import ProtectedRoute from "./hoc/ProtectedRoute";
@@ -17,9 +17,9 @@ import ChatContainer from "./components/main/chat/ChatContainer";
 import HomeContainer from "./components/main/home/HomeContainer";
 import SearchContainer from "./components/main/search/SearchContainer";
 import PlusContainer from "./components/main/plus/PlusContainer";
-import {getIsInitialedApp} from "./selectors/initialSelectors";
+import {getIsInitialedApp} from "./selectors/initial-selectors";
 import {useAppDispatch, useAppSelector} from "./hooks/hooks";
-import {getGlobalError} from "./selectors/appSelectors";
+import {getGlobalError} from "./selectors/app-selectors";
 import ErrorModal from "./components/common/elements/ErrorModal";
 
 const DialogsContainer = React.lazy(() => import("./components/main/dialogs/DialogsContainer"));

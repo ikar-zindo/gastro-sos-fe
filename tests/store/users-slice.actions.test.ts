@@ -1,5 +1,5 @@
-import {UsersState} from "../../src/types/interfaces/userInterfaces";
-import usersSlice, {followAction, unfollowAction} from "../../src/store/usersSlice";
+import {UsersState} from "../../src/types/interfaces/user-interfaces";
+import usersSlice, {followAction, unfollowAction} from "../../src/store/users-slice";
 
 let initialUsersState: UsersState;
 

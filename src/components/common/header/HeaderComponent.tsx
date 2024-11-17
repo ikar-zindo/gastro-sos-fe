@@ -3,10 +3,10 @@ import style from '../../../styles/common/header.module.css';
 import {NavLink} from "react-router-dom";
 // @ts-ignore
 import favicon from '../../../assets/img/favicon.ico'
-import {logout} from "../../../store/authSlice";
+import {logout} from "../../../store/auth-slice";
 import {locate} from "../../../utils/locates/locate";
 import {useAppDispatch} from "../../../hooks/hooks";
-import {AuthState} from "../../../types/interfaces/authInterfaces";
+import {AuthState} from "../../../types/interfaces/auth-interfaces";
 
 interface HeaderComponentProps {
 	auth: AuthState;

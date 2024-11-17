@@ -1,7 +1,7 @@
 import React from "react";
 import NewsPostsComponent from "./NewsPostsComponent";
-import {getUsersTest} from "../../../../selectors/usersSelectors";
-import {getHomePosts} from "../../../../selectors/homeSelectors";
+import {getUsersTest} from "../../../../selectors/users-selectors";
+import {getHomePosts} from "../../../../selectors/home-selectors";
 import {useAppSelector} from "../../../../hooks/hooks";
 
 const NewsPostContainer: React.FC = () => {

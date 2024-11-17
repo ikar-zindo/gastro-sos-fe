@@ -1,7 +1,7 @@
 import React from 'react';
 import style from "../../../styles/main/dialogs/message.module.css";
-import {MessageInterface} from "../../../types/interfaces/dialogIntefaces";
-import {ProfileInfoInterface} from "../../../types/interfaces/profileInterfaces";
+import {MessageInterface} from "../../../types/interfaces/dialog-interfaces";
+import {ProfileInfoInterface} from "../../../types/interfaces/profile-interfaces";
 
 interface MessageElementProps {
 	message: MessageInterface;

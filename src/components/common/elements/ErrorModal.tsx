@@ -1,8 +1,8 @@
 import React from 'react';
 import style from "./../../../styles/common/error.module.css";
-import {GlobalError} from "../../../types/interfaces/appInteefaces";
+import {GlobalError} from "../../../types/interfaces/app-interfaces";
 import {useAppDispatch} from "../../../hooks/hooks";
-import {clearGlobalError} from "../../../store/appSlice";
+import {clearGlobalError} from "../../../store/app-slice";
 
 interface ErrorModalProps {
 	error: GlobalError;

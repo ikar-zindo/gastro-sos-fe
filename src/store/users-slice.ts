@@ -3,11 +3,11 @@ import {followAPI} from "../api/followAPI";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {updateObjectInArray} from "../utils/object-utils";
 import {AppDispatch} from "./store";
-import {UserInterface, UsersState} from "../types/interfaces/userInterfaces";
+import {UserInterface, UsersState} from "../types/interfaces/user-interfaces";
 import {AxiosResponse, HttpStatusCode} from "axios";
-import {APIResponseType} from "../types/api/commonTypes";
-import {setGlobalError} from "./appSlice";
-import {GlobalError} from "../types/interfaces/appInteefaces";
+import {APIResponseType} from "../types/api/common-types";
+import {setGlobalError} from "./app-slice";
+import {GlobalError} from "../types/interfaces/app-interfaces";
 import {globalErrorMessages} from "../utils/global-error-messages";
 
 const initialState: UsersState = {

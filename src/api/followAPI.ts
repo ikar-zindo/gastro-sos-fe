@@ -1,5 +1,5 @@
 import instanceAPI from "./instanceAPI";
-import {APIResponseType} from "../types/api/commonTypes";
+import {APIResponseType} from "../types/api/common-types";
 import {AxiosPromise} from "axios";
 
 export const followAPI = {

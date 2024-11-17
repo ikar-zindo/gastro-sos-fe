@@ -3,9 +3,9 @@ import styles from '../../../styles/main/users.module.css';
 // @ts-ignore
 import userPhoto from '../../../assets/img/userPhoto.png';
 import {NavLink} from "react-router-dom";
-import {follow, unfollow} from "../../../store/usersSlice";
+import {follow, unfollow} from "../../../store/users-slice";
 import {useAppDispatch} from "../../../hooks/hooks";
-import {UserInterface} from "../../../types/interfaces/userInterfaces";
+import {UserInterface} from "../../../types/interfaces/user-interfaces";
 
 type UserElementProps = {
 	user: UserInterface;

@@ -19,6 +19,5 @@
     "forceConsistentCasingInFileNames": true,
     "allowJs": true,  // Добавьте это, чтобы TypeScript мог обрабатывать .jsx файлы
     "types": ["jest"]
-  },
-  "include": ["src/**/*"]
+  }
 }

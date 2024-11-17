@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {SubmitHandler, useForm} from "react-hook-form";
 import style from '../../../styles/main/login.module.css';
-import {login} from "../../../store/authSlice";
+import {login} from "../../../store/auth-slice";
 import {locate} from "../../../utils/locates/locate";
 import {globalErrorMessages} from "../../../utils/global-error-messages";
 import {useAppDispatch} from "../../../hooks/hooks";
-import {LoginDataRequest} from "../../../types/api/authTypes";
+import {LoginDataRequest} from "../../../types/api/auth-types";
 
 interface LoginFormProps {
 	captchaUrl?: string | null;

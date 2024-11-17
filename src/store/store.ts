@@ -1,13 +1,13 @@
 import {configureStore} from '@reduxjs/toolkit';
-import homeSlice from "./homeSlice";
-import profilePostsSlice from "./profilePostsSlice";
-import profileSlice from "./profileSlice";
-import dialogsSlice from "./dialogsSlice";
-import sidebarSlice from "./sidebarSlice";
-import searchSlice from "./searchSlice";
-import usersSlice from "./usersSlice";
-import authSlice from "./authSlice";
-import appSlice from "./appSlice";
+import homeSlice from "./home-slice";
+import profilePostsSlice from "./profile-posts-slice";
+import profileSlice from "./profile-slice";
+import dialogsSlice from "./dialogs-slice";
+import sidebarSlice from "./sidebar-slice";
+import searchSlice from "./search-slice";
+import usersSlice from "./users-slice";
+import authSlice from "./auth-slice";
+import appSlice from "./app-slice";
 
 const store = configureStore({
 	reducer: {

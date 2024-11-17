@@ -4,12 +4,12 @@ import {
 	followAction,
 	unfollowAction,
 	toggleFollowingInProgressAction
-} from "../../src/store/usersSlice";
+} from "../../src/store/users-slice";
 import configureStore from 'redux-mock-store';
 import '@testing-library/jest-dom';
 import {followAPI} from '../../src/api/followAPI';
 import {vi} from 'vitest';
-import {APIResponseType, RC} from "../../src/types/api/commonTypes";
+import {APIResponseType, RC} from "../../src/types/api/common-types";
 import {AxiosHeaders, AxiosResponse} from "axios";
 
 vi.mock("../../src/api/followAPI", () => ({

@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import LoginForm from "./LoginForm";
 import {useAppSelector} from "../../../hooks/hooks";
-import {getAuth} from "../../../selectors/authSelectors";
+import {getAuth} from "../../../selectors/auth-selectors";
 
 const LoginContainer: React.FC = () => {
 	const auth = useAppSelector(getAuth);

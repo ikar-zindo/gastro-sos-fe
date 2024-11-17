@@ -1,14 +1,14 @@
 import React, {useEffect} from "react";
 import ProfileComponent from "./ProfileComponent";
-import {setUserProfile, setUserProfileStatus} from "../../../store/profileSlice";
+import {setUserProfile, setUserProfileStatus} from "../../../store/profile-slice";
 import {useNavigate, useParams} from "react-router-dom";
 import Preloader from "../../common/elements/Preloader";
-import {getIsLoading, getProfilePage} from "../../../selectors/profileSelectors";
-import {getAuthUserId} from "../../../selectors/authSelectors";
+import {getIsLoading, getProfilePage} from "../../../selectors/profile-selectors";
+import {getAuthUserId} from "../../../selectors/auth-selectors";
 import {useAppDispatch, useAppSelector} from "../../../hooks/hooks";
-import {getProfilePosts} from "../../../selectors/profilePostsSelectors";
+import {getProfilePosts} from "../../../selectors/profile-posts-selectors";
 import {globalErrorMessages} from "../../../utils/global-error-messages";
-import {setGlobalError} from "../../../store/appSlice.ts";
+import {setGlobalError} from "../../../store/app-slice";
 
 interface ProfileContainerProps {
 	userId?: string;

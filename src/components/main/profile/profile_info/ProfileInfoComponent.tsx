@@ -5,9 +5,9 @@ import ProfileStatus from "./ProfileStatus";
 import ProfileImage from "../../../common/elements/ProfileImage";
 // @ts-ignore
 import photoImage from "../../../../assets/img/icons/photo-image.svg";
-import {ProfileState} from "../../../../types/interfaces/profileInterfaces";
-import {useAppDispatch} from "../../../../hooks/hooks.ts";
-import {putPhoto} from "../../../../store/profileSlice.ts";
+import {ProfileState} from "../../../../types/interfaces/profile-interfaces";
+import {useAppDispatch} from "../../../../hooks/hooks";
+import {putPhoto} from "../../../../store/profile-slice";
 
 interface ProfileProps {
 	profilePage: ProfileState;

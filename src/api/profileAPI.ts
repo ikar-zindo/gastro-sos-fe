@@ -1,6 +1,6 @@
 import instanceAPI from "./instanceAPI";
-import {PhotosInterface, ProfileInfoInterface, UpdateProfileInfoInterface} from "../types/interfaces/profileInterfaces";
-import {APIResponseType} from "../types/api/commonTypes";
+import {PhotosInterface, ProfileInfoInterface, UpdateProfileInfoInterface} from "../types/interfaces/profile-interfaces";
+import {APIResponseType} from "../types/api/common-types";
 
 export const profileAPI = {
 	getProfile(userId: number | string) {

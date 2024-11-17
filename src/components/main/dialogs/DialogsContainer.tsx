@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
 import DialogsComponent from "./DialogsComponent";
 import {useAppSelector} from "../../../hooks/hooks";
-import {getUsersTest} from "../../../selectors/usersSelectors";
-import {getDialogs} from "../../../selectors/dialogsSelectors";
+import {getUsersTest} from "../../../selectors/users-selectors";
+import {getDialogs} from "../../../selectors/dialogs-selectors";
 
 const DialogsContainer: React.FC = () => {
 	const dialogs = useAppSelector(getDialogs);

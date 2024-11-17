@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import PostElement from "../../../common/elements/PostElement";
 import style from '../../../../styles/main/profile/profile.module.css';
-import {addPostAction, updatePostTextAction} from "../../../../store/profilePostsSlice";
-import {getUserProfile} from "../../../../store/profileSlice";
+import {addPostAction, updatePostTextAction} from "../../../../store/profile-posts-slice";
+import {getUserProfile} from "../../../../store/profile-slice";
 import Preloader from "../../../common/elements/Preloader";
-import {ProfileInfoInterface, ProfilePostsState} from "../../../../types/interfaces/profileInterfaces";
-import {getAuthUserId} from "../../../../selectors/authSelectors";
+import {ProfileInfoInterface, ProfilePostsState} from "../../../../types/interfaces/profile-interfaces";
+import {getAuthUserId} from "../../../../selectors/auth-selectors";
 import {useAppDispatch, useAppSelector} from "../../../../hooks/hooks";
-import {PostValueInterface} from "../../../../types/interfaces/postInterfaces";
+import {PostValueInterface} from "../../../../types/interfaces/post-interfaces";
 import PostTextArea from "../../../common/elements/PostTextArea";
 
 interface ProfilePostsContainerProps {

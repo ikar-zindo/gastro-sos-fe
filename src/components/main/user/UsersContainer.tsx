@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {requestUsers, setCurrentPageAction, setCurrentPortionAction} from "../../../store/usersSlice";
+import {requestUsers, setCurrentPageAction, setCurrentPortionAction} from "../../../store/users-slice";
 import UsersComponent from "./UsersComponent";
 import {
 	getCurrentPage,
@@ -10,7 +10,7 @@ import {
 	getPortionSize,
 	getTotalUsers,
 	getUsers
-} from "../../../selectors/usersSelectors";
+} from "../../../selectors/users-selectors";
 import {useAppDispatch, useAppSelector} from "../../../hooks/hooks";
 
 const UserContainer: React.FC = () => {

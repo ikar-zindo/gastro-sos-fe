@@ -3,13 +3,13 @@ import style from '../../../styles/main/dialogs/chat.module.css'
 import MessageElement from "../../common/elements/MessageElement";
 import {useParams} from "react-router-dom";
 import MessageTextArea from "../../common/elements/MessageTextArea";
-import {sendMessage, updateMessageText} from "../../../store/dialogsSlice";
+import {sendMessage, updateMessageText} from "../../../store/dialogs-slice";
 import Preloader from "../../common/elements/Preloader";
 // @ts-ignore
 import userPhoto from "../../../assets/img/userPhoto.png";
 import {useAppDispatch} from "../../../hooks/hooks";
-import {ProfileInfoInterface} from "../../../types/interfaces/profileInterfaces";
-import {DialogsState, MessageValueInterface} from "../../../types/interfaces/dialogIntefaces";
+import {ProfileInfoInterface} from "../../../types/interfaces/profile-interfaces";
+import {DialogsState, MessageValueInterface} from "../../../types/interfaces/dialog-interfaces";
 
 interface ChatComponentProps {
 	dialogPage: DialogsState;

@@ -2,8 +2,8 @@ import React from 'react';
 import c from '../../../../styles/main/home.module.css'
 import PostElement from "../../../common/elements/PostElement";
 import Preloader from "../../../common/elements/Preloader";
-import {ProfileInfoInterface} from "../../../../types/interfaces/profileInterfaces";
-import {PostInterface} from "../../../../types/interfaces/postInterfaces";
+import {ProfileInfoInterface} from "../../../../types/interfaces/profile-interfaces";
+import {PostInterface} from "../../../../types/interfaces/post-interfaces";
 
 interface NewsPostsComponentProps {
 	posts: PostInterface[];

@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import style from '../../../styles/common/text-area.module.css';
 import {useForm} from "react-hook-form";
-import {PostValueInterface} from "../../../types/interfaces/postInterfaces.ts";
+import {PostValueInterface} from "../../../types/interfaces/post-interfaces";
 
 interface PostTextAreaInterface {
 	placeholder: string;
