@@ -4,8 +4,11 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {updateObjectInArray} from "../utils/object-utils";
 import {AppDispatch} from "./store";
 import {UserInterface, UsersState} from "../types/interfaces/userInterfaces";
-import {AxiosResponse} from "axios";
+import {AxiosResponse, HttpStatusCode} from "axios";
 import {APIResponseType} from "../types/api/commonTypes";
+import {setGlobalError} from "./appSlice";
+import {GlobalError} from "../types/interfaces/appInteefaces";
+import {globalErrorMessages} from "../utils/global-error-messages";
 
 const initialState: UsersState = {
 	usersTest: [
@@ -228,7 +231,14 @@ export const requestUsers = (page: number, pageSize: number) => async (dispatch:
 			return response.data;
 		}
 	} catch (error) {
-
+		const globalError: GlobalError = {
+			status: HttpStatusCode.BadRequest,
+			code: "ERR_BAD_REQUEST",
+			message: error instanceof Error
+				? error.message
+				: globalErrorMessages.USERS_NOT_FOUND
+		}
+		dispatch(setGlobalError(globalError));
 	}
 };
 
@@ -240,24 +250,33 @@ const changeFollowing = async (
 	actionCreator: (userId: number | string) => PayloadAction<number | string>
 ) => {
 	dispatch(toggleFollowingInProgressAction({isFetching: true, userId}));
+	const response = await apiMethod(userId);
 	try {
-		const response = await apiMethod(userId);
 		if (response.status === 200 && response.data.resultCode === 0) {
 			dispatch(actionCreator(userId));
 		}
 		dispatch(toggleFollowingInProgressAction({isFetching: false, userId}));
 	} catch (error) {
-		// TODO: добавить поведение при ошибки
+		const globalError: GlobalError = {
+			status: HttpStatusCode.BadRequest,
+			code: "ERR_BAD_REQUEST",
+			message: error instanceof Error
+				? error.message
+				: globalErrorMessages.FOLLOWING_FAILURE
+		}
+		dispatch(setGlobalError(globalError));
 	}
 }
 
-export const follow = (userId: number | string) => async (dispatch: AppDispatch) => {
-	await changeFollowing(dispatch, userId, followAPI.followUser, followAction);
-}
+export const follow = (userId: number | string) =>
+	async (dispatch: AppDispatch) => {
+		await changeFollowing(dispatch, userId, followAPI.followUser, followAction);
+	}
 
-export const unfollow = (userId: number | string) => async (dispatch: AppDispatch) => {
-	await changeFollowing(dispatch, userId, followAPI.unfollowUser, unfollowAction);
-}
+export const unfollow = (userId: number | string) =>
+	async (dispatch: AppDispatch) => {
+		await changeFollowing(dispatch, userId, followAPI.unfollowUser, unfollowAction);
+	}
 
 export const {
 	followAction,

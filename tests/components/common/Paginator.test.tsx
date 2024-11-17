@@ -11,7 +11,7 @@ const mockStore = configureStore();
 const store = mockStore({});
 
 describe("Paginator component tests", () => {
-	test("pages count is 11 but should show only 10", () => {
+	test("pages count is 11 but should show only 10 test", () => {
 		const {container} = render(
 			<Provider store={store}>
 				<Paginator totalItemsCount={11}
@@ -32,7 +32,7 @@ describe("Paginator component tests", () => {
 		expect(spans.length).toBe(20);
 	});
 
-	test("if pages count is more than 10, button NEXT should be present", () => {
+	test("if pages count is more than 10, button NEXT should be present test", () => {
 		const {getByText} = render(
 			<Provider store={store}>
 				<Paginator totalItemsCount={11}
@@ -47,7 +47,7 @@ describe("Paginator component tests", () => {
 		expect(nextButton).toBeInTheDocument();
 	});
 
-	test("clicking on page number should call onUpdatePageClick", () => {
+	test("clicking on page number should call onUpdatePageClick test", () => {
 		const onUpdatePageClick = vi.fn();
 		const {getByText} = render(
 			<Provider store={store}>

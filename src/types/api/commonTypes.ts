@@ -8,4 +8,7 @@ export enum RC {
 	Success = 0,
 	Error = 1,
 	CaptchaIsRequired = 10,
+	BadRequest = 400,
+	Unauthorized = 401,
+	Forbidden = 403,
 }

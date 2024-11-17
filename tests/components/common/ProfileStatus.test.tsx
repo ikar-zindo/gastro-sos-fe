@@ -5,15 +5,13 @@ import configureStore from 'redux-mock-store';
 import {vi} from 'vitest';
 import '@testing-library/jest-dom';
 
-// Мок для редукс-диспетчера
-const mockStore = configureStore();
-const store = mockStore({});
-
 describe('ProfileStatus Component', () => {
+	const mockStore = configureStore();
+	const store = mockStore({});
 	const mockDispatch = vi.fn();
 
 	beforeEach(() => {
-		store.dispatch = mockDispatch;
+		mockDispatch.mockClear();
 	});
 
 	it('должен отображать статус по умолчанию', () => {

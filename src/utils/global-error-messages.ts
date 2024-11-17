@@ -8,4 +8,6 @@ export const globalErrorMessages = {
 	SERVER_ERROR_OCCURRED: "Server error occurred.",
 	UNAUTHORIZED_ACCESS: "Unauthorized access.",
 	ID_NOT_EXISTS: "ID should be exists.",
+	FOLLOWING_FAILURE: "Following failure.",
+	USERS_NOT_FOUND: "Users not found.",
 }
