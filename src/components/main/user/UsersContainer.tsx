@@ -13,7 +13,7 @@ import {
 } from "../../../selectors/users-selectors";
 import {useAppDispatch, useAppSelector} from "../../../hooks/hooks";
 
-const UserContainer: React.FC = () => {
+const UsersContainer: React.FC = () => {
 	const dispatch = useAppDispatch();
 	const users = useAppSelector(getUsers);
 	const pageSize = useAppSelector(getPageSize);
@@ -41,7 +41,7 @@ const UserContainer: React.FC = () => {
 
 	const onFilterChange = (filter: FilterForm) => {
 		dispatch(setCurrentPageAction(1));
-		dispatch(setCurrentPortionAction(1));
+		dispatch(setCurrentPageAction(1));
 		dispatch(requestUsers(1, pageSize, filter));
 	}
 
@@ -58,4 +58,4 @@ const UserContainer: React.FC = () => {
 	                       followingInProgress={followingInProgress}/>
 };
 
-export default UserContainer;
+export default UsersContainer;

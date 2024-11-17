@@ -67,34 +67,36 @@ const PostTextArea: React.FC<PostTextAreaInterface> = (props) => {
 	}
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)}>
-			<div> {/* TODO: реализовать через useForm с использованием register */}
-				<textarea
-					id='textarea'
-					required
-					ref={textareaRef}
-					value={postValue.text}
-					onChange={onTextChange}
-					onKeyDown={handleKeyDown}
-					placeholder={props.placeholder}/>
+		<div className={style.textareaContainer}>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<div> {/* TODO: реализовать через useForm с использованием register */}
+					<textarea
+						id='textarea'
+						required
+						ref={textareaRef}
+						value={postValue.text}
+						onChange={onTextChange}
+						onKeyDown={handleKeyDown}
+						placeholder={props.placeholder}/>
 
-				{<span className={style.errorMessage}>{errors.text?.message}</span>}
-			</div>
+					{<span className={style.errorMessage}>{errors.text?.message}</span>}
+				</div>
 
-			{postValue.text && <div className={style.button}>
-				<input type="submit" value={props.buttonValue}/>
-			</div>}
-		</form>
+				{postValue.text && <div className={style.button}>
+					<button type="submit" aria-label={props.buttonValue}>
+						<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+							<g id="SVGRepo_iconCarrier">
+								<path d="M22 2L2 8.66667L11.5833 12.4167M22 2L15.3333 22L11.5833 12.4167M22 2L11.5833 12.4167"
+								      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</g>
+						</svg>
+					</button>
+				</div>}
+			</form>
+		</div>
 	);
 };
 
 export default PostTextArea;
-
-
-// {...register("text", {
-// 	required: true,
-// 	maxLength: {
-// 		value: 100,
-// 		message: maxLength100
-// 	}
-// })}

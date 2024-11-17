@@ -58,12 +58,14 @@ const ProfilePostsContainer: React.FC<ProfilePostsContainerProps> = React.memo(p
 
 	return (
 		<div className={style.postsWrapper}>
-			<PostTextArea
-				placeholder={placeholder}
-				buttonValue={buttonValue}
-				value={profilePostContentPage.postValue}
-				handleChange={updateNewPostText}
-				handleClick={addNewPost}/>
+			<div className={style.textAreaWrapper}>
+				<PostTextArea
+					placeholder={placeholder}
+					buttonValue={buttonValue}
+					value={profilePostContentPage.postValue}
+					handleChange={updateNewPostText}
+					handleClick={addNewPost}/>
+			</div>
 
 			<div className={style.posts}>
 				{postElements ? postElements : <Preloader/>}

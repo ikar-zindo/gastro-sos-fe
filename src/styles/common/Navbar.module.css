@@ -21,6 +21,37 @@
 	color: gold;
 }
 
+
+button {
+	background-color: rgb(50, 70, 90);
+	border-radius: 12px;
+	border: 1px solid rgb(100, 130, 180);
+	color: rgb(230, 230, 230);
+	padding: 4px 12px;
+	font-size: 14px;
+	cursor: pointer;
+	outline: none;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+button:hover {
+	background-color: rgb(60, 80, 100);
+	border-color: rgb(120, 150, 200);
+}
+
+button:active {
+	background-color: rgb(40, 60, 80);
+	border-color: rgb(80, 110, 160);
+}
+
+button:disabled {
+	background-color: rgb(30, 50, 70);
+	border-color: rgb(60, 90, 130);
+	color: rgb(180, 180, 180);
+	cursor: not-allowed;
+}
+
 @media (max-width: 768px) {
 	.nav {
 		display: none;

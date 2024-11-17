@@ -1,19 +1,23 @@
+.textareaContainer {
+	position: relative; /* Необходимое для позиционирования кнопки внутри */
+}
+
 textarea {
 	margin: 4px 0;
-	background-color: rgb(48, 69, 90); /* Фон */
-	border-radius: 18px; /* Скругление углов */
-	border: 1px solid rgb(80, 117, 156); /* Граница */
-	color: rgb(230, 230, 230); /* Цвет текста */
-	box-sizing: border-box; /* Учет внутренних отступов и границ в ширину и высоту элемента */
-	padding: 10px; /* Внутренние отступы */
-	width: 100%; /* Ширина элемента (по желанию) */
-	max-height: 250px; /* Максимальная высота элемента */
-	resize: none; /* Запрещает изменение размера элемента */
-	cursor: text; /* Устанавливает курсор в виде текста при наведении на элемент */
-	font-family: Arial, sans-serif; /* Шрифт для текста (по желанию) */
-	font-size: 16px; /* Размер шрифта (по желанию) */
-	outline: none; /* Убирает контур, появляющийся при фокусе (по желанию) */
-	overflow-y: hidden; /* Скрывает вертикальную полосу прокрутки */
+	background-color: rgb(48, 69, 90);
+	border-radius: 18px;
+	border: 1px solid rgb(80, 117, 156);
+	color: rgb(230, 230, 230);
+	box-sizing: border-box;
+	padding: 10px 42px 10px 10px;
+	width: 100%;
+	font-family: "Montserrat", sans-serif;
+	max-height: 250px;
+	resize: none;
+	cursor: text;
+	font-size: 16px;
+	outline: none;
+	overflow-y: hidden;
 }
 
 /* Button styles */
@@ -24,38 +28,49 @@ textarea {
 	align-items: flex-end;
 }
 
-.button input {
-	background-color: rgb(50, 70, 90);
+.button button {
 	border-radius: 12px;
-	border: 1px solid rgb(100, 130, 180);
+	border: none;
 	color: rgb(230, 230, 230);
-	padding: 4px 36px;
-	font-size: 14px;
+	padding: 4px 6px;
+	font-size: 12px;
 	cursor: pointer;
 	outline: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	transition: background-color 0.3s ease, border-color 0.3s ease;
+	transition: background-color 0.3s ease;
+
+
+	position: absolute;
+	bottom: 12px;
+	right: 6px;
+	background: transparent;
 }
 
-/* Hover state for button */
-button:hover {
-	background-color: rgb(60, 80, 100); /* Светлее фон при наведении */
-	border-color: rgb(120, 150, 200); /* Светлее граница при наведении */
+.button button:hover {
+	background-color: rgb(60, 80, 100);
+	border-color: rgb(120, 150, 200);
 }
 
-/* Active state for button */
-button:active {
-	background-color: rgb(40, 60, 80); /* Темнее фон при нажатии */
-	border-color: rgb(80, 110, 160); /* Темнее граница при нажатии */
+.button button:active {
+	background-color: rgb(40, 60, 80);
+	border-color: rgb(80, 110, 160);
 }
 
-/* Стили для кнопки в состоянии disabled */
-/* Styles for button in state disable */
-button:disabled {
+.button button:disabled {
 	background-color: rgb(30, 50, 70);
 	border-color: rgb(60, 90, 130);
-	color: rgb(180, 180, 180); /* Блеклый текст */
-	cursor: not-allowed; /* Запрещённый курсор */
+	color: rgb(180, 180, 180);
+	cursor: not-allowed;
+}
+
+.button button svg {
+	width: 24px;
+	height: 24px;
+	color: rgb(180, 180, 180);
+	fill: currentColor;
 }
 
 .errorMessage {

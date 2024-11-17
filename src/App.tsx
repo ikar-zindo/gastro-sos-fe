@@ -15,12 +15,12 @@ import LoginContainer from "./components/main/login/LoginContainer";
 import ProfileContainer from "./components/main/profile/ProfileContainer";
 import ChatContainer from "./components/main/chat/ChatContainer";
 import HomeContainer from "./components/main/home/HomeContainer";
-import SearchContainer from "./components/main/search/SearchContainer";
 import PlusContainer from "./components/main/plus/PlusContainer";
 import {getIsInitialedApp} from "./selectors/initial-selectors";
 import {useAppDispatch, useAppSelector} from "./hooks/hooks";
 import {getGlobalError} from "./selectors/app-selectors";
 import ErrorModal from "./components/common/elements/ErrorModal";
+import UsersContainer from "./components/main/user/UsersContainer";
 
 const DialogsContainer = React.lazy(() => import("./components/main/dialogs/DialogsContainer"));
 
@@ -33,12 +33,13 @@ const App: React.FC = () => {
 		dispatch(initializeApp());
 
 		const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
-			const reason = event.reason
-			let code = reason.code || 'UNKNOWN_CODE';
-			let message = reason.message || 'Unknown error occurred';
-			let status = reason.status || 999;
+			const reason = event.reason;
 
-			if (reason instanceof Error) { // Check if the reason is an Error object
+			let status = reason.status;
+			let message = reason?.response?.data?.message || reason.message;
+			let code = reason.code;
+
+			if (reason instanceof Error) {
 				dispatch(setGlobalError({code, message, status}));
 			}
 			console.error({from: "<App/>", status, code, message});
@@ -79,7 +80,7 @@ const App: React.FC = () => {
 							<WithSuspense Component={DialogsContainer}/>}/>}/>
 					<Route path='/chat/:userId' element={<ProtectedRoute element={<ChatContainer/>}/>}/>
 
-					<Route path='/search/*' element={<SearchContainer/>}/>
+					<Route path='/search/*' element={<UsersContainer/>}/>
 					<Route path='/add-photo/*' element={<PlusContainer/>}/>
 					<Route path='/*' element={<Navigate to="/" replace/>}/>
 					{/*<Route path='/*' element={<div>404</div>}/>*/}

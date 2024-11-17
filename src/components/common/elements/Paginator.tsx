@@ -36,7 +36,7 @@ const Paginator: React.FC<Props> = ({
 				if (onUpdatePortionClick) {
 					onUpdatePortionClick(portionNumber - 1);
 				}
-			}}>PREV</button>}
+			}}>&lt;</button>}
 
 		{pages
 			.filter(page => page >= leftPortionPageNumber && page <= rightPortionPageNumber)
@@ -57,7 +57,7 @@ const Paginator: React.FC<Props> = ({
 				if (onUpdatePortionClick) {
 					onUpdatePortionClick(portionNumber + 1);
 				}
-			}}>NEXT</button>}
+			}}>&gt;</button>}
 	</div>
 }
 

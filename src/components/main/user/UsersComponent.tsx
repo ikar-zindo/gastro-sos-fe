@@ -4,8 +4,8 @@ import style from '../../../styles/main/Users.module.css';
 import Preloader from "../../common/elements/Preloader";
 import Paginator from "../../common/elements/Paginator";
 import {UserInterface} from "../../../types/interfaces/user-interfaces";
-import {UsersSearchForm} from "./UsersSearchForm.tsx";
-import {FilterForm} from "../../../store/users-slice.ts";
+import {UsersSearchForm} from "./UsersSearchForm";
+import {FilterForm} from "../../../store/users-slice";
 
 interface UsersComponentProps {
 	users: Array<UserInterface>;
@@ -45,7 +45,5 @@ const UsersComponent: React.FC<UsersComponentProps> = (props) => {
 		</div>
 	);
 };
-
-
 
 export default UsersComponent;

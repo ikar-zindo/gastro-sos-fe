@@ -5,7 +5,7 @@ import {FilterForm} from "../../../store/users-slice";
 
 interface PropsInterface {
 	onFilterChange: (filer: FilterForm) => void;
-};
+}
 
 type FormValues = {
 	term: string;
@@ -37,7 +37,13 @@ export const UsersSearchForm: React.FC<PropsInterface> = React.memo(props => {
 						<div className={style.searchField}>
 							<Field type="text" name="term"/>
 							<button type="submit" disabled={isSubmitting}>
-								Find
+								<svg xmlns="http://www.w3.org/2000/svg"
+								     viewBox="0 0 24 24"
+								     width="24"
+								     height="24"
+								     fill="currentColor">
+									<path d="M10 2a8 8 0 015.292 13.708l5.707 5.707a1 1 0 01-1.414 1.414l-5.707-5.707A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"/>
+								</svg>
 							</button>
 						</div>
 						<Field name="friend" as="select" className={style.selectField}>
@@ -51,4 +57,4 @@ export const UsersSearchForm: React.FC<PropsInterface> = React.memo(props => {
 			)}
 		</Formik>
 	);
-});
+})
