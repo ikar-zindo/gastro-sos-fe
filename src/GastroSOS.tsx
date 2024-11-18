@@ -8,14 +8,14 @@ import App from "./App";
 const GastroSos: React.FC = () => {
 	return (
 		// @ts-ignore
-		<BrowserRouter basename={import.meta.env.BASE_URL}
-		               future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
-		{/*<HashRouter> /!* HashRouter создаёт хеш приложения, что позволяет разместить на gh-pages *!/*/}
+		// <BrowserRouter basename={import.meta.env.BASE_URL}
+		//                future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
+		<HashRouter> {/* HashRouter создаёт хеш приложения, что позволяет разместить на gh-pages */}
 			<Provider store={store}>
 				<App/>
 			</Provider>
-		{/*</HashRouter>*/}
-		</BrowserRouter>
+		</HashRouter>
+		// </BrowserRouter>
 	);
 };
 
