@@ -41,8 +41,6 @@ textarea {
 	align-items: center;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	transition: background-color 0.3s ease;
-
-
 	position: absolute;
 	bottom: 12px;
 	right: 6px;

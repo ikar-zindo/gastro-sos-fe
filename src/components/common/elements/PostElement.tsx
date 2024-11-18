@@ -3,7 +3,7 @@ import style from "../../../styles/common/Post.module.css";
 // @ts-ignore
 import userPhoto from "../../../assets/img/userPhoto.png";
 import Preloader from "./Preloader";
-import PostIcon from "./PostIcon";
+import PostIcon, {PostIconEnum} from "./PostIcon";
 import {ProfileInfoInterface} from "../../../types/interfaces/profile-interfaces";
 import {PostInterface} from "../../../types/interfaces/post-interfaces";
 
@@ -19,6 +19,7 @@ const PostElement: React.FC<PostElementProps> = (props) => {
 	if (!post || !user) {
 		return <Preloader key={post.id}/>
 	}
+
 
 	return (
 		<div className={style.post}>
@@ -40,19 +41,19 @@ const PostElement: React.FC<PostElementProps> = (props) => {
 
 			<div className={style.reactionContainer}>
 				<span className={style.reaction}>
-					<PostIcon type={"Like"}/>
+					<PostIcon type={PostIconEnum.Like}/>
 					{post.likes}
 				</span>
 				<span className={style.reaction}>
-					<PostIcon type={"Dislike"}/>
+					<PostIcon type={PostIconEnum.Dislike}/>
 					{post.dislikes}
 				</span>
 				<span className={style.reaction}>
-					<PostIcon type={"Comment"}/>
+					<PostIcon type={PostIconEnum.Comment}/>
 					{post.comments?.length}
 				</span>
 				<span className={style.reaction}>
-					<PostIcon type={"Share"}/>
+					<PostIcon type={PostIconEnum.Share}/>
 				</span>
 			</div>
 		</div>

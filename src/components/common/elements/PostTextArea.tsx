@@ -3,7 +3,7 @@ import style from '../../../styles/common/TextArea.module.css';
 import {useForm} from "react-hook-form";
 import {PostValueInterface} from "../../../types/interfaces/post-interfaces";
 
-interface PostTextAreaInterface {
+export interface PostTextareaInterface {
 	placeholder: string;
 	buttonValue: string;
 	value: PostValueInterface;
@@ -11,7 +11,7 @@ interface PostTextAreaInterface {
 	handleClick: () => void;
 }
 
-const PostTextArea: React.FC<PostTextAreaInterface> = (props) => {
+const PostTextArea: React.FC<PostTextareaInterface> = (props) => {
 	let postValue = props.value;
 	let textareaRef = useRef<HTMLTextAreaElement>(null);
 	const {

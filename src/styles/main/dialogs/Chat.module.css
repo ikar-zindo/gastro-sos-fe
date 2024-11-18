@@ -6,6 +6,7 @@
 	flex-direction: column;
 	height:  calc(100vh - 152px); /* Занимаем всю высоту экрана */
 	box-sizing: border-box;
+	max-width: 100%;
 }
 
 /* userInfo */
@@ -45,6 +46,7 @@
 .messages {
 	flex: 1;
 	padding: 10px;
+	max-width: 100%;
 	box-sizing: border-box;
 	display: flex;
 	flex-wrap: wrap;
@@ -63,7 +65,7 @@
 
 /* TODO: длинные сообщения выходят за границы экрана */
 .messageItem {
-	width: 100%;
+	max-width: 100%;
 	display: flex;
 	flex-direction: column;
 	box-sizing: border-box;

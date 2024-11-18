@@ -1,5 +1,5 @@
 import React, {ReactNode, useEffect} from 'react';
-import {Navigate, useLocation} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import {getIsAuth} from "../selectors/auth-selectors";
 import {useAppSelector} from "../hooks/hooks";
 
@@ -10,19 +10,19 @@ interface WithAuthRedirectProps {
 const WithAuthRedirect: React.FC<WithAuthRedirectProps> = ({children}) => {
 	const isAuth = useAppSelector(getIsAuth);
 	const location = useLocation();
+	const navigate = useNavigate();
 
 	useEffect(() => {
-
-	}, [isAuth]);
-
-	if (isAuth) {
-		if (location.pathname === '/login/') {
-			return <Navigate to="/"/>;
+		if (isAuth && location.pathname === '/login/') {
+			navigate('/', { replace: true });
 		}
+	}, [isAuth, location, navigate]);
+
+	if (!isAuth) {
 		return children;
 	}
 
-	return children;
+	return null;
 };
 
 export default WithAuthRedirect;

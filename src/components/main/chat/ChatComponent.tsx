@@ -2,7 +2,7 @@ import React from 'react';
 import style from '../../../styles/main/dialogs/Chat.module.css'
 import MessageElement from "../../common/elements/MessageElement";
 import {useParams} from "react-router-dom";
-import MessageTextArea from "../../common/elements/MessageTextArea";
+import MessageTextarea from "../../common/elements/MessageTextarea";
 import {sendMessage, updateMessageText} from "../../../store/dialogs-slice";
 import Preloader from "../../common/elements/Preloader";
 // @ts-ignore
@@ -67,7 +67,7 @@ const ChatComponent: React.FC<ChatComponentProps> = (props) => {
 				<div className={style.messageItem}>{messagesElement ? messagesElement : (<Preloader/>)}</div>
 			</div>
 
-			<MessageTextArea
+			<MessageTextarea
 				placeholder={placeholder}
 				buttonValue={buttonValue}
 				value={messageValue}
