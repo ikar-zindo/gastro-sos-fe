@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import style from '../../../styles/common/Paginator.module.css';
 import cn from "classnames";
 
@@ -6,14 +6,14 @@ type Props = {
 	totalItemsCount: number,
 	pageSize: number,
 	currentPage?: number,
-	portionNumber: number,
-	onUpdatePageClick?: (page: number) => void,
-	onUpdatePortionClick?: (portionNumber: number) => void,
+	currentPortion?: number,
+	onUpdatePageClick: (page: number) => void,
+	onUpdatePortionClick: (currentPortion: number) => void,
 	portionSize?: number,
 }
 
 const Paginator: React.FC<Props> = ({
-	                                    totalItemsCount, pageSize, currentPage = 1, portionNumber, portionSize = 10,
+	                                    totalItemsCount, pageSize, currentPage = 1, currentPortion = 1, portionSize = 10,
 	                                    onUpdatePageClick,
 	                                    onUpdatePortionClick
                                     }) => {
@@ -24,17 +24,14 @@ const Paginator: React.FC<Props> = ({
 	}
 
 	let portionCount = Math.ceil(pagesCount / portionSize);
-	let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
-	let rightPortionPageNumber = portionNumber * portionSize;
-
-	useEffect(() => {
-	}, [totalItemsCount]);
+	let leftPortionPageNumber = (currentPortion - 1) * portionSize + 1;
+	let rightPortionPageNumber = currentPortion * portionSize;
 
 	return <div className={style.paginator}>
-		{portionNumber > 1 &&
+		{currentPortion > 1 &&
 			<button onClick={() => {
 				if (onUpdatePortionClick) {
-					onUpdatePortionClick(portionNumber - 1);
+					onUpdatePortionClick(currentPortion - 1);
 				}
 			}}>&lt;</button>}
 
@@ -51,11 +48,10 @@ const Paginator: React.FC<Props> = ({
 					             }
 				             }}>{page}</span>
 			})}
-		{portionCount > portionNumber &&
+		{portionCount > currentPortion &&
 			<button onClick={() => {
-				// setPortionNumber(portionNumber + 1)
 				if (onUpdatePortionClick) {
-					onUpdatePortionClick(portionNumber + 1);
+					onUpdatePortionClick(currentPortion + 1);
 				}
 			}}>&gt;</button>}
 	</div>

@@ -43,7 +43,7 @@ describe("Paginator component tests", () => {
 			</Provider>
 		);
 
-		const nextButton = getByText("NEXT");
+		const nextButton = getByText(">");
 		expect(nextButton).toBeInTheDocument();
 	});
 

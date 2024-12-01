@@ -2,17 +2,22 @@ import React from "react";
 import {Field, Form, Formik} from "formik";
 import style from "../../../styles/common/UserSearch.module.css";
 import {FilterForm} from "../../../store/users-slice";
+import {useAppSelector} from "../../../hooks/hooks.ts";
+import {getFilterForm} from "../../../selectors/users-selectors.ts";
 
 interface PropsInterface {
 	onFilterChange: (filer: FilterForm) => void;
 }
 
+type FriendFormType = 'true' | 'false' | 'null'
+
 type FormValues = {
 	term: string;
-	friend: string;
+	friend: FriendFormType;
 }
 
 export const UsersSearchForm: React.FC<PropsInterface> = React.memo(props => {
+	const filter = useAppSelector(getFilterForm);
 
 	const submit = (values: FormValues, {setSubmitting}: {
 		setSubmitting: (isSubmitting: boolean) => void
@@ -27,7 +32,8 @@ export const UsersSearchForm: React.FC<PropsInterface> = React.memo(props => {
 
 	return (
 		<Formik
-			initialValues={{term: '', friend: 'null'}}
+			enableReinitialize
+			initialValues={{term: filter.term, friend: String(filter.friend) as FriendFormType}}
 			onSubmit={submit}
 		>
 			{({isSubmitting}) => (
@@ -47,7 +53,7 @@ export const UsersSearchForm: React.FC<PropsInterface> = React.memo(props => {
 							</button>
 						</div>
 						<Field name="friend" as="select" className={style.selectField}>
-							<option value="null">All</option>
+							<option value="null">All users</option>
 							<option value="true">Only followed</option>
 							<option value="false">Only unfollowed</option>
 						</Field>

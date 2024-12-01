@@ -161,10 +161,14 @@ beforeEach(() => {
 		pageSize: 30,
 		totalUsers: 0,
 		currentPage: 1,
-		portionNumber: 1,
+		currentPortion: 1,
 		portionSize: 10,
 		isFetching: true,
 		followingInProgress: [],
+		filter: {
+			term: "",
+			friend: null
+		}
 	}
 })
 

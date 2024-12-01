@@ -166,7 +166,7 @@ const initialState: UsersState = {
 	pageSize: 30,
 	totalUsers: 0,
 	currentPage: 1,
-	portionNumber: 1,
+	currentPortion: 1,
 	portionSize: 10,
 	isFetching: true,
 	followingInProgress: [],
@@ -199,7 +199,7 @@ const usersSlice = createSlice({
 			return {...state, currentPage: action.payload};
 		},
 		setCurrentPortionAction: (state, action: PayloadAction<number>) => {
-			return {...state, portionNumber: action.payload};
+			return {...state, currentPortion: action.payload};
 		},
 		setTotalUsersAction: (state, action: PayloadAction<number>) => {
 			return {...state, totalUsers: action.payload};
@@ -230,12 +230,12 @@ export const requestUsers = (
 	filter: FilterForm) => async (dispatch: AppDispatch) => {
 
 	dispatch(toggleIsFetchingAction(true));
+	dispatch(setFilterAction(filter));
+	dispatch(setCurrentPageAction(page));
 	const data = await usersAPI.getUsers(page, pageSize, filter);
 	if (data) {
 		dispatch(setUsersAction(data.items));
 		dispatch(setTotalUsersAction(data.totalCount));
-		dispatch(setFilterAction(filter));
-		dispatch(toggleIsFetchingAction(false));
 	} else {
 		dispatch(setGlobalError({
 			status: HttpStatusCode.BadRequest,
@@ -243,6 +243,7 @@ export const requestUsers = (
 			message: globalErrorMessages.USERS_NOT_FOUND,
 		}))
 	}
+	dispatch(toggleIsFetchingAction(false));
 };
 
 // CHANGE FOLLOWING

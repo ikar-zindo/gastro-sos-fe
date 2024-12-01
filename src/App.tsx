@@ -20,7 +20,7 @@ import {getIsInitialedApp} from "./selectors/initial-selectors";
 import {useAppDispatch, useAppSelector} from "./hooks/hooks";
 import {getGlobalError} from "./selectors/app-selectors";
 import ErrorModal from "./components/common/elements/ErrorModal";
-import UsersContainer from "./components/main/user/UsersContainer";
+import SearchContainer from "./components/main/search/SearchContainer";
 
 const DialogsContainer = React.lazy(() => import("./components/main/dialogs/DialogsContainer"));
 
@@ -80,10 +80,9 @@ const App: React.FC = () => {
 							<WithSuspense Component={DialogsContainer}/>}/>}/>
 					<Route path='/chat/:userId' element={<ProtectedRoute element={<ChatContainer/>}/>}/>
 
-					<Route path='/search/*' element={<UsersContainer/>}/>
+					<Route path='/search/*' element={<SearchContainer/>}/>
 					<Route path='/add-photo/*' element={<PlusContainer/>}/>
 					<Route path='/*' element={<Navigate to="/" replace/>}/>
-					{/*<Route path='/*' element={<div>404</div>}/>*/}
 				</Routes>
 			</div>
 

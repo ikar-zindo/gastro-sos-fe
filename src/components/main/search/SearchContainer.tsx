@@ -5,7 +5,9 @@ import UsersContainer from "../user/UsersContainer";
 export const SearchContainer: React.FC = () => {
 	return (
 		<div className={c.search}>
-			<UsersContainer />
+			<UsersContainer/>
 		</div>
 	);
 };
+
+export default SearchContainer;

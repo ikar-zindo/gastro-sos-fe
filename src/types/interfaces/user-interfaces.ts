@@ -6,7 +6,7 @@ export interface UsersState {
 	pageSize: number;
 	totalUsers: number;
 	currentPage: number;
-	portionNumber: number;
+	currentPortion: number;
 	portionSize: number;
 	isFetching: boolean;
 	followingInProgress: (number | string)[];
