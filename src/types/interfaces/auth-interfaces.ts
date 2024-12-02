@@ -5,4 +5,5 @@ export interface AuthState {
 	isAuth: boolean;
 	token: string | null;
 	captchaUrl: string | null;
+	// TODO: imgUrl
 }

@@ -1,10 +1,11 @@
 import React from 'react';
-import c from '../../../styles/main/Plus.module.css'
+import style from '../../../styles/main/Plus.module.css'
+import {Button} from "antd";
 
 const PlusContainer: React.FC = () => {
 return (
-		<div className={c.plus}>
-
+		<div className={style.plus}>
+			<Button type={"primary"}>OK</Button>
 		</div>
 	);
 };
