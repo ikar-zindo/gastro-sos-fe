@@ -3,7 +3,7 @@ import {Field, Form, Formik} from "formik";
 import style from "../../../styles/common/UserSearch.module.css";
 import {FilterForm} from "../../../store/users-slice";
 import {useAppSelector} from "../../../hooks/hooks.ts";
-import {getFilterForm} from "../../../selectors/users-selectors.ts";
+import {selectFilterForm} from "../../../selectors/users-selectors.ts";
 
 interface PropsInterface {
 	onFilterChange: (filer: FilterForm) => void;
@@ -17,7 +17,7 @@ type FormValues = {
 }
 
 export const UsersSearchForm: React.FC<PropsInterface> = React.memo(props => {
-	const filter = useAppSelector(getFilterForm);
+	const filter = useAppSelector(selectFilterForm);
 
 	const submit = (values: FormValues, {setSubmitting}: {
 		setSubmitting: (isSubmitting: boolean) => void

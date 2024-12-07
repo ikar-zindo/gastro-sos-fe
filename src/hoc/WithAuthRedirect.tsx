@@ -1,6 +1,6 @@
 import React, {ReactNode, useEffect} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
-import {getIsAuth} from "../selectors/auth-selectors";
+import {selectIsAuth} from "../selectors/auth-selectors";
 import {useAppSelector} from "../hooks/hooks";
 
 interface WithAuthRedirectProps {
@@ -8,7 +8,7 @@ interface WithAuthRedirectProps {
 }
 
 const WithAuthRedirect: React.FC<WithAuthRedirectProps> = ({children}) => {
-	const isAuth = useAppSelector(getIsAuth);
+	const isAuth = useAppSelector(selectIsAuth);
 	const location = useLocation();
 	const navigate = useNavigate();
 

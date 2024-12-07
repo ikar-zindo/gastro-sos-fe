@@ -1,33 +1,28 @@
 import React from 'react';
-import style from '../../../styles/main/dialogs/Chat.module.css'
-import MessageElement from "../../common/elements/MessageElement";
+import style from '../styles/main/dialogs/Chat.module.css'
+import MessageElement from "../components/common/elements/MessageElement";
 import {useParams} from "react-router-dom";
-import MessageTextarea from "../../common/elements/MessageTextarea";
-import {sendMessage, updateMessageText} from "../../../store/dialogs-slice";
-import Preloader from "../../common/elements/Preloader";
+import MessageTextarea from "../components/common/elements/MessageTextarea";
+import {sendMessage, updateMessageText} from "../store/dialogs-slice";
+import Preloader from "../components/common/elements/Preloader";
 // @ts-ignore
-import userPhoto from "../../../assets/img/userPhoto.png";
-import {useAppDispatch} from "../../../hooks/hooks";
-import {ProfileInfoInterface} from "../../../types/interfaces/profile-interfaces";
-import {DialogsState, MessageValueInterface} from "../../../types/interfaces/dialog-interfaces";
+import userPhoto from "../assets/img/userPhoto.png";
+import {useAppDispatch, useAppSelector} from "../hooks/hooks";
+import {MessageValueInterface} from "../types/interfaces/dialog-interfaces";
+import {selectDialogsPage} from "../selectors/dialogs-selectors";
+import {selectUsersTest} from "../selectors/users-selectors";
 
-interface ChatComponentProps {
-	dialogPage: DialogsState;
-	users: Array<ProfileInfoInterface>;
-	isAuth: boolean;
-}
-
-const ChatComponent: React.FC<ChatComponentProps> = (props) => {
+const ChatPage: React.FC = React.memo(() => {
 	let {userId} = useParams<{ userId: (string) }>();
+	const dialogPage = useAppSelector(selectDialogsPage);
+	const users = useAppSelector(selectUsersTest);
 	const dispatch = useAppDispatch();
 
-	const dialogPage = props.dialogPage;
 	const messageValue = dialogPage.messageValue;
 	const placeholder = dialogPage.placeholder;
 	const buttonValue = dialogPage.buttonValue;
 	const currentDialog = dialogPage.dialogs.find(dialog => dialog.id === parseInt(userId || ''));
 	const messages = currentDialog ? currentDialog.messages : [];
-	const users = props.users;
 
 	const currentUser = users.find(user => user.userId === currentDialog?.participants[0].userId);
 	const companionUser = users.find(user => user.userId === currentDialog?.participants[1].userId);
@@ -75,6 +70,6 @@ const ChatComponent: React.FC<ChatComponentProps> = (props) => {
 				handleClick={addNewMessage}/>
 		</div>
 	);
-};
+});
 
-export default ChatComponent;
+export default ChatPage;

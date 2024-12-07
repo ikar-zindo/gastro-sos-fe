@@ -1,12 +1,12 @@
 import React from "react";
 import StoriesComponent from "./StoriesComponent";
 import {useAppSelector} from "../../../../hooks/hooks";
-import {getUsersTest} from "../../../../selectors/users-selectors";
-import {getHomePosts} from "../../../../selectors/home-selectors";
+import {selectUsersTest} from "../../../../selectors/users-selectors";
+import {selectHomePosts} from "../../../../selectors/home-selectors";
 
 const StoriesContainer: React.FC = () => {
-	const posts = useAppSelector(getHomePosts);
-	const users = useAppSelector(getUsersTest);
+	const posts = useAppSelector(selectHomePosts);
+	const users = useAppSelector(selectUsersTest);
 	return <StoriesComponent posts={posts} users={users}/>
 }
 

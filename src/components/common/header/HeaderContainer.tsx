@@ -1,10 +1,10 @@
 import React from 'react';
 import HeaderComponent from "./HeaderComponent";
 import {useAppSelector} from "../../../hooks/hooks";
-import {getAuth} from "../../../selectors/auth-selectors";
+import {selectAuth} from "../../../selectors/auth-selectors";
 
 const HeaderContainer: React.FC = () => {
-	const auth = useAppSelector(getAuth);
+	const auth = useAppSelector(selectAuth);
 
 	return <HeaderComponent auth={auth}/>;
 };

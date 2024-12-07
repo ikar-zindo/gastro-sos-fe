@@ -1,11 +1,11 @@
 import React from 'react';
 import style from '../../../styles/main/Plus.module.css'
 
-const PlusContainer: React.FC = () => {
+const PlusPage: React.FC = React.memo(() => {
 return (
 		<div className={style.plus}>
 		</div>
 	);
-};
+});
 
-export default PlusContainer;
+export default PlusPage;

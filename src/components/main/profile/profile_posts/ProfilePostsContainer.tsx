@@ -5,7 +5,7 @@ import {addPostAction, updatePostTextAction} from "../../../../store/profile-pos
 import {getUserProfile} from "../../../../store/profile-slice";
 import Preloader from "../../../common/elements/Preloader";
 import {ProfileInfoInterface, ProfilePostsState} from "../../../../types/interfaces/profile-interfaces";
-import {getAuthUserId} from "../../../../selectors/auth-selectors";
+import {selectAuthUserId} from "../../../../selectors/auth-selectors";
 import {useAppDispatch, useAppSelector} from "../../../../hooks/hooks";
 import {PostValueInterface} from "../../../../types/interfaces/post-interfaces";
 import PostTextArea from "../../../common/elements/PostTextArea";
@@ -21,7 +21,7 @@ const ProfilePostsContainer: React.FC<ProfilePostsContainerProps> = React.memo(p
 	const placeholder = profilePostContentPage.placeholder;
 	const buttonValue = profilePostContentPage.buttonValue;
 	const posts = profilePostContentPage.posts;
-	const userId = useAppSelector(getAuthUserId);
+	const userId = useAppSelector(selectAuthUserId);
 	const [users, setUsers] = useState<Record<number | string, ProfileInfoInterface>>({});
 
 	const fetchUserProfile = async (userId: number | string) => {

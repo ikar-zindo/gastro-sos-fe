@@ -7,15 +7,15 @@ import {UsersSearchForm} from "./UsersSearchForm";
 import {FilterForm, requestUsers, setCurrentPortionAction} from "../../../store/users-slice";
 import {useAppDispatch, useAppSelector} from "../../../hooks/hooks";
 import {
-	getCurrentPage,
-	getCurrentPortion,
-	getFilterForm,
-	getFollowingInProgress,
-	getIsFetching,
-	getPageSize,
-	getPortionSize,
-	getTotalUsers,
-	getUsers
+	selectCurrentPage,
+	selectCurrentPortion,
+	selectFilterForm,
+	selectFollowingInProgress,
+	selectIsFetching,
+	selectPageSize,
+	selectPortionSize,
+	selectTotalUsers,
+	selectUsers
 } from "../../../selectors/users-selectors";
 import {useLocation, useNavigate} from "react-router-dom";
 import queryString from 'query-string';
@@ -23,15 +23,15 @@ import queryString from 'query-string';
 type QueryParamsType = { term?: string; page?: string; friend?: string }
 
 const UsersContainer: React.FC = React.memo(() => {
-	const users = useAppSelector(getUsers);
-	const pageSize = useAppSelector(getPageSize);
-	const totalUsers = useAppSelector(getTotalUsers);
-	const currentPage = useAppSelector(getCurrentPage);
-	const currentPortion = useAppSelector(getCurrentPortion);
-	const isFetching = useAppSelector(getIsFetching);
-	const followingInProgress = useAppSelector(getFollowingInProgress);
-	const portionSize = useAppSelector(getPortionSize);
-	const filter = useAppSelector(getFilterForm);
+	const users = useAppSelector(selectUsers);
+	const pageSize = useAppSelector(selectPageSize);
+	const totalUsers = useAppSelector(selectTotalUsers);
+	const currentPage = useAppSelector(selectCurrentPage);
+	const currentPortion = useAppSelector(selectCurrentPortion);
+	const isFetching = useAppSelector(selectIsFetching);
+	const followingInProgress = useAppSelector(selectFollowingInProgress);
+	const portionSize = useAppSelector(selectPortionSize);
+	const filter = useAppSelector(selectFilterForm);
 
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
