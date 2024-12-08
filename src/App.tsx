@@ -5,7 +5,6 @@ import {initializeApp, setGlobalError} from "./store/app-slice";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
-import ChatPage from "./pages/ChatPage";
 import SearchPage from "./pages/SearchPage";
 import PlusPage from "./components/main/plus/PlusPage";
 import FooterContainer from "./components/common/FooterContainer";
@@ -23,6 +22,8 @@ import {selectGlobalError} from "./selectors/app-selectors";
 import ErrorModal from "./components/common/elements/ErrorModal";
 
 const DialogsPage = React.lazy(() => import("./pages/DialogsPage"));
+const ChatPage = React.lazy(() => import("./pages/ChatPage"));
+const ChatPageS = React.lazy(() => import("./pages/ChatPageWS"));
 
 const App: React.FC = () => {
 	const dispatch = useAppDispatch();
@@ -71,17 +72,24 @@ const App: React.FC = () => {
 			<div className='app-wrapper-content'>
 				<Routes>
 					<Route path='/' element={<HomePage/>}/>
-					<Route path='/login/' element={<WithAuthRedirect><LoginPage/></WithAuthRedirect>}/>
+					<Route path='/login/*' element={<WithAuthRedirect><LoginPage/></WithAuthRedirect>}/>
 
 					<Route path='/profile/*' element={<ProtectedRoute element={<ProfilePage/>}/>}/>
 					<Route path='/profile/:userId' element={<ProfilePage/>}/>
 					<Route path='/dialogs/*' element={
 						<ProtectedRoute element={
 							<WithSuspense Component={DialogsPage}/>}/>}/>
-					<Route path='/chat/:userId' element={<ProtectedRoute element={<ChatPage/>}/>}/>
+					<Route path='/chat/:userId' element={
+						<ProtectedRoute element={
+							<WithSuspense Component={ChatPage}/>}/>}/>
 
 					<Route path='/search/*' element={<SearchPage/>}/>
 					<Route path='/add-photo/*' element={<PlusPage/>}/>
+
+					<Route path='/group-chat/*' element={
+						<ProtectedRoute element={
+							<WithSuspense Component={ChatPageS}/>}/>}/>
+
 					<Route path='/*' element={<Navigate to="/" replace/>}/>
 				</Routes>
 			</div>

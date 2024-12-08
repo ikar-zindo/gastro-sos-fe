@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import style from "../../../../styles/main/profile/Profile.module.css";
 import {useForm} from "react-hook-form";
-import {updateUserProfileStatus} from "../../../../store/profile-slice";
+import {updateUserProfileStatusThunk} from "../../../../store/profile-slice";
 import {useAppDispatch} from "../../../../hooks/hooks";
 
 interface ProfileStatusProps {
@@ -39,7 +39,7 @@ const ProfileStatus: React.FC<ProfileStatusProps> = (props) => {
 
 	const onSubmit = (data: { status: string }) => {
 		setIsSaving(true);
-		dispatch(updateUserProfileStatus(data.status))
+		dispatch(updateUserProfileStatusThunk(data.status))
 		setEditMode(false);
 		setInitialStatus(data.status);
 		setIsSaving(false);

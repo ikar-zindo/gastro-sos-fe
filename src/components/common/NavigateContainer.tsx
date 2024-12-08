@@ -5,6 +5,10 @@ import home from "../../assets/img/icons/nav/home.svg";
 // @ts-ignore
 import homeActive from "../../assets/img/icons/nav/home-active.svg";
 // @ts-ignore
+import groupChat from "../../assets/img/icons/nav/group-chat.svg";
+// @ts-ignore
+import groupChatActive from "../../assets/img/icons/nav/group-chat-active.svg";
+// @ts-ignore
 import search from "../../assets/img/icons/nav/search.svg";
 // @ts-ignore
 import searchActive from "../../assets/img/icons/nav/search-active.svg";
@@ -32,17 +36,23 @@ const NavigateContainer: React.FC = () => {
 				altText="Home"
 			/>
 			<NavigateElement
+				path="/group-chat"
+				activeIcon={groupChatActive}
+				inactiveIcon={groupChat}
+				altText="Group Chat"
+			/>
+			<NavigateElement
 				path="/search"
 				activeIcon={searchActive}
 				inactiveIcon={search}
 				altText="Search"
 			/>
-			<NavigateElement
-				path="/add-photo"
-				activeIcon={plusActive}
-				inactiveIcon={plus}
-				altText="Plus"
-			/>
+			{/*<NavigateElement*/}
+			{/*	path="/add-photo"*/}
+			{/*	activeIcon={plusActive}*/}
+			{/*	inactiveIcon={plus}*/}
+			{/*	altText="Plus"*/}
+			{/*/>*/}
 			<NavigateElement
 				path="/dialogs"
 				activeIcon={chatsActive}

@@ -7,7 +7,7 @@ import ProfileImage from "../../../common/elements/ProfileImage";
 import photoImage from "../../../../assets/img/icons/photo-image.svg";
 import {ProfileState} from "../../../../types/interfaces/profile-interfaces";
 import {useAppDispatch} from "../../../../hooks/hooks";
-import {putPhoto} from "../../../../store/profile-slice";
+import {putPhotoThunk} from "../../../../store/profile-slice";
 
 interface ProfileProps {
 	profilePage: ProfileState;
@@ -23,7 +23,7 @@ const ProfileInfoComponent: React.FC<ProfileProps> = ({ ...props}) => {
 
 	const onMainPhotoSelected = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (e.target.files?.length) {
-			dispatch(putPhoto(e.target.files[0]));
+			dispatch(putPhotoThunk(e.target.files[0]));
 		}
 	}
 

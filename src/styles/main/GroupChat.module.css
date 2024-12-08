@@ -1,0 +1,28 @@
+.groupChat {
+	margin: 6px;
+}
+
+.groupChatMessages {
+	border-radius: 15px;
+	max-height: calc(100vh - 234px);
+	overflow-y: auto;
+	padding-right: 4px;
+}
+
+@media (max-width: 768px) {
+	.groupChatMessages {
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+		border-radius: 16px;
+		overflow: hidden;
+		overflow-y: auto;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+
+	.groupChatMessages::-webkit-scrollbar {
+		display: none;
+	}
+}

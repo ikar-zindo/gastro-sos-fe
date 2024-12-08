@@ -5,7 +5,7 @@ export interface ProfileState {
 	profile: ProfileInfoInterface | null;
 	status: string;
 	loading: boolean;
-	errorMessages: Array<string>;
+	errorMessages: string[];
 	selectedTab: ProfileTab;
 }
 
@@ -42,7 +42,7 @@ export interface PhotosInterface { small: string | null; large: string | null; }
 
 // PROFILE POSTS
 export interface ProfilePostsState {
-	posts: Array<PostInterface>;
+	posts: PostInterface[];
 	postValue: PostValueInterface;
 	placeholder: string;
 	buttonValue: string;

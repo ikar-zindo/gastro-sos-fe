@@ -14,7 +14,7 @@ const WithAuthRedirect: React.FC<WithAuthRedirectProps> = ({children}) => {
 
 	useEffect(() => {
 		if (isAuth && location.pathname === '/login/') {
-			navigate('/', { replace: true });
+			navigate('/profile', { replace: true });
 		}
 	}, [isAuth, location, navigate]);
 

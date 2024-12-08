@@ -40,6 +40,29 @@ html, body {
   /*overflow: auto;*/
 }
 
+/* Scrollbar style */
+::-webkit-scrollbar {
+	width: 9px; /* vertical scroll width */
+	height: 6px; /* horizontal scroll height */
+}
+
+/* Track style (background behind slider) */
+::-webkit-scrollbar-track {
+	background: rgb(48, 67, 88);;
+	border-radius: 6px;
+}
+
+/* Slider style */
+::-webkit-scrollbar-thumb {
+	background: rgb(70, 111, 159);
+	border-radius: 6px;
+}
+
+/* Slider Hover Style */
+::-webkit-scrollbar-thumb:hover {
+	background: rgb(191, 222, 255);
+}
+
 /* phone screen styles */
 @media (max-width: 768px) {
   body {

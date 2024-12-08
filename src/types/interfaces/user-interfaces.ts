@@ -1,8 +1,8 @@
 import {ProfileInfoInterface} from "./profile-interfaces";
 
 export interface UsersState {
-	usersTest: Array<ProfileInfoInterface>;
-	users: Array<UserInterface>;
+	usersTest: ProfileInfoInterface[];
+	users: UserInterface[];
 	pageSize: number;
 	totalUsers: number;
 	currentPage: number;

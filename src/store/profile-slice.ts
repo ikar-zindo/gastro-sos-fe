@@ -1,7 +1,7 @@
 import {profileAPI} from "../api/profileAPI";
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {globalErrorMessages} from "../utils/global-error-messages";
-import {AppDispatch} from "./store";
+import {AppDispatch, RootState} from "./store";
 import {
 	PhotosInterface,
 	ProfileInfoInterface,
@@ -26,7 +26,7 @@ const profileSlice = createSlice({
 		setErrorMessagesAction: (state, action: PayloadAction<string>) => {
 			state.errorMessages = [action.payload];
 		},
-		savePhotoSuccess: (state, action: PayloadAction<PhotosInterface>) => {
+		savePhotoSuccessAction: (state, action: PayloadAction<PhotosInterface>) => {
 			if (state.profile) {
 				return {
 					...state,
@@ -44,29 +44,29 @@ const profileSlice = createSlice({
 	extraReducers: builder => {
 		builder
 			// PROFILE LOADING PROCESSING
-			.addCase(setUserProfile.pending, (state) => {
+			.addCase(setUserProfileThunk.pending, (state) => {
 				state.loading = true;
 				state.errorMessages = [];
 			})
-			.addCase(setUserProfile.fulfilled, (state, action: PayloadAction<ProfileInfoInterface>) => {
+			.addCase(setUserProfileThunk.fulfilled, (state, action: PayloadAction<ProfileInfoInterface>) => {
 				state.loading = false;
 				state.profile = action.payload;
 			})
-			.addCase(setUserProfile.rejected, (state, action: PayloadAction<any>) => {
+			.addCase(setUserProfileThunk.rejected, (state, action: PayloadAction<any>) => {
 				state.loading = false;
 				state.errorMessages = [action.payload];
 			})
 
 			// PROCESSING USER STATUS LOADING
-			.addCase(setUserProfileStatus.fulfilled, (state, action: PayloadAction<string>) => {
+			.addCase(setUserProfileStatusThunk.fulfilled, (state, action: PayloadAction<string>) => {
 				state.status = action.payload;
 			})
-			.addCase(setUserProfileStatus.rejected, (state, action: PayloadAction<any>) => {
+			.addCase(setUserProfileStatusThunk.rejected, (state, action: PayloadAction<any>) => {
 				state.errorMessages = [action.payload];
 			})
 
 			// UPDATE USER PROFILE STATUS
-			.addCase(updateUserProfileStatus.fulfilled, (state, action: PayloadAction<string | APIResponseType>) => {
+			.addCase(updateUserProfileStatusThunk.fulfilled, (state, action: PayloadAction<string | APIResponseType>) => {
 				if (typeof action.payload === "string") {
 					state.status = action.payload;
 				} else {
@@ -75,7 +75,7 @@ const profileSlice = createSlice({
 						: [globalErrorMessages.ERROR_UPDATING_STATUS];
 				}
 			})
-			.addCase(updateUserProfileStatus.rejected, (state, action: PayloadAction<any>) => {
+			.addCase(updateUserProfileStatusThunk.rejected, (state, action: PayloadAction<any>) => {
 				state.errorMessages = [action.payload];
 			});
 	}
@@ -83,7 +83,7 @@ const profileSlice = createSlice({
 
 // ASYNCHRONOUS ACTIONS
 // SET USER PROFILE
-export const setUserProfile = createAsyncThunk<ProfileInfoInterface, (number | string)>(
+export const setUserProfileThunk = createAsyncThunk<ProfileInfoInterface, (number | string)>(
 	"profile/setUserProfile",
 	async (userIdUrl, {rejectWithValue}) => {
 		try {
@@ -96,7 +96,7 @@ export const setUserProfile = createAsyncThunk<ProfileInfoInterface, (number | s
 );
 
 // GET USER PROFILE STATUS
-export const setUserProfileStatus = createAsyncThunk<string, number | string>(
+export const setUserProfileStatusThunk = createAsyncThunk<string, number | string>(
 	"profile/setUserProfileStatus",
 	async (userIdUrl, {rejectWithValue}) => {
 		try {
@@ -109,7 +109,7 @@ export const setUserProfileStatus = createAsyncThunk<string, number | string>(
 );
 
 // UPDATE USER PROFILE STATUS
-export const updateUserProfileStatus = createAsyncThunk<
+export const updateUserProfileStatusThunk = createAsyncThunk<
 	string | APIResponseType,
 	string,
 	{ rejectValue: string }>(
@@ -132,7 +132,7 @@ export const updateUserProfileStatus = createAsyncThunk<
 );
 
 // GET USER PROFILE
-export const getUserProfile = createAsyncThunk<ProfileInfoInterface, number | string>(
+export const getUserProfileThunk = createAsyncThunk<ProfileInfoInterface, number | string>(
 	'profile/getUserProfile',
 	async (userId, {rejectWithValue}) => {
 		try {
@@ -145,35 +145,42 @@ export const getUserProfile = createAsyncThunk<ProfileInfoInterface, number | st
 );
 
 // PUT PROFILE PHOTO
-export const putPhoto = (file: File) => async (dispatch: AppDispatch) => {
-	const response = await profileAPI.putPhoto(file);
-	if (response.data.resultCode === 0) {
-		dispatch(savePhotoSuccess(response.data.data.photos));
+export const putPhotoThunk = (file: File) =>
+	async (dispatch: AppDispatch) => {
+		const response = await profileAPI.putPhoto(file);
+		if (response.data.resultCode === 0) {
+			dispatch(savePhotoSuccessAction(response.data.data.photos));
+		}
 	}
-}
 
 // PUT PROFILE PHOTO
-export const putProfileInfo = (data: UpdateProfileInfoInterface) => async (dispatch: AppDispatch, getState: any) => {
-	const authUserId = getState().auth.id;
-	try {
-		const response = await profileAPI.putProfileInfo(data);
-		if (response.status === 200) {
-			if (response.data.resultCode === 0) {
-				dispatch(setUserProfile(authUserId));
-				return null
-			} else if (response.data.resultCode === 1) {
-				return response.data.messages; // TODO: походу красивее через Promise
-				// return Promise.reject(response.data.messages);
-			}
+export const putProfileInfoThunk = (data: UpdateProfileInfoInterface) =>
+	async (dispatch: AppDispatch, getState: () => RootState) => {
+		const authUserId = getState().auth.id;
+
+		if (authUserId === null) {
+			return;
 		}
-	} catch (error: any) {
-		return error;
+
+		try {
+			const response = await profileAPI.putProfileInfo(data);
+			if (response.status === 200) {
+				if (response.data.resultCode === 0) {
+					dispatch(setUserProfileThunk(authUserId));
+					return null
+				} else if (response.data.resultCode === 1) {
+					return response.data.messages; // TODO: походу красивее через Promise
+					// return Promise.reject(response.data.messages);
+				}
+			}
+		} catch (error: any) {
+			return error;
+		}
 	}
-}
 
 export const {
 	setErrorMessagesAction,
-	savePhotoSuccess,
+	savePhotoSuccessAction,
 	setSelectedTab,
 } = profileSlice.actions;
 export default profileSlice.reducer;

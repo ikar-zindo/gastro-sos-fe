@@ -6,11 +6,11 @@
 	gap: 10px;
 	padding: 10px 0;
 	white-space: nowrap;
-	scrollbar-width: none;
+	/*scrollbar-width: none;*/
 }
 
 .stories::-webkit-scrollbar {
-	display: none;
+	/*display: none;*/
 }
 
 .story {

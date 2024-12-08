@@ -1,5 +1,5 @@
 import {render, fireEvent, screen, act} from '@testing-library/react';
-import ProfileStatus from '../../../src/components/main/profile/profile_info/ProfileStatus.js';
+import ProfileStatus from '../../../src/components/main/profile/profile_info/ProfileStatus';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 import {vi} from 'vitest';

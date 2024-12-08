@@ -289,7 +289,6 @@ const initialState: DialogsState = {
 			img: null
 		}
 	},
-	buttonValue: "Send",
 	placeholder: "Enter message",
 }
 

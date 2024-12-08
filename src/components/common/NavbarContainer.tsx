@@ -35,9 +35,9 @@ const NavbarContainer: React.FC = () => {
 
 			<div className={style.item}>
 				<NavLink
-					to="/music"
+					to="/group-chat"
 					className={({isActive}) => isActive ? `${style.activeLink}` : undefined}>
-					Music</NavLink>
+					Group chat</NavLink>
 			</div>
 
 			<div className={style.item}>

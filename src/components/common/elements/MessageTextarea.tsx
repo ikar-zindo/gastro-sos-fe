@@ -2,16 +2,19 @@ import React, {useEffect, useRef} from 'react';
 import style from '../../../styles/common/TextArea.module.css';
 import {useForm} from "react-hook-form";
 import {MessageValueInterface} from "../../../types/interfaces/dialog-interfaces";
+import {useAppSelector} from "../../../hooks/hooks";
+import {selectChatStatus} from "../../../selectors/chat-selectors";
+import {ChatStatus} from "../../../types/interfaces/chat-interfaces";
 
 interface MessageAreaInterface {
 	placeholder: string;
-	buttonValue: string;
 	value: MessageValueInterface;
 	handleChange: (value: MessageValueInterface) => void;
 	handleClick: () => void;
 }
 
 const MessageTextarea: React.FC<MessageAreaInterface> = (props) => {
+	const status = useAppSelector(selectChatStatus);
 	let postValue = props.value;
 	let textareaRef = useRef<HTMLTextAreaElement>(null);
 	const {
@@ -24,6 +27,7 @@ const MessageTextarea: React.FC<MessageAreaInterface> = (props) => {
 			text: postValue.text
 		}
 	});
+
 
 	useEffect(() => {
 		setValue("text", postValue.text);
@@ -63,7 +67,9 @@ const MessageTextarea: React.FC<MessageAreaInterface> = (props) => {
 	};
 
 	const onSubmit = () => {
-		props.handleClick();
+		if (postValue.text && status === ChatStatus.Ready) {
+			props.handleClick();
+		}
 	}
 
 	return (
@@ -82,8 +88,8 @@ const MessageTextarea: React.FC<MessageAreaInterface> = (props) => {
 					{<span className={style.errorMessage}>{errors.text?.message}</span>}
 				</div>
 
-				{postValue.text && <div className={style.button}>
-					<button type="submit" aria-label={props.buttonValue}>
+				{(postValue.text) && <div className={style.button}>
+					<button type="submit" disabled={status !== ChatStatus.Ready}>
 						<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<g id="SVGRepo_bgCarrier" strokeWidth="0"/>
 							<g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/>

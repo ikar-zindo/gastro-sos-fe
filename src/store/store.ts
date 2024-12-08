@@ -8,13 +8,15 @@ import searchSlice from "./search-slice";
 import usersSlice from "./users-slice";
 import authSlice from "./auth-slice";
 import appSlice from "./app-slice";
+import chatSlice from "./chat-slice";
 
 const store = configureStore({
 	reducer: {
 		homePage: homeSlice,
-		profilePostContentPage: profilePostsSlice,
+		profilePosts: profilePostsSlice,
 		profilePage: profileSlice,
 		dialogPage: dialogsSlice,
+		chatPage: chatSlice,
 		sidebarPage: sidebarSlice,
 		searchPage: searchSlice,
 		usersPage: usersSlice,

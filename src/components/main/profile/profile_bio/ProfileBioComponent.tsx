@@ -4,7 +4,7 @@ import style from "../../../../styles/main/profile/ProfileBio.module.css";
 import ProfileBioElement from "./ProfileBioElement";
 import ProfileDataForm from "../../../common/elements/ProfileDataForm";
 import {locate} from "../../../../utils/locates/locate";
-import {putProfileInfo} from "../../../../store/profile-slice";
+import {putProfileInfoThunk} from "../../../../store/profile-slice";
 import {useAppDispatch} from "../../../../hooks/hooks";
 import {ProfileInfoInterface, UpdateProfileInfoInterface} from "../../../../types/interfaces/profile-interfaces";
 
@@ -24,7 +24,7 @@ const ProfileBioComponent: React.FC<ProfileBioComponentProps> = ({ profile, isOw
 	}
 
 	const saveProfileInfo = (data: UpdateProfileInfoInterface) => {
-		return dispatch(putProfileInfo(data));
+		return dispatch(putProfileInfoThunk(data));
 	}
 
 	return (

@@ -4,7 +4,7 @@ import style from '../../../styles/main/Users.module.css';
 import Preloader from "../../common/elements/Preloader";
 import Paginator from "../../common/elements/Paginator";
 import {UsersSearchForm} from "./UsersSearchForm";
-import {FilterForm, requestUsers, setCurrentPortionAction} from "../../../store/users-slice";
+import {FilterForm, requestUsersThunk, setCurrentPortionAction} from "../../../store/users-slice";
 import {useAppDispatch, useAppSelector} from "../../../hooks/hooks";
 import {
 	selectCurrentPage,
@@ -69,7 +69,7 @@ const UsersContainer: React.FC = React.memo(() => {
 			}
 		}
 
-		dispatch(requestUsers(actualPage, pageSize, actualFilter));
+		dispatch(requestUsersThunk(actualPage, pageSize, actualFilter));
 	}, []);
 
 	useEffect(() => {
@@ -86,7 +86,7 @@ const UsersContainer: React.FC = React.memo(() => {
 	}, [filter, currentPage]);
 
 	const onUpdatePageClick = (pageNumber: number) => {
-		dispatch(requestUsers(pageNumber, pageSize, filter));
+		dispatch(requestUsersThunk(pageNumber, pageSize, filter));
 	};
 
 	const onUpdatePortionClick = (portionNumber: number) => {
@@ -95,7 +95,7 @@ const UsersContainer: React.FC = React.memo(() => {
 
 	const onFilterChange = (filter: FilterForm) => {
 		dispatch(setCurrentPortionAction(1));
-		dispatch(requestUsers(1, pageSize, filter));
+		dispatch(requestUsersThunk(1, pageSize, filter));
 	}
 
 	let usersElements = users.map(user => (

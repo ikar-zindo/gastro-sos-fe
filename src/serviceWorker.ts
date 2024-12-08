@@ -42,7 +42,7 @@ export function register(config?: Config) {
 
 		window.addEventListener('load', () => {
 			// @ts-ignore
-			const swUrl = `${import.meta.env.VITE_PUBLIC_URL}/service-worker.js`;
+			const swUrl = `${import.meta.env.VITE_PUBLIC_URL}/service-worker.ts`;
 
 			if (isLocalhost) {
 				// This is running on localhost. Let's check if a service worker still exists or not.

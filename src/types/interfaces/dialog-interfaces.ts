@@ -1,7 +1,6 @@
 export interface DialogsState {
-	dialogs: Array<DialogInterface>;
+	dialogs: DialogInterface[];
 	messageValue: MessageValueInterface;
-	buttonValue: string;
 	placeholder: string;
 }
 
@@ -23,8 +22,8 @@ export interface MessageInterface {
 
 export interface DialogInterface {
 	id: number;
-	participants: Array<ParticipantInterface>;
-	messages: Array<MessageInterface>;
+	participants: ParticipantInterface[];
+	messages: MessageInterface[];
 }
 
 export interface MessageValueInterface {

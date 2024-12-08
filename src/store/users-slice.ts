@@ -225,7 +225,7 @@ const usersSlice = createSlice({
 });
 
 // ASYNCHRONOUS ACTIONS
-export const requestUsers = (
+export const requestUsersThunk = (
 	page: number, pageSize: number,
 	filter: FilterForm) => async (dispatch: AppDispatch) => {
 
@@ -247,7 +247,7 @@ export const requestUsers = (
 };
 
 // CHANGE FOLLOWING
-const changeFollowing = async (
+const changeFollowingThunk = async (
 	dispatch: AppDispatch,
 	userId: number | string,
 	apiMethod: (userId: number | string) => Promise<AxiosResponse<APIResponseType>>,
@@ -271,12 +271,12 @@ const changeFollowing = async (
 
 export const follow = (userId: number | string) =>
 	async (dispatch: AppDispatch) => {
-		await changeFollowing(dispatch, userId, followAPI.followUser, followAction);
+		await changeFollowingThunk(dispatch, userId, followAPI.followUser, followAction);
 	}
 
 export const unfollow = (userId: number | string) =>
 	async (dispatch: AppDispatch) => {
-		await changeFollowing(dispatch, userId, followAPI.unfollowUser, unfollowAction);
+		await changeFollowingThunk(dispatch, userId, followAPI.unfollowUser, unfollowAction);
 	}
 
 export const {

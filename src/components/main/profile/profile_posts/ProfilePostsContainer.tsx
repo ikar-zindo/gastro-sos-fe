@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import PostElement from "../../../common/elements/PostElement";
 import style from '../../../../styles/main/profile/Profile.module.css';
 import {addPostAction, updatePostTextAction} from "../../../../store/profile-posts-slice";
-import {getUserProfile} from "../../../../store/profile-slice";
+import {getUserProfileThunk} from "../../../../store/profile-slice";
 import Preloader from "../../../common/elements/Preloader";
 import {ProfileInfoInterface, ProfilePostsState} from "../../../../types/interfaces/profile-interfaces";
 import {selectAuthUserId} from "../../../../selectors/auth-selectors";
@@ -26,7 +26,7 @@ const ProfilePostsContainer: React.FC<ProfilePostsContainerProps> = React.memo(p
 
 	const fetchUserProfile = async (userId: number | string) => {
 		if (!users[userId]) {
-			const userProfile = await dispatch(getUserProfile(userId)).unwrap();
+			const userProfile = await dispatch(getUserProfileThunk(userId)).unwrap();
 			setUsers((prevUsers) => ({
 				...prevUsers,
 				[userId]: userProfile

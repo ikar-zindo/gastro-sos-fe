@@ -18,5 +18,4 @@
 	.search::-webkit-scrollbar {
 		display: none; /* Скрывает полосу прокрутки в Chrome, Safari и Opera */
 	}
-
 }
