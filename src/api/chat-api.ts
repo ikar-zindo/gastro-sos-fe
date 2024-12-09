@@ -47,6 +47,7 @@ const notifySubscribersAboutStatus = (status: ChatStatus) => {
 const createChanel = () => {
 	cleanUp();
 	ws?.close();
+	// @ts-ignore
 	ws = new WebSocket(import.meta.env.VITE_WEBSOCKET_URL);
 	notifySubscribersAboutStatus(ChatStatus.Pending);
 	ws.addEventListener('close', closeHandler);
