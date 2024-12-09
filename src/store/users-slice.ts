@@ -262,7 +262,7 @@ const changeFollowingThunk = async (
 			dispatch(setGlobalError({
 				code: globalErrorMessages.FOLLOWING_FAILURE,
 				status: response.data.resultCode,
-				message: response.data.messages.join(', ')
+				message: response.data.messages.join('. ')
 			}))
 		}
 	}

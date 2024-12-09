@@ -3,7 +3,7 @@ import style from '../../../styles/main/dialogs/Chat.module.css'
 import MessageElement from "../../common/elements/MessageElement";
 import {useParams} from "react-router-dom";
 import MessageTextarea from "../../common/elements/MessageTextarea";
-import {sendMessage, updateMessageText} from "../../../store/dialogs-slice";
+import {sendMessageAction, updateMessageText} from "../../../store/dialogs-slice";
 import Preloader from "../../common/elements/Preloader";
 // @ts-ignore
 import userPhoto from "../../../assets/img/userPhoto.png";
@@ -50,7 +50,7 @@ const ChatContainer: React.FC<ChatContainerProps> = (props) => {
 				senderId: currentUser.userId,
 				receiverId: companionUser.userId
 			};
-			dispatch(sendMessage(sendMessageData));
+			dispatch(sendMessageAction(sendMessageData));
 		}
 	};
 

@@ -3,7 +3,7 @@ import MessageTextarea from "../components/common/elements/MessageTextarea";
 import {useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../hooks/hooks";
 import {MessageValueInterface} from "../types/interfaces/dialog-interfaces";
-import {sendMessage, updateMessageText} from "../store/dialogs-slice";
+import {sendMessageAction, updateMessageText} from "../store/dialogs-slice";
 import {selectDialogsPage} from "../selectors/dialogs-selectors";
 import {selectUsersTest} from "../selectors/users-selectors";
 import style from "../styles/main/GroupChat.module.css";
@@ -54,7 +54,7 @@ const Chat: React.FC = () => {
 				senderId: currentUser.userId,
 				receiverId: companionUser.userId
 			};
-			dispatch(sendMessage(sendMessageData));
+			dispatch(sendMessageAction(sendMessageData));
 			dispatch(sendMessagesThunk(messageValue.text)); // TODO: для WebSocket
 		}
 	};

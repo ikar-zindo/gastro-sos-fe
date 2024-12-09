@@ -73,7 +73,6 @@ const profilePostsSlice = createSlice({
 	initialState,
 	reducers: {
 		updatePostTextAction: (state, action: PayloadAction<PostValueInterface>) => {
-			// state.postValue = action.payload;
 			return {...state, postValue: action.payload};
 		},
 		addPostAction: (state, action: PayloadAction<number | string>) => {
@@ -85,8 +84,6 @@ const profilePostsSlice = createSlice({
 				createdAt: new Date().toLocaleDateString()
 			};
 
-			// state.posts.push(newPost);
-			// state.postValue.text = '';
 			return {
 				...state,
 				posts: [...state.posts, newPost],

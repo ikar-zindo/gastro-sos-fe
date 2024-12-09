@@ -11,7 +11,7 @@ export interface PostTextareaInterface {
 	handleClick: () => void;
 }
 
-const PostTextArea: React.FC<PostTextareaInterface> = (props) => {
+const PostTextarea: React.FC<PostTextareaInterface> = (props) => {
 	let postValue = props.value;
 	let textareaRef = useRef<HTMLTextAreaElement>(null);
 	const {
@@ -99,4 +99,4 @@ const PostTextArea: React.FC<PostTextareaInterface> = (props) => {
 	);
 };
 
-export default PostTextArea;
+export default PostTextarea;

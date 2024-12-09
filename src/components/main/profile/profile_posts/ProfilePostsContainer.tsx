@@ -8,7 +8,7 @@ import {ProfileInfoInterface, ProfilePostsState} from "../../../../types/interfa
 import {selectAuthUserId} from "../../../../selectors/auth-selectors";
 import {useAppDispatch, useAppSelector} from "../../../../hooks/hooks";
 import {PostValueInterface} from "../../../../types/interfaces/post-interfaces";
-import PostTextArea from "../../../common/elements/PostTextArea";
+import PostTextarea from "../../../common/elements/PostTextarea";
 
 interface ProfilePostsContainerProps {
 	profilePostContentPage: ProfilePostsState;
@@ -59,7 +59,7 @@ const ProfilePostsContainer: React.FC<ProfilePostsContainerProps> = React.memo(p
 	return (
 		<div className={style.postsWrapper}>
 			<div className={style.textAreaWrapper}>
-				<PostTextArea
+				<PostTextarea
 					placeholder={placeholder}
 					buttonValue={buttonValue}
 					value={profilePostContentPage.postValue}

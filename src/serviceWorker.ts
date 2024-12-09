@@ -29,7 +29,6 @@ export function register(config?: Config) {
 	if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
 		// The URL constructor is available in all browsers that support SW.
 		const publicUrl = new URL(
-			// @ts-ignore
 			import.meta.env.VITE_PUBLIC_URL,
 			window.location.href
 		);
@@ -41,7 +40,6 @@ export function register(config?: Config) {
 		}
 
 		window.addEventListener('load', () => {
-			// @ts-ignore
 			const swUrl = `${import.meta.env.VITE_PUBLIC_URL}/service-worker.ts`;
 
 			if (isLocalhost) {

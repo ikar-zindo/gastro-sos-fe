@@ -299,7 +299,7 @@ const dialogsSlice = createSlice({
 		updateMessageText: (state, action: PayloadAction<MessageValueInterface>) => {
 			return {...state, messageValue: action.payload};
 		},
-		sendMessage: (state, action: PayloadAction<{ senderId: number | string; receiverId: number | string }>) => {
+		sendMessageAction: (state, action: PayloadAction<{ senderId: number | string; receiverId: number | string }>) => {
 			let sendMessageData = action.payload;
 			let dialog = state.dialogs // search current dialog
 				.find(dialog => (dialog.participants[0].userId === sendMessageData.senderId &&
@@ -328,7 +328,7 @@ const dialogsSlice = createSlice({
 });
 
 export const {
-	sendMessage,
+	sendMessageAction,
 	updateMessageText
 } = dialogsSlice.actions;
 export default dialogsSlice.reducer;
