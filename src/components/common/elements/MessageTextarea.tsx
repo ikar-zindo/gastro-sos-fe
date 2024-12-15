@@ -16,7 +16,7 @@ interface MessageAreaInterface {
 const MessageTextarea: React.FC<MessageAreaInterface> = (props) => {
 	const status = useAppSelector(selectChatStatus);
 	let postValue = props.value;
-	let textareaRef = useRef<HTMLTextAreaElement>(null);
+	let textareaRef = useRef<HTMLTextAreaElement | null>(null);
 	const {
 		handleSubmit,
 		setValue,

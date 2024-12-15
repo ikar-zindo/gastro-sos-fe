@@ -47,16 +47,8 @@ const App: React.FC = () => {
 		};
 		window.addEventListener("unhandledrejection", handleUnhandledRejection);
 
-		const updateVh = () => {
-			const vh = window.innerHeight * 0.01;
-			document.documentElement.style.setProperty('--vh', `${vh}px`);
-		};
-		updateVh(); // Инициализация при первом рендере
-		window.addEventListener('resize', updateVh);
-
 		return () => { // Cleanup the event listener on component unmount
 			window.removeEventListener("unhandledrejection", handleUnhandledRejection);
-			window.removeEventListener('resize', updateVh);
 		};
 	}, [dispatch]);
 

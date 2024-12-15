@@ -66,19 +66,19 @@ html, body {
 /* phone screen styles */
 @media (max-width: 768px) {
   body {
-    height: 100%;
+    /*height: 100%;*/
     max-width: 100ch;
     overflow-x: hidden;
-    max-height: 100vh;
+    /*max-height: 100vh;*/
   }
 
   .app-wrapper {
-    height: calc(var(--vh, 1vh) * 100);
+    /*height: calc(var(--vh, 1vh) * 100);*/
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0;
     width: 100%;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     position: relative;
 
     display: grid;
@@ -93,21 +93,18 @@ html, body {
   }
 
   .app-wrapper-content {
-    max-height: calc(100vh - 142px);
+		margin-bottom: 86px;
+    /*max-height: calc(100vh - 142px);*/
+    /*position: relative;*/
     max-width: 100%;
-    position: relative;
     box-sizing: border-box;
     border: none;
     border-radius: 0;
-    border-top: 1px solid rgb(80, 117, 156);
-    border-bottom: 1px solid rgb(80, 117, 156);
 
     color: rgb(230, 230, 230); /*Цвет текста*/
     overflow: hidden;
-  }
 
-  .app-display-flex-wrapper {
-    display: flex;
+		border-top: 1px solid rgb(80, 117, 156);
   }
 }
 
@@ -123,23 +120,3 @@ html, body {
 	gold: rgb(191, 222, 255)
 	preloader: rgb(80, 117, 156)
 */
-
-/*@media (max-width: 1000px) {*/
-/*	.app-wrapper {*/
-
-/*		display: grid;*/
-/*		grid-template-areas:*/
-/*			"h h h"*/
-/*			"n c c"*/
-/*			"f f f";*/
-
-/*		grid-template-rows: 70px 1fr 60px;*/
-/*		grid-template-columns: 2fr 7fr;*/
-/*		grid-gap: 10px;*/
-/*	}*/
-
-/*	.app-wrapper-content {*/
-/*		width: 100%;*/
-
-/*	}*/
-/*}*/

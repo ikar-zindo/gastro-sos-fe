@@ -76,7 +76,7 @@ export const login = (data: LoginDataRequest) => async (dispatch: AppDispatch) =
 		}
 	} catch (error) {
 		console.error("Error during login:", error);
-		return [globalErrorMessages.SERVER_ERROR_OCCURRED]; // Ошибка на сервере
+		return [globalErrorMessages.ERROR_DURING_LOGIN]; // Ошибка на сервере
 	}
 }
 
@@ -88,7 +88,7 @@ export const logout = () => async (dispatch: AppDispatch) => {
 		}
 	} catch (error) {
 		console.error("Error during login:", error);
-		return [globalErrorMessages.SERVER_ERROR_OCCURRED]; // Ошибка на сервере
+		return [globalErrorMessages.ERROR_DURING_LOGOUT]; // Ошибка на сервере
 	}
 };
 

@@ -31,20 +31,20 @@ const NavigateContainer: React.FC = () => {
 		<div className={style.navigate}>
 			<NavigateElement
 				path="/"
-				activeIcon={homeActive}
-				inactiveIcon={home}
+				activeIcon={homeActive as string}
+				inactiveIcon={home as string}
 				altText="Home"
 			/>
 			<NavigateElement
 				path="/group-chat"
-				activeIcon={groupChatActive}
-				inactiveIcon={groupChat}
+				activeIcon={groupChatActive as string}
+				inactiveIcon={groupChat as string}
 				altText="Group Chat"
 			/>
 			<NavigateElement
 				path="/search"
-				activeIcon={searchActive}
-				inactiveIcon={search}
+				activeIcon={searchActive as string}
+				inactiveIcon={search as string}
 				altText="Search"
 			/>
 			{/*<NavigateElement*/}
@@ -55,14 +55,14 @@ const NavigateContainer: React.FC = () => {
 			{/*/>*/}
 			<NavigateElement
 				path="/dialogs"
-				activeIcon={chatsActive}
-				inactiveIcon={chats}
+				activeIcon={chatsActive as string}
+				inactiveIcon={chats as string}
 				altText="Messages"
 			/>
 			<NavigateElement
 				path="/profile"
-				activeIcon={profileActive}
-				inactiveIcon={profile}
+				activeIcon={profileActive as string}
+				inactiveIcon={profile as string}
 				altText="Profile"
 			/>
 		</div>
